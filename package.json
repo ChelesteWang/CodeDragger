@@ -1,5 +1,5 @@
 {
-  "name": "codemaster",
+  "name": "codedragger",
   "version": "1.0.0",
   "description": "a practice of lowcode",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChelesteWang/CodeMaster.git"
+    "url": "git+https://github.com/ChelesteWang/CodeDragger.git"
   },
   "keywords": [
     "lowcode",
@@ -18,7 +18,7 @@
   "author": "ChelesteWang",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ChelesteWang/CodeMaster/issues"
+    "url": "https://github.com/ChelesteWang/CodeDragger/issues"
   },
-  "homepage": "https://github.com/ChelesteWang/CodeMaster#readme"
+  "homepage": "https://github.com/ChelesteWang/CodeDragger#readme"
 }
