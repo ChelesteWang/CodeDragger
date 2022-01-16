@@ -1,26 +1,26 @@
 {
-    "compilerOptions": {
-      "types": ["node", "jest"],
-      "noEmit": true,
-      "strict": true,
-      "jsx": "react",
-      "target": "ES2016",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "removeComments": true,
-      "rootDir": ".",
-      "baseUrl": ".",
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "noUnusedLocals": true,
-      "declaration": true,
-      "skipLibCheck": true,
-      "paths": {
-        "@monoprefix/*": ["packages/*/src"],
-        "*": ["node_modules", "packages"]
-      }
-    },
-    "include": ["packages"],
-    "exclude": ["node_modules", "dist"]
-  }
+  "compilerOptions": {
+    "types": ["node", "jest"],
+    "noEmit": true,
+    "strict": true,
+    "jsx": "react",
+    "target": "ES2016",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@monoprefix/*": ["packages/*/src"],
+      "*": ["node_modules", "packages"]
+    }
+  },
+  "include": ["packages"],
+  "exclude": ["node_modules", "dist"]
+}
