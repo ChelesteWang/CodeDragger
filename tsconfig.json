@@ -1,26 +1,19 @@
 {
   "compilerOptions": {
-    "types": ["node", "jest"],
-    "noEmit": true,
-    "strict": true,
-    "jsx": "react",
-    "target": "ES2016",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "sourceMap": true,
     "removeComments": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
     "noUnusedLocals": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "paths": {
-      "@monoprefix/*": ["packages/*/src"],
-      "*": ["node_modules", "packages"]
-    }
-  },
-  "include": ["packages"],
-  "exclude": ["node_modules", "dist"]
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node"
+  }
 }
