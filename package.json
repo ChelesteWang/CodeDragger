@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "a practice of lowcode",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "preinstall": "node --experimental-specifier-resolution=node --experimental-modules --no-warnings --loader ts-node/esm scripts/preinstall.ts",
+    "prepare": "husky install",
+    "preinstall": "node ./dist/preinstall.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,9 +23,6 @@
     "url": "https://github.com/ChelesteWang/CodeDragger/issues"
   },
   "homepage": "https://github.com/ChelesteWang/CodeDragger#readme",
-  "dependencies": {
-    "chalk": "^5.0.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
@@ -35,5 +32,8 @@
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "chalk": "4.1.2"
   }
 }
