@@ -1,10 +1,26 @@
 import { FC } from 'react'
 import { Link, Slider, styled } from '@mui/material'
+import Nav from './components/Nav/Nav'
+import Left from './components/Left/Left'
+import Mid from './components/Mid/Mid'
+import Right from './components/Right/Right'
 
 import Header from '@/header'
 
 const App: FC = () => {
   return (
+    <div className="app">
+      <div>
+          <Nav />
+      </div>
+      <div>
+          <Left/>
+          <Mid/>
+          <Right/>
+      </div>
+    </div>
+
+    /*
     <Root>
       <Header />
       <div>
@@ -17,6 +33,7 @@ const App: FC = () => {
         <Slider />
       </div>
     </Root>
+    */
   )
 }
 
