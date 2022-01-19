@@ -21,7 +21,9 @@ const config: UserConfig = {
   },
   build: {
     rollupOptions: {
-      plugins: !!shouldAnalyze ? [visualizer({ open: true, filename: './bundle-size/bundle.html' })] : []
+      plugins: !!shouldAnalyze
+        ? [visualizer({ open: true, filename: './bundle-size/bundle.html' })]
+        : []
     },
     sourcemap: !!shouldAnalyze
   },
