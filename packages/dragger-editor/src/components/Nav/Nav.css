@@ -1,32 +1,32 @@
 .nav-bar {
-    border-bottom: gray solid 1px;
-    background-color: white;
-    font-size: 20px;
+  border-bottom: gray solid 1px;
+  background-color: white;
+  font-size: 20px;
 }
-.nav-bar::after{
-    content: '';
-    display: block;
-    clear: both;
+.nav-bar::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .logo {
-    float: left;
-    width: 150px;
-    height: 30px;
-    margin: 10px 30px;
-    /* background-color: gray; */
-    border: solid 1px black;
-    text-align: center;
+  float: left;
+  width: 150px;
+  height: 30px;
+  margin: 10px 30px;
+  /* background-color: gray; */
+  border: solid 1px black;
+  text-align: center;
 }
 
 .button-list {
-    float: right;
-    height: 100%;
-    margin: auto;
-    margin-top: 5px;
+  float: right;
+  height: 100%;
+  margin: auto;
+  margin-top: 5px;
 }
 .button-list > li {
-    list-style: none;
-    float: right;
-    margin: auto 20px;
+  list-style: none;
+  float: right;
+  margin: auto 20px;
 }

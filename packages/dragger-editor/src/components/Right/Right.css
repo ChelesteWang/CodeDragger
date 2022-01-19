@@ -1,43 +1,43 @@
-.right{
-    width: 20%;
-    height: 700px;
-    background-color: white;
-    float: left;
+.right {
+  width: 20%;
+  height: 700px;
+  background-color: white;
+  float: left;
 }
 
-.props{
-    width: 100%;
-    border-top: solid 1px black;
+.props {
+  width: 100%;
+  border-top: solid 1px black;
 }
-.props-list{
-    padding: 0px;
-    margin-left: 5%;
+.props-list {
+  padding: 0px;
+  margin-left: 5%;
 }
 .props-list > li {
-    list-style: none;
-    overflow: hidden;
-    height: 60px;
+  list-style: none;
+  overflow: hidden;
+  height: 60px;
 }
 .props-list > li > div > div {
-    width: 40%;
-    float: left;
-    color: gray;
-    font-size: 20px;
+  width: 40%;
+  float: left;
+  color: gray;
+  font-size: 20px;
 }
 
-select{
-    width: 40%;
-    /* float: right; */
-    height: 40px;
-    display: block;
-    margin-right: 5%;
-    /* margin: 5% 10px; */
-    border: solid 1px #C4C4C4;
-    border-radius: 4px;
+select {
+  width: 40%;
+  /* float: right; */
+  height: 40px;
+  display: block;
+  margin-right: 5%;
+  /* margin: 5% 10px; */
+  border: solid 1px #c4c4c4;
+  border-radius: 4px;
 }
-select:hover{
-    border: black solid 1px;
+select:hover {
+  border: black solid 1px;
 }
-select:focus{
-    border: #1976D2 solid 2px;
+select:focus {
+  border: #1976d2 solid 2px;
 }
