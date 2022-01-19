@@ -1,3 +1,6 @@
 packages:
-- 'packages/**'
+- 'packages/application/**/'
+- 'packages/server/**/'
+- 'packages/lib/**/'
+- 'packages/components/**/'
 - 'components/**'
