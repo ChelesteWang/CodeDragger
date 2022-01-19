@@ -9,7 +9,10 @@ importers:
       '@types/node': '*'
       chalk: 4.1.2
       commitlint: ^16.0.2
+      eslint-config-prettier: ^8.3.0
+      eslint-plugin-prettier: ^4.0.0
       husky: ^7.0.4
+      prettier: ^2.4.1
       rimraf: ^3.0.2
       ts-node: ^10.4.0
       typescript: ^4.5.4
@@ -20,7 +23,10 @@ importers:
       '@commitlint/config-conventional': 16.0.0
       '@types/node': 14.18.5
       commitlint: 16.0.2_@types+node@14.18.5
+      eslint-config-prettier: 8.3.0
+      eslint-plugin-prettier: 4.0.0_061d5edf7f5aff866b334ca1cc7c88d8
       husky: 7.0.4
+      prettier: 2.5.1
       rimraf: 3.0.2
       ts-node: 10.4.0_228d16a7acaee6b833b6767fe1bd8bbd
       typescript: 4.5.4
@@ -6539,6 +6545,13 @@ packages:
       source-map: 0.6.1
     dev: true
 
+  /eslint-config-prettier/8.3.0:
+    resolution: {integrity: sha1-90cbILb+ipqSVMxoRFQgKIai3Xo=, tarball: eslint-config-prettier/download/eslint-config-prettier-8.3.0.tgz?cache=0&sync_timestamp=1632822782433&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-prettier%2Fdownload%2Feslint-config-prettier-8.3.0.tgz}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dev: true
+
   /eslint-config-react-app/6.0.0_3261a260e9b7fea57ff489c358d2c1c5:
     resolution: {integrity: sha1-zP+fyONrMikChEy9eRl5gr41Wg4=, tarball: eslint-config-react-app/download/eslint-config-react-app-6.0.0.tgz}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -6659,6 +6672,22 @@ packages:
       jsx-ast-utils: 3.2.1
       language-tags: 1.0.5
       minimatch: 3.0.4
+    dev: true
+
+  /eslint-plugin-prettier/4.0.0_061d5edf7f5aff866b334ca1cc7c88d8:
+    resolution: {integrity: sha1-i5nR5LiySnYkcrRWeZICNhnLmOA=, tarball: eslint-plugin-prettier/download/eslint-plugin-prettier-4.0.0.tgz}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint-config-prettier: 8.3.0
+      prettier: 2.5.1
+      prettier-linter-helpers: 1.0.0
     dev: true
 
   /eslint-plugin-prettier/4.0.0_eslint@7.32.0+prettier@2.5.1:
