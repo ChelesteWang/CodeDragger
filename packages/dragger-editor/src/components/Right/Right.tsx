@@ -1,9 +1,7 @@
 import React from 'react'
-import { Accordion } from '@mui/material'
 import ControlledAccordions from './component/ControlledAccordions/ControlledAccordions'
 import IconButtons from './component/IconButtons/IconButtons'
 import { TextField } from '@mui/material'
-import BasicSelect from './component/BasicSelect/BasicSelect'
 import Button from '@mui/material/Button'
 import './Right.css'
 
