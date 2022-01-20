@@ -3,9 +3,9 @@
 `CodeDragger` is a practice of lowcode
 
 
-启动 @cdl/dragger-editor 编辑器
+启动 @cdl-pkg/dragger-editor 编辑器
 
 ```shell
-pnpm dev --filter @cdl/dragger-editor
+pnpm dev --filter @cdl-pkg/dragger-editor
 ```
 

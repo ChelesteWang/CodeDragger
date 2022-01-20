@@ -28,7 +28,11 @@
   float: right;
   height: 100%;
   margin: auto;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+}
+
+.button-list:last-child{
+  margin-right: 50px;
 }
 
 .button-list > li {

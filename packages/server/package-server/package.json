@@ -1,5 +1,5 @@
 {
-  "name": "@cdl/package-server",
+  "name": "@cdl-pkg/package-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

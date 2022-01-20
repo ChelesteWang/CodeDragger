@@ -1,5 +1,5 @@
 {
-  "name": "@cdl/core",
+  "name": "@cdl-pkg/core",
   "version": "1.0.0",
   "description": "lowcode core",
   "main": "index.js",
