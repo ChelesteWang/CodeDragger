@@ -81,6 +81,7 @@ importers:
   packages/application/main-application:
     specifiers:
       '@caldwell619/react-hooks': ^0.0.6
+      '@cdl/dragger-editor': workspace:^0.0.0
       '@emotion/is-prop-valid': ^1.1.1
       '@emotion/react': 11.4.1
       '@emotion/styled': 11.3.0
@@ -96,6 +97,8 @@ importers:
       rc: ^1.2.8
       react: ^17.0.0
       react-dom: ^17.0.0
+      react-router: ^6.2.1
+      react-router-dom: ^6.2.1
       react-scripts: ^4.0.3
       rollup-plugin-visualizer: ^5.5.2
       typescript: ^4.1.2
@@ -103,6 +106,7 @@ importers:
       vite-plugin-checker: ^0.3.4
     dependencies:
       '@caldwell619/react-hooks': 0.0.6_react@17.0.2
+      '@cdl/dragger-editor': link:../dragger-editor
       '@emotion/is-prop-valid': 1.1.1
       '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
       '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06
@@ -110,6 +114,8 @@ importers:
       '@mui/material': 5.2.8_ef9ebef9212ce3073254d832d9e60422
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      react-router: 6.2.1_react@17.0.2
+      react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
     devDependencies:
       '@types/node': 14.18.5
       '@types/react': 17.0.38
@@ -6905,6 +6911,12 @@ packages:
     resolution: {integrity: sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=, tarball: hex-color-regex/download/hex-color-regex-1.1.0.tgz}
     dev: true
 
+  /history/5.2.0:
+    resolution: {integrity: sha512-uPSF6lAJb3nSePJ43hN3eKj1dTWpN9gMod0ZssbFTIsen+WehTmEadgL+kg78xLJFdRfrrC//SavDzmRVdE+Ig==, tarball: history/download/history-5.2.0.tgz}
+    dependencies:
+      '@babel/runtime': 7.16.7
+    dev: false
+
   /hmac-drbg/1.0.1:
     resolution: {integrity: sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=, tarball: hmac-drbg/download/hmac-drbg-1.0.1.tgz}
     dependencies:
@@ -10593,6 +10605,27 @@ packages:
     resolution: {integrity: sha1-ch1GV2ctQAxePHXQY8SoX7LV1o8=, tarball: react-refresh/download/react-refresh-0.8.3.tgz}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-router-dom/6.2.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-I6Zax+/TH/cZMDpj3/4Fl2eaNdcvoxxHoH1tYOREsQ22OKDYofGebrNm6CTPUcvLvZm63NL/vzCYdjf9CUhqmA==, tarball: react-router-dom/download/react-router-dom-6.2.1.tgz}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      history: 5.2.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router: 6.2.1_react@17.0.2
+    dev: false
+
+  /react-router/6.2.1_react@17.0.2:
+    resolution: {integrity: sha512-2fG0udBtxou9lXtK97eJeET2ki5//UWfQSl1rlJ7quwe6jrktK9FCCc8dQb5QY6jAv3jua8bBQRhhDOM/kVRsg==, tarball: react-router/download/react-router-6.2.1.tgz}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      history: 5.2.0
+      react: 17.0.2
+    dev: false
 
   /react-scripts/4.0.3_2a53f5de8bb845f7568c803f1622437f:
     resolution: {integrity: sha1-scr+18P6YD52KLoPGHeHlky100U=, tarball: react-scripts/download/react-scripts-4.0.3.tgz}

@@ -13,13 +13,16 @@
   },
   "dependencies": {
     "@caldwell619/react-hooks": "^0.0.6",
+    "@cdl/dragger-editor": "workspace:^0.0.0",
     "@emotion/is-prop-valid": "^1.1.1",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
     "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.1",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.31",
