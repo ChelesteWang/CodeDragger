@@ -6,10 +6,10 @@ export default class Hello extends React.Component {
   render(): React.ReactNode {
     return (
       <div className='nav-bar'>
-        <div className='logo'>LOGO</div>
+        <div className='logo'>CodeDragger LowCode</div>
         <ul className='button-list'>
           <li>
-            <Button variant='contained'>btn1</Button>
+            <Button variant='contained'>预览</Button>
           </li>
           <li>
             <Button variant='contained'>btn2</Button>
