@@ -1,5 +1,5 @@
 {
-  "name": "@cdl/main-application",
+  "name": "@cdl-pkg/main-application",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@caldwell619/react-hooks": "^0.0.6",
-    "@cdl/dragger-editor": "workspace:^0.0.0",
+    "@cdl-pkg/dragger-editor": "workspace:^0.0.0",
     "@emotion/is-prop-valid": "^1.1.1",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
-import DarggerEditor from '@cdl/dragger-editor'
+import DarggerEditor from '@cdl-pkg/dragger-editor'
 
 const Hello = () => {
   return <div>hello</div>

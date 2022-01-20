@@ -81,7 +81,7 @@ importers:
   packages/application/main-application:
     specifiers:
       '@caldwell619/react-hooks': ^0.0.6
-      '@cdl/dragger-editor': workspace:^0.0.0
+      '@cdl-pkg/dragger-editor': workspace:^0.0.0
       '@emotion/is-prop-valid': ^1.1.1
       '@emotion/react': 11.4.1
       '@emotion/styled': 11.3.0
@@ -106,7 +106,7 @@ importers:
       vite-plugin-checker: ^0.3.4
     dependencies:
       '@caldwell619/react-hooks': 0.0.6_react@17.0.2
-      '@cdl/dragger-editor': link:../dragger-editor
+      '@cdl-pkg/dragger-editor': link:../dragger-editor
       '@emotion/is-prop-valid': 1.1.1
       '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
       '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06

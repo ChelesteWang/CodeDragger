@@ -1,5 +1,5 @@
 {
-  "name": "@cdl/main-server",
+  "name": "@cdl-pkg/main-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
