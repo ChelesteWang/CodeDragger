@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
 .nav-bar {
-  border-bottom: gray solid 1px;
-  background-color: white;
+  /* border-bottom: gray solid 1px; */
+  background-color: #ffffff;
   font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  z-index: 10;
 }
 
 .nav-bar::after {
@@ -32,5 +34,6 @@
 .button-list > li {
   list-style: none;
   float: right;
-  margin: auto 20px;
+  margin: auto 0px;
+  padding: 15px 10px;
 }

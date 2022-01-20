@@ -1,13 +1,13 @@
 .mid {
   width: 62%;
-  background-color: rgb(229, 229, 229);
+  /* background-color: rgb(229, 229, 229); */
   overflow: hidden;
   float: left;
 }
 .mid > div {
   background-color: white;
-  width: 25%;
-  height: 600px;
+  width: 375px;
+  height: 768px;
   margin: 50px auto;
-  box-shadow: 2px 8px 10px gray;
+  /* box-shadow: 2px 8px 10px gray; */
 }
