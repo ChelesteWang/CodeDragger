@@ -78,6 +78,53 @@ importers:
       vite: 2.7.12
       vite-plugin-checker: 0.3.4_vite@2.7.12
 
+  packages/application/main-application:
+    specifiers:
+      '@caldwell619/react-hooks': ^0.0.6
+      '@emotion/is-prop-valid': ^1.1.1
+      '@emotion/react': 11.4.1
+      '@emotion/styled': 11.3.0
+      '@mui/icons-material': ^5.0.1
+      '@mui/material': ^5.0.1
+      '@types/node': ^14.14.31
+      '@types/react': ^17.0.0
+      '@types/react-dom': ^17.0.0
+      '@vitejs/plugin-react': ^1.0.1
+      eslint: ^7.32.0
+      eslint-plugin-prettier: ^4.0.0
+      prettier: ^2.4.1
+      rc: ^1.2.8
+      react: ^17.0.0
+      react-dom: ^17.0.0
+      react-scripts: ^4.0.3
+      rollup-plugin-visualizer: ^5.5.2
+      typescript: ^4.1.2
+      vite: ^2.0.1
+      vite-plugin-checker: ^0.3.4
+    dependencies:
+      '@caldwell619/react-hooks': 0.0.6_react@17.0.2
+      '@emotion/is-prop-valid': 1.1.1
+      '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
+      '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06
+      '@mui/icons-material': 5.2.5_f463eef15d59df5aa770d062739aa27b
+      '@mui/material': 5.2.8_ef9ebef9212ce3073254d832d9e60422
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    devDependencies:
+      '@types/node': 14.18.5
+      '@types/react': 17.0.38
+      '@types/react-dom': 17.0.11
+      '@vitejs/plugin-react': 1.1.4
+      eslint: 7.32.0
+      eslint-plugin-prettier: 4.0.0_6e6a25a49a944db0fa38418c3ba4bc86
+      prettier: 2.5.1
+      rc: 1.2.8
+      react-scripts: 4.0.3_2a53f5de8bb845f7568c803f1622437f
+      rollup-plugin-visualizer: 5.5.4
+      typescript: 4.5.4
+      vite: 2.7.12
+      vite-plugin-checker: 0.3.4_vite@2.7.12
+
   packages/application/preview-pages:
     specifiers: {}
 
