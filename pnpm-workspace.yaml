@@ -3,4 +3,5 @@ packages:
 - 'packages/server/**/'
 - 'packages/lib/**/'
 - 'packages/components/**/'
+- 'packages/native/**/pkg/'
 - 'components/**'
