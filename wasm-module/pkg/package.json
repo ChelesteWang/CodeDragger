@@ -1,0 +1,11 @@
+{
+  "name": "wasm-module",
+  "version": "0.1.0",
+  "files": [
+    "wasm_module_bg.wasm",
+    "wasm_module.js",
+    "wasm_module.d.ts"
+  ],
+  "main": "wasm_module.js",
+  "types": "wasm_module.d.ts"
+}
