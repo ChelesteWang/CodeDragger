@@ -7,5 +7,8 @@
     "wasm_module.d.ts"
   ],
   "main": "wasm_module.js",
-  "types": "wasm_module.d.ts"
+  "types": "wasm_module.d.ts",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
 }
