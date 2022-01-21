@@ -3,5 +3,6 @@ packages:
 - 'packages/server/**/'
 - 'packages/lib/**/'
 - 'packages/components/**/'
+- 'packages/runtime/**'
 - 'packages/native/**/pkg/'
 - 'components/**'
