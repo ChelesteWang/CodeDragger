@@ -1,7 +1,9 @@
+import React, { Suspense } from 'react'
 import { FC } from 'react'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
-import DarggerEditor from '@cdl-pkg/dragger-editor'
+
+const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
 
 const Hello = () => {
   return <div>hello</div>
@@ -16,22 +18,34 @@ const Workspace = () => {
 }
 
 const routes = [
-  { name: 'main', path: '/', component: <Hello /> },
-  { name: 'login', path: '/login', component: <Login /> },
-  { name: 'lowcode', path: '/editor', component: <DarggerEditor /> },
-  { name: 'workspace', path: '/workspace', component: <Workspace /> }
+  { name: 'main', path: '/', component: <Hello />, key: 'hello' },
+  { name: 'login', path: '/login', component: <Login />, key: 'login' },
+  {
+    name: 'lowcode',
+    path: '/editor',
+    component: <DarggerEditor />,
+    key: 'lowcode'
+  },
+  {
+    name: 'workspace',
+    path: '/workspace',
+    component: <Workspace />,
+    key: 'workspace'
+  }
 ]
 
 const App: FC = () => {
   return (
     <div className='main'>
-      <Router>
-        <Routes>
-          {routes.map((item) => (
-            <Route path={item.path} element={item.component} />
-          ))}
-        </Routes>
-      </Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Router>
+          <Routes>
+            {routes.map((item) => (
+              <Route path={item.path} element={item.component} key={item.key} />
+            ))}
+          </Routes>
+        </Router>
+      </Suspense>
     </div>
   )
 }
