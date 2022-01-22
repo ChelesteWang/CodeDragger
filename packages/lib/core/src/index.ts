@@ -56,7 +56,7 @@ EditorConfigurationInstance.registerComponent({
   name: 'TextField',
   description: 'MUI TextField',
   image: '',
-  src:'',
+  src: '',
   props: [
     {
       name: 'variant',
