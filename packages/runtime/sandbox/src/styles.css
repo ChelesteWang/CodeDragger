@@ -1,0 +1,26 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.code-editor {
+  width: 50%;
+}
+
+.code-editor textarea {
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  border: solid 1px #000;
+  min-height: 30em;
+  outline: none;
+  font-family: 'Monaco';
+  font-size: 14px;
+  background: #333;
+  color: #74b9ff;
+}
