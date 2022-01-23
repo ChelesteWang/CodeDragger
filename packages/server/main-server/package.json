@@ -1,12 +1,33 @@
 {
   "name": "@cdl-pkg/main-server",
   "version": "1.0.0",
+  "author": "lweijian",
   "description": "",
-  "main": "index.js",
+  "keywords": [],
+  "files": [
+    "*",
+    "!.*",
+    ".gitignore"
+  ],
+  "dependencies": {
+    "@byteinspire/api": "^1.0.12",
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^8.0.2",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-static": "^5.0.0",
+    "multer": "^1.4.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {},
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
 }
