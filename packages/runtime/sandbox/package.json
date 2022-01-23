@@ -1,0 +1,26 @@
+{
+  "name": "@cdl-pkg/sandbox",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@babel/standalone": "^7.16.12",
+    "acorn": "^8.7.0",
+    "escodegen": "^2.0.0",
+    "lodash": "^4.17.21",
+    "object-path": "^0.11.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  }
+}
