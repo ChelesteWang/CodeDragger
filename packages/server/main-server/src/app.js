@@ -29,7 +29,6 @@ app.use(async function errorHandler(ctx, next) {
     }
 });
 // 为应用使用路由定义
-// 使用待办事项业务路由
 app.use(router.routes());
 app.use(router.allowedMethods());
 
