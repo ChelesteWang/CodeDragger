@@ -6,25 +6,19 @@ var getDirname = () => path.dirname(getFilename());
 var __dirname = /* @__PURE__ */ getDirname();
 
 // compile/build.ts
-import { relative, join } from "path";
+import { join } from "path";
 import { build as codeBuild } from "tsup";
-async function build(currentPath, opt) {
-  let status = "BUILD_SUCCESS";
-  const relativePath = relative(currentPath, `${join(__dirname, "../src/main.tsx")}`).replaceAll("\\", "/");
+async function build(opt) {
+  const destPath = join(__dirname, "../src/main.tsx").replaceAll("\\", "/");
   const option = Object.assign({
-    entry: [relativePath],
+    entry: [destPath],
     outDir: "build",
     format: ["esm", "cjs"],
     splitting: true,
     sourcemap: true,
-    clean: true
+    clean: false
   }, opt);
-  try {
-    await codeBuild(option);
-  } catch (e) {
-    status = "BUILD_FAILED";
-  }
-  return status;
+  await codeBuild(option);
 }
 
 // compile/compress.ts
