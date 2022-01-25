@@ -1,5 +1,4 @@
 // 导出 Service 的实例
-module.exports = new JsonSchemaService();
 const jsonSchemaTable = require('../models/JsonSchemaTable');
 const inspirecloud = require('@byteinspire/api');
 const ObjectId = inspirecloud.db.ObjectId;
