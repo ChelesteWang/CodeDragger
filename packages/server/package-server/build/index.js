@@ -36,23 +36,17 @@ __export(package_server_exports, {
 // compile/build.ts
 var import_path = require("path");
 var import_tsup = require("tsup");
-async function build(currentPath, opt) {
-  let status = "BUILD_SUCCESS";
-  const relativePath = (0, import_path.relative)(currentPath, `${(0, import_path.join)(__dirname, "../src/main.tsx")}`).replaceAll("\\", "/");
+async function build(opt) {
+  const destPath = (0, import_path.join)(__dirname, "../src/main.tsx").replaceAll("\\", "/");
   const option = Object.assign({
-    entry: [relativePath],
+    entry: [destPath],
     outDir: "build",
     format: ["esm", "cjs"],
     splitting: true,
     sourcemap: true,
-    clean: true
+    clean: false
   }, opt);
-  try {
-    await (0, import_tsup.build)(option);
-  } catch (e) {
-    status = "BUILD_FAILED";
-  }
-  return status;
+  await (0, import_tsup.build)(option);
 }
 
 // compile/compress.ts

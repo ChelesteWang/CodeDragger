@@ -12,11 +12,11 @@ function streamToBuffer(stream:FileStream):Promise<Buffer> {
     });
 }
 
-export async function compress (source:string):Promise<Buffer|undefined> {
+export async function compress (source:string):Promise<Buffer|never> {
         const tarStream = new compressing.tar.Stream();
         tarStream.addEntry(source);
         const destStream = pump(tarStream, new compressing.gzip.FileStream());
-        return  await streamToBuffer(destStream)
+       return await streamToBuffer(destStream)
 }
 
 

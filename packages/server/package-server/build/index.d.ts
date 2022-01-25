@@ -1,7 +1,7 @@
 import { Options } from 'tsup';
 
-declare function build(currentPath: string, opt?: Options): Promise<string>;
+declare function build(opt?: Options): Promise<void>;
 
-declare function compress(source: string): Promise<Buffer | undefined>;
+declare function compress(source: string): Promise<Buffer | never>;
 
 export { build, compress };
