@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@caldwell619/react-hooks": "^0.0.6",
+    "@emotion/babel-plugin": "^11.7.2",
     "@emotion/is-prop-valid": "^1.1.1",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
