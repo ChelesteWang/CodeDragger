@@ -11,12 +11,15 @@
   ],
   "dependencies": {
     "@byteinspire/api": "^1.0.12",
+    "@cdl-pkg/package-server": "workspace:^1.0.0",
     "@koa/multer": "^3.0.0",
     "@koa/router": "^8.0.2",
+    "compressing": "^1.5.1",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
     "koa-static": "^5.0.0",
-    "multer": "^1.4.4"
+    "multer": "^1.4.4",
+    "postcss": "^8.4.5"
   },
   "publishConfig": {
     "access": "public",
@@ -25,6 +28,9 @@
   "repository": {},
   "license": "ISC",
   "scripts": {
+    "init": "inspirecloud init",
+    "dev": "inspirecloud dev",
+    "deploy": "inspirecloud deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
