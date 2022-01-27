@@ -1,12 +1,24 @@
 {
   "name": "@cdl-pkg/package-server",
   "version": "1.0.0",
+  "author": "lweijian",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
+  "dependencies": {
+    "compressing": "^1.5.1",
+    "postcss": "^8.4.5",
+    "pump": "^3.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tsup": "^5.11.11"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.5"
+  },
   "scripts": {
+    "build": "tsup ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC"
 }
