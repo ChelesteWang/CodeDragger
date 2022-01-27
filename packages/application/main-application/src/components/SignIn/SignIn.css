@@ -1,0 +1,37 @@
+.SignIn{
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+    box-shadow: 0px 0px 5px gray;
+}
+
+#img_signin{
+    height: 100%;
+    width: 40%;
+    float: left;
+}
+
+.signin_text{
+    width: 50%;
+    float: left;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.signin_text > .title {
+    font-size: 40px;
+    font-weight: 700;
+    
+}
+.signin_text > .para {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.signin_form{
+    float: left;
+    width: 50%;
+    margin-left: 40px;
+    margin-top: 30px;
+}
