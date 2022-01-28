@@ -1,9 +1,10 @@
 const fileService = require('../services/FileService')
 const fs = require('fs')
-const {build, compress} = require("@cdl-pkg/package-server");
-const {join} = require("path");
-const FileService = require("../services/FileService");
-const {v1} = require("uuid");
+const path = require('path')
+// const {build, compress} = require("@cdl-pkg/package-server");
+// const {join} = require("path");
+// const FileService = require("../services/FileService");
+// const {v1} = require("uuid");
 
 /**
  * fileController
@@ -49,13 +50,12 @@ class FileController {
   async download(ctx) {
     const { url } = ctx.request.body
     const result = await fileService.download(ctx, url)
-    if(success){
-      const temp = result.filePath.split('\\')
-      const filename = temp[temp.length - 1]
-      ctx.set('filename',filename)
-      ctx.body= fs.createReadStream(result.filePath);
-    }else {
-      ctx.body={result}
+    if (result.success) {
+      const filename = path.basename(result.filePath)
+      ctx.set('filename', filename)
+      ctx.body = fs.createReadStream(result.filePath)
+    } else {
+      ctx.body = { result }
     }
 
   }
