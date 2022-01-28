@@ -6,7 +6,6 @@ const inspirecloud = require('@byteinspire/api')
  * 提供文件的上传、删除服务
  */
 class FileService {
-
   /**
    * 上传文件
    * @param ctx
@@ -14,7 +13,6 @@ class FileService {
    * @return {Promise<any>}
    */
   async upload(ctx, file) {
-
     try {
       // 通过 inspirecloud.fileStorage.upload 接口实现上传
       const { url } = await inspirecloud.file.upload(file.name, file.buffer)
@@ -37,7 +35,6 @@ class FileService {
    * @return {Promise<any>}
    */
   async delete(ctx, url) {
-
     try {
       const res = await inspirecloud.file.delete(url)
       return {
@@ -74,8 +71,6 @@ class FileService {
       }
     }
   }
-
-
 }
 
 // 导出 Service 的实例
