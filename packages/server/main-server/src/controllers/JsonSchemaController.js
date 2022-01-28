@@ -30,7 +30,7 @@ class JsonSchemaController {
    */
   async create(ctx) {
     const { name, json } = ctx.request.body
-    const { info: user } = await UserService.current(ctx)
+    const user = UserService.current(ctx)
     const result = await JsonSchemaService.create({ name, json, user })
     ctx.body = { result }
   }
