@@ -68,10 +68,10 @@ class FileController {
     const id = ctx.params.id
     const { success, message, filePath } = await fileService.download(ctx, id)
     if (!success) {
-     throw new Error(message);
+      throw new Error(message)
     }
     const content = fs.readFileSync(filePath).toString('utf8')
-    ctx.body={
+    ctx.body = {
       success,
       content
     }

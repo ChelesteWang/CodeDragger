@@ -26,7 +26,7 @@ app.use(async function errorHandler(ctx, next) {
     console.log(err)
     ctx.status = err.status || 500
     ctx.body = {
-      success:false,
+      success: false,
       message: err.message
     }
   }
