@@ -1,6 +1,7 @@
 {
   "name": "wasm-module",
   "version": "0.0.0",
+  "private": "true",
   "files": [
     "wasm_module_bg.wasm",
     "wasm_module.js",
