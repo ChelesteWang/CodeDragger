@@ -6,9 +6,10 @@ const fileController = require('../controllers/FileController')
 const multer = require('@koa/multer')
 const upload = multer()
 
+router.get('/:id', fileController.download)
+router.get('/getContent/:id', fileController.getContent)
 router.post('/upload', upload.single('file'), fileController.upload)
-router.post('/delete', fileController.delete)
-router.post('/download', fileController.download)
+router.delete('/delete', fileController.delete)
 // router.get('/compile', fileController.compile)
 
 module.exports = router
