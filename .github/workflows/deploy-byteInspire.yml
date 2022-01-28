@@ -38,7 +38,7 @@ jobs:
           version: 6
 
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
         
       - name: Build Package
         run: pnpm run build:all
