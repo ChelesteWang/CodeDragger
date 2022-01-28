@@ -11,7 +11,6 @@ const fs = require('fs')
  * 文件系统
  */
 class FileController {
-
   /**
    * 路由:/api/file/upload
    * 上传单个文件
@@ -49,15 +48,14 @@ class FileController {
   async download(ctx) {
     const { url } = ctx.request.body
     const result = await fileService.download(ctx, url)
-    if(success){
+    if (success) {
       const temp = result.filePath.split('\\')
       const filename = temp[temp.length - 1]
-      ctx.set('filename',filename)
-      ctx.body= fs.createReadStream(result.filePath);
-    }else {
-      ctx.body={result}
+      ctx.set('filename', filename)
+      ctx.body = fs.createReadStream(result.filePath)
+    } else {
+      ctx.body = { result }
     }
-
   }
   // /**
   //  *  路由:/api/file/compile
