@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import _debounce from 'lodash/debounce'
+// @ts-ignore
 import { createEditor } from './utils'
 // import MonacoEditor from "react-monaco-editor";
 
@@ -31,7 +32,7 @@ function SandBox() {
   }, 500)
 
   // handle onChange
-  const onCodeChange = ({ target: { value } }) => {
+  const onCodeChange = ({ target: { value } }: any) => {
     setCode(value)
     run(value)
   }

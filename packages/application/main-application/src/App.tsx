@@ -19,7 +19,7 @@ const Workspace = () => {
 }
 
 const Test = () => {
-  return <RemoteComponent name="Test" />
+  return <RemoteComponent name='Test' />
 }
 
 const routes = [
