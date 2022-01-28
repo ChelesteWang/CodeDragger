@@ -1,6 +1,6 @@
 {
   "name": "@cdl-pkg/package-server",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "lweijian",
   "description": "",
   "main": "build/index.js",
