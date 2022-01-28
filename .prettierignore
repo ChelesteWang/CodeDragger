@@ -1,6 +1,7 @@
 .snapshots/
 build/
 dist/
+.changeset/
 node_modules/
 pnpm-lock.yaml
 pnpm-workspace.yaml

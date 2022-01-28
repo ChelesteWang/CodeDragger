@@ -1,255 +1,246 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 15px;
-    font-family: 'Open Sans', sans-serif;
-    color: #444;
-    background-color: #fefefe;
-    background-image: linear-gradient(#4896ef 0%, #2250ee 100%);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 10px 20px 20px 20px;
-    margin: 0;
-    min-height: 100vh;
-    position: relative;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  background-color: #fefefe;
+  background-image: linear-gradient(#4896ef 0%, #2250ee 100%);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 10px 20px 20px 20px;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
 }
 
 @media screen and (max-width: 600px) {
-    /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
-    .request-logger {
-        display: none;
-    }
-
+  /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .request-logger {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 600px) {
-    /*当屏幕尺寸大于600px时，应用下面的CSS样式*/
-    html {
-        height: 100%;
-        overflow: hidden
-    }
+  /*当屏幕尺寸大于600px时，应用下面的CSS样式*/
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
 
-    body {
-        height: 100%;
-    }
+  body {
+    height: 100%;
+  }
 
-    #app {
-        height: 100%;
-    }
+  #app {
+    height: 100%;
+  }
 
-    .wrapper {
-
-        height: 100%;
-        overflow: auto;
-    }
+  .wrapper {
+    height: 100%;
+    overflow: auto;
+  }
 }
 
-
 .request-logger {
-    width: 480px;
-    margin: 0 20px;
-    max-height: 600px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    padding: 10px 20px;
-    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
-    background-color: #f4f7fc;
-    overflow-y: auto;
+  width: 480px;
+  margin: 0 20px;
+  max-height: 600px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px 20px;
+  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  background-color: #f4f7fc;
+  overflow-y: auto;
 }
 
 .request-card {
-    margin-bottom: 10px;
-    white-space: normal;
+  margin-bottom: 10px;
+  white-space: normal;
 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    background-color: #ccbae2;
-    font-family: Consolas, Menlo, Courier, monospace;
-    font-size: 14px;
-    padding: 4px 10px;
-    border-radius: 5px;
-    opacity: 1;
-    animation-name: fadeInOpacity;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    animation-duration: 1s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color: #ccbae2;
+  font-family: Consolas, Menlo, Courier, monospace;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
 }
 
 @keyframes fadeInOpacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .request-line {
-    word-break: break-all;
-    margin: 3px;
+  word-break: break-all;
+  margin: 3px;
 }
 
 .json-theme {
-    background: #ccbae3;
-    word-break: break-all;
-    color: #525252;
-    padding: 0;
-    font-size: 14px;
-    font-family: Consolas, Menlo, Courier, monospace;
+  background: #ccbae3;
+  word-break: break-all;
+  color: #525252;
+  padding: 0;
+  font-size: 14px;
+  font-family: Consolas, Menlo, Courier, monospace;
 }
 
 .json-theme .jv-ellipsis {
-    color: #999;
-    background-color: #ccbae4;
-    display: inline-block;
-    line-height: 0.9;
-    font-size: 0.9em;
-    padding: 0 4px 2px 4px;
-    border-radius: 3px;
-    vertical-align: 2px;
-    cursor: pointer;
-    user-select: none;
+  color: #999;
+  background-color: #ccbae4;
+  display: inline-block;
+  line-height: 0.9;
+  font-size: 0.9em;
+  padding: 0 4px 2px 4px;
+  border-radius: 3px;
+  vertical-align: 2px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .json-theme .jv-code {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
-
 h1 {
-    color: #fff;
-    text-align: center;
-    margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .title {
-    margin: 8px auto;
+  margin: 8px auto;
 }
 
 .wrapper {
-    width: 400px;
-    margin: auto;
-    min-height: 600px;
-    max-width: 100%;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    padding: 40px 20px;
-    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
-    background-color: #f4f7fc;
-    position: relative;
+  width: 400px;
+  margin: auto;
+  min-height: 600px;
+  max-width: 100%;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 40px 20px;
+  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  background-color: #f4f7fc;
+  position: relative;
 }
-
 
 form label {
-    display: block;
-    text-align: center;
-    font-size: 1.2em;
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
 }
 
-.btn, input {
-    line-height: 2em;
-    border-radius: 3px;
-    border: 0;
-    display: inline-block;
-    margin: 15px 0;
-    padding: 0.2em 1em;
-    font-size: 1em;
+.btn,
+input {
+  line-height: 2em;
+  border-radius: 3px;
+  border: 0;
+  display: inline-block;
+  margin: 15px 0;
+  padding: 0.2em 1em;
+  font-size: 1em;
 }
 
 input[type='text'] {
-    border: 1px solid #ddd;
-    min-width: 80%;
-    transition: all ease-in 0.25s;
+  border: 1px solid #ddd;
+  min-width: 80%;
+  transition: all ease-in 0.25s;
 }
 
 input:focus {
-    outline: none;
-    border: 1px solid #a3b1ff;
+  outline: none;
+  border: 1px solid #a3b1ff;
 }
 
 input::placeholder {
-    color: rgba(0, 0, 0, 0.3);
-    font-style: italic;
+  color: rgba(0, 0, 0, 0.3);
+  font-style: italic;
 }
 
 /* disable ios zoom on focus */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    select,
-    textarea,
-    input {
-        font-size: 16px;
-    }
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    select:focus,
-    textarea:focus,
-    input:focus {
-        font-size: 16px;
-    }
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+  }
 }
 
 .btn {
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-    border-width: 1px;
-    border-style: solid;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
 }
-
 
 .control-buttons-container {
-    position: relative;
-    height: auto;
+  position: relative;
+  height: auto;
 }
 
-
-
-
-
 .status.free {
-    font-weight: bold;
-    text-align: center;
-    margin: 40px 0;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0;
 }
 
 .status.free img {
-    display: block;
-    width: 50px;
-    margin: 10px auto;
-    vertical-align: middle;
+  display: block;
+  width: 50px;
+  margin: 10px auto;
+  vertical-align: middle;
 }
 
-.todo-item-enter-active, .todo-item-leave-active {
-    transition: opacity ease 0.25s, transform ease-in-out 0.3s;
-    transform-origin: left center;
+.todo-item-enter-active,
+.todo-item-leave-active {
+  transition: opacity ease 0.25s, transform ease-in-out 0.3s;
+  transform-origin: left center;
 }
 
 /* .todo-item-leave-active below version 2.1.8 */
-.todo-item-enter, .todo-item-leave-to {
-    opacity: 0;
-    transform: translateX(100%);
+.todo-item-enter,
+.todo-item-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
 }
 
-
-.slide-fade-enter-active, .slide-fade-leave-active {
-    transition: all 0.3s ease;
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
 }
 
 /* .slide-fade-leave-active below version 2.1.8 */
-.slide-fade-enter, .slide-fade-leave-to {
-    transform: scale(1.1);
-    opacity: 0;
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: scale(1.1);
+  opacity: 0;
 }
 
-
 .demo {
-    width: 100%;
-    border-bottom: 20px bisque solid;
-
-
+  width: 100%;
+  border-bottom: 20px bisque solid;
 }
