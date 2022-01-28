@@ -26,14 +26,13 @@ class FileController {
   }
 
   /**
-   *  路由:/api/file/delete
+   *  路由:/api/file/delete/:id
    * 删除文件
-   * 请求参数需要携带 id(要删除文件的id)必选
    * @param ctx
    * @return {Promise<any>}
    */
   async delete(ctx) {
-    const { id } = ctx.request.body
+    const id = ctx.params.id
     const result = await fileService.delete(ctx, id)
     ctx.body = { result }
   }
@@ -59,7 +58,7 @@ class FileController {
   }
 
   /**
-   *  路由:/api/file/getContent/:id
+   *  路由:/api/file/content/:id
    * 获取文件内容
    * 返回文件内容
    * @param ctx
@@ -67,12 +66,14 @@ class FileController {
    */
   async getContent(ctx) {
     const id = ctx.params.id
-    const result = await fileService.download(ctx, id)
-    if (result.success) {
-      result.content = fs.readFileSync(result.filePath).toString('utf8')
+    const { success, message, filePath } = await fileService.download(ctx, id)
+    if (!success) {
+     throw new Error(message);
     }
-    ctx.body = {
-      result
+    const content = fs.readFileSync(filePath).toString('utf8')
+    ctx.body={
+      success,
+      content
     }
   }
 

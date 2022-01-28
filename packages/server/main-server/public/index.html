@@ -323,11 +323,11 @@
                 return result;
             },
             async fileDeleteAction(id) {
-                const {data: {result}} = await window.axios.post('/api/file/delete', {id});
+                const {data: {result}} = await window.axios.delete(`/api/file/delete/${id}`);
                 return result;
             },
             async getContentAction(id){
-                const {data: {result}} = await window.axios.get(`/api/file/getContent/${id}`);
+                const {data: {result}} = await window.axios.get(`/api/file/content/${id}`);
                 return result;
             },
             async fileDownloadAction(id) {
