@@ -1,6 +1,6 @@
 {
   "name": "codedragger",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "a practice of lowcode",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/ChelesteWang/CodeDragger#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.20.0",
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/node": "*",
