@@ -12,7 +12,6 @@ const path = require('path')
  * 文件系统
  */
 class FileController {
-
   /**
    * 路由:/api/file/upload
    * 上传单个文件
@@ -57,22 +56,20 @@ class FileController {
     } else {
       ctx.body = { result }
     }
-
   }
-  /**
-   *  路由:/api/file/build
-   * react文件打包
-   *  返回url
-   * @param ctx
-   * @return {Promise<any>}
-   */
-  async build(ctx) {
-    await build({outDir: '/tmp/dist'})
-    const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
-    const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
-    ctx.body = {url}
-  }
-
+  // /**
+  //  *  路由:/api/file/compile
+  //  * react文件编译
+  //  *  返回url
+  //  * @param ctx
+  //  * @return {Promise<any>}
+  //  */
+  // async compile(ctx) {
+  //   await build({outDir: '/tmp/dist'})
+  //   const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
+  //   const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
+  //   ctx.body = {url}
+  // }
 }
 
 // 导出 Controller 的实例
