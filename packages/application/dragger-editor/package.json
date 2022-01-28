@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "main": "src/App.tsx",
+  "private": "true",
   "scripts": {
     "format": "prettier --write src",
     "lint": "eslint --ext .ts,.tsx src",
