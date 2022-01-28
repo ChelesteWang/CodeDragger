@@ -97,8 +97,8 @@
 
                 <div class="demo">
                     <p>上传文件</p>
-                        <input type="file" ref="fileId" multiple @change="getFile">
-                        <button style="flex:0" type="button"  @click="fileUpload"> 上传</button>
+                    <input type="file" ref="fileId" multiple @change="getFile">
+                    <button style="flex:0" type="button" @click="fileUpload"> 上传</button>
                 </div>
 
                 <div class="demo">
@@ -107,6 +107,13 @@
                            v-model="deleteUrl "
                            style="flex:1 ;margin-right:10px;">
                     <button style="flex:0" @click="fileDelete"> 删除文件</button>
+                </div>
+                <div class="demo">
+                    <p>下载文件</p>
+                    <input type="text" class="input-todo" placeholder="请输入要下载文件的url"
+                           v-model="downloadUrl "
+                           style="flex:1 ;margin-right:10px;">
+                    <button style="flex:0" @click="fileDownload"> 下载文件</button>
                 </div>
 
             </div>
@@ -131,7 +138,8 @@
         el: '#app',
         data() {
             return {
-                deleteUrl:"",
+                downloadUrl: "",
+                deleteUrl: "",
                 file: {},
                 username: "",
                 password: '',
@@ -215,7 +223,6 @@
             },
 
 
-
             async loginByPassword() {
                 await this.loginByPasswordAction(this.username, this.password)
             },
@@ -243,13 +250,16 @@
             },
 
             async fileUpload() {
-                const suffix=this.file.name.split('.')[1]
+                const suffix = this.file.name.split('.')[1]
                 const formData = new FormData();
-                formData.append('file', this.file,`${uuid.v1()}.${suffix}`);
+                formData.append('file', this.file, `${uuid.v1()}.${suffix}`);
                 await this.fileUploadAction(formData)
             },
             async fileDelete() {
                 await this.fileDeleteAction(this.deleteUrl)
+            },
+            async fileDownload() {
+                await this.fileDownloadAction(this.downloadUrl)
             },
 
 
@@ -297,6 +307,32 @@
                     },
                 });
                 return result;
+            },
+            async fileDownloadAction(url) {
+                try {
+                    const res = await fetch('/api/file/download', {
+                        method: 'POST',
+                        body: JSON.stringify({url}),
+                        headers: {
+                            'content-type': 'application/json',
+                        }
+                    })
+                    const filename = res.headers.get('filename')
+                    const blob = await res.blob()
+                    //下载文件
+                    const eleA = document.createElement('a');
+                    eleA.download = filename
+                    eleA.style.display = 'none';
+                    eleA.href = URL.createObjectURL(blob);
+                    document.body.appendChild(eleA);
+                    eleA.click();
+                    //释放URL对象
+                    URL.revokeObjectURL(eleA.href);
+                    document.body.removeChild(eleA);
+
+                } catch (e) {
+                    console.log(e)
+                }
             },
 
         }
