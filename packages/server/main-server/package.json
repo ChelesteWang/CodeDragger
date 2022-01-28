@@ -30,6 +30,7 @@
   "scripts": {
     "init": "inspirecloud init",
     "dev": "inspirecloud dev",
+    "dev-no-watch": "inspirecloud dev --no-watch",
     "deploy": "inspirecloud deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
