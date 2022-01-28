@@ -1,6 +1,10 @@
 name: Deploy to ByteInspire Cloud project
 
-on: push
+
+on:
+  push:
+    branches:
+      - release
 
 jobs:
   build_and_deploy:
