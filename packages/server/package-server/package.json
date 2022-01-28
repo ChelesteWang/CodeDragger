@@ -19,6 +19,10 @@
     "build": "tsup ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "keywords": [],
   "license": "ISC"
 }
