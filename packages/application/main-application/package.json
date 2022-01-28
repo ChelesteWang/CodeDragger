@@ -1,8 +1,9 @@
 {
   "name": "@cdl-pkg/main-application",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "format": "prettier --write src",
     "lint": "eslint --ext .ts,.tsx src",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@caldwell619/react-hooks": "^0.0.6",
     "@cdl-pkg/dragger-editor": "workspace:^0.0.0",
+    "@cdl-pkg/remote-component": "workspace:^0.0.0",
     "@emotion/is-prop-valid": "^1.1.1",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",

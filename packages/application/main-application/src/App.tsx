@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import { FC } from 'react'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
+import RemoteComponent from '@cdl-pkg/remote-component'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
 
@@ -15,6 +16,10 @@ const Login = () => {
 
 const Workspace = () => {
   return <div>workspace</div>
+}
+
+const Test = () => {
+  return <RemoteComponent name='Test' />
 }
 
 const routes = [
@@ -31,6 +36,12 @@ const routes = [
     path: '/workspace',
     component: <Workspace />,
     key: 'workspace'
+  },
+  {
+    name: 'test',
+    path: '/test',
+    component: <Test />,
+    key: 'test'
   }
 ]
 

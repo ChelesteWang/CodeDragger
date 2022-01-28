@@ -1,6 +1,6 @@
 {
   "name": "@cdl-pkg/package-server",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "lweijian",
   "description": "",
   "main": "build/index.js",
@@ -16,8 +16,11 @@
     "postcss": "^8.4.5"
   },
   "scripts": {
-    "build": "tsup ",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [],
   "license": "ISC"
