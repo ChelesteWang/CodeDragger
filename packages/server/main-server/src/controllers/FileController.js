@@ -60,13 +60,13 @@ class FileController {
 
   }
   /**
-   *  路由:/api/file/build
-   * react文件打包
+   *  路由:/api/file/compile
+   * react文件编译
    *  返回url
    * @param ctx
    * @return {Promise<any>}
    */
-  async build(ctx) {
+  async compile(ctx) {
     await build({outDir: '/tmp/dist'})
     const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
     const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})

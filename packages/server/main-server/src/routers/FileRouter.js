@@ -9,7 +9,7 @@ const upload = multer();
 router.post('/upload',upload.single('file'),fileController.upload);
 router.post('/delete', fileController.delete);
 router.post('/download', fileController.download);
-router.get('/build', fileController.build)
+router.get('/compile', fileController.compile)
 
 
 module.exports = router;
