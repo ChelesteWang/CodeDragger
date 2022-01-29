@@ -19,7 +19,9 @@ const Workspace = () => {
 }
 
 const Test = () => {
-  return <RemoteComponent name='Test' />
+  return (
+    <RemoteComponent name='61f56cdcec3be240905e03b7'>Click Me</RemoteComponent>
+  )
 }
 
 const routes = [

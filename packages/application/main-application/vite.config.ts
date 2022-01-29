@@ -61,7 +61,21 @@ const config: UserConfig = {
         extensions: ['.ts', '.tsx']
       }
     })
-  ]
+  ],
+  server: {
+    proxy: {
+      '^/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
+  define: {
+    process: {
+      env: 'development'
+    }
+  }
 }
 
 const getConfig = () => config

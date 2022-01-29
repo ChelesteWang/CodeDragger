@@ -2,9 +2,10 @@ const fileService = require('../services/FileService')
 const fs = require('fs')
 const path = require('path')
 
-// const {build, compress} = require("@cdl-pkg/package-server");
-// const FileService = require("../services/FileService");
-// const {v1} = require("uuid");
+
+const {build, compress} = require("@cdl-pkg/package-server");
+const FileService = require("../services/FileService");
+const {v1} = require("uuid");
 
 /**
  * fileController
@@ -76,19 +77,21 @@ class FileController {
     }
   }
 
-  // /**
-  //  *  路由:/api/file/compile
-  //  * react文件编译
-  //  *  返回url
-  //  * @param ctx
-  //  * @return {Promise<any>}
-  //  */
-  // async compile(ctx) {
-  //   await build({outDir: '/tmp/dist'})
-  //   const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
-  //   const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
-  //   ctx.body = {url}
-  // }
+
+  /**
+   *  路由:/api/file/compile
+   * react文件编译
+   *  返回url
+   * @param ctx
+   * @return {Promise<any>}
+   */
+  async compile(ctx) {
+    await build({outDir: '/tmp/dist'})
+    const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
+    const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
+    ctx.body = {url}
+  }
+
 }
 
 // 导出 Controller 的实例
