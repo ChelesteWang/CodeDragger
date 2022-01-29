@@ -1,8 +1,8 @@
 const fileService = require('../services/FileService')
 const fs = require('fs')
-const { sep } = require('path')
-// const {build, compress} = require("@cdl-pkg/package-server");
+const path = require('path')
 
+// const {build, compress} = require("@cdl-pkg/package-server");
 // const FileService = require("../services/FileService");
 // const {v1} = require("uuid");
 
@@ -48,8 +48,7 @@ class FileController {
     const id = ctx.params.id
     const result = await fileService.download(ctx, id)
     if (result.success) {
-      const temp = result.filePath.split(sep)
-      const filename = temp[temp.length - 1]
+      const filename = path.basename(result.filePath)
       ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
       ctx.body = fs.createReadStream(result.filePath)
     } else {
