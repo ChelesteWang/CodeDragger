@@ -1,11 +1,10 @@
 const fileService = require('../services/FileService')
 const fs = require('fs')
 const path = require('path')
-
-
 const {build, compress} = require("@cdl-pkg/package-server");
 const FileService = require("../services/FileService");
 const {v1} = require("uuid");
+
 
 /**
  * fileController
