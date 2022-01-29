@@ -8,8 +8,8 @@ router.get('/current', userController.current)
 router.post('/login_password', userController.loginByPassword)
 router.post('/login_phone', userController.loginByPhone)
 router.post('/send_sms', userController.sendSMS)
-router.post('/logout', userController.logout)
-router.post('/change_password', userController.changePassword)
-router.post('/user_update', userController.updateOne)
+router.put('/logout', userController.logout)
+router.put('/change_password', userController.changePassword)
+router.put('/user_update', userController.updateOne)
 
 module.exports = router
