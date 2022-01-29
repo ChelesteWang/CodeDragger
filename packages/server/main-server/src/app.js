@@ -4,13 +4,17 @@ const koaStatic = require('koa-static')
 const router = require('./routers')
 const Koa = require('koa')
 const app = new Koa()
-
-// 为应用使用中间件
+const cors = require('@koa/cors')
 // 静态文件中间件
 app.use(koaStatic(path.join(__dirname, '../public')))
 // 请求体 parse 中间件，用于 parse json 格式请求体
 app.use(koaBody())
-
+app.use(
+  cors({
+    allowHeaders: ['x-tt-session-v2', 'Content-Type'],
+    exposeHeaders: ['Content-Disposition']
+  })
+)
 /** 若后面的路由抛错，则封装为错误响应返回
  * 错误响应格式为
  * {
@@ -31,6 +35,7 @@ app.use(async function errorHandler(ctx, next) {
     }
   }
 })
+
 // 为应用使用路由定义
 app.use(router.routes())
 app.use(router.allowedMethods())
