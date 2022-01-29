@@ -13,6 +13,7 @@
   "dependencies": {
     "@byteinspire/api": "^1.0.12",
     "@cdl-pkg/package-server": "^0.0.0",
+    "@koa/cors": "^3.1.0",
     "@koa/multer": "^3.0.0",
     "@koa/router": "^8.0.2",
     "bundle-require": "^3.0.2",

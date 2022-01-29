@@ -2,6 +2,7 @@ const fileService = require('../services/FileService')
 const fs = require('fs')
 const path = require('path')
 
+
 const {build, compress} = require("@cdl-pkg/package-server");
 const FileService = require("../services/FileService");
 const {v1} = require("uuid");
@@ -76,6 +77,7 @@ class FileController {
     }
   }
 
+
   /**
    *  路由:/api/file/compile
    * react文件编译
@@ -89,6 +91,7 @@ class FileController {
     const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
     ctx.body = {url}
   }
+
 }
 
 // 导出 Controller 的实例
