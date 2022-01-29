@@ -10,6 +10,6 @@ router.get('/:id', fileController.download)
 router.get('/content/:id', fileController.getContent)
 router.post('/upload', upload.single('file'), fileController.upload)
 router.delete('/delete/:id', fileController.delete)
-// router.get('/compile', fileController.compile)
+router.get('/compile', fileController.compile)
 
 module.exports = router
