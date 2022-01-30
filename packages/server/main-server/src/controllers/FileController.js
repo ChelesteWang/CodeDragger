@@ -1,10 +1,11 @@
 const fileService = require('../services/FileService')
 const fs = require('fs')
-const path = require('path')
+const { basename, join } = require('path')
 
-// const {build, compress} = require("@cdl-pkg/package-server");
-// const FileService = require("../services/FileService");
-// const {v1} = require("uuid");
+const { build } = require('@cdl-pkg/package-server')
+const FileService = require('../services/FileService')
+const { v4 } = require('uuid')
+const { readFileSync } = require('fs')
 
 /**
  * fileController
@@ -48,7 +49,7 @@ class FileController {
     const id = ctx.params.id
     const result = await fileService.download(ctx, id)
     if (result.success) {
-      const filename = path.basename(result.filePath)
+      const filename = basename(result.filePath)
       ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
       ctx.body = fs.createReadStream(result.filePath)
     } else {
@@ -76,19 +77,22 @@ class FileController {
     }
   }
 
-  // /**
-  //  *  路由:/api/file/compile
-  //  * react文件编译
-  //  *  返回url
-  //  * @param ctx
-  //  * @return {Promise<any>}
-  //  */
-  // async compile(ctx) {
-  //   await build({outDir: '/tmp/dist'})
-  //   const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
-  //   const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
-  //   ctx.body = {url}
-  // }
+  /**
+   *  路由:/api/file/compile
+   * react文件编译
+   *  返回url
+   * @param ctx
+   * @return {Promise<any>}
+   */
+  async compile(ctx) {
+    const outDir = '/tmp/dist'
+    await build({ outDir })
+
+    //部署要改成/tmp/dist/index.js
+    const buffer = readFileSync(join(__dirname, '../../', outDir, 'index.js'))
+    const result = await FileService.upload(ctx, { name: `${v4()}.js`, buffer })
+    ctx.body = { result }
+  }
 }
 
 // 导出 Controller 的实例
