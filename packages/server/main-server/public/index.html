@@ -332,7 +332,7 @@
             },
             async fileDownloadAction(id) {
                 try {
-                    const res=await   fetch(`/api/file/${id}`,{
+                    const res=await   fetch(`/api/file/download/${id}`,{
                         method:'GET',
                     })
                     res.blob().then(blob=>{
