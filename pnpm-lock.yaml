@@ -204,6 +204,7 @@ importers:
     specifiers:
       '@byteinspire/api': ^1.0.12
       '@cdl-pkg/package-server': ^0.0.0
+      '@koa/cors': ^3.1.0
       '@koa/multer': ^3.0.0
       '@koa/router': ^8.0.2
       compressing: ^1.5.1
@@ -217,6 +218,7 @@ importers:
     dependencies:
       '@byteinspire/api': 1.0.12
       '@cdl-pkg/package-server': link:../package-server
+      '@koa/cors': 3.1.0
       '@koa/multer': 3.0.0_multer@1.4.4
       '@koa/router': 8.0.8
       compressing: 1.5.1
@@ -3602,6 +3604,13 @@ packages:
       '@types/yargs': 16.0.4
       chalk: 4.1.2
     dev: true
+
+  /@koa/cors/3.1.0:
+    resolution: {integrity: sha512-7ulRC1da/rBa6kj6P4g2aJfnET3z8Uf3SWu60cjbtxTA5g8lxRdX/Bd2P92EagGwwAhANeNw8T8if99rJliR6Q==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      vary: 1.1.2
+    dev: false
 
   /@koa/multer/3.0.0_multer@1.4.4:
     resolution: {integrity: sha512-y+OQBmex5D1jIl723gAEUYcAWPEicIXppaAKw/zCMfpllQ08ZNweDPwoCLxEoatqd5pCu2XG6V8dl67JRq3RJw==}
