@@ -203,7 +203,7 @@ importers:
   packages/server/main-server:
     specifiers:
       '@byteinspire/api': ^1.0.12
-      '@cdl-pkg/package-server': ^0.0.0
+      '@cdl-pkg/package-server': ^0.0.1
       '@koa/cors': ^3.1.0
       '@koa/multer': ^3.0.0
       '@koa/router': ^8.0.2
