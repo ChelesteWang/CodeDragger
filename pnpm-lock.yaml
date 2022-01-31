@@ -210,6 +210,7 @@ importers:
       koa-static: ^5.0.0
       multer: ^1.4.4
       postcss: ^8.4.5
+      uuid: ^8.3.2
     dependencies:
       '@byteinspire/api': 1.0.12
       '@cdl-pkg/package-server': link:../package-server
@@ -221,6 +222,7 @@ importers:
       koa-static: 5.0.0
       multer: 1.4.4
       postcss: 8.4.5
+      uuid: registry.npmmirror.com/uuid/8.3.2
     devDependencies:
       jest: 27.4.7_ts-node@10.4.0
 
@@ -16197,3 +16199,10 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  registry.npmmirror.com/uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uuid/download/uuid-8.3.2.tgz}
+    name: uuid
+    version: 8.3.2
+    hasBin: true
+    dev: false
