@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo, FC, ComponentType } from 'react'
+import React, { Suspense, useMemo, FC, ComponentType, useEffect } from 'react'
 import { dependencies } from './dependencies'
 import { getRemoteComponent } from './service'
 
@@ -14,26 +14,25 @@ const getParsedModule = (code: string) => {
   return module
 }
 
-const fetchComponent = async (name: string): Promise<ComponentType<any>> => {
-  const text = await getRemoteComponent({ name })
+const fetchComponent = async (url: string) => {
+  const text = await getRemoteComponent({ url })
   const module = getParsedModule(text)
-  return { default: module.exports } as unknown as ComponentType<any>
+  return { default: module.exports } as any
 }
 
-interface RemoteComponentProps {
-  name: string
-  children?: FC
-  props?: any
-}
-
-const RemoteComponent: FC<RemoteComponentProps> = ({
-  name,
-  children,
-  ...props
-}) => {
+const RemoteComponent: any = ({ name, children, ...props }: any) => {
   const Component = useMemo(() => {
-    return React.lazy(async () => fetchComponent(name) as any)
+    // @ts-ignores
+    return React.lazy(async () => {
+      const module = await fetchComponent(name)
+      console.log({ default: module.default || module })
+      return { default: module.default.Counter }
+    })
   }, [name])
+
+  useEffect(() => {
+    console.log(Component);
+  })
 
   return (
     <Suspense
