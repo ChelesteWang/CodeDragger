@@ -4,6 +4,16 @@ import { render } from "react-dom";
 import { createElement } from "react";
 import "./styles.css";
 
+/**
+ * @rexjz
+ * TODO: - [ ] 支持远程组件（需要一个远程组件统一的下载接口）
+ *        problems: 
+ *        - 如果预览页使用iframe的方式引入，这意味这远程组件下载接口的重复调用，需要关注一下远程组件的缓存策略，避免重复下载。
+ *       - [ ] 布局方式
+ *        比较稳妥的方式是和实时预览的部分同构，目前的问题在于如何持久化 ReactGridLayout 的的布局数据传输过来。
+ *       - [ ] css 问题，不同的组件库需要引入各自的css 
+ */
+
 export interface NodeData {
   id?: "";
   tag: string;
