@@ -3,12 +3,17 @@ import React from 'react'
 // import IconButtons from './component/IconButtons/IconButtons'
 // import { TextField } from '@mui/material'
 // import Button from '@mui/material/Button'
+import { BasicConfigForm } from './component/BasicConfigForm/BasicConfigForm'
+import { BasicOptionForm } from './component/BasicOptionForm/BasicOptionForm'
 import './Right.css'
 
 export default class Right extends React.Component {
   render(): React.ReactNode {
     return (
-      <div className='right'></div>
+      <div className='right'>
+        <BasicConfigForm />
+        <BasicOptionForm />
+      </div>
       // <div className='right'>
       //   <div className='top-btn'>
       //     <Button variant='outlined'>button</Button>
