@@ -1,8 +1,6 @@
-import "./public-path";
 import { FunctionComponent, ComponentClass } from "react";
 import { render } from "react-dom";
-import { createElement } from "react";
-import "./styles.css";
+import { createElement as e } from "react";
 
 /**
  * @rexjz
@@ -12,7 +10,10 @@ import "./styles.css";
  *       - [ ] 布局方式
  *        比较稳妥的方式是和实时预览的部分同构，目前的问题在于如何持久化 ReactGridLayout 的的布局数据传输过来。
  *       - [ ] css 问题，不同的组件库需要引入各自的css 
- */
+ * 优化点:
+ * 1. 将renderNode改写回同步，目前的想法是工厂函数，每个组件库的renderNode持有的闭包中的lib是不同的组件库代码。
+ * 2. 用迭代重写这里的递归逻辑。
+ */ 
 
 export interface NodeData {
   id?: "";
@@ -33,11 +34,9 @@ export enum TagLibType {
 
 type NodeType = string | FunctionComponent<any> | ComponentClass<any, any>;
 
-const e = createElement;
 const rootElement = document.getElementById("root");
 
 export async function renderNode(component: NodeData) {
-  console.log("render", component);
   let node: NodeType = "";
   if (component.plainNode) {
     return component.value;
@@ -88,6 +87,5 @@ export function renderComponents(components: NodeData[]) {
     params,
     components.map(async (node: NodeData) => await renderNode(node))
   );
-  console.log("params", e.apply({}, params));
   render(e.apply({}, params), rootElement);
 }
