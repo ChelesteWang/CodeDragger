@@ -12,18 +12,18 @@ class UserService {
    * @return {Promise<any>}
    */
   async current(ctx) {
-    try {
+
       const info = await inspirecloud.user.current(ctx)
+      if(!info){
+          const error = new Error('User not logged in')
+          error.status = 401
+          throw error
+      }
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
+
   }
 
   /**
@@ -34,19 +34,12 @@ class UserService {
    * @param password 密码
    */
   async register(ctx, username, password) {
-    try {
       const info = await inspirecloud.user.register(ctx, username, password)
 
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
   /**
    * 通过密码登录
@@ -56,18 +49,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async loginByPassword(ctx, username, password) {
-    try {
       const info = await inspirecloud.user.login(ctx, username, password)
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
 
   /**
@@ -78,18 +64,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async sendSMS(ctx, phoneNumber, opts) {
-    try {
       const info = await inspirecloud.user.sendSMS(ctx, phoneNumber, opts)
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
   /**
    * 修改登录密码
@@ -98,18 +77,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async changePassword(ctx, newPassword) {
-    try {
       const info = await inspirecloud.user.changePassword(ctx, newPassword)
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
   /**
    * 修改用户信息
@@ -118,18 +90,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async updateOne(ctx, user) {
-    try {
       const info = await inspirecloud.user.updateOne(ctx, user)
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
 
   /**
@@ -140,18 +105,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async loginByPhone(ctx, phoneNumber, code) {
-    try {
       const info = await inspirecloud.user.loginByPhone(ctx, phoneNumber, code)
       return {
         success: true,
         info
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
 
   /**
@@ -160,18 +118,11 @@ class UserService {
    * @param ctx
    */
   async logout(ctx) {
-    try {
       const data = await inspirecloud.user.logout(ctx)
       return {
         success: true,
         data
       }
-    } catch (e) {
-      return {
-        success: false,
-        message: e.message
-      }
-    }
   }
 }
 // 导出 Service 的实例
