@@ -2,6 +2,7 @@
 const jsonSchemaTable = require('../models/JsonSchemaTable')
 const inspirecloud = require('@byteinspire/api')
 const ObjectId = inspirecloud.db.ObjectId
+
 /**
  *  JsonSchemaService
  * Service 是业务具体实现，由 Controller 或其它 Service 调用
@@ -18,16 +19,34 @@ class JsonSchemaService {
   }
 
   /**
+   * 根据user查找
+   * 若不存在，则抛出 404 错误
+   * @param user
+   */
+  async findByUser(user) {
+    return await jsonSchemaTable
+      .where({ user })
+      .find()
+  }
+
+  /**
+   * 根据id查找
+   * 若不存在，则抛出 404 错误
+   * @param id
+   */
+  async findByID(id) {
+    return await jsonSchemaTable
+      .where({ _id: ObjectId(id) })
+      .findOne()
+  }
+
+
+  /**
    * 创建一条JsonSchema
    * @param jsonSchema 用于创建JsonSchema的数据，原样存进数据库
    * @return {Promise<any>} 返回实际插入数据库的数据，会增加_id，createdAt和updatedAt字段
    */
   async create(jsonSchema) {
-    if (!jsonSchema.user) {
-      const error = new Error(`user not found`)
-      error.status = 401
-      throw error
-    }
     return await jsonSchemaTable.save(jsonSchema)
   }
 
@@ -68,8 +87,10 @@ class JsonSchemaService {
       throw error
     }
     Object.assign(jsonSchema, updater)
-    await jsonSchemaTable.save(jsonSchema)
+    return await jsonSchemaTable.save(jsonSchema)
   }
+
+
 }
 
 // 导出 Service 的实例

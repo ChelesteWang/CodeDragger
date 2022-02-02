@@ -3,9 +3,10 @@ const Router = require('@koa/router')
 const router = new Router({ prefix: '/json_schema' })
 const JsonSchemaController = require('../controllers/JsonSchemaController')
 
-router.get('/', JsonSchemaController.listAll)
-router.post('/', JsonSchemaController.create)
-router.delete('/:id', JsonSchemaController.delete)
-router.delete('/', JsonSchemaController.deleteAll)
+router.get('/listAll', JsonSchemaController.listAll)
+router.get('/find_by_user', JsonSchemaController.findByUser)
+router.post('/create', JsonSchemaController.create)
+router.delete('/delete/:id',JsonSchemaController.delete)
+router.put('/update/:id',JsonSchemaController.update)
 
 module.exports = router
