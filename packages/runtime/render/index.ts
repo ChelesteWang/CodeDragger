@@ -11,9 +11,9 @@ import { createElement as e } from "react";
  *        比较稳妥的方式是和实时预览的部分同构，目前的问题在于如何持久化 ReactGridLayout 的的布局数据传输过来。
  *       - [ ] css 问题，不同的组件库需要引入各自的css 
  * 优化点:
- * 1. 将renderNode改写回同步，目前的想法是工厂函数，每个组件库的renderNode持有的闭包中的lib是不同的组件库代码。
+ * 1. 将renderNode改写为同步，目前思路是工厂函数，每个组件库的renderNode持有的闭包中的lib是不同的组件库代码。
  * 2. 用迭代重写这里的递归逻辑。
- */ 
+ */
 
 export interface NodeData {
   id?: "";
@@ -72,7 +72,7 @@ export async function renderNode(component: NodeData) {
   }
 }
 
-export function renderComponents(components: NodeData[]) {
+export async function renderComponents(components: NodeData[]) {
   const containerAttributes = {
     style: {
       width: 375,
@@ -83,9 +83,24 @@ export function renderComponents(components: NodeData[]) {
     }
   };
   const params: any[] = ["div", containerAttributes];
+
+  const componentsRes = await new Promise<NodeData[]>((resolve, reject) => {
+    const componentsPromise:
+      | Promise<any>[]
+      | undefined = components.map<any>((node: NodeData) =>
+      renderNode(node)
+    );
+    if (componentsPromise) {
+      Promise.all(componentsPromise).then((res) => {
+        resolve(res);
+      });
+    } else {
+      reject();
+    }
+  });
   Array.prototype.push.apply(
     params,
-    components.map(async (node: NodeData) => await renderNode(node))
+    componentsRes
   );
-  render(e.apply({}, params), rootElement);
+  return e.apply({}, params)
 }
