@@ -48,9 +48,9 @@ class FileController {
   async download(ctx) {
     const id = ctx.params.id
     const result = await fileService.download(ctx, id)
-      const filename = basename(result.filePath)
-      ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
-      ctx.body = fs.createReadStream(result.filePath)
+    const filename = basename(result.filePath)
+    ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
+    ctx.body = fs.createReadStream(result.filePath)
   }
 
   /**
@@ -62,10 +62,10 @@ class FileController {
    */
   async getContent(ctx) {
     const id = ctx.params.id
-    const {filePath } = await fileService.download(ctx, id)
+    const { filePath } = await fileService.download(ctx, id)
     const content = fs.readFileSync(filePath).toString('utf8')
     ctx.body = {
-      success:true,
+      success: true,
       content
     }
   }

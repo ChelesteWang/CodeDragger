@@ -13,13 +13,13 @@ class FileService {
    * @return {Promise<any>}
    */
   async upload(ctx, file) {
-      // 通过 inspirecloud.fileStorage.upload 接口实现上传
-      const { id, url } = await inspirecloud.file.upload(file.name, file.buffer)
-      return {
-        success: true,
-        id,
-        url
-      }
+    // 通过 inspirecloud.fileStorage.upload 接口实现上传
+    const { id, url } = await inspirecloud.file.upload(file.name, file.buffer)
+    return {
+      success: true,
+      id,
+      url
+    }
   }
 
   /**
@@ -39,13 +39,13 @@ class FileService {
    * @return {Promise<any>}
    */
   async download(ctx, id) {
-      const { filePath } = await inspirecloud.file.download(id, {
-        directory: '/tmp/download'
-      })
-      return {
-        success: true,
-        filePath
-      }
+    const { filePath } = await inspirecloud.file.download(id, {
+      directory: '/tmp/download'
+    })
+    return {
+      success: true,
+      filePath
+    }
   }
 }
 

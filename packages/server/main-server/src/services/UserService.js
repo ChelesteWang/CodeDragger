@@ -12,18 +12,16 @@ class UserService {
    * @return {Promise<any>}
    */
   async current(ctx) {
-
-      const info = await inspirecloud.user.current(ctx)
-      if(!info){
-          const error = new Error('User not logged in')
-          error.status = 401
-          throw error
-      }
-      return {
-        success: true,
-        info
-      }
-
+    const info = await inspirecloud.user.current(ctx)
+    if (!info) {
+      const error = new Error('User not logged in')
+      error.status = 401
+      throw error
+    }
+    return {
+      success: true,
+      info
+    }
   }
 
   /**
@@ -34,12 +32,12 @@ class UserService {
    * @param password 密码
    */
   async register(ctx, username, password) {
-      const info = await inspirecloud.user.register(ctx, username, password)
+    const info = await inspirecloud.user.register(ctx, username, password)
 
-      return {
-        success: true,
-        info
-      }
+    return {
+      success: true,
+      info
+    }
   }
   /**
    * 通过密码登录
@@ -49,11 +47,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async loginByPassword(ctx, username, password) {
-      const info = await inspirecloud.user.login(ctx, username, password)
-      return {
-        success: true,
-        info
-      }
+    const info = await inspirecloud.user.login(ctx, username, password)
+    return {
+      success: true,
+      info
+    }
   }
 
   /**
@@ -64,11 +62,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async sendSMS(ctx, phoneNumber, opts) {
-      const info = await inspirecloud.user.sendSMS(ctx, phoneNumber, opts)
-      return {
-        success: true,
-        info
-      }
+    const info = await inspirecloud.user.sendSMS(ctx, phoneNumber, opts)
+    return {
+      success: true,
+      info
+    }
   }
   /**
    * 修改登录密码
@@ -77,11 +75,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async changePassword(ctx, newPassword) {
-      const info = await inspirecloud.user.changePassword(ctx, newPassword)
-      return {
-        success: true,
-        info
-      }
+    const info = await inspirecloud.user.changePassword(ctx, newPassword)
+    return {
+      success: true,
+      info
+    }
   }
   /**
    * 修改用户信息
@@ -90,11 +88,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async updateOne(ctx, user) {
-      const info = await inspirecloud.user.updateOne(ctx, user)
-      return {
-        success: true,
-        info
-      }
+    const info = await inspirecloud.user.updateOne(ctx, user)
+    return {
+      success: true,
+      info
+    }
   }
 
   /**
@@ -105,11 +103,11 @@ class UserService {
    * @return {Promise<any>}
    */
   async loginByPhone(ctx, phoneNumber, code) {
-      const info = await inspirecloud.user.loginByPhone(ctx, phoneNumber, code)
-      return {
-        success: true,
-        info
-      }
+    const info = await inspirecloud.user.loginByPhone(ctx, phoneNumber, code)
+    return {
+      success: true,
+      info
+    }
   }
 
   /**
@@ -118,11 +116,11 @@ class UserService {
    * @param ctx
    */
   async logout(ctx) {
-      const data = await inspirecloud.user.logout(ctx)
-      return {
-        success: true,
-        data
-      }
+    const data = await inspirecloud.user.logout(ctx)
+    return {
+      success: true,
+      data
+    }
   }
 }
 // 导出 Service 的实例
