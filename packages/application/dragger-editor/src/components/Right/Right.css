@@ -1,7 +1,7 @@
 .right {
   padding: 10px 20px;
   width: 20%;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: white;
   float: left;
 }
