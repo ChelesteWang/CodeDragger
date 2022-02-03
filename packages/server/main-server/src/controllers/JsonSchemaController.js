@@ -7,23 +7,6 @@ const UserService = require('../services/UserService')
  * jsonSchema 控制
  */
 class JsonSchemaController {
-
-
-  /**
-   * 根据token查找user
-   * @return user
-   * @param ctx Koa 的上下文参数
-   */
-  async checkUser(ctx) {
-    const { info: user } = await UserService.current(ctx)
-    if (!user) {
-      const error = new Error(`user not find`)
-      error.status = 401
-      throw error
-    }
-    return user
-  }
-
   /**
    * 列出所有JsonSchema
    * 响应格式
@@ -33,8 +16,8 @@ class JsonSchemaController {
    * @param ctx Koa 的上下文参数
    */
   async listAll(ctx) {
-    const list = await JsonSchemaService.listAll()
-    ctx.body = { list }
+    const result = await JsonSchemaService.listAll()
+    ctx.body = { result }
   }
 
   /**
@@ -46,14 +29,27 @@ class JsonSchemaController {
    * @param ctx Koa 的上下文参数
    */
   async findByUser(ctx) {
-    const user = await this.checkUser(ctx)
-    const list = await JsonSchemaService.findByUser(user)
-    ctx.body = { list }
+    const { info: user } = await UserService.current(ctx)
+    const result = await JsonSchemaService.findByUser(user)
+    ctx.body = { result }
+  }
+  /**
+   * 列出所有JsonSchema
+   * 响应格式
+   * {
+   *   list: [JsonSchema1, JsonSchema2]
+   * }
+   * @param ctx Koa 的上下文参数
+   */
+  async findByID(ctx) {
+    const id = ctx.params.id
+    const result = await JsonSchemaService.findByID(id)
+    ctx.body = { result }
   }
 
   /**
    * 创建一条JsonSchema
-   * 传 name，json，携带token
+   * 传 name，jsonSchema，携带token
    * 响应格式
    * {
    *   result: new JsonSchema
@@ -61,15 +57,15 @@ class JsonSchemaController {
    * Koa 的上下文参数
    */
   async create(ctx) {
-    const { name, json } = ctx.request.body
-    const user = await this.checkUser(ctx)
-    const result = await JsonSchemaService.create({ name, json, user })
+    const { name, jsonSchema } = ctx.request.body
+    const { info: user } = await UserService.current(ctx)
+    const result = await JsonSchemaService.create({ name, jsonSchema, user })
     ctx.body = { result }
   }
 
   /**
    * 删除一条JsonSchema
-   * 传 name，json，携带token
+   * 传 name，jsonSchema，携带token
    * 响应格式
    * {
    *   ok: true
@@ -78,9 +74,10 @@ class JsonSchemaController {
    */
   async delete(ctx) {
     const id = ctx.params.id
-    const user = this.checkUser(ctx)
-    const jsonSchema = JsonSchemaService.findByID(id)
-    if (jsonSchema.user !== user) {
+    const { info: user } = await UserService.current(ctx)
+    const { info: data } = await JsonSchemaService.findByID(id)
+
+    if (data.user._id !== user._id) {
       const error = new Error(`Insufficient permissions`)
       error.status = 403
       throw error
@@ -102,31 +99,28 @@ class JsonSchemaController {
     ctx.body = { ok: true }
   }
 
-
   /**
    * 更新json_schema
-   * 传 name，json，携带token
+   * 传 name，jsonSchema，携带token
    * 响应格式
    * {
    *   result: new JsonSchema
    * }
    * Koa 的上下文参数
    */
-  async update(ctx) {
+  async updateOne(ctx) {
     const id = ctx.params.id
-    const { updater} = ctx.request.body
-    const user = await this.checkUser(ctx)
-    const jsonSchema = JsonSchemaService.findByID(id)
-    if (jsonSchema.user !== user) {
+    const { updater } = ctx.request.body
+    const { info: user } = await UserService.current(ctx)
+    const { info: data } = await JsonSchemaService.findByID(id)
+    if (data.user._id !== user._id) {
       const error = new Error(`Insufficient permissions`)
       error.status = 403
       throw error
     }
-    const result = await JsonSchemaService.update(id, updater)
+    const result = await JsonSchemaService.updateOne(id, updater)
     ctx.body = { result }
   }
-
-
 }
 
 // 导出 Controller 的实例

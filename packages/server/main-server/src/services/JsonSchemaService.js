@@ -12,10 +12,14 @@ const ObjectId = inspirecloud.db.ObjectId
 class JsonSchemaService {
   /**
    * 列出所有JsonSchema
-   * @return {Promise<Array<any>>} 返回JsonSchema数组
+   * @return {Promise<{success:Boolean,list:Array<any>}>}
    */
   async listAll() {
-    return await jsonSchemaTable.where().find()
+    const list = await jsonSchemaTable.where().find()
+    return {
+      success: true,
+      list
+    }
   }
 
   /**
@@ -24,9 +28,11 @@ class JsonSchemaService {
    * @param user
    */
   async findByUser(user) {
-    return await jsonSchemaTable
-      .where({ user })
-      .find()
+    const list = await jsonSchemaTable.where({ user }).find()
+    return {
+      success: true,
+      list
+    }
   }
 
   /**
@@ -35,11 +41,17 @@ class JsonSchemaService {
    * @param id
    */
   async findByID(id) {
-    return await jsonSchemaTable
-      .where({ _id: ObjectId(id) })
-      .findOne()
+    const info = await jsonSchemaTable.where({ _id: ObjectId(id) }).findOne()
+    if (!info) {
+      const error = new Error(`jsonSchema:${id} not found`)
+      error.status = 404
+      throw error
+    }
+    return {
+      success: true,
+      info
+    }
   }
-
 
   /**
    * 创建一条JsonSchema
@@ -47,7 +59,11 @@ class JsonSchemaService {
    * @return {Promise<any>} 返回实际插入数据库的数据，会增加_id，createdAt和updatedAt字段
    */
   async create(jsonSchema) {
-    return await jsonSchemaTable.save(jsonSchema)
+    const info = await jsonSchemaTable.save(jsonSchema)
+    return {
+      success: true,
+      info
+    }
   }
 
   /**
@@ -77,7 +93,7 @@ class JsonSchemaService {
    * @param updater 将会用原对象 merge 此对象进行更新
    * 若不存在，则抛出 404 错误
    */
-  async update(id, updater) {
+  async updateOne(id, updater) {
     const jsonSchema = await jsonSchemaTable
       .where({ _id: ObjectId(id) })
       .findOne()
@@ -89,8 +105,6 @@ class JsonSchemaService {
     Object.assign(jsonSchema, updater)
     return await jsonSchemaTable.save(jsonSchema)
   }
-
-
 }
 
 // 导出 Service 的实例
