@@ -4,15 +4,50 @@ import React from 'react'
 // import { TextField } from '@mui/material'
 // import Button from '@mui/material/Button'
 import { BasicConfigForm } from './component/BasicConfigForm/BasicConfigForm'
-import { BasicOptionForm } from './component/BasicOptionForm/BasicOptionForm'
+// import { BasicOptionForm } from './component/BasicOptionForm/BasicOptionForm'
+import NumberInput from './component/NumberInput/NumberInput'
 import './Right.css'
+interface selectedNode {
+  type: string
+  properties: {
+    width?: {
+      type: string
+      minimum: number
+      maximum: number
+      interaction: string
+    }
+    height?: {
+      type: string
+      minimum: number
+      maximum: number
+      interaction: string
+    }
+  }
+}
+interface Props {
+  // todo: 后续需要换成schema定义的类型
+  selectedNode: selectedNode
+}
 
-export default class Right extends React.Component {
+export default class Right extends React.Component<Props> {
+  selectedNode: selectedNode
+  constructor(props: Props) {
+    super(props)
+    this.selectedNode = this.props.selectedNode
+  }
   render(): React.ReactNode {
     return (
       <div className='right'>
         <BasicConfigForm />
-        <BasicOptionForm />
+        <div>
+          {Object.entries(this.selectedNode.properties).map((entry) => {
+            console.log('entry', entry)
+            if (entry[1].type === 'number') {
+              return <NumberInput title={entry[0]} property={entry[1]} />
+            }
+            return <div>未知type</div>
+          })}
+        </div>
       </div>
       // <div className='right'>
       //   <div className='top-btn'>

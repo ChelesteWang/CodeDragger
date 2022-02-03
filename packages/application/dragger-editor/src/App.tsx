@@ -4,6 +4,24 @@ import Left from './components/Left/Left'
 import Mid from './components/Mid/Mid'
 import Right from './components/Right/Right'
 
+const mockNode = {
+  type: 'object',
+  properties: {
+    width: {
+      type: 'number',
+      minimum: 40,
+      maximum: 200,
+      interaction: 'slide'
+    },
+    height: {
+      type: 'number',
+      minimum: 40,
+      maximum: 200,
+      interaction: 'slide'
+    }
+  }
+}
+
 const App: FC = () => {
   return (
     <div className='app'>
@@ -13,7 +31,7 @@ const App: FC = () => {
       <div>
         <Left />
         <Mid />
-        <Right />
+        <Right selectedNode={mockNode} />
       </div>
     </div>
   )
