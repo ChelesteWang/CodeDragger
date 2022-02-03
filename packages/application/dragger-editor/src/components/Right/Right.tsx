@@ -41,9 +41,14 @@ export default class Right extends React.Component<Props> {
         <BasicConfigForm />
         <div>
           {Object.entries(this.selectedNode.properties).map((entry) => {
-            console.log('entry', entry)
             if (entry[1].type === 'number') {
-              return <NumberInput title={entry[0]} property={entry[1]} />
+              return (
+                <NumberInput
+                  key={entry[0]}
+                  title={entry[0]}
+                  property={entry[1]}
+                />
+              )
             }
             return <div>未知type</div>
           })}

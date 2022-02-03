@@ -10,8 +10,6 @@ interface IPorps {
   }
 }
 const NumberInput: FC<IPorps> = (props) => {
-  console.log(props)
-
   return (
     <div className='number-input'>
       <h4>{props.title}</h4>
