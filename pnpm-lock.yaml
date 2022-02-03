@@ -227,11 +227,7 @@ importers:
       koa-static: 5.0.0
       multer: 1.4.4
       postcss: 8.4.5
-<<<<<<< HEAD
       uuid: 8.3.2
-=======
-      uuid: registry.npmmirror.com/uuid/8.3.2
->>>>>>> 47cb512 (feat: input demo)
     devDependencies:
       jest: 27.4.7_ts-node@10.4.0
 
