@@ -13,7 +13,7 @@ app.use(
   cors({
     allowHeaders: ['x-tt-session-v2', 'Content-Type'],
     exposeHeaders: ['Content-Disposition'],
-    maxAge: 3600
+    maxAge:3600
   })
 )
 /** 若后面的路由抛错，则封装为错误响应返回
