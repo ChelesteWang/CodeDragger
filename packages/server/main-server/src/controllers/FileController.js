@@ -48,13 +48,9 @@ class FileController {
   async download(ctx) {
     const id = ctx.params.id
     const result = await fileService.download(ctx, id)
-    if (result.success) {
-      const filename = basename(result.filePath)
-      ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
-      ctx.body = fs.createReadStream(result.filePath)
-    } else {
-      ctx.body = { result }
-    }
+    const filename = basename(result.filePath)
+    ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
+    ctx.body = fs.createReadStream(result.filePath)
   }
 
   /**
@@ -66,13 +62,10 @@ class FileController {
    */
   async getContent(ctx) {
     const id = ctx.params.id
-    const { success, message, filePath } = await fileService.download(ctx, id)
-    if (!success) {
-      throw new Error(message)
-    }
+    const { filePath } = await fileService.download(ctx, id)
     const content = fs.readFileSync(filePath).toString('utf8')
     ctx.body = {
-      success,
+      success: true,
       content
     }
   }
@@ -87,7 +80,6 @@ class FileController {
   async compile(ctx) {
     const outDir = '/tmp/dist'
     await build({ outDir })
-
     //部署要改成/tmp/dist/index.js
     const buffer = readFileSync(join(__dirname, '../../', outDir, 'index.js'))
     const result = await FileService.upload(ctx, { name: `${v4()}.js`, buffer })
