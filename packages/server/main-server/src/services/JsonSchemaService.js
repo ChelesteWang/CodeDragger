@@ -2,6 +2,7 @@
 const jsonSchemaTable = require('../models/JsonSchemaTable')
 const inspirecloud = require('@byteinspire/api')
 const ObjectId = inspirecloud.db.ObjectId
+
 /**
  *  JsonSchemaService
  * Service 是业务具体实现，由 Controller 或其它 Service 调用
@@ -11,10 +12,45 @@ const ObjectId = inspirecloud.db.ObjectId
 class JsonSchemaService {
   /**
    * 列出所有JsonSchema
-   * @return {Promise<Array<any>>} 返回JsonSchema数组
+   * @return {Promise<{success:Boolean,list:Array<any>}>}
    */
   async listAll() {
-    return await jsonSchemaTable.where().find()
+    const list = await jsonSchemaTable.where().find()
+    return {
+      success: true,
+      list
+    }
+  }
+
+  /**
+   * 根据user查找
+   * 若不存在，则抛出 404 错误
+   * @param user
+   */
+  async findByUser(user) {
+    const list = await jsonSchemaTable.where({ user }).find()
+    return {
+      success: true,
+      list
+    }
+  }
+
+  /**
+   * 根据id查找
+   * 若不存在，则抛出 404 错误
+   * @param id
+   */
+  async findByID(id) {
+    const info = await jsonSchemaTable.where({ _id: ObjectId(id) }).findOne()
+    if (!info) {
+      const error = new Error(`jsonSchema:${id} not found`)
+      error.status = 404
+      throw error
+    }
+    return {
+      success: true,
+      info
+    }
   }
 
   /**
@@ -23,12 +59,11 @@ class JsonSchemaService {
    * @return {Promise<any>} 返回实际插入数据库的数据，会增加_id，createdAt和updatedAt字段
    */
   async create(jsonSchema) {
-    if (!jsonSchema.user) {
-      const error = new Error(`user not found`)
-      error.status = 401
-      throw error
+    const info = await jsonSchemaTable.save(jsonSchema)
+    return {
+      success: true,
+      info
     }
-    return await jsonSchemaTable.save(jsonSchema)
   }
 
   /**
@@ -58,7 +93,7 @@ class JsonSchemaService {
    * @param updater 将会用原对象 merge 此对象进行更新
    * 若不存在，则抛出 404 错误
    */
-  async update(id, updater) {
+  async updateOne(id, updater) {
     const jsonSchema = await jsonSchemaTable
       .where({ _id: ObjectId(id) })
       .findOne()
@@ -68,7 +103,7 @@ class JsonSchemaService {
       throw error
     }
     Object.assign(jsonSchema, updater)
-    await jsonSchemaTable.save(jsonSchema)
+    return await jsonSchemaTable.save(jsonSchema)
   }
 }
 
