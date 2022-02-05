@@ -31,7 +31,7 @@ const RemoteComponent: any = ({ name, children, ...props }: any) => {
   }, [name])
 
   useEffect(() => {
-    console.log(Component);
+    console.log(Component)
   })
 
   return (
