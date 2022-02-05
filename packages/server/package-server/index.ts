@@ -1,2 +1,2 @@
-export { build} from "./compile/build"
-export { compress} from "./compile/compress"
+export { build } from './compile/build'
+export { compress } from './compile/compress'

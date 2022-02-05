@@ -1,6 +1,6 @@
 {
   "name": "@cdl-pkg/main-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "lweijian",
   "description": "",
   "keywords": [],
@@ -9,9 +9,11 @@
     "!.*",
     ".gitignore"
   ],
+  "private": "true",
   "dependencies": {
     "@byteinspire/api": "^1.0.12",
-    "@cdl-pkg/package-server": "workspace:^0.0.0",
+    "@cdl-pkg/package-server": "^0.0.1",
+    "@koa/cors": "^3.1.0",
     "@koa/multer": "^3.0.0",
     "@koa/router": "^8.0.2",
     "compressing": "^1.5.1",
@@ -35,6 +37,7 @@
     "deploy": "inspirecloud deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "private": "true",
   "devDependencies": {
     "jest": "^27.4.7"
   }
