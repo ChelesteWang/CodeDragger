@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import './index.css'
-import { renderNode, NodeData, renderComponents } from '../../../runtime/render';
-import {mockmessage4} from './mock.js';
+import { NodeData, renderComponents } from '../../../runtime/render';
+// import {mockmessage4} from './mock.js';
 
 
 function validateData(data: NodeData[]) {
@@ -9,7 +9,7 @@ function validateData(data: NodeData[]) {
 }
 
 function receiveMessage(event: MessageEvent) {
-  if(event.type !== 'cd_components_data') {
+  if(event.type !== 'cdl_components_data') {
     return;
   }
   if(!validateData(event.data)) {
@@ -31,14 +31,14 @@ async function renderData(data: NodeData[]){
   }
 }
 
-(async () => {
-  const vDom =  await renderComponents(mockmessage4)
-  console.log('vDom', vDom);
-  if(vDom) {
-    ReactDOM.render(
-      vDom,
-      document.getElementById('root')
-    )
-  }
-})()
+// (async () => {
+//   const vDom =  await renderComponents(mockmessage4)
+//   console.log('vDom', vDom);
+//   if(vDom) {
+//     ReactDOM.render(
+//       vDom,
+//       document.getElementById('root')
+//     )
+//   }
+// })()
 

@@ -10,6 +10,7 @@ import { createElement as e } from "react";
  *       - [ ] 布局方式
  *        比较稳妥的方式是和实时预览的部分同构，目前的问题在于如何持久化 ReactGridLayout 的的布局数据传输过来。
  *       - [ ] css 问题，不同的组件库需要引入各自的css 
+ *       - [ ] 
  * 优化点:
  * 1. 将renderNode改写为同步，目前思路是工厂函数，每个组件库的renderNode持有的闭包中的lib是不同的组件库代码。
  * 2. 用迭代重写这里的递归逻辑。
