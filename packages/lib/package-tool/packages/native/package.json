@@ -1,10 +1,11 @@
 {
-  "name": "@cdl-pkg/package-tool",
+  "name": "@cdl-pkg/native",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:all": "pnpm run build -r"
+    "build-fast": "tsup src/index.ts --format esm,cjs",
+    "build": "pnpm run build-fast -- --dts-resolve"
   },
   "keywords": [],
   "author": "",
