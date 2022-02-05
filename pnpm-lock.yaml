@@ -203,7 +203,8 @@ importers:
   packages/server/main-server:
     specifiers:
       '@byteinspire/api': ^1.0.12
-      '@cdl-pkg/package-server': ^0.0.0
+      '@cdl-pkg/package-server': ^0.0.1
+      '@koa/cors': ^3.1.0
       '@koa/multer': ^3.0.0
       '@koa/router': ^8.0.2
       bundle-require: ^3.0.2
@@ -218,6 +219,7 @@ importers:
     dependencies:
       '@byteinspire/api': 1.0.12
       '@cdl-pkg/package-server': link:../package-server
+      '@koa/cors': 3.1.0
       '@koa/multer': 3.0.0_multer@1.4.4
       '@koa/router': 8.0.8
       bundle-require: 3.0.2
@@ -238,14 +240,14 @@ importers:
       pump: ^3.0.0
       react: ^17.0.2
       react-dom: ^17.0.2
-      tsup: ^5.11.11
+      tsup: ^5.11.12
     dependencies:
       compressing: 1.5.1
       postcss: 8.4.5
       pump: 3.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      tsup: 5.11.11_ts-node@10.4.0+typescript@4.5.5
+      tsup: 5.11.12_ts-node@10.4.0+typescript@4.5.5
 
 packages:
 
@@ -3605,6 +3607,13 @@ packages:
       chalk: 4.1.2
     dev: true
 
+  /@koa/cors/3.1.0:
+    resolution: {integrity: sha512-7ulRC1da/rBa6kj6P4g2aJfnET3z8Uf3SWu60cjbtxTA5g8lxRdX/Bd2P92EagGwwAhANeNw8T8if99rJliR6Q==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      vary: 1.1.2
+    dev: false
+
   /@koa/multer/3.0.0_multer@1.4.4:
     resolution: {integrity: sha512-y+OQBmex5D1jIl723gAEUYcAWPEicIXppaAKw/zCMfpllQ08ZNweDPwoCLxEoatqd5pCu2XG6V8dl67JRq3RJw==}
     engines: {node: '>= 8'}
@@ -5706,12 +5715,14 @@ packages:
     resolution: {integrity: sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=}
     dev: true
 
-  /bundle-require/2.3.0_esbuild@0.14.14:
-    resolution: {integrity: sha512-kH8vyERJv0Td4Odu2KQyooYyeXDx2FbhGwSfkEGdyHmkTCahvwVI8w/pE2stbsp6G/W5/3kIC7ErdBg/30OAkw==}
+  /bundle-require/3.0.4_esbuild@0.14.14:
+    resolution: {integrity: sha512-VXG6epB1yrLAvWVQpl92qF347/UXmncQj7J3U8kZEbdVZ1ZkQyr4hYeL/9RvcE8vVVdp53dY78Fd/3pqfRqI1A==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
       esbuild: '>=0.13'
     dependencies:
       esbuild: 0.14.14
+      load-tsconfig: 0.2.2
     dev: false
 
   /bundle-require/3.0.2:
@@ -11024,12 +11035,6 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /load-tsconfig/0.2.1:
-    resolution: {integrity: sha512-v+uLv6f0FKGkRrS2/oKSz5T9aGO+Pd3VLeKnedsJwGnLGwXdwQfTkdcCK0pfWdf35dZe0Vy2wmcE/2doS7LRHg==}
-    engines: {node: '>=14'}
-    dependencies:
-      strip-json-comments: 4.0.0
-    dev: false
 
   /load-yaml-file/0.2.0:
     resolution: {integrity: sha512-OfCBkGEw4nN6JLtgRidPX6QxjBQGQf72q3si2uvqyFEMbycSFFHwAZeXx6cJgFM9wmLrf9zBwCP3Ivqa+LLZPw==}
@@ -15133,8 +15138,8 @@ packages:
     engines: {node: '>=0.6.x'}
     dev: false
 
-  /tsup/5.11.11_ts-node@10.4.0+typescript@4.5.5:
-    resolution: {integrity: sha512-rgbTu+KhAI9PdGUS07rKohDXbRLTstBGJaxl75q7RZYRGF+n+kN8L4RlXY5pqYb9Hsq0gEB6nS39v7nSvVBS+g==}
+  /tsup/5.11.12_ts-node@10.4.0+typescript@4.5.5:
+    resolution: {integrity: sha512-zwOcdMaWKgbcJeWQ654OYdCfcy+dj9d3nzutPPmqiDPeHkmxjovIFX6xqvPTcIkMEuTsUgHuQDoJ0qS3r16zqA==}
     hasBin: true
     peerDependencies:
       typescript: ^4.1.0
@@ -15142,7 +15147,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      bundle-require: 2.3.0_esbuild@0.14.14
+      bundle-require: 3.0.4_esbuild@0.14.14
       cac: 6.7.12
       chokidar: 3.5.3
       debug: 4.3.3
