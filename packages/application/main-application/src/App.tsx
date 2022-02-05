@@ -3,19 +3,14 @@ import { FC } from 'react'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
 import RemoteComponent from '@cdl-pkg/remote-component'
+import SignIn from './components/SignIn/SignIn'
+import SignUp from './components/SignUp/SignUp'
+import Workspace from './components/Workspace/index'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
 
 const Hello = () => {
   return <div>hello</div>
-}
-
-const Login = () => {
-  return <div>login</div>
-}
-
-const Workspace = () => {
-  return <div>workspace</div>
 }
 
 const Test = () => {
@@ -26,7 +21,14 @@ const Test = () => {
 
 const routes = [
   { name: 'main', path: '/', component: <Hello />, key: 'hello' },
-  { name: 'login', path: '/login', component: <Login />, key: 'login' },
+  { name: 'login', path: '/login', component: <SignIn />, key: 'login' },
+  { name: 'register', path: '/register', component: <SignUp />, key: 'regis' },
+  {
+    name: 'workspace',
+    path: '/workspace',
+    component: <Workspace />,
+    key: 'workspace'
+  },
   {
     name: 'lowcode',
     path: '/editor',
