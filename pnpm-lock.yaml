@@ -45,17 +45,13 @@ importers:
       '@types/node': ^14.14.31
       '@types/react': ^17.0.0
       '@types/react-dom': ^17.0.0
-      '@types/react-grid-layout': ^1.3.0
       '@vitejs/plugin-react': ^1.0.1
       eslint: ^7.32.0
       eslint-plugin-prettier: ^4.0.0
       prettier: ^2.4.1
       rc: ^1.2.8
       react: ^17.0.0
-      react-dnd: ^14.0.5
-      react-dnd-html5-backend: ^14.1.0
       react-dom: ^17.0.0
-      react-grid-layout: ^1.3.3
       react-scripts: ^4.0.3
       rollup-plugin-visualizer: ^5.5.2
       typescript: ^4.1.2
@@ -70,15 +66,11 @@ importers:
       '@mui/icons-material': 5.3.1_2abdd7c2bf12d1ce6b28eb21ec7a52a6
       '@mui/material': 5.3.1_ef9ebef9212ce3073254d832d9e60422
       react: 17.0.2
-      react-dnd: registry.npmmirror.com/react-dnd/14.0.5_497bca8a97ef240bd261de93374d6f51
-      react-dnd-html5-backend: registry.npmmirror.com/react-dnd-html5-backend/14.1.0
       react-dom: 17.0.2_react@17.0.2
-      react-grid-layout: registry.npmmirror.com/react-grid-layout/1.3.3_react-dom@17.0.2+react@17.0.2
     devDependencies:
       '@types/node': 14.18.9
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
-      '@types/react-grid-layout': registry.npmmirror.com/@types/react-grid-layout/1.3.0
       '@vitejs/plugin-react': 1.1.4
       eslint: 7.32.0
       eslint-plugin-prettier: 4.0.0_6e6a25a49a944db0fa38418c3ba4bc86
@@ -631,7 +623,7 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       chalk: 2.4.2
-      js-tokens: registry.npmmirror.com/js-tokens/4.0.0
+      js-tokens: 4.0.0
 
   /@babel/parser/7.16.12:
     resolution: {integrity: sha512-VfaV15po8RiZssrkPweyvbGVSe4x2y+aciFCgn0n0/SJMR22cwofRV1mtnJQYcSB1wUTaA/X1LnA3es66MCO5A==}
@@ -2543,7 +2535,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       core-js-pure: 3.20.3
-      regenerator-runtime: registry.npmmirror.com/regenerator-runtime/0.13.9
+      regenerator-runtime: 0.13.9
     dev: true
 
   /@babel/runtime/7.16.7:
@@ -3109,7 +3101,7 @@ packages:
       '@emotion/memoize': 0.7.5
       '@emotion/unitless': 0.7.5
       '@emotion/utils': 1.0.0
-      csstype: registry.npmmirror.com/csstype/3.0.10
+      csstype: 3.0.10
     dev: false
 
   /@emotion/sheet/1.1.0:
@@ -3435,7 +3427,7 @@ packages:
       terminal-link: 2.1.1
       v8-to-istanbul: 7.1.2
     optionalDependencies:
-      node-notifier: registry.npmmirror.com/node-notifier/8.0.2
+      node-notifier: 8.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3674,16 +3666,16 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       '@emotion/is-prop-valid': 1.1.1
       '@mui/utils': 5.3.0_react@17.0.2
       '@popperjs/core': 2.11.2
       '@types/react': 17.0.38
-      clsx: registry.npmmirror.com/clsx/1.1.1
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      clsx: 1.1.1
+      prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      react-is: registry.npmmirror.com/react-is/17.0.2
+      react-is: 17.0.2
     dev: false
 
   /@mui/icons-material/5.3.1_2abdd7c2bf12d1ce6b28eb21ec7a52a6:
@@ -3749,10 +3741,10 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       '@mui/utils': 5.3.0_react@17.0.2
       '@types/react': 17.0.38
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      prop-types: 15.8.1
       react: 17.0.2
     dev: false
 
@@ -3769,11 +3761,11 @@ packages:
       '@emotion/styled':
         optional: true
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       '@emotion/cache': 11.7.1
       '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
       '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      prop-types: 15.8.1
       react: 17.0.2
     dev: false
 
@@ -3793,7 +3785,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
       '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06
       '@mui/private-theming': 5.3.0_b08e3c15324cbe90a6ff8fcd416c932c
@@ -3801,9 +3793,9 @@ packages:
       '@mui/types': 7.1.0_@types+react@17.0.38
       '@mui/utils': 5.3.0_react@17.0.2
       '@types/react': 17.0.38
-      clsx: registry.npmmirror.com/clsx/1.1.1
-      csstype: registry.npmmirror.com/csstype/3.0.10
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      clsx: 1.1.1
+      csstype: 3.0.10
+      prop-types: 15.8.1
       react: 17.0.2
     dev: false
 
@@ -3824,12 +3816,12 @@ packages:
     peerDependencies:
       react: ^17.0.0
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
-      '@types/prop-types': registry.npmmirror.com/@types/prop-types/15.7.4
+      '@babel/runtime': 7.16.7
+      '@types/prop-types': 15.7.4
       '@types/react-is': 17.0.3
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      prop-types: 15.8.1
       react: 17.0.2
-      react-is: registry.npmmirror.com/react-is/17.0.2
+      react-is: 17.0.2
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -4239,7 +4231,6 @@ packages:
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
-    dev: true
 
   /@types/q/1.5.5:
     resolution: {integrity: sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==}
@@ -4254,13 +4245,13 @@ packages:
   /@types/react-is/17.0.3:
     resolution: {integrity: sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==}
     dependencies:
-      '@types/react': registry.npmmirror.com/@types/react/17.0.38
+      '@types/react': 17.0.38
     dev: false
 
   /@types/react-transition-group/4.4.4:
     resolution: {integrity: sha512-7gAPz7anVK5xzbeQW9wFBDg7G++aPLAFY0QaSMOou9rJZpbuI58WAuJrgu+qR92l61grlnCUe7AFX8KGahAgug==}
     dependencies:
-      '@types/react': registry.npmmirror.com/@types/react/17.0.38
+      '@types/react': 17.0.38
     dev: false
 
   /@types/react/17.0.38:
@@ -4269,7 +4260,6 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.10
-    dev: true
 
   /@types/resolve/0.0.8:
     resolution: {integrity: sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==}
@@ -4279,7 +4269,6 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
-    dev: true
 
   /@types/semver/6.2.3:
     resolution: {integrity: sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==}
@@ -4764,7 +4753,7 @@ packages:
   /ajv/8.9.0:
     resolution: {integrity: sha512-qOKJyNj/h+OWx7s5DePL6Zu1KeM9jPZhwBqs+7DzP6bGOvqzVCSf0xueYmVuaC/oQ/VtS2zLMLHdQFbkka+XDQ==}
     dependencies:
-      fast-deep-equal: registry.npmmirror.com/fast-deep-equal/3.1.3
+      fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
@@ -4869,7 +4858,7 @@ packages:
     resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
     engines: {node: '>=6.0'}
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       '@babel/runtime-corejs3': 7.16.8
     dev: true
 
@@ -4980,7 +4969,7 @@ packages:
   /assert/1.5.0:
     resolution: {integrity: sha512-EDsgawzwoun2CZkCgtxJbv392v4nbk9XDD06zI+kQYoBM/3RBWLlEyJARDOmhAAosBjWACEkKL6S+lIZtcAubA==}
     dependencies:
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
+      object-assign: 4.1.1
       util: 0.10.3
     dev: true
 
@@ -5219,7 +5208,7 @@ packages:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       cosmiconfig: 7.0.1
       resolve: 1.22.0
     dev: true
@@ -5419,7 +5408,7 @@ packages:
     resolution: {integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=}
     dependencies:
       core-js: 2.6.12
-      regenerator-runtime: registry.npmmirror.com/regenerator-runtime/0.11.1
+      regenerator-runtime: 0.11.1
     dev: true
 
   /babylon/6.18.0:
@@ -5479,6 +5468,13 @@ packages:
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
+
+  /bindings/1.5.0:
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    dependencies:
+      file-uri-to-path: 1.0.0
+    dev: true
+    optional: true
 
   /bl/1.2.3:
     resolution: {integrity: sha512-pvcNpa0UU69UT341rO6AYy4FVAIkUHuZXRIWbq+zHnsVcRzDDjIAhGuuYoi0d//cwIwtt4pkpKycWEfjdV+vww==}
@@ -5945,7 +5941,7 @@ packages:
       readdirp: 2.2.1
       upath: 1.2.0
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/1.2.13
+      fsevents: 1.2.13
     dev: true
 
   /chokidar/3.5.3:
@@ -5960,7 +5956,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -7065,8 +7061,8 @@ packages:
   /dom-helpers/5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
-      csstype: registry.npmmirror.com/csstype/3.0.10
+      '@babel/runtime': 7.16.7
+      csstype: 3.0.10
     dev: false
 
   /dom-serializer/0.2.2:
@@ -7324,12 +7320,28 @@ packages:
       ext: 1.6.0
     dev: true
 
+  /esbuild-android-arm64/0.13.15:
+    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-android-arm64/0.14.14:
     resolution: {integrity: sha512-be/Uw6DdpQiPfula1J4bdmA+wtZ6T3BRCZsDMFB5X+k0Gp8TIh9UvmAcqvKNnbRAafSaXG3jPCeXxDKqnc8hFQ==}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-darwin-64/0.13.15:
+    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-64/0.14.14:
@@ -7340,12 +7352,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-darwin-arm64/0.13.15:
+    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-darwin-arm64/0.14.14:
     resolution: {integrity: sha512-tnBKm41pDOB1GtZ8q/w26gZlLLRzVmP8fdsduYjvM+yFD7E2DLG4KbPAqFMWm4Md9B+DitBglP57FY7AznxbTg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-freebsd-64/0.13.15:
+    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.14.14:
@@ -7356,12 +7384,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-freebsd-arm64/0.13.15:
+    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==}
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-freebsd-arm64/0.14.14:
     resolution: {integrity: sha512-TJvq0OpLM7BkTczlyPIphcvnwrQwQDG1HqxzoYePWn26SMUAlt6wrLnEvxdbXAvNvDLVzG83kA+JimjK7aRNBA==}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-linux-32/0.13.15:
+    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==}
+    cpu: [ia32]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-32/0.14.14:
@@ -7372,12 +7416,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-linux-64/0.13.15:
+    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-64/0.14.14:
     resolution: {integrity: sha512-IC+wAiIg/egp5OhQp4W44D9PcBOH1b621iRn1OXmlLzij9a/6BGr9NMIL4CRwz4j2kp3WNZu5sT473tYdynOuQ==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-linux-arm/0.13.15:
+    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm/0.14.14:
@@ -7388,6 +7448,14 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-linux-arm64/0.13.15:
+    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-arm64/0.14.14:
     resolution: {integrity: sha512-6QVul3RI4M5/VxVIRF/I5F+7BaxzR3DfNGoqEVSCZqUbgzHExPn+LXr5ly1C7af2Kw4AHpo+wDqx8A4ziP9avw==}
     cpu: [arm64]
@@ -7396,12 +7464,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-linux-mips64le/0.13.15:
+    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==}
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-linux-mips64le/0.14.14:
     resolution: {integrity: sha512-4Jl5/+xoINKbA4cesH3f4R+q0vltAztZ6Jm8YycS8lNhN1pgZJBDxWfI6HUMIAdkKlIpR1PIkA9aXQgZ8sxFAg==}
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-linux-ppc64le/0.13.15:
+    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==}
+    cpu: [ppc64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-ppc64le/0.14.14:
@@ -7420,12 +7504,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-netbsd-64/0.13.15:
+    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==}
+    cpu: [x64]
+    os: [netbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-netbsd-64/0.14.14:
     resolution: {integrity: sha512-fn8looXPQhpVqUyCBWUuPjesH+yGIyfbIQrLKG05rr1Kgm3rZD/gaYrd3Wpmf5syVZx70pKZPvdHp8OTA+y7cQ==}
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-openbsd-64/0.13.15:
+    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==}
+    cpu: [x64]
+    os: [openbsd]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-openbsd-64/0.14.14:
@@ -7436,12 +7536,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-sunos-64/0.13.15:
+    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==}
+    cpu: [x64]
+    os: [sunos]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-sunos-64/0.14.14:
     resolution: {integrity: sha512-bmDHa99ulsGnYlh/xjBEfxoGuC8CEG5OWvlgD+pF7bKKiVTbtxqVCvOGEZeoDXB+ja6AvHIbPxrEE32J+m5nqQ==}
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-windows-32/0.13.15:
+    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-32/0.14.14:
@@ -7452,12 +7568,28 @@ packages:
     dev: false
     optional: true
 
+  /esbuild-windows-64/0.13.15:
+    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /esbuild-windows-64/0.14.14:
     resolution: {integrity: sha512-kl3BdPXh0/RD/dad41dtzj2itMUR4C6nQbXQCyYHHo4zoUoeIXhpCrSl7BAW1nv5EFL8stT1V+TQVXGZca5A2A==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: false
+    optional: true
+
+  /esbuild-windows-arm64/0.13.15:
+    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-arm64/0.14.14:
@@ -7473,23 +7605,23 @@ packages:
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      esbuild-android-arm64: registry.npmmirror.com/esbuild-android-arm64/0.13.15
-      esbuild-darwin-64: registry.npmmirror.com/esbuild-darwin-64/0.13.15
-      esbuild-darwin-arm64: registry.npmmirror.com/esbuild-darwin-arm64/0.13.15
-      esbuild-freebsd-64: registry.npmmirror.com/esbuild-freebsd-64/0.13.15
-      esbuild-freebsd-arm64: registry.npmmirror.com/esbuild-freebsd-arm64/0.13.15
-      esbuild-linux-32: registry.npmmirror.com/esbuild-linux-32/0.13.15
-      esbuild-linux-64: registry.npmmirror.com/esbuild-linux-64/0.13.15
-      esbuild-linux-arm: registry.npmmirror.com/esbuild-linux-arm/0.13.15
-      esbuild-linux-arm64: registry.npmmirror.com/esbuild-linux-arm64/0.13.15
-      esbuild-linux-mips64le: registry.npmmirror.com/esbuild-linux-mips64le/0.13.15
-      esbuild-linux-ppc64le: registry.npmmirror.com/esbuild-linux-ppc64le/0.13.15
-      esbuild-netbsd-64: registry.npmmirror.com/esbuild-netbsd-64/0.13.15
-      esbuild-openbsd-64: registry.npmmirror.com/esbuild-openbsd-64/0.13.15
-      esbuild-sunos-64: registry.npmmirror.com/esbuild-sunos-64/0.13.15
-      esbuild-windows-32: registry.npmmirror.com/esbuild-windows-32/0.13.15
-      esbuild-windows-64: registry.npmmirror.com/esbuild-windows-64/0.13.15
-      esbuild-windows-arm64: registry.npmmirror.com/esbuild-windows-arm64/0.13.15
+      esbuild-android-arm64: 0.13.15
+      esbuild-darwin-64: 0.13.15
+      esbuild-darwin-arm64: 0.13.15
+      esbuild-freebsd-64: 0.13.15
+      esbuild-freebsd-arm64: 0.13.15
+      esbuild-linux-32: 0.13.15
+      esbuild-linux-64: 0.13.15
+      esbuild-linux-arm: 0.13.15
+      esbuild-linux-arm64: 0.13.15
+      esbuild-linux-mips64le: 0.13.15
+      esbuild-linux-ppc64le: 0.13.15
+      esbuild-netbsd-64: 0.13.15
+      esbuild-openbsd-64: 0.13.15
+      esbuild-sunos-64: 0.13.15
+      esbuild-windows-32: 0.13.15
+      esbuild-windows-64: 0.13.15
+      esbuild-windows-arm64: 0.13.15
     dev: true
 
   /esbuild/0.14.14:
@@ -7548,7 +7680,7 @@ packages:
       esutils: 2.0.3
       optionator: 0.8.3
     optionalDependencies:
-      source-map: registry.npmmirror.com/source-map/0.6.1
+      source-map: 0.6.1
 
   /eslint-config-prettier/8.3.0:
     resolution: {integrity: sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==}
@@ -7738,7 +7870,7 @@ packages:
       object.fromentries: 2.0.5
       object.hasown: 1.1.0
       object.values: 1.1.5
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      prop-types: 15.8.1
       resolve: 2.0.0-next.3
       semver: 6.3.0
       string.prototype.matchall: 4.0.6
@@ -8188,6 +8320,11 @@ packages:
       webpack: 4.44.2
     dev: true
 
+  /file-uri-to-path/1.0.0:
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    dev: true
+    optional: true
+
   /filesize/6.1.0:
     resolution: {integrity: sha512-LpCHtPQ3sFx67z+uh2HnSyWSLLu5Jxo21795uRDuar/EOuYWXib5EmPaGIBuSnRqH2IODiKA2k5re/K9OnN/Yg==}
     engines: {node: '>= 0.4.0'}
@@ -8464,12 +8601,23 @@ packages:
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
+  /fsevents/1.2.13:
+    resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
+    engines: {node: '>= 4.0'}
+    os: [darwin]
+    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      nan: 2.15.0
+    dev: true
+    optional: true
+
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -8651,7 +8799,7 @@ packages:
     dependencies:
       array-union: 1.0.2
       glob: 7.2.0
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
+      object-assign: 4.1.1
       pify: 2.3.0
       pinkie-promise: 2.0.1
     dev: true
@@ -8791,7 +8939,7 @@ packages:
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
-      react-is: registry.npmmirror.com/react-is/16.13.1
+      react-is: 16.13.1
     dev: false
 
   /hoopy/0.1.4:
@@ -9954,7 +10102,7 @@ packages:
       sane: 4.1.0
       walker: 1.0.8
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
     dev: true
 
   /jest-haste-map/27.4.6:
@@ -10585,6 +10733,9 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  /js-tokens/4.0.0:
+    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+
   /js-yaml/3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
     hasBin: true
@@ -10687,7 +10838,7 @@ packages:
   /jsonfile/4.0.0:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
     optionalDependencies:
-      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
+      graceful-fs: 4.2.9
     dev: true
 
   /jsonfile/6.1.0:
@@ -10695,7 +10846,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
+      graceful-fs: 4.2.9
     dev: true
 
   /jsonparse/1.3.1:
@@ -11009,7 +11160,7 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
     dependencies:
-      js-tokens: registry.npmmirror.com/js-tokens/4.0.0
+      js-tokens: 4.0.0
 
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
@@ -11427,6 +11578,11 @@ packages:
       thenify-all: 1.6.0
     dev: false
 
+  /nan/2.15.0:
+    resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
+    dev: true
+    optional: true
+
   /nanoid/3.2.0:
     resolution: {integrity: sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -11519,6 +11675,19 @@ packages:
       vm-browserify: 1.1.2
     dev: true
 
+  /node-notifier/8.0.2:
+    resolution: {integrity: sha512-oJP/9NAdd9+x2Q+rfphB2RJCHjod70RcRLjosiPMMu5gjIfwVnOUGq2nbTjTUbmy0DJ/tFIVT30+Qe3nzl4TJg==}
+    requiresBuild: true
+    dependencies:
+      growly: 1.3.0
+      is-wsl: 2.2.0
+      semver: 7.3.5
+      shellwords: 0.1.1
+      uuid: 8.3.2
+      which: 2.0.2
+    dev: true
+    optional: true
+
   /node-releases/1.1.77:
     resolution: {integrity: sha512-rB1DUFUNAN4Gn9keO2K1efO35IDK7yKHCdCaIMvFO7yUYmmZYeDjnGKle26G4rwj+LKRQpjyUUvMkPglwGCYNQ==}
     dev: true
@@ -11578,7 +11747,7 @@ packages:
     resolution: {integrity: sha1-LMDWazHqIwNkWENuNiDYWVTGbDw=}
     engines: {node: '>=4'}
     dependencies:
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
+      object-assign: 4.1.1
       prepend-http: 1.0.4
       query-string: 4.3.4
       sort-keys: 1.1.2
@@ -12880,7 +13049,7 @@ packages:
       '@jest/types': 26.6.2
       ansi-regex: 5.0.1
       ansi-styles: 4.3.0
-      react-is: registry.npmmirror.com/react-is/17.0.2
+      react-is: 17.0.2
     dev: true
 
   /pretty-format/27.4.6:
@@ -12934,10 +13103,9 @@ packages:
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
-      loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
-      react-is: registry.npmmirror.com/react-is/16.13.1
-    dev: false
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
 
   /proxy-addr/2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -13025,7 +13193,7 @@ packages:
     resolution: {integrity: sha1-u7aTucqRXCMlFbIosaArYJBD2+s=}
     engines: {node: '>=0.10.0'}
     dependencies:
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
+      object-assign: 4.1.1
       strict-uri-encode: 1.1.0
     dev: true
 
@@ -13106,7 +13274,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       core-js: 3.20.3
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
+      object-assign: 4.1.1
       promise: 8.1.0
       raf: 3.4.1
       regenerator-runtime: 0.13.9
@@ -13156,6 +13324,9 @@ packages:
   /react-error-overlay/6.0.10:
     resolution: {integrity: sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==}
     dev: true
+
+  /react-is/16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -13263,7 +13434,7 @@ packages:
       webpack-manifest-plugin: 2.2.0_webpack@4.44.2
       workbox-webpack-plugin: 5.1.4_webpack@4.44.2
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
     transitivePeerDependencies:
       - '@types/webpack'
       - acorn
@@ -13289,10 +13460,10 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       dom-helpers: 5.2.1
-      loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: false
@@ -13403,13 +13574,17 @@ packages:
     resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
     dev: true
 
+  /regenerator-runtime/0.11.1:
+    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
+    dev: true
+
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
 
   /regenerator-transform/0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==}
     dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
     dev: true
 
   /regex-not/1.0.2:
@@ -13710,7 +13885,7 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
 
   /rsvp/4.8.5:
     resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}
@@ -13808,8 +13983,8 @@ packages:
   /scheduler/0.20.2:
     resolution: {integrity: sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==}
     dependencies:
-      loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
 
   /schema-utils/1.0.0:
     resolution: {integrity: sha512-i27Mic4KovM/lnGsy8whRCHhc7VicJajAjTrYg11K9zfZXnYIt4k5F+kZkwjnrhKzLic/HLU4j11mjsz2G/75g==}
@@ -14142,7 +14317,6 @@ packages:
   /source-map/0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map/0.7.3:
     resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
@@ -15371,7 +15545,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.66.1
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
     dev: true
 
   /vm-browserify/1.1.2:
@@ -15437,14 +15611,22 @@ packages:
       makeerror: 1.0.12
     dev: true
 
+  /watchpack-chokidar2/2.0.1:
+    resolution: {integrity: sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww==}
+    requiresBuild: true
+    dependencies:
+      chokidar: 2.1.8
+    dev: true
+    optional: true
+
   /watchpack/1.7.5:
     resolution: {integrity: sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==}
     dependencies:
       graceful-fs: 4.2.9
       neo-async: 2.6.2
     optionalDependencies:
-      chokidar: registry.npmmirror.com/chokidar/3.5.3
-      watchpack-chokidar2: registry.npmmirror.com/watchpack-chokidar2/2.0.1
+      chokidar: 3.5.3
+      watchpack-chokidar2: 2.0.1
     dev: true
 
   /wbuf/1.7.3:
@@ -15691,7 +15873,7 @@ packages:
     dependencies:
       '@babel/core': 7.16.12
       '@babel/preset-env': 7.16.11_@babel+core@7.16.12
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
+      '@babel/runtime': 7.16.7
       '@hapi/joi': 15.1.1
       '@rollup/plugin-node-resolve': 7.1.3_rollup@1.32.1
       '@rollup/plugin-replace': 2.4.2_rollup@1.32.1
@@ -16036,539 +16218,3 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-  registry.npmmirror.com/@babel/runtime/7.16.7:
-    resolution: {integrity: sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/runtime/-/runtime-7.16.7.tgz}
-    name: '@babel/runtime'
-    version: 7.16.7
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: registry.npmmirror.com/regenerator-runtime/0.13.9
-
-  registry.npmmirror.com/@react-dnd/asap/4.0.0:
-    resolution: {integrity: sha512-0XhqJSc6pPoNnf8DhdsPHtUhRzZALVzYMTzRwV4VI6DJNJ/5xxfL9OQUwb8IH5/2x7lSf7nAZrnzUD+16VyOVQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-dnd/asap/-/asap-4.0.0.tgz}
-    name: '@react-dnd/asap'
-    version: 4.0.0
-    dev: false
-
-  registry.npmmirror.com/@react-dnd/invariant/2.0.0:
-    resolution: {integrity: sha512-xL4RCQBCBDJ+GRwKTFhGUW8GXa4yoDfJrPbLblc3U09ciS+9ZJXJ3Qrcs/x2IODOdIE5kQxvMmE2UKyqUictUw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-dnd/invariant/-/invariant-2.0.0.tgz}
-    name: '@react-dnd/invariant'
-    version: 2.0.0
-    dev: false
-
-  registry.npmmirror.com/@react-dnd/shallowequal/2.0.0:
-    resolution: {integrity: sha512-Pc/AFTdwZwEKJxFJvlxrSmGe/di+aAOBn60sremrpLo6VI/6cmiUYNNwlI5KNYttg7uypzA3ILPMPgxB2GYZEg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-dnd/shallowequal/-/shallowequal-2.0.0.tgz}
-    name: '@react-dnd/shallowequal'
-    version: 2.0.0
-    dev: false
-
-  registry.npmmirror.com/@types/prop-types/15.7.4:
-    resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.4.tgz}
-    name: '@types/prop-types'
-    version: 15.7.4
-
-  registry.npmmirror.com/@types/react-grid-layout/1.3.0:
-    resolution: {integrity: sha512-Pytm7lvm4h91yN9CpdjV8IpU/hgVRHrUhDEIX593e4Mx9V14Pr3gWtj21WHzy5bDqU//jnGGVVSYJ3QVuI1NaQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-grid-layout/-/react-grid-layout-1.3.0.tgz}
-    name: '@types/react-grid-layout'
-    version: 1.3.0
-    dependencies:
-      '@types/react': registry.npmmirror.com/@types/react/17.0.38
-    dev: true
-
-  registry.npmmirror.com/@types/react/17.0.38:
-    resolution: {integrity: sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react/-/react-17.0.38.tgz}
-    name: '@types/react'
-    version: 17.0.38
-    dependencies:
-      '@types/prop-types': registry.npmmirror.com/@types/prop-types/15.7.4
-      '@types/scheduler': registry.npmmirror.com/@types/scheduler/0.16.2
-      csstype: registry.npmmirror.com/csstype/3.0.10
-
-  registry.npmmirror.com/@types/scheduler/0.16.2:
-    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/scheduler/-/scheduler-0.16.2.tgz}
-    name: '@types/scheduler'
-    version: 0.16.2
-
-  registry.npmmirror.com/bindings/1.5.0:
-    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bindings/-/bindings-1.5.0.tgz}
-    name: bindings
-    version: 1.5.0
-    requiresBuild: true
-    dependencies:
-      file-uri-to-path: registry.npmmirror.com/file-uri-to-path/1.0.0
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/chokidar/2.1.8:
-    resolution: {integrity: sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/chokidar/-/chokidar-2.1.8.tgz}
-    name: chokidar
-    version: 2.1.8
-    deprecated: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
-    dependencies:
-      anymatch: 2.0.0
-      async-each: 1.0.3
-      braces: 2.3.2
-      glob-parent: 3.1.0
-      inherits: 2.0.4
-      is-binary-path: 1.0.1
-      is-glob: 4.0.3
-      normalize-path: 3.0.0
-      path-is-absolute: 1.0.1
-      readdirp: 2.2.1
-      upath: 1.2.0
-    optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/1.2.13
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/chokidar/3.5.3:
-    resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/chokidar/-/chokidar-3.5.3.tgz}
-    name: chokidar
-    version: 3.5.3
-    engines: {node: '>= 8.10.0'}
-    requiresBuild: true
-    dependencies:
-      anymatch: 3.1.2
-      braces: 3.0.2
-      glob-parent: 5.1.2
-      is-binary-path: 2.1.0
-      is-glob: 4.0.3
-      normalize-path: 3.0.0
-      readdirp: 3.6.0
-    optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/clsx/1.1.1:
-    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/clsx/-/clsx-1.1.1.tgz}
-    name: clsx
-    version: 1.1.1
-    engines: {node: '>=6'}
-    dev: false
-
-  registry.npmmirror.com/csstype/3.0.10:
-    resolution: {integrity: sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/csstype/-/csstype-3.0.10.tgz}
-    name: csstype
-    version: 3.0.10
-
-  registry.npmmirror.com/dnd-core/14.0.1:
-    resolution: {integrity: sha512-+PVS2VPTgKFPYWo3vAFEA8WPbTf7/xo43TifH9G8S1KqnrQu0o77A3unrF5yOugy4mIz7K5wAVFHUcha7wsz6A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dnd-core/-/dnd-core-14.0.1.tgz}
-    name: dnd-core
-    version: 14.0.1
-    dependencies:
-      '@react-dnd/asap': registry.npmmirror.com/@react-dnd/asap/4.0.0
-      '@react-dnd/invariant': registry.npmmirror.com/@react-dnd/invariant/2.0.0
-      redux: registry.npmmirror.com/redux/4.1.2
-    dev: false
-
-  registry.npmmirror.com/esbuild-android-arm64/0.13.15:
-    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-android-arm64/-/esbuild-android-arm64-0.13.15.tgz}
-    name: esbuild-android-arm64
-    version: 0.13.15
-    cpu: [arm64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-darwin-64/0.13.15:
-    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-darwin-64/-/esbuild-darwin-64-0.13.15.tgz}
-    name: esbuild-darwin-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-darwin-arm64/0.13.15:
-    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.13.15.tgz}
-    name: esbuild-darwin-arm64
-    version: 0.13.15
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-freebsd-64/0.13.15:
-    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-freebsd-64/-/esbuild-freebsd-64-0.13.15.tgz}
-    name: esbuild-freebsd-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-freebsd-arm64/0.13.15:
-    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-freebsd-arm64/-/esbuild-freebsd-arm64-0.13.15.tgz}
-    name: esbuild-freebsd-arm64
-    version: 0.13.15
-    cpu: [arm64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-linux-32/0.13.15:
-    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-32/-/esbuild-linux-32-0.13.15.tgz}
-    name: esbuild-linux-32
-    version: 0.13.15
-    cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-linux-64/0.13.15:
-    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-64/-/esbuild-linux-64-0.13.15.tgz}
-    name: esbuild-linux-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-linux-arm/0.13.15:
-    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-arm/-/esbuild-linux-arm-0.13.15.tgz}
-    name: esbuild-linux-arm
-    version: 0.13.15
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-linux-arm64/0.13.15:
-    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-arm64/-/esbuild-linux-arm64-0.13.15.tgz}
-    name: esbuild-linux-arm64
-    version: 0.13.15
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-linux-mips64le/0.13.15:
-    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-mips64le/-/esbuild-linux-mips64le-0.13.15.tgz}
-    name: esbuild-linux-mips64le
-    version: 0.13.15
-    cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-linux-ppc64le/0.13.15:
-    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-linux-ppc64le/-/esbuild-linux-ppc64le-0.13.15.tgz}
-    name: esbuild-linux-ppc64le
-    version: 0.13.15
-    cpu: [ppc64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-netbsd-64/0.13.15:
-    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-netbsd-64/-/esbuild-netbsd-64-0.13.15.tgz}
-    name: esbuild-netbsd-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [netbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-openbsd-64/0.13.15:
-    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-openbsd-64/-/esbuild-openbsd-64-0.13.15.tgz}
-    name: esbuild-openbsd-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [openbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-sunos-64/0.13.15:
-    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-sunos-64/-/esbuild-sunos-64-0.13.15.tgz}
-    name: esbuild-sunos-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [sunos]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-windows-32/0.13.15:
-    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-windows-32/-/esbuild-windows-32-0.13.15.tgz}
-    name: esbuild-windows-32
-    version: 0.13.15
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-windows-64/0.13.15:
-    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-windows-64/-/esbuild-windows-64-0.13.15.tgz}
-    name: esbuild-windows-64
-    version: 0.13.15
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/esbuild-windows-arm64/0.13.15:
-    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.15.tgz}
-    name: esbuild-windows-arm64
-    version: 0.13.15
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/fast-deep-equal/3.1.3:
-    resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz}
-    name: fast-deep-equal
-    version: 3.1.3
-
-  registry.npmmirror.com/file-uri-to-path/1.0.0:
-    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz}
-    name: file-uri-to-path
-    version: 1.0.0
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/fsevents/1.2.13:
-    resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-1.2.13.tgz}
-    name: fsevents
-    version: 1.2.13
-    engines: {node: '>= 4.0'}
-    os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
-    requiresBuild: true
-    dependencies:
-      bindings: registry.npmmirror.com/bindings/1.5.0
-      nan: registry.npmmirror.com/nan/2.15.0
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
-    name: fsevents
-    version: 2.3.2
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    optional: true
-
-  registry.npmmirror.com/graceful-fs/4.2.9:
-    resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.9.tgz}
-    name: graceful-fs
-    version: 4.2.9
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/hoist-non-react-statics/3.3.2:
-    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz}
-    name: hoist-non-react-statics
-    version: 3.3.2
-    dependencies:
-      react-is: registry.npmmirror.com/react-is/16.13.1
-    dev: false
-
-  registry.npmmirror.com/js-tokens/4.0.0:
-    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/js-tokens/-/js-tokens-4.0.0.tgz}
-    name: js-tokens
-    version: 4.0.0
-
-  registry.npmmirror.com/lodash.isequal/4.5.0:
-    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz}
-    name: lodash.isequal
-    version: 4.5.0
-    dev: false
-
-  registry.npmmirror.com/loose-envify/1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/loose-envify/-/loose-envify-1.4.0.tgz}
-    name: loose-envify
-    version: 1.4.0
-    hasBin: true
-    dependencies:
-      js-tokens: registry.npmmirror.com/js-tokens/4.0.0
-
-  registry.npmmirror.com/nan/2.15.0:
-    resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/nan/-/nan-2.15.0.tgz}
-    name: nan
-    version: 2.15.0
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/node-notifier/8.0.2:
-    resolution: {integrity: sha512-oJP/9NAdd9+x2Q+rfphB2RJCHjod70RcRLjosiPMMu5gjIfwVnOUGq2nbTjTUbmy0DJ/tFIVT30+Qe3nzl4TJg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/node-notifier/-/node-notifier-8.0.2.tgz}
-    name: node-notifier
-    version: 8.0.2
-    requiresBuild: true
-    dependencies:
-      growly: 1.3.0
-      is-wsl: 2.2.0
-      semver: 7.3.5
-      shellwords: 0.1.1
-      uuid: 8.3.2
-      which: 2.0.2
-    dev: true
-    optional: true
-
-  registry.npmmirror.com/object-assign/4.1.1:
-    resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/object-assign/-/object-assign-4.1.1.tgz}
-    name: object-assign
-    version: 4.1.1
-    engines: {node: '>=0.10.0'}
-
-  registry.npmmirror.com/prop-types/15.8.1:
-    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz}
-    name: prop-types
-    version: 15.8.1
-    dependencies:
-      loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
-      react-is: registry.npmmirror.com/react-is/16.13.1
-
-  registry.npmmirror.com/react-dnd-html5-backend/14.1.0:
-    resolution: {integrity: sha512-6ONeqEC3XKVf4eVmMTe0oPds+c5B9Foyj8p/ZKLb7kL2qh9COYxiBHv3szd6gztqi/efkmriywLUVlPotqoJyw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-dnd-html5-backend/-/react-dnd-html5-backend-14.1.0.tgz}
-    name: react-dnd-html5-backend
-    version: 14.1.0
-    dependencies:
-      dnd-core: registry.npmmirror.com/dnd-core/14.0.1
-    dev: false
-
-  registry.npmmirror.com/react-dnd/14.0.5_497bca8a97ef240bd261de93374d6f51:
-    resolution: {integrity: sha512-9i1jSgbyVw0ELlEVt/NkCUkxy1hmhJOkePoCH713u75vzHGyXhPDm28oLfc2NMSBjZRM1Y+wRjHXJT3sPrTy+A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-dnd/-/react-dnd-14.0.5.tgz}
-    id: registry.npmmirror.com/react-dnd/14.0.5
-    name: react-dnd
-    version: 14.0.5
-    peerDependencies:
-      '@types/hoist-non-react-statics': '>= 3.3.1'
-      '@types/node': '>= 12'
-      '@types/react': '>= 16'
-      react: '>= 16.14'
-    peerDependenciesMeta:
-      '@types/hoist-non-react-statics':
-        optional: true
-      '@types/node':
-        optional: true
-      '@types/react':
-        optional: true
-    dependencies:
-      '@react-dnd/invariant': registry.npmmirror.com/@react-dnd/invariant/2.0.0
-      '@react-dnd/shallowequal': registry.npmmirror.com/@react-dnd/shallowequal/2.0.0
-      '@types/node': 14.18.9
-      '@types/react': 17.0.38
-      dnd-core: registry.npmmirror.com/dnd-core/14.0.1
-      fast-deep-equal: registry.npmmirror.com/fast-deep-equal/3.1.3
-      hoist-non-react-statics: registry.npmmirror.com/hoist-non-react-statics/3.3.2
-      react: 17.0.2
-    dev: false
-
-  registry.npmmirror.com/react-draggable/4.4.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-6e0WdcNLwpBx/YIDpoyd2Xb04PB0elrDrulKUgdrIlwuYvxh5Ok9M+F8cljm8kPXXs43PmMzek9RrB1b7mLMqA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-draggable/-/react-draggable-4.4.4.tgz}
-    id: registry.npmmirror.com/react-draggable/4.4.4
-    name: react-draggable
-    version: 4.4.4
-    peerDependencies:
-      react: '>= 16.3.0'
-      react-dom: '>= 16.3.0'
-    dependencies:
-      clsx: registry.npmmirror.com/clsx/1.1.1
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    dev: false
-
-  registry.npmmirror.com/react-grid-layout/1.3.3_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-qxSU0IVzlneoIH0eGohJK80zmyTv6iWOEn5t6rUTx8XGf7btkmp64YbDaVtUgULDwV40YIO6wdqkVtx/X2bWAQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-grid-layout/-/react-grid-layout-1.3.3.tgz}
-    id: registry.npmmirror.com/react-grid-layout/1.3.3
-    name: react-grid-layout
-    version: 1.3.3
-    peerDependencies:
-      react: '>= 16.3.0'
-      react-dom: '>= 16.3.0'
-    dependencies:
-      clsx: registry.npmmirror.com/clsx/1.1.1
-      lodash.isequal: registry.npmmirror.com/lodash.isequal/4.5.0
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-draggable: registry.npmmirror.com/react-draggable/4.4.4_react-dom@17.0.2+react@17.0.2
-      react-resizable: registry.npmmirror.com/react-resizable/3.0.4_react-dom@17.0.2+react@17.0.2
-    dev: false
-
-  registry.npmmirror.com/react-is/16.13.1:
-    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz}
-    name: react-is
-    version: 16.13.1
-
-  registry.npmmirror.com/react-is/17.0.2:
-    resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-is/-/react-is-17.0.2.tgz}
-    name: react-is
-    version: 17.0.2
-
-  registry.npmmirror.com/react-resizable/3.0.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-StnwmiESiamNzdRHbSSvA65b0ZQJ7eVQpPusrSmcpyGKzC0gojhtO62xxH6YOBmepk9dQTBi9yxidL3W4s3EBA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-resizable/-/react-resizable-3.0.4.tgz}
-    id: registry.npmmirror.com/react-resizable/3.0.4
-    name: react-resizable
-    version: 3.0.4
-    peerDependencies:
-      react: '>= 16.3'
-    dependencies:
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
-      react: 17.0.2
-      react-draggable: registry.npmmirror.com/react-draggable/4.4.4_react-dom@17.0.2+react@17.0.2
-    transitivePeerDependencies:
-      - react-dom
-    dev: false
-
-  registry.npmmirror.com/redux/4.1.2:
-    resolution: {integrity: sha512-SH8PglcebESbd/shgf6mii6EIoRM0zrQyjcuQ+ojmfxjTtE0z9Y8pa62iA/OJ58qjP6j27uyW4kUF4jl/jd6sw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux/-/redux-4.1.2.tgz}
-    name: redux
-    version: 4.1.2
-    dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.16.7
-    dev: false
-
-  registry.npmmirror.com/regenerator-runtime/0.11.1:
-    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz}
-    name: regenerator-runtime
-    version: 0.11.1
-    dev: true
-
-  registry.npmmirror.com/regenerator-runtime/0.13.9:
-    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz}
-    name: regenerator-runtime
-    version: 0.13.9
-
-  registry.npmmirror.com/source-map/0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/source-map/-/source-map-0.6.1.tgz}
-    name: source-map
-    version: 0.6.1
-    engines: {node: '>=0.10.0'}
-    requiresBuild: true
-    optional: true
-
-  registry.npmmirror.com/watchpack-chokidar2/2.0.1:
-    resolution: {integrity: sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz}
-    name: watchpack-chokidar2
-    version: 2.0.1
-    requiresBuild: true
-    dependencies:
-      chokidar: registry.npmmirror.com/chokidar/2.1.8
-    dev: true
-    optional: true
