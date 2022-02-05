@@ -24,3 +24,7 @@ pub fn hello(name: &str)  {
 pub fn strlen(k: &str) -> i32 {
     k.len() as i32
 }
+#[wasm_bindgen]
+pub fn json_to_jsx(json: &str) -> String {
+    String::from("Unfinished Function")
+}

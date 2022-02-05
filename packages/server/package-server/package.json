@@ -1,6 +1,6 @@
 {
   "name": "@cdl-pkg/package-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "lweijian",
   "description": "",
   "main": "build/index.js",
@@ -10,7 +10,7 @@
     "pump": "^3.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "tsup": "^5.11.11"
+    "tsup": "^5.11.12"
   },
   "peerDependencies": {
     "postcss": "^8.4.5"

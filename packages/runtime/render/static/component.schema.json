@@ -1,0 +1,45 @@
+
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://codedragger.com/component",
+  "title": "codedagger/component",
+  "description": "Codedagger Component",
+  "required": [ "id", "tag", "plainNode", "nativeTag" ],
+  "type": "object",
+  "properties": {
+    "id" : {
+      "type": "string"
+    },
+    "tag" : {
+      "type": "string"
+    },
+    "lib": {
+      "enum": ["antd-mobile", "mui", "html5"],
+      "default": "html5"
+    },
+    "plainNode": {
+      "type": "boolean",
+      "default": false
+    },
+    "value": {
+      "anyOf": 
+        [
+          { "type": "string", "default": "" },
+          { "type": "number", "default": 0 }
+        ]
+    },
+    "attributes": {
+      "oneOf": [
+        {
+          "$ref": "/antd-mobile/Input"
+        }
+      ]
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "https://codedragger.com/component"
+      }
+    }
+  }
+}

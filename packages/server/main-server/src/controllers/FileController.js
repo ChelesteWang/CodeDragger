@@ -1,11 +1,11 @@
 const fileService = require('../services/FileService')
 const fs = require('fs')
-const path = require('path')
+const { basename, join } = require('path')
 
-
-const {build, compress} = require("@cdl-pkg/package-server");
-const FileService = require("../services/FileService");
-const {v1} = require("uuid");
+const { build } = require('@cdl-pkg/package-server')
+const FileService = require('../services/FileService')
+const { v4 } = require('uuid')
+const { readFileSync } = require('fs')
 
 /**
  * fileController
@@ -48,13 +48,9 @@ class FileController {
   async download(ctx) {
     const id = ctx.params.id
     const result = await fileService.download(ctx, id)
-    if (result.success) {
-      const filename = path.basename(result.filePath)
-      ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
-      ctx.body = fs.createReadStream(result.filePath)
-    } else {
-      ctx.body = { result }
-    }
+    const filename = basename(result.filePath)
+    ctx.set('Content-Disposition', `attachment;fileName=${filename}`)
+    ctx.body = fs.createReadStream(result.filePath)
   }
 
   /**
@@ -66,17 +62,13 @@ class FileController {
    */
   async getContent(ctx) {
     const id = ctx.params.id
-    const { success, message, filePath } = await fileService.download(ctx, id)
-    if (!success) {
-      throw new Error(message)
-    }
+    const { filePath } = await fileService.download(ctx, id)
     const content = fs.readFileSync(filePath).toString('utf8')
     ctx.body = {
-      success,
+      success: true,
       content
     }
   }
-
 
   /**
    *  路由:/api/file/compile
@@ -86,12 +78,13 @@ class FileController {
    * @return {Promise<any>}
    */
   async compile(ctx) {
-    await build({outDir: '/tmp/dist'})
-    const buffer = await compress(`${join(__dirname, '../../tmp/dist')}`)
-    const {url} = await FileService.upload(ctx, {name: `${v1()}.tgz`, buffer})
-    ctx.body = {url}
+    const outDir = '/tmp/dist'
+    await build({ outDir })
+    //部署要改成/tmp/dist/index.js
+    const buffer = readFileSync(join(__dirname, '../../', outDir, 'index.js'))
+    const result = await FileService.upload(ctx, { name: `${v4()}.js`, buffer })
+    ctx.body = { result }
   }
-
 }
 
 // 导出 Controller 的实例
