@@ -36,6 +36,7 @@ importers:
   packages/application/dragger-editor:
     specifiers:
       '@caldwell619/react-hooks': ^0.0.6
+      '@cdl-pkg/profile-form': workspace:^0.0.0
       '@emotion/babel-plugin': ^11.7.2
       '@emotion/is-prop-valid': ^1.1.1
       '@emotion/react': 11.4.1
@@ -59,6 +60,7 @@ importers:
       vite-plugin-checker: ^0.3.4
     dependencies:
       '@caldwell619/react-hooks': 0.0.6_react@17.0.2
+      '@cdl-pkg/profile-form': link:../../components/profile-form
       '@emotion/babel-plugin': 11.7.2
       '@emotion/is-prop-valid': 1.1.1
       '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
@@ -3911,8 +3913,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.16.7
       '@emotion/cache': 11.7.1
-      '@emotion/react': 11.4.1_react@17.0.2
-      '@emotion/styled': 11.3.0_a004d704e6197b43c0d970f424150c43
+      '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
+      '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06
       prop-types: 15.8.1
       react: 17.0.2
     dev: false

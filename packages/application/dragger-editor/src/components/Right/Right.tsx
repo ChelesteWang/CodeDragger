@@ -4,7 +4,7 @@ import React from 'react'
 // import { TextField } from '@mui/material'
 // import Button from '@mui/material/Button'
 import './Right.css'
-import ProfileForm from '../../../../../components/profile-form/src/index'
+import ProfileForm from '@cdl-pkg/profile-form'
 const selectedNode = {
   tag: 'MyCom',
   properties: {
