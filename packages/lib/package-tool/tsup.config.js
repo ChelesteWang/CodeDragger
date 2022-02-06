@@ -9,4 +9,7 @@ export default defineConfig({
         resolve: true,
         entry: './src/index.ts',
     },
+    inject:[
+        './react-shim.js',
+    ],
 })

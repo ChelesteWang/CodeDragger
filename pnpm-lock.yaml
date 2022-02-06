@@ -171,8 +171,10 @@ importers:
       axios: ^0.25.0
       react: ^17.0.2
       react-dom: ^17.0.2
+      zarm: ^2.9.13
     dependencies:
       axios: 0.25.0
+      zarm: 2.9.13_react-dom@17.0.2+react@17.0.2
     devDependencies:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -5445,7 +5447,7 @@ packages:
   /axios/0.25.0:
     resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
     dependencies:
-      follow-redirects: 1.14.7_debug@4.3.3
+      follow-redirects: 1.14.7
     transitivePeerDependencies:
       - debug
     dev: false
@@ -8947,6 +8949,16 @@ packages:
 
   /flushwritable/1.0.0:
     resolution: {integrity: sha1-PjKNj95BKtR+c44751C00pAENJg=}
+    dev: false
+
+  /follow-redirects/1.14.7:
+    resolution: {integrity: sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
     dev: false
 
   /follow-redirects/1.14.7_debug@4.3.3:
@@ -17223,6 +17235,27 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zarm/2.9.13_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-YSHFX0UoCWpjLPMB2MTNuTqoRV/ozIM3Zx3F3RDf5QNvtsaiL10Tk5q9ZYbVC6haXUmbhGfvoIn1tJS2UoX82g==}
+    peerDependencies:
+      react: '>=16.3.1'
+      react-dom: '>=16.3.1'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      '@zarm-design/icons': 0.1.4
+      better-scroll: 2.3.1
+      classnames: 2.2.6
+      color: 3.2.1
+      hoist-non-react-statics: 3.3.2
+      lodash: 4.17.21
+      normalize.css: 8.0.1
+      popper.js: 1.16.1
+      raf: 3.4.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-native-camera-roll-picker: 1.2.3
+    dev: false
 
   /zarm/2.9.13_react@17.0.2:
     resolution: {integrity: sha512-YSHFX0UoCWpjLPMB2MTNuTqoRV/ozIM3Zx3F3RDf5QNvtsaiL10Tk5q9ZYbVC6haXUmbhGfvoIn1tJS2UoX82g==}
