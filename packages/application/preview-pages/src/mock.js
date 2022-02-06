@@ -1,20 +1,20 @@
 export const mockmessage4 = [
   {
-    tag: "div",
+    tag: 'div',
     lib: 'html5',
-    name: "按钮",
+    name: '按钮',
     attributes: {
       style: {
         height: 100,
         width: 100,
-        background: "black"
+        background: 'black'
       }
     },
     children: [
       {
-        tag: "div",
+        tag: 'div',
         lib: 'html5',
-        name: "button",
+        name: 'button',
         attributes: {
           style: {
             width: 50,
@@ -25,4 +25,4 @@ export const mockmessage4 = [
       }
     ]
   }
-];
+]
