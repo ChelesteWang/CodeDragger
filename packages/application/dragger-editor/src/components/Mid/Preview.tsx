@@ -27,7 +27,7 @@ export default function Preview() {
         const lay = {
           x: 0,
           y: Infinity,
-          w: 2,
+          w: 100,
           h: 1
         }
         const layout = {
@@ -46,6 +46,8 @@ export default function Preview() {
         rowHeight={100}
         layouts={{ layouts }}
         isDroppable
+        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 100 }}
       >
         {componentList.current.map((IComponent, ind) => {
           const FnComponent = IComponent.component
