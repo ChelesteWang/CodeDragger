@@ -1,9 +1,9 @@
 import React from 'react'
 import TabPanel from './component/TabPanelProps/TabPanelProps'
-import Box from '@mui/material/Box'
-import { WithDraggable } from '@/utils/draggable'
-import './Left.css'
 
+import './Left.css'
+import Box from '@mui/material/Box'
+import { WithDraggable } from '@/utils/WithDraggable'
 const DraggableBox = WithDraggable('Box')(Box)
 export default class Left extends React.Component {
   render(): React.ReactNode {
