@@ -23,31 +23,27 @@ export default function Preview() {
         component: item.type,
         dProps: item.props
       })
-      setLayout((oldLayout) => {
-        const lay = {
-          x: 0,
-          y: Infinity,
-          w: 100,
-          h: 1
-        }
-        const layout = {
-          ...lay,
+      setLayout((oldLayout) => [
+        ...oldLayout,
+        {
+          i: new Date().getTime().toString(),
           x: oldLayout.length * 3,
-          i: new Date().getTime().toString()
+          y: Infinity,
+          w: 375,
+          h: 10
         }
-        return [...oldLayout, layout]
-      })
+      ])
     }
   }))
   return (
     <div style={style} ref={drop}>
       <ResponsiveReactGridLayout
         className='layout'
-        rowHeight={100}
+        rowHeight={1}
         layouts={{ layouts }}
         isDroppable
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 100 }}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 375 }}
       >
         {componentList.current.map((IComponent, ind) => {
           const FnComponent = IComponent.component
