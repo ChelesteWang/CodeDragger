@@ -38,7 +38,6 @@
     "deploy": "inspirecloud deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": "true",
   "devDependencies": {
     "jest": "^27.4.7"
   }
