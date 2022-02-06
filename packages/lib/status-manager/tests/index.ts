@@ -1,6 +1,12 @@
 import StatusManager from "../src/index";
+import {createPersistencePlugin} from "../src/plugin/PersistencePlugin";
+
+StatusManager.registerPlugin(createPersistencePlugin({
+    status:'auto'
+}))
 
 let statusManager = new StatusManager({
+    key:'',
     data: {
         zqa: {
             xws: 1,
