@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@caldwell619/react-hooks": "^0.0.6",
+    "@cdl-pkg/profile-form": "workspace:^0.0.0",
     "@emotion/babel-plugin": "^11.7.2",
     "@emotion/is-prop-valid": "^1.1.1",
     "@emotion/react": "11.4.1",
@@ -21,12 +22,16 @@
     "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.1",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dnd": "^14.0.5",
+    "react-dnd-html5-backend": "^14.1.0",
+    "react-dom": "^17.0.0",
+    "react-grid-layout": "^1.3.3"
   },
   "devDependencies": {
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-grid-layout": "^1.3.0",
     "@vitejs/plugin-react": "^1.0.1",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^4.0.0",

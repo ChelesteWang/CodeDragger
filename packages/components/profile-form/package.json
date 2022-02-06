@@ -2,12 +2,19 @@
   "name": "@cdl-pkg/profile-form",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.tsx",
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "11.4.1",
+    "@emotion/styled": "11.3.0",
+    "@mui/material": "^5.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
