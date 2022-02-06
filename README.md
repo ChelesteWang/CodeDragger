@@ -1,4 +1,4 @@
-# CodeMaster 小组大作业
+# CodeDragger lowcode 
 
 `CodeDragger` is a practice of lowcode
 
@@ -21,4 +21,3 @@ pnpm dev --filter @cdl-pkg/main-server -- -p 3001
 <a href="https://github.com/ChelesteWang/CodeDragger/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ChelesteWang/CodeDragger" />
 </a>
-
