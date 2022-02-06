@@ -64,34 +64,16 @@ class StatusManager {
         this.beforeDataChange = initOption.hooks?.beforeDataChange || this.beforeDataChange;
         this.dataChanged = initOption.hooks?.dataChanged || this.dataChanged;
 
-        StatusManager.plugins.forEach(e=>{
-            if (typeof e == 'function') {
-                e("init",this);
-            }else{
-                e.entry("init",this);
-            }
-        })
+        this.toRunPlugin("init");
     }
     public trigger(name:string,payload:any){
-        StatusManager.plugins.forEach(e=>{
-            if (typeof e == 'function') {
-                e(name,this,payload);
-            }else{
-                e.entry(name,this,payload);
-            }
-        })
+        this.toRunPlugin(name,payload);
     }
     public commit(name: string, payload: any) {
         if (this.mutations[name] != null && typeof this.mutations[name] == 'function') {
             this.beforeCommit(this.state);
             this.beforeDataChange(this.state);
-            StatusManager.plugins.forEach(e=>{
-                if (typeof e == 'function') {
-                    e("beforeDataChange",this);
-                }else{
-                    e.entry("beforeDataChange",this);
-                }
-            })
+            this.toRunPlugin("beforeDataChange");
             this.state = produce(this.state, draft => {
                 this.mutations[name](draft, payload);
             }, (patches, inversePatches) => {
@@ -109,13 +91,7 @@ class StatusManager {
                 this.position = this.replaces.length - 1;
                 console.log(payload, this.replaces, this.inverseReplaces);
             })
-            StatusManager.plugins.forEach(e=>{
-                if (typeof e == 'function') {
-                    e("dataChanged",this);
-                }else{
-                    e.entry("dataChanged",this);
-                }
-            })
+            this.toRunPlugin("dataChanged");
             this.dataChanged(this.state);
             this.committed(this.state);
         }
@@ -123,13 +99,7 @@ class StatusManager {
 
     back(step: number = 1) {
         this.beforeDataChange(this.state);
-        StatusManager.plugins.forEach(e=>{
-            if (typeof e == 'function') {
-                e("beforeDataChange",this);
-            }else{
-                e.entry("beforeDataChange",this);
-            }
-        })
+        this.toRunPlugin("beforeDataChange");
         while (step-- > 0 && this.position > 0) {
             if (this.inverseReplaces.length > 1) {
                 this.state = applyPatches(this.state, this.inverseReplaces[this.position] || []);
@@ -138,25 +108,14 @@ class StatusManager {
                 return;
             }
         }
-        StatusManager.plugins.forEach(e=>{
-            if (typeof e == 'function') {
-                e("dataChanged",this);
-            }else{
-                e.entry("dataChanged",this);
-            }
-        })
+        this.toRunPlugin("dataChanged");
         this.dataChanged(this.state);
     }
 
     forward(step: number = 1) {
         this.beforeDataChange(this.state);
-        StatusManager.plugins.forEach(e=>{
-            if (typeof e == 'function') {
-                e("beforeDataChange",this);
-            }else{
-                e.entry("beforeDataChange",this);
-            }
-        })
+
+        this.toRunPlugin("beforeDataChange");
         while (step-- > 0 && this.position < this.replaces.length) {
             if (this.replaces.length > 1) {
                 this.state = applyPatches(this.state, this.replaces[this.position] || []);
@@ -165,17 +124,21 @@ class StatusManager {
                 return;
             }
         }
-        StatusManager.plugins.forEach(e=>{
-            if (typeof e == 'function') {
-                e("dataChanged",this);
-            }else{
-                e.entry("dataChanged",this);
-            }
-        })
+        this.toRunPlugin("dataChanged");
+
         this.dataChanged(this.state);
     }
-
+    private toRunPlugin(name:string,option?:any){
+        StatusManager.plugins.forEach(e=>{
+            if (typeof e == 'function') {
+                e(name,this,option);
+            }else{
+                e.entry(name,this,option);
+            }
+        })
+    }
 }
+
 
 
 export default StatusManager;
