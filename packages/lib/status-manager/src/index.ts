@@ -9,12 +9,12 @@ export interface MutationsType {
 export interface InitOptionType {
     data: Object
     mutations: MutationsType
-    hooks?: {
+    hooks?: Partial<{
         beforeCommit: (oldData: any) => void
         committed: (newData: any) => void
         beforeDataChange: (oldData: any) => void
         dataChanged: (newData: any) => void
-    }
+    }>
 }
 
 
