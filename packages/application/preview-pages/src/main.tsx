@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import './index.css'
 import { NodeData, renderComponents } from '../../../runtime/render';
-// import {mockmessage4} from './mock.js';
+import {mockmessage4} from './mock.js';
 
 
 function validateData(data: NodeData[]) {
@@ -31,14 +31,15 @@ async function renderData(data: NodeData[]){
   }
 }
 
-// (async () => {
-//   const vDom =  await renderComponents(mockmessage4)
-//   console.log('vDom', vDom);
-//   if(vDom) {
-//     ReactDOM.render(
-//       vDom,
-//       document.getElementById('root')
-//     )
-//   }
-// })()
+
+(async () => {
+  const vDom =  await renderComponents(mockmessage4)
+  console.log('vDom', vDom);
+  if(vDom) {
+    ReactDOM.render(
+      vDom,
+      document.getElementById('root')
+    )
+  }
+})()
 
