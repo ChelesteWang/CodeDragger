@@ -168,12 +168,16 @@ importers:
 
   packages/components/remote-component:
     specifiers:
+      antd-mobile: ^5.0.0-rc.25
       axios: ^0.25.0
       react: ^17.0.2
       react-dom: ^17.0.2
+      react-vant: ^1.4.13
       zarm: ^2.9.13
     dependencies:
+      antd-mobile: 5.0.0-rc.25_react-dom@17.0.2+react@17.0.2
       axios: 0.25.0
+      react-vant: 1.4.13_react-dom@17.0.2+react@17.0.2
       zarm: 2.9.13_react-dom@17.0.2+react@17.0.2
     devDependencies:
       react: 17.0.2
@@ -4149,6 +4153,20 @@ packages:
     resolution: {integrity: sha512-GGiIscTM+CEUNV52anj3g5FqAZKL2+eRKtvBOAlC99qGBbvJ3qTLImrUR/I3lXY7PRuLgzI6kh34quA1oUxWYQ==}
     dev: false
 
+  /@react-spring/web/9.4.2_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-sWfA9NkVuvVOpjSlMkD2zcF6X3i8NSHTeH/uHCGKsN3mYqgkhvAF+E8GASO/H4KKGNhbRvgCZiwJXOtOGyUg6A==}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0
+      react-dom: ^16.8.0  || ^17.0.0
+    dependencies:
+      '@react-spring/animated': 9.4.2_react@17.0.2
+      '@react-spring/core': 9.4.2_react@17.0.2
+      '@react-spring/shared': 9.4.2_react@17.0.2
+      '@react-spring/types': 9.4.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /@react-spring/web/9.4.2_react@17.0.2:
     resolution: {integrity: sha512-sWfA9NkVuvVOpjSlMkD2zcF6X3i8NSHTeH/uHCGKsN3mYqgkhvAF+E8GASO/H4KKGNhbRvgCZiwJXOtOGyUg6A==}
     peerDependencies:
@@ -5183,6 +5201,30 @@ packages:
       rmc-steps: 1.0.1
       rmc-tabs: 1.2.29
       rmc-tooltip: 1.0.1
+    dev: false
+
+  /antd-mobile/5.0.0-rc.25_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-7Pfy3/A0OMC1aMLdDKVXpHSqO85KtfRvsLcYMMtevQk6NmqOioDW/ZtztP6AM6+Fmvw0pRvE+Aeo0Ltb6c7m4g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@react-spring/web': 9.4.2_react-dom@17.0.2+react@17.0.2
+      '@types/resize-observer-browser': 0.1.7
+      '@use-gesture/react': 10.2.5_react@17.0.2
+      ahooks: 3.1.9_react@17.0.2
+      antd-mobile-icons: 0.2.2
+      antd-mobile-v5-count: 1.0.1
+      classnames: 2.3.1
+      dayjs: 1.10.7
+      lodash: 4.17.21
+      rc-field-form: 1.22.1_react-dom@17.0.2+react@17.0.2
+      rc-tooltip: 5.1.1_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      staged-components: 1.1.2_react@17.0.2
+      tslib: 1.14.1
+      use-async-memo: 1.2.3_react@17.0.2
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /antd-mobile/5.0.0-rc.25_react@17.0.2:
@@ -13876,6 +13918,22 @@ packages:
       rc-util: 4.21.1
     dev: false
 
+  /rc-align/4.0.11_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-n9mQfIYQbbNTbefyQnRHZPWuTEwG1rY4a9yKlIWHSTbgwI+XUMGRYd0uJ5pE2UbrNX0WvnMBA1zJ3Lrecpra/A==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      classnames: 2.3.1
+      dom-align: 1.12.2
+      lodash: 4.17.21
+      rc-util: 5.17.0_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      resize-observer-polyfill: 1.5.1
+    dev: false
+
   /rc-align/4.0.11_react@17.0.2:
     resolution: {integrity: sha512-n9mQfIYQbbNTbefyQnRHZPWuTEwG1rY4a9yKlIWHSTbgwI+XUMGRYd0uJ5pE2UbrNX0WvnMBA1zJ3Lrecpra/A==}
     peerDependencies:
@@ -13921,6 +13979,20 @@ packages:
       rc-animate: 2.11.1
     dev: false
 
+  /rc-field-form/1.22.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-LweU7nBeqmC5r3HDUjRprcOXXobHXp/TGIxD7ppBq5FX6Iptt3ibdpRVg4RSyNulBNGHOuknHlRcguuIpvVMVg==}
+    engines: {node: '>=8.x'}
+    peerDependencies:
+      react: '>= 16.9.0'
+      react-dom: '>= 16.9.0'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      async-validator: 4.0.7
+      rc-util: 5.17.0_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /rc-field-form/1.22.1_react@17.0.2:
     resolution: {integrity: sha512-LweU7nBeqmC5r3HDUjRprcOXXobHXp/TGIxD7ppBq5FX6Iptt3ibdpRVg4RSyNulBNGHOuknHlRcguuIpvVMVg==}
     engines: {node: '>=8.x'}
@@ -13938,6 +14010,19 @@ packages:
     resolution: {integrity: sha512-6G6qrCE0MUTXyjh/powj91XkjRjoFL4HiJLPU5lALXHvGX+/efcUjGYUrHrrw0mwQdmrmg4POqnY/bibns+G3g==}
     dependencies:
       babel-runtime: 6.26.0
+    dev: false
+
+  /rc-motion/2.4.4_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-ms7n1+/TZQBS0Ydd2Q5P4+wJTSOrhIrwNxLXCZpR7Fa3/oac7Yi803HDALc2hLAKaCTQtw9LmQeB58zcwOsqlQ==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      classnames: 2.3.1
+      rc-util: 5.17.0_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /rc-motion/2.4.4_react@17.0.2:
@@ -13981,6 +14066,18 @@ packages:
       rc-trigger: 2.6.5
     dev: false
 
+  /rc-tooltip/5.1.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-alt8eGMJulio6+4/uDm7nvV+rJq9bsfxFDCI0ljPdbuoygUscbsMYb6EQgwib/uqsXQUvzk+S7A59uYHmEgmDA==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      rc-trigger: 5.2.10_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /rc-tooltip/5.1.1_react@17.0.2:
     resolution: {integrity: sha512-alt8eGMJulio6+4/uDm7nvV+rJq9bsfxFDCI0ljPdbuoygUscbsMYb6EQgwib/uqsXQUvzk+S7A59uYHmEgmDA==}
     peerDependencies:
@@ -14002,6 +14099,22 @@ packages:
       rc-animate: 2.11.1
       rc-util: 4.21.1
       react-lifecycles-compat: 3.0.4
+    dev: false
+
+  /rc-trigger/5.2.10_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-FkUf4H9BOFDaIwu42fvRycXMAvkttph9AlbCZXssZDVzz2L+QZ0ERvfB/4nX3ZFPh1Zd+uVGr1DEDeXxq4J1TA==}
+    engines: {node: '>=8.x'}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      classnames: 2.3.1
+      rc-align: 4.0.11_react-dom@17.0.2+react@17.0.2
+      rc-motion: 2.4.4_react-dom@17.0.2+react@17.0.2
+      rc-util: 5.17.0_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /rc-trigger/5.2.10_react@17.0.2:
@@ -14026,6 +14139,19 @@ packages:
       prop-types: 15.8.1
       react-is: 16.13.1
       react-lifecycles-compat: 3.0.4
+      shallowequal: 1.1.0
+    dev: false
+
+  /rc-util/5.17.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-HWuTIKzBeZQQ7IBqdokE0wMp/xx39/KfUJ0gcquBigoldDCrf3YBcWFHrrQlJG7sI82Wg8mwp1uAKV3zMGfAgg==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.17.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-is: 16.13.1
       shallowequal: 1.1.0
     dev: false
 
@@ -14285,6 +14411,24 @@ packages:
     dependencies:
       raf: 3.4.1
       tween-functions: 1.2.0
+    dev: false
+
+  /react-vant/1.4.13_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-uw8FA5f3cIIUibZqgkVILa6mg3oYbQrpVjiqklzxdQ4jpje9iPbvq2aZp9w+hojRiObYluTRtKYACBG1hbDnbg==}
+    peerDependencies:
+      react: '>=16.14.0'
+      react-dom: '>=16.14.0'
+    dependencies:
+      '@react-spring/web': 9.4.2_react-dom@17.0.2+react@17.0.2
+      '@use-gesture/react': 10.2.5_react@17.0.2
+      '@vant/icons': 1.7.3
+      '@vant/popperjs': 1.1.0
+      clsx: 1.1.1
+      rc-field-form: 1.22.1_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-transition-group: 4.4.2_react-dom@17.0.2+react@17.0.2
+      swiper: 6.8.4
     dev: false
 
   /react-vant/1.4.13_react@17.0.2:
