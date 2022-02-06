@@ -11,6 +11,6 @@ export function hello(name: string): void;
 export function strlen(k: string): number;
 /**
 * @param {string} json
-* @returns {string}
+* @returns {string | undefined}
 */
-export function json_to_jsx(json: string): string;
+export function json_to_jsx(json: string): string | undefined;
