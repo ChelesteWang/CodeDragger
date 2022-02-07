@@ -5,6 +5,7 @@ enablePatches();
 export interface MutationsType {
     [propName: string]: (state: Object, ...payload: any[]) => void
 }
+
 export type StatusManagerPluginEntryType = (opportunity:string,ctx:StatusManager,...options:any)=>void;
 export type StatusManagerPluginObjectType = {entry:StatusManagerPluginEntryType}
 export type StatusManagerPluginType = StatusManagerPluginEntryType | StatusManagerPluginObjectType
