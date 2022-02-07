@@ -15,8 +15,7 @@
 
 <body>
 <div id='app' style='display: flex;flex-direction: column'>
-  <h1>用户服务API展示</h1>
-
+  <h1>component服务API展示</h1>
   <div class='nav'>
     <ul class='nav-bar'>
       <li><a href='index.html'>
@@ -34,7 +33,6 @@
       </a></li>
     </ul>
   </div>
-
   <div style='flex: 1 ;display: flex;height: 100%;overflow: hidden'>
     <div class='request-logger' style='flex: 1' ref='logger'>
       <h2 class='title'>请求列表
@@ -61,75 +59,45 @@
         @keydown.enter.prevent='' style='display: flex;flex-wrap: wrap'>
 
         <div class='demo'>
-          <p>loginByPassword</p>
-          <input type='text' class='input-todo' placeholder='输入登录账号'
-                 v-model='username'
-                 style='flex:1 ;margin-right:10px;'>
-          <input type='text' class='input-todo' placeholder='输入登录密码'
-                 v-model='password'
-                 style='flex:1 ;margin-right:10px;'>
-          <button style='flex:0'
-                  @click='loginByPassword'> 登录
+          <p>查Component</p>
+
+          <button style='flex:0' @click='getComponentAll'>
+            查找所有
           </button>
-        </div>
 
-
-        <div class='demo'>
-          <p>register</p>
-          <input type='text' class='input-todo' placeholder='输入注册账号'
-                 v-model='register_username'
-                 style='flex:1 ;margin-right:10px;'>
-
-          <input type='text' class='input-todo' placeholder='输入注册密码'
-                 v-model='register_password'
+          <input type='text' class='input-todo' placeholder='请输入要获取Component的ID'
+                 v-model='componentID '
                  style='flex:1 ;margin-right:10px;'>
           <button style='flex:0'
-                  @click='register'> 注册
+                  @click='getComponentByID'> 根据id查找Component
           </button>
         </div>
         <div class='demo'>
+          <p>增Component</p>
+          <p>ComponentCreateObj:</p>
+          {{componentCreateObj}}
           <button style='flex:0'
-                  @click='getCurrent'> 获取用户信息
-          </button>
-          <button style='flex:0'
-                  @click='logout'> 登出
+                  @click='createComponent'> 根据ComponentCreateObj 新增一个Component
           </button>
         </div>
 
         <div class='demo'>
-          <p>loginByPhone</p>
-          <input type='text' class='input-todo' placeholder='输入手机号码'
-                 v-model='phoneNumber'
-                 style='flex:1 ;margin-right:10px;'>
-          <input type='text' class='input-todo' placeholder='输入验证码'
-                 v-model='code'
+          <p>删除Component</p>
+          <input type='text' class='input-todo' placeholder='请输入要删除Component的id'
+                 v-model='componentDeleteID '
                  style='flex:1 ;margin-right:10px;'>
           <button style='flex:0'
-                  @click='sendSMS'> 获取验证码
-          </button>
-          <button style='flex:0'
-                  @click='loginByPhone'> 登录
+                  @click='deleteComponent'> 删除Component
           </button>
         </div>
-
-
         <div class='demo'>
-          <p>changePassword</p>
-          <input type='text' class='input-todo' placeholder='输入新密码'
-                 v-model='newPassword'
+          <p>更新Component</p>
+          {{componentUpdater}}
+          <input type='text' class='input-todo' placeholder='请输入要更新的component的id'
+                 v-model='componentUpdateID'
                  style='flex:1 ;margin-right:10px;'>
           <button style='flex:0'
-                  @click='changePassword'> 修改密码
-          </button>
-        </div>
-
-        <div class='demo'>
-          <p>修改用户名</p>
-          <input type='text' class='input-todo' placeholder='输入新用户名'
-                 v-model='newUsername'
-                 style='flex:1 ;margin-right:10px;'>
-          <button style='flex:0'
-                  @click='userUpdate'> 修改用户名
+                  @click='updateComponent'> 更新Component
           </button>
         </div>
 
@@ -156,17 +124,32 @@
     el: '#app',
     data() {
       return {
+        componentDeleteID:"",
+        componentCreateObj: {
+          name: 'testCreate',
+          icon:'xxx',
+          key:'xxx',
+          desc:'描述',
+          jsonSchema: {
+            type: 'button',
+            value: '这是testButton1'
+          }
+        },
+        componentID: '',
+        componentUpdateID:'',
+        componentUpdater:{
+          name: 'testCreate',
+          icon:'xxx',
+          key:'xxx',
+          desc:'描述2',
+          jsonSchema: {
+            type: 'button',
+            value: '这是testButton1'
+          }
+        },
         loading: true,
         requests: [],
         request: [],
-        username: '',
-        password: '',
-        code: '',
-        phoneNumber: '',
-        register_username: '',
-        register_password: '',
-        newPassword: '',
-        newUsername: ''
       }
     },
     /**
@@ -236,64 +219,46 @@
           })
         }, 300)
       },
-      async loginByPassword() {
-        await this.loginByPasswordAction(this.username, this.password)
+
+      async getComponentAll() {
+        await this.componentFindAllAction()
       },
-      async register() {
-        await this.registerAction(this.register_username, this.register_password)
+      async getComponentByID() {
+        await this.componentFindByIDAction(this.componentID)
       },
-      async getCurrent() {
-        await this.currentAction()
+      async createComponent() {
+        await this.componentCreateAction(this.componentCreateObj)
       },
-      async logout() {
-        await this.logoutAction()
+      async deleteComponent() {
+        await this.componentDeleteAction(this.componentDeleteID)
       },
-      async loginByPhone() {
-        await this.loginByPhoneAction(this.phoneNumber, this.code)
+      async updateComponent() {
+        await this.componentUpdateAction(this.componentUpdateID,this.componentUpdater)
       },
-      async sendSMS() {
-        await this.sendSMSAction(this.phoneNumber)
-      },
-      async changePassword() {
-        await this.changePasswordAction(this.newPassword)
-      },
-      async userUpdate() {
-        //这里只修改了用户名
-        await this.userUpdateAction({ username: this.newUsername })
-      },
+
+
 
       //-------------------------------------------------------------------------------------------------
       // 以下为 actions 的定义，完成实际的后端请求
-      async loginByPhoneAction(phoneNumber, code) {
-        const { data: { result } } = await window.axios.post('/api/user/login_phone', { phoneNumber, code })
+
+      async componentFindAllAction() {
+        const { data: { result } } = await window.axios.get('/api/component/list_all')
         return result
       },
-      async sendSMSAction(phoneNumber) {
-        const { data: { result } } = await window.axios.post('/api/user/send_sms', { phoneNumber })
+      async componentFindByIDAction(id) {
+        const { data: { result } } = await window.axios.get(`/api/component/find/${id}`)
         return result
       },
-      async loginByPasswordAction(username, password) {
-        const { data: { result } } = await window.axios.post('/api/user/login_password', { username, password })
+      async componentCreateAction(createObj) {
+        const { data: { result } } = await window.axios.post(`/api/component/create`, createObj)
         return result
       },
-      async registerAction(username, password) {
-        const { data: { result } } = await window.axios.post('/api/user/register', { username, password })
-        return result
-      },
-      async currentAction() {
-        const { data: { result } } = await window.axios.get('/api/user/current')
-        return result
-      },
-      async logoutAction() {
-        const { data: { result } } = await window.axios.put('/api/user/logout')
-        return result
-      },
-      async changePasswordAction(newPassword) {
-        const { data: { result } } = await window.axios.put('/api/user/change_password', { newPassword })
-        return result
-      },
-      async userUpdateAction(user) {
-        const { data: { result } } = await window.axios.put('/api/user/user_update', { user })
+      async componentDeleteAction(id) {
+        const { data: { ok } }  = await window.axios.delete(`/api/component/delete/${id}`)
+        return ok
+      } ,
+      async componentUpdateAction(id,updater) {
+        const { data:  { result } }  = await window.axios.put(`/api/component/update/${id}`,{updater})
         return result
       }
 
