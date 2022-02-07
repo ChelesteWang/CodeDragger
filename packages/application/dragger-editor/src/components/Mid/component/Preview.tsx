@@ -43,6 +43,7 @@ export default function Preview() {
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 375 }}
         droppingItem={{ i: new Date().getTime().toString(), w: 375, h: 100 }}
         isDroppable
+        isBounded
       >
         {layouts.map((layout, ind) => {
           const FnComponent = layout.component
