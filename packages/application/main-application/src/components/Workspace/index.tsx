@@ -7,13 +7,6 @@ import {
 } from '@/request/request'
 
 const Workspace: FC = () => {
-  let jsonSchemaCreateObj: {
-    name: 'testCreate'
-    jsonSchema: {
-      type: 'button'
-      value: '这是testButton1'
-    }
-  }
   const [list, setList] = useState([]) //依据list动态渲染组件
   //simulate the componentDidMount
   useEffect(() => {
@@ -50,9 +43,14 @@ const Workspace: FC = () => {
       <Nav />
       <div
         onClick={() => {
-          console.log(466)
           const fetchJsonSchema = async () => {
-            const newJS = await jsonSchemaCreateAction(jsonSchemaCreateObj)
+            const newJS = await jsonSchemaCreateAction({
+              name: 'testCreate',
+              jsonSchema: {
+                type: 'button',
+                value: '这是testButton1'
+              }
+            })
             console.log(newJS)
             window.location.href = './editor'
           }
@@ -79,12 +77,12 @@ const Workspace: FC = () => {
             return (
               <div
                 onClick={() => {
-                  window.location.href = './editor'
+                  window.location.href = './editor/' // + { index }
                 }}
               >
                 <Card
                   title={current.name}
-                  edittime={'Edited ' + editTime + ' age'}
+                  edittime={'Edited ' + editTime + ' ago'}
                   //因为未知的原因，Card上无法添加onClick
                   //故在外面套了一层div用来绑定一个onClick
                   //先留个坑在这里
