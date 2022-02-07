@@ -1,6 +1,7 @@
 import React, { CSSProperties, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
+import DeleteIcon from './DeleteIcon'
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
 export interface LayoutType extends Layout {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,7 +33,12 @@ export default function Preview() {
       ])
     }
   }))
-
+  const removeItem = (key: string) => {
+    setLayout((oldLayouts) => {
+      const newLayouts = oldLayouts.filter((layout) => layout.i !== key)
+      return [...newLayouts]
+    })
+  }
   return (
     <div style={style} ref={drop}>
       <ResponsiveReactGridLayout
@@ -49,6 +55,7 @@ export default function Preview() {
           const FnComponent = layout.component
           return (
             <div key={layout.i} data-grid={layouts[ind]}>
+              <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
               <FnComponent
                 style={{ width: '100%', height: '100%' }}
                 {...layout.dProps}
