@@ -7,13 +7,6 @@ import {
 } from '@/request/request'
 
 const Workspace: FC = () => {
-  let jsonSchemaCreateObj: {
-    name: 'testCreate'
-    jsonSchema: {
-      type: 'button'
-      value: '这是testButton1'
-    }
-  }
   const [list, setList] = useState([]) //依据list动态渲染组件
   //simulate the componentDidMount
   useEffect(() => {
@@ -24,6 +17,7 @@ const Workspace: FC = () => {
     fetchData()
   }, []) //eslint-disable-line react-hooks/exhaustive-deps
   //计算时间差的函数
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getDaysDiffBetweenDates = (dateInitial: any, dateFinal: any) => {
     return (dateFinal - dateInitial) / (1000 * 3600 * 24)
   }
@@ -49,12 +43,18 @@ const Workspace: FC = () => {
       <Nav />
       <div
         onClick={() => {
-          //添加下面这段就报错，页面无法打开
-          // const fetchjsonSchema = async () => {
-          //   const newJS = await jsonSchemaCreateAction(jsonSchemaCreateObj)
-          //   console.log(newJS)
-          // }
-          // fetchjsonSchema()
+          const fetchJsonSchema = async () => {
+            const newJS = await jsonSchemaCreateAction({
+              name: 'testCreate',
+              jsonSchema: {
+                type: 'button',
+                value: '这是testButton1'
+              }
+            })
+            console.log(newJS)
+            window.location.href = './editor'
+          }
+          fetchJsonSchema()
         }}
         style={{
           background:
@@ -75,14 +75,23 @@ const Workspace: FC = () => {
           (current: { name: string; updatedAt: string }, index: number) => {
             let editTime = changeEditTime(current.updatedAt) //取得时间差
             return (
-              <Card
-                title={current.name}
-                edittime={'Edited ' + editTime + ' age'}
+              <div
                 onClick={() => {
-                  console.log(233)
-                  window.location.href = './editor/' + { index }
+                  window.location.href = './editor/' // + { index }
                 }}
-              />
+              >
+                <Card
+                  title={current.name}
+                  edittime={'Edited ' + editTime + ' ago'}
+                  //因为未知的原因，Card上无法添加onClick
+                  //故在外面套了一层div用来绑定一个onClick
+                  //先留个坑在这里
+                  // onClick={() => {
+                  //   console.log(233)
+                  //   //window.location.href = './editor/' + { index }
+                  // }}
+                />
+              </div>
             )
           }
         )}
