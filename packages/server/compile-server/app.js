@@ -22,5 +22,4 @@ app.use(async function errorHandler(ctx, next) {
 // 为应用使用路由定义
 app.use(router.routes())
 
-
 module.exports = app

@@ -2,7 +2,7 @@ import React, { Suspense, useMemo, FC, ComponentType, useEffect } from 'react'
 import { dependencies } from './dependencies'
 import { getRemoteComponent } from './service'
 import 'zarm/dist/zarm.css'
-import 'react-vant/lib/index.css';
+import 'react-vant/lib/index.css'
 
 // new function to run component
 const getParsedModule = (code: string) => {
