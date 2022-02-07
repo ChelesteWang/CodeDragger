@@ -6,12 +6,10 @@ import RemoteComponent from '@cdl-pkg/remote-component'
 import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignUp/SignUp'
 import Workspace from './components/Workspace/index'
+import Landing from './components/Landing/index'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
 
-const Hello = () => {
-  return <div>hello</div>
-}
 const items = [
   'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
   'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
@@ -29,7 +27,7 @@ const Test = () => {
 }
 
 const routes = [
-  { name: 'main', path: '/', component: <Hello />, key: 'hello' },
+  { name: 'main', path: '/', component: <Landing />, key: 'landing' },
   { name: 'login', path: '/login', component: <SignIn />, key: 'login' },
   { name: 'register', path: '/register', component: <SignUp />, key: 'regis' },
   {
@@ -43,12 +41,6 @@ const routes = [
     path: '/editor',
     component: <DarggerEditor />,
     key: 'lowcode'
-  },
-  {
-    name: 'workspace',
-    path: '/workspace',
-    component: <Workspace />,
-    key: 'workspace'
   },
   {
     name: 'test',
