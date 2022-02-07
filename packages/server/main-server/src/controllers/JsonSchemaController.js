@@ -30,7 +30,7 @@ class JsonSchemaController {
    */
   async findByUser(ctx) {
     const { info: user } = await UserService.current(ctx)
-    const result = await JsonSchemaService.findByUser(user)
+    const result = await JsonSchemaService.findByUser(user._id)
     ctx.body = { result }
   }
   /**

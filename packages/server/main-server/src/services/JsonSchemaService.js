@@ -25,10 +25,10 @@ class JsonSchemaService {
   /**
    * 根据user查找
    * 若不存在，则抛出 404 错误
-   * @param user
+   * @param userID
    */
-  async findByUser(user) {
-    const list = await jsonSchemaTable.where({ user }).find()
+  async findByUser(userID) {
+    const list = await jsonSchemaTable.where({ 'user._id':userID} ).find()
     return {
       success: true,
       list
