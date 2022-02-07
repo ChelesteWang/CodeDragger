@@ -118,7 +118,28 @@ body {
 h1 {
   color: #fff;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 20px;
+}
+
+.nav-bar li a {
+  margin: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-bar li:hover {
+  opacity: 0.7;
 }
 
 .title {
