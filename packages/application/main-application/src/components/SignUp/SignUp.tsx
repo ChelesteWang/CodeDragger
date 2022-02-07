@@ -6,8 +6,7 @@ import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
 import './SignUp.css'
 import { FC, useState } from 'react'
-import '../../request/request'
-import { registerAction } from '../../request/request'
+import { registerAction } from '@/api'
 
 const SignUp: FC = () => {
   const [username, setUsername] = useState<string>('')

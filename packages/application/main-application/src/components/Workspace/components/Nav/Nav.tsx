@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button'
 import './Nav.css'
-import { currentAction, logoutAction } from '@/request/request'
+import { currentAction, logoutAction } from '@/api'
 
 export default class Hello extends React.Component {
   state = {

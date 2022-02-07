@@ -5,8 +5,7 @@ import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
 import './SignIn.css'
 import { FC, useState } from 'react'
-import '../../request/request'
-import { loginByPasswordAction } from '../../request/request'
+import { loginByPasswordAction } from '@/api'
 
 const SignIn: FC = () => {
   const [username, setUsername] = useState<string>('')

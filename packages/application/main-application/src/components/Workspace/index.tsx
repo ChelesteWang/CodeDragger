@@ -1,10 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import Nav from './components/Nav/Nav'
 import Card from './components/Card/index'
-import {
-  jsonSchemaCreateAction,
-  jsonSchemaFindByUserAction
-} from '@/request/request'
+import { jsonSchemaCreateAction, jsonSchemaFindByUserAction } from '@/api'
 
 const Workspace: FC = () => {
   const [list, setList] = useState([]) //依据list动态渲染组件
