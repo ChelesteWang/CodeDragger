@@ -35,27 +35,27 @@ const Content = () => {
           <Box sx={{ flexGrow: 1 }} my={14} ml={3}>
             <Grid container spacing={1}>
               <Grid item xs={6}>
-                <Typography variant='h1'>做前端</Typography>
+                <Typography variant='h1'>低代码</Typography>
                 <Typography variant='h1' sx={{ color: '#fd7901' }}>
-                  不搬砖
+                  工程初步实践
                 </Typography>
                 <Box mt={2}>
                   <Typography variant='h6'>
-                    UI 设计稿智能生成前端源代码
+                    字节青训营 CodeMaster 组结课作业
                   </Typography>
                 </Box>
-                <Box mt={2}>
+                <Box mt={1}>
                   <Typography variant='h6'>
-                    8 小时工作量，10 分钟完成
+                    CodeDragger 低代码解决方案
                   </Typography>
                 </Box>
 
-                <Box sx={{ mt: 2 }}>
+                <Box sx={{ mt: 5 }}>
                   <Box
                     component='span'
                     sx={{
                       display: 'inline-block',
-                      height: '38px',
+                      height: '50px',
                       lineHeight: '38px',
                       width: '176px',
                       textAlign: 'center',
@@ -74,7 +74,7 @@ const Content = () => {
                       href='#'
                     >
                       {'立即体验'}
-                    </Link>{' '}
+                    </Link>
                   </Box>
                   <Box
                     component='span'
@@ -107,41 +107,45 @@ const Content = () => {
                 </Box>
               </Grid>
               <Grid item xs={6}>
-                <img src='https://code.fun/img/hero.svg' alt='hero' />
+                <img
+                  src='https://user-images.githubusercontent.com/40495740/152684536-5facf1ce-87f7-4040-ab09-88b512c9a125.png'
+                  alt='hero'
+                  width='500px'
+                />
               </Grid>
             </Grid>
           </Box>
 
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant='h3' sx={{ textAlign: 'center' }}>
-              生成级代码
+              项目亮点
             </Typography>
             <Typography variant='h6' sx={{ textAlign: 'center' }} my={2}>
-              智能生成如手写一般的代码
+              本项目是一套低代码综合实践方案
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={5}>
-                <img
-                  src='https://code.fun/img/production.svg'
-                  alt='production'
-                />
-              </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={12}>
                 <Grid
                   container
                   rowSpacing={1}
                   columnSpacing={{ xs: 1, sm: 2, md: 3 }}
                 >
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <OutlinedCard />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <OutlinedCard />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <OutlinedCard />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
+                    <OutlinedCard />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <OutlinedCard />
+                  </Grid>
+                  <Grid item xs={4}>
                     <OutlinedCard />
                   </Grid>
                 </Grid>

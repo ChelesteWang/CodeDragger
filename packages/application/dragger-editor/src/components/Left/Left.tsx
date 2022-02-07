@@ -3,7 +3,7 @@ import TabPanel from './component/TabPanelProps/TabPanelProps'
 
 import './Left.css'
 import Box from '@mui/material/Box'
-import { WithDraggable } from '@/utils/WithDraggable'
+import { WithDraggable } from '../../utils/WithDraggable'
 const DraggableBox = WithDraggable('Box')(Box)
 export default class Left extends React.Component {
   render(): React.ReactNode {

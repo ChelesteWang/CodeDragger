@@ -26,7 +26,8 @@ const createThemeHelper = (theme: 'dark' | 'light') => {
     palette: {
       mode: theme,
       background: {
-        default: isDark ? '#303030;' : '#f0f0f0',
+        // default: isDark ? '#303030;' : '#f0f0f0',
+        default: '#ffffff',
         paper: isDark ? '#242526' : '#ffffff'
       },
       primary: {

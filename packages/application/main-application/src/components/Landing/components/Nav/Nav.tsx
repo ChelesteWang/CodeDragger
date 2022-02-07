@@ -8,7 +8,7 @@ export default class Hello extends React.Component {
       <div className='nav-bar'>
         <div className='logo'>CodeDragger LowCode</div>
         <ul className='button-list'>
-          <li>
+          {/* <li>
             <Button variant='contained'>Join us</Button>
           </li>
           <li>
@@ -16,7 +16,7 @@ export default class Hello extends React.Component {
           </li>
           <li>
             <Button variant='contained'>Document</Button>
-          </li>
+          </li> */}
         </ul>
       </div>
     )

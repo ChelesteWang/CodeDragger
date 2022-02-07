@@ -1,11 +1,11 @@
-import { Button } from '@mui/material'
+// import { Button } from '@mui/material'
 import { FC, useState } from 'react'
 import Content from './components/content/Content'
 import Footer from './components/content/Footer'
 import Nav from './components/Nav/Nav'
 import './index.css'
 const Workspace: FC = () => {
-  const [title] = useState<string>('Dragger.')
+  // const [title] = useState<string>('Dragger.')
   // useEffect(() => {
   //   setInterval(() => {
   //     if (title.length === 1) {
@@ -19,7 +19,7 @@ const Workspace: FC = () => {
   return (
     <div>
       <Nav />
-      <div className='intro'>
+      {/* <div className='intro'>
         <div className='intro_text'>
           <div className='title'>
             We are Code<span className='title_dyn'>{title}</span>
@@ -51,8 +51,8 @@ const Workspace: FC = () => {
             </Button>
           </div>
         </div>
-      </div>
-      <div id='advantage'>
+      </div> */}
+      {/* <div id='advantage'>
         <div id='title1'>Build accessible React apps with speed</div>
         <div id='title1-1'>
           Build a beautiful, modern website with flexible, fully customizable,
@@ -92,10 +92,7 @@ const Workspace: FC = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div id='gapline1'>
-
-      </div>
+      </div> */}
       <Content />
       <Footer />
     </div>
