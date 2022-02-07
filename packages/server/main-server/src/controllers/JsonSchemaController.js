@@ -118,6 +118,7 @@ class JsonSchemaController {
       error.status = 403
       throw error
     }
+    updater.user=user
     const result = await JsonSchemaService.updateOne(id, updater)
     ctx.body = { result }
   }
