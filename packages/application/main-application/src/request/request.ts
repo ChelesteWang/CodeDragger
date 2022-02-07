@@ -103,3 +103,24 @@ export const fileUploadAction = async (formData: string) => {
   })
   return result
 }
+
+export const jsonSchemaFindByUserAction = async () => {
+  const {
+    data: { result }
+  } = await http.get('/api/json_schema/find_by_user')
+  return result
+}
+
+export const jsonSchemaFindAllAction = async () => {
+  const {
+    data: { result }
+  } = await http.get('/api/json_schema/list_all')
+  return result
+}
+
+export const jsonSchemaCreateAction = async (createObj: object) => {
+  const {
+    data: { result }
+  } = await http.post(`/api/json_schema/create`, createObj)
+  return result
+}
