@@ -23,20 +23,16 @@ export default function Preview() {
         component: item.type,
         dProps: item.props
       })
-      setLayout((oldLayout) => {
-        const lay = {
-          x: 0,
-          y: Infinity,
-          w: 2,
-          h: 1
-        }
-        const layout = {
-          ...lay,
+      setLayout((oldLayout) => [
+        ...oldLayout,
+        {
           x: oldLayout.length * 3,
+          y: Infinity,
+          w: 375,
+          h: 1,
           i: new Date().getTime().toString()
         }
-        return [...oldLayout, layout]
-      })
+      ])
     }
   }))
   return (
@@ -45,6 +41,10 @@ export default function Preview() {
         className='layout'
         rowHeight={100}
         layouts={{ layouts }}
+        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+        margin={[10, 10]}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 375 }}
+        droppingItem={{ i: '1', w: 375, h: 1 }}
         isDroppable
       >
         {componentList.current.map((IComponent, ind) => {
