@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { v4 } from 'uuid'
+import { config } from './config'
 
 const instance = axios.create()
-instance.defaults.baseURL = 'https://qckvp9.app.cloudendpoint.cn/'
+instance.defaults.baseURL = config.baseURL
 // 请求拦截器
-instance.interceptors.request.use((config) => {
+instance.interceptors.request.use((config: any) => {
   const localSessionKey = `local-session`
   if (!localStorage.getItem(localSessionKey)) {
     // 如果本地没有 token，则随机生成
@@ -19,7 +20,7 @@ instance.interceptors.request.use((config) => {
 
 // 响应拦截器
 instance.interceptors.response.use(
-  (response) => {
+  (response: any) => {
     //这里写响应拦截内容
 
     return response
