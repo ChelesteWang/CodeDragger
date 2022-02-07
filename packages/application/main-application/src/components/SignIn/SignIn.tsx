@@ -68,7 +68,7 @@ const SignIn: FC = () => {
                 const result = loginByPasswordAction(username, password)
                 result.then(
                   () => {
-                    window.location.href = './editor'
+                    window.location.href = './workspace'
                   },
                   () => {
                     setTips('Input information error!')
