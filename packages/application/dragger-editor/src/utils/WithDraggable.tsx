@@ -10,7 +10,7 @@ export function WithDraggable(itemType: string) {
       }))
       return (
         <div ref={drag} style={{ width: '100%', height: '100%' }}>
-          <Component {...props} />
+          {itemType}
         </div>
       )
     }
