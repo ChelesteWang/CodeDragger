@@ -29,7 +29,7 @@ export default function Preview() {
           x: oldLayout.length * 3,
           y: Infinity,
           w: 375,
-          h: 1,
+          h: 100,
           i: new Date().getTime().toString()
         }
       ])
@@ -39,12 +39,12 @@ export default function Preview() {
     <div style={style} ref={drop}>
       <ResponsiveReactGridLayout
         className='layout'
-        rowHeight={100}
+        rowHeight={1}
         layouts={{ layouts }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        margin={[10, 10]}
+        margin={[0, 0]}
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 375 }}
-        droppingItem={{ i: '1', w: 375, h: 1 }}
+        droppingItem={{ i: new Date().getTime().toString(), w: 375, h: 100 }}
         isDroppable
       >
         {componentList.current.map((IComponent, ind) => {
