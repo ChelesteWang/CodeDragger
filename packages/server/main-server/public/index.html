@@ -15,7 +15,26 @@
 
 <body>
 <div id='app' style='display: flex;flex-direction: column'>
-  <h1>API展示</h1>
+  <h1>用户服务API展示</h1>
+
+  <div class='nav'>
+    <ul class='nav-bar'>
+      <li><a href='index.html'>
+        用户服务
+      </a>
+      </li>
+      <li><a href='file.html'>
+        文件服务
+      </a></li>
+      <li><a href='component.html'>
+        组件服务
+      </a></li>
+      <li><a href='jsonSchema.html'>
+        JsonSchema服务
+      </a></li>
+    </ul>
+  </div>
+
   <div style='flex: 1 ;display: flex;height: 100%;overflow: hidden'>
     <div class='request-logger' style='flex: 1' ref='logger'>
       <h2 class='title'>请求列表
@@ -114,87 +133,6 @@
           </button>
         </div>
 
-        <div class='demo'>
-          <p>上传文件</p>
-          <input type='file' ref='fileId' multiple @change='getFile'>
-          <button style='flex:0' type='button' @click='fileUpload'> 上传
-          </button>
-        </div>
-
-        <div class='demo'>
-          <p>删除文件</p>
-          <input type='text' class='input-todo' placeholder='请输入要删除文件的id'
-                 v-model='deleteFileID '
-                 style='flex:1 ;margin-right:10px;'>
-          <button style='flex:0'
-                  @click='fileDelete'> 删除文件
-          </button>
-        </div>
-
-
-        <div class='demo'>
-          <p>下载文件</p>
-          <input type='text' class='input-todo' placeholder='请输入要下载文件的ID'
-                 v-model='downloadID '
-                 style='flex:1 ;margin-right:10px;'>
-          <button style='flex:0'
-                  @click='fileDownload'> 下载文件
-          </button>
-        </div>
-        <div class='demo'>
-          <p>获取文件内容</p>
-          <input type='text' class='input-todo' placeholder='请输入要获取文件内容的ID'
-                 v-model='fileContentID '
-                 style='flex:1 ;margin-right:10px;'>
-          <button style='flex:0'
-                  @click='getFileContent'> 获取文件内容
-          </button>
-        </div>
-
-        <div class='demo'>
-          <p>查JsonSchema</p>
-          <button style='flex:0' @click='getJsonSchemaByUser'>
-            根据user查找
-          </button>
-          <button style='flex:0' @click='getJsonSchemaAll'>
-            查找所有
-          </button>
-
-          <input type='text' class='input-todo' placeholder='请输入要获取jsonSchema的ID'
-                 v-model='jsonSchemaID '
-                 style='flex:1 ;margin-right:10px;'>
-          <button style='flex:0'
-                  @click='getJsonSchemaByID'> 根据id查找jsonSchema
-          </button>
-        </div>
-        <div class='demo'>
-          <p>增JsonSchema</p>
-          <p>jsonSchemaCreateObj:</p>
-          {{jsonSchemaCreateObj}}
-          <button style='flex:0'
-                  @click='createJsonSchema'> 根据jsonSchemaCreateObj 新增一个jsonSchema
-          </button>
-        </div>
-
-          <div class='demo'>
-              <p>删除jsonSchema</p>
-              <input type='text' class='input-todo' placeholder='请输入要删除jsonSchema的id'
-                     v-model='jsonSchemaDeleteID '
-                     style='flex:1 ;margin-right:10px;'>
-              <button style='flex:0'
-                      @click='deleteJsonSchema'> 删除jsonSchema
-              </button>
-          </div>
-        <div class='demo'>
-              <p>更新jsonSchema</p>
-              {{jsonSchemaUpdater}}
-              <input type='text' class='input-todo' placeholder='请输入要更新的jsonSchema的id'
-                     v-model='jsonSchemaUpdateID'
-                     style='flex:1 ;margin-right:10px;'>
-              <button style='flex:0'
-                      @click='updateJsonSchema'> 更新jsonSchema
-              </button>
-          </div>
 
       </div>
 
@@ -218,25 +156,9 @@
     el: '#app',
     data() {
       return {
-          jsonSchemaDeleteID:"",
-        jsonSchemaCreateObj: {
-          name: 'testCreate',
-          jsonSchema: {
-            type: 'button',
-            value: '这是testButton1'
-          }
-        },
-        jsonSchemaID: '',
-        jsonSchemaUpdateID:'',
-        jsonSchemaUpdater:{
-          name: 'testCreate',
-          jsonSchema: {
-            type: 'button',
-            value: '这是testButton2'
-          }},
-        fileContentID: '',
-        deleteFileID: '',
-        file: {},
+        loading: true,
+        requests: [],
+        request: [],
         username: '',
         password: '',
         code: '',
@@ -244,11 +166,7 @@
         register_username: '',
         register_password: '',
         newPassword: '',
-        loading: true,
-        requests: [],
-        request: [],
-        newUsername: '',
-        downloadID: ''
+        newUsername: ''
       }
     },
     /**
@@ -344,43 +262,6 @@
         await this.userUpdateAction({ username: this.newUsername })
       },
 
-      async fileUpload() {
-        const temp = this.file.name.split('.')
-        const suffix = temp[temp.length - 1]
-        const formData = new FormData()
-        formData.append('file', this.file, `${uuid.v1()}.${suffix}`)
-        await this.fileUploadAction(formData)
-      },
-      async fileDelete() {
-        await this.fileDeleteAction(this.deleteFileID)
-      },
-      async fileDownload() {
-        await this.fileDownloadAction(this.downloadID)
-      },
-      async getFileContent() {
-        await this.getContentAction(this.fileContentID)
-      },
-      async getJsonSchemaByUser() {
-        await this.jsonSchemaFindByUserAction()
-      },
-      async getJsonSchemaAll() {
-        await this.jsonSchemaFindAllAction()
-      },
-      async getJsonSchemaByID() {
-        await this.jsonSchemaFindByIDAction(this.jsonSchemaID)
-      },
-      async createJsonSchema() {
-        await this.jsonSchemaCreateAction(this.jsonSchemaCreateObj)
-      },
-        async deleteJsonSchema() {
-        await this.jsonSchemaDeleteAction(this.jsonSchemaDeleteID)
-      },
-      async updateJsonSchema() {
-        await this.jsonSchemaUpdateAction(this.jsonSchemaUpdateID,this.jsonSchemaUpdater)
-      },
-
-
-
       //-------------------------------------------------------------------------------------------------
       // 以下为 actions 的定义，完成实际的后端请求
       async loginByPhoneAction(phoneNumber, code) {
@@ -413,67 +294,6 @@
       },
       async userUpdateAction(user) {
         const { data: { result } } = await window.axios.put('/api/user/user_update', { user })
-        return result
-      },
-      async fileDeleteAction(id) {
-        const { data: { result } } = await window.axios.delete(`/api/file/delete/${id}`)
-        return result
-      },
-      async getContentAction(id) {
-        const { data: { result } } = await window.axios.get(`/api/file/content/${id}`)
-        return result
-      },
-      async fileDownloadAction(id) {
-        try {
-          const res = await fetch(`/api/file/download/${id}`, {
-            method: 'GET'
-          })
-          res.blob().then(blob => {
-            const eleA = document.createElement('a')
-            const filename = res.headers.get('Content-Disposition').split('=')[1]
-            eleA.download = decodeURIComponent(filename)
-            eleA.style.display = 'none'
-            eleA.href = URL.createObjectURL(blob)
-            document.body.appendChild(eleA)
-            eleA.click()
-            URL.revokeObjectURL(eleA.href) //释放URL对象
-            document.body.removeChild(eleA)
-          })
-        } catch (e) {
-          console.log(e)
-        }
-
-      },
-      async fileUploadAction(formData) {
-        const { data: { result } } = await window.axios.post('/api/file/upload', formData, {
-          headers: {
-            'content-type': 'multipart/form-data'
-          }
-        })
-        return result
-      },
-      async jsonSchemaFindByUserAction() {
-        const { data: { result } } = await window.axios.get('/api/json_schema/find_by_user')
-        return result
-      },
-      async jsonSchemaFindAllAction() {
-        const { data: { result } } = await window.axios.get('/api/json_schema/list_all')
-        return result
-      },
-      async jsonSchemaFindByIDAction(id) {
-        const { data: { result } } = await window.axios.get(`/api/json_schema/find/${id}`)
-        return result
-      },
-      async jsonSchemaCreateAction(createObj) {
-        const { data: { result } } = await window.axios.post(`/api/json_schema/create`, createObj)
-        return result
-      },
-      async jsonSchemaDeleteAction(id) {
-        const { data: { ok } }  = await window.axios.delete(`/api/json_schema/delete/${id}`)
-        return ok
-      } ,
-      async jsonSchemaUpdateAction(id,updater) {
-        const { data:  { result } }  = await window.axios.put(`/api/json_schema/update/${id}`,{updater})
         return result
       }
 

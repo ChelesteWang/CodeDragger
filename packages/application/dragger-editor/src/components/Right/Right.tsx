@@ -4,11 +4,32 @@ import React from 'react'
 // import { TextField } from '@mui/material'
 // import Button from '@mui/material/Button'
 import './Right.css'
-
+import ProfileForm from '@cdl-pkg/profile-form'
+const selectedNode = {
+  tag: 'MyCom',
+  properties: {
+    width: {
+      type: 'number',
+      minimum: 10,
+      value: 50,
+      maximum: 100,
+      interaction: 'slide'
+    },
+    height: {
+      type: 'number',
+      minimum: 10,
+      value: 50,
+      maximum: 100,
+      interaction: 'slide'
+    }
+  }
+}
 export default class Right extends React.Component {
   render(): React.ReactNode {
     return (
-      <div className='right'></div>
+      <div className='right'>
+        <ProfileForm {...selectedNode} />
+      </div>
       // <div className='right'>
       //   <div className='top-btn'>
       //     <Button variant='outlined'>button</Button>

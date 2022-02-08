@@ -1,11 +1,6 @@
 const fileService = require('../services/FileService')
 const fs = require('fs')
-const { basename, join } = require('path')
-
-const { build } = require('@cdl-pkg/package-server')
-const FileService = require('../services/FileService')
-const { v4 } = require('uuid')
-const { readFileSync } = require('fs')
+const { basename } = require('path')
 
 /**
  * fileController
@@ -68,22 +63,6 @@ class FileController {
       success: true,
       content
     }
-  }
-
-  /**
-   *  路由:/api/file/compile
-   * react文件编译
-   *  返回url
-   * @param ctx
-   * @return {Promise<any>}
-   */
-  async compile(ctx) {
-    const outDir = '/tmp/dist'
-    await build({ outDir })
-    //部署要改成/tmp/dist/index.js
-    const buffer = readFileSync(join(__dirname, '../../', outDir, 'index.js'))
-    const result = await FileService.upload(ctx, { name: `${v4()}.js`, buffer })
-    ctx.body = { result }
   }
 }
 

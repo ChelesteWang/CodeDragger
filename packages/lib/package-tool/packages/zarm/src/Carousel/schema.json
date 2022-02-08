@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://codedragger.com/component/Carousel",
+  "title": "codedagger/component",
+  "description": "Zarm Carousel",
+  "required": ["images"],
+  "type": "object",
+  "properties": {
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
