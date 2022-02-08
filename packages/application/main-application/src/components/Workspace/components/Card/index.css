@@ -1,12 +1,11 @@
 .card {
   overflow: hidden;
-  width: 300px;
-  height: 250px;
+  width: 214px;
+  height: 200px;
   background-color: #e5e5e5;
-  box-shadow: 0px 0px 2px gray;
+  box-shadow: 0 0 2px gray;
   border-radius: 10px;
   margin: 30px 40px;
-  float: left;
 }
 
 .delete_icon{
@@ -22,8 +21,14 @@
 }
 
 
+
+.card:hover{
+  cursor:pointer;
+  opacity: 0.7;
+}
+
 .card_img {
-  width: 100%;
+  width: 200px;
   height: 70%;
 }
 
@@ -51,8 +56,10 @@
   font-size: 20px;
   font-weight: 700;
   height: 35%;
+  margin-left: 15px;
 }
 .c_edit_time {
   color: gray;
   margin-top: 4px;
+  margin-left: 15px;
 }

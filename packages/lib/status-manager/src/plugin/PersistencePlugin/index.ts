@@ -1,8 +1,8 @@
-import StatusManager, { InitOptionType } from '../../index'
+import StatusManager, { InitOptionType } from '../../StatusManager'
 
 const prefix = 'status_manager__'
 
-export interface PersistenceOptionType {
+export type PersistenceOptionType= {
   status?: 'auto' | 'manual'
 }
 
@@ -45,7 +45,6 @@ export function createPersistencePlugin(
   persistenceOption: PersistenceOptionType
 ) {
   persistenceOption = Object.assign({}, persistenceOption, {
-    dataType: 'global',
     status: 'manual'
   })
 
@@ -73,8 +72,7 @@ export function createPersistencePlugin(
     if (opportunity == 'toClearAllData') {
       localStorage.clear()
     }
-    if (opportunity == 'toClearData') {
-      //todo 条件删除
-    }
+    // if (opportunity == 'toClearData') {
+    // }
   }
 }

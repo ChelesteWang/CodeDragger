@@ -59,7 +59,11 @@ const Workspace: FC = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '33.3%'
+                width: '25%',
+                '&:hover': {
+                  cursor: 'pointer',
+                  opacity: 0.7
+                }
               }}
             >
               <img
@@ -72,7 +76,7 @@ const Workspace: FC = () => {
                         value: '这是testButton1'
                       }
                     })
-                    console.log(newJS)
+
                     navigate('/editor/' + newJS.info._id, {
                       state: { _id: newJS.info._id }
                     })
@@ -80,10 +84,8 @@ const Workspace: FC = () => {
                   fetchJsonSchema()
                 }}
                 style={{
-                  paddingLeft: '24px',
-                  paddingTop: '24px',
-                  width: '300px',
-                  height: '250px'
+                  width: '200px',
+                  height: '200px'
                 }}
                 src='https://qckvp9.file.qingfuwucdn.com/file/a738055bd54b5302_1644302503654.png'
                 alt='+'
@@ -106,7 +108,15 @@ const Workspace: FC = () => {
                       })
                     }}
                   >
-                    <Grid item xs={2} sm={3} md={4} key={index}>
+                    <Grid
+                      item
+                      xs={2}
+                      sm={3}
+                      md={4}
+                      key={index}
+                      justifyContent='center'
+                      alignItems='center'
+                    >
                       <Card
                         title={current.name}
                         edittime={'Edited ' + editTime + ' ago'}
