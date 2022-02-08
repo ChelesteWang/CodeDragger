@@ -72,7 +72,7 @@ const Content = () => {
                       color={'#f8f4f8'}
                       variant='h6'
                       underline='none'
-                      href='#'
+                      href='./login'
                     >
                       {'立即体验'}
                     </Link>
