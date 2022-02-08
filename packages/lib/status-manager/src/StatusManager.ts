@@ -1,11 +1,10 @@
 import produce, { applyPatches, enablePatches, Patch } from 'immer'
-import {createPersistencePlugin} from "./plugin/PersistencePlugin";
 
 
 enablePatches()
 
 export interface MutationsType {
-  [propName: string]: (state: any, ...payload: any[]) => void
+  [propName: string]: (state: Object, ...payload: any[]) => void
 }
 
 export type StatusManagerPluginEntryType = (
@@ -23,7 +22,7 @@ export type StatusManagerPluginType =
 export interface InitOptionType {
   key: string
   dataType?: 'layout' | 'style' | 'other' | 'any' | 'global'
-  state: Object
+  data: Object
   mutations: MutationsType
   hooks?: Partial<{
     beforeCommit: (oldData: any) => void
@@ -56,7 +55,7 @@ class StatusManager {
 
   constructor(initOption: InitOptionType) {
     this.state = produce(
-      initOption.state || {},
+      initOption.data || {},
       () => {},
       (patches, inversePatches) => {
         this.replaces.push(patches)
@@ -159,12 +158,5 @@ class StatusManager {
     })
   }
 }
-
-StatusManager.registerPlugin(
-    createPersistencePlugin({
-      status: 'auto'
-    })
-)
-
 
 export default StatusManager
