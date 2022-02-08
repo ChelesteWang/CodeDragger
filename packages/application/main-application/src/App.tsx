@@ -2,42 +2,52 @@ import React, { Suspense } from 'react'
 import { FC } from 'react'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
-import RemoteComponent from '@cdl-pkg/remote-component'
+// import RemoteComponent from '@cdl-pkg/remote-component'
+import SignIn from './components/SignIn/SignIn'
+import SignUp from './components/SignUp/SignUp'
+import Workspace from './components/Workspace/index'
+import Landing from './components/Landing/index'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
 
-const Hello = () => {
-  return <div>hello</div>
-}
-
-const Login = () => {
-  return <div>login</div>
-}
-
-const Workspace = () => {
-  return <div>workspace</div>
-}
+// const items = [
+//   'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
+//   'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
+//   'https://static.zhongan.com/website/health/zarm/images/banners/3.png'
+// ]
 
 const Test = () => {
   return (
-    <RemoteComponent name='61f56cdcec3be240905e03b7'>Click Me</RemoteComponent>
+    <div>
+      {/* <RemoteComponent name='61ff40f0ec3be24090be5e91' items={items} />
+      <RemoteComponent name='61ff47c9ec3be24090c025a5' images={items} />
+      <RemoteComponent name='61ff4a88ec3be24090c0d056' /> */}
+      {/* <RemoteComponent
+        name='62011592ec3be240902f635a'
+        shapes={'radius'}
+        buttonText='Hello!'
+      >
+        1
+      </RemoteComponent> */}
+    </div>
   )
 }
 
 const routes = [
-  { name: 'main', path: '/', component: <Hello />, key: 'hello' },
-  { name: 'login', path: '/login', component: <Login />, key: 'login' },
-  {
-    name: 'lowcode',
-    path: '/editor',
-    component: <DarggerEditor />,
-    key: 'lowcode'
-  },
+  { name: 'main', path: '/', component: <Landing />, key: 'landing' },
+  { name: 'login', path: '/login', component: <SignIn />, key: 'login' },
+  { name: 'register', path: '/register', component: <SignUp />, key: 'regis' },
   {
     name: 'workspace',
     path: '/workspace',
     component: <Workspace />,
     key: 'workspace'
+  },
+  {
+    name: 'lowcode',
+    path: '/editor',
+    component: <DarggerEditor />,
+    key: 'lowcode'
   },
   {
     name: 'test',

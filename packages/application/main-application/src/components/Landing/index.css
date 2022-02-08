@@ -1,0 +1,73 @@
+.intro {
+  width: 100%;
+  height: 800px;
+  background: url(http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg);
+  background-size: 100% 100%;
+}
+
+.intro_text {
+  position: absolute;
+  left: 100px;
+  top: 250px;
+}
+.title {
+  font-size: 70px;
+  font-weight: 500;
+}
+.title_dyn {
+  color: #377dff;
+}
+.title_para {
+  color: gray;
+  font-size: 30px;
+}
+
+.btns {
+  margin-top: 20px;
+}
+#btn1 {
+  background-color: #377dff;
+  width: 120px;
+}
+#btn2 {
+  margin-left: 10px;
+  color: #377dff;
+}
+
+#advantage {
+  margin-bottom: 300px;
+  margin-top: 30px;
+}
+#title1 {
+  margin-top: 30px;
+  font-size: 40px;
+  text-align: center;
+}
+#title1-1 {
+  font-size: 20px;
+  text-align: center;
+  color: gray;
+}
+.points > ul > li {
+  float: left;
+  width: 400px;
+  text-align: center;
+  margin: 0 100px;
+}
+.img2 {
+  width: 200px;
+  height: 200px;
+  background-color: #bfa;
+}
+.title2 {
+  font-size: 30px;
+}
+.title2-2 {
+  font-size: 20px;
+  color: gray;
+}
+
+#gapline1 {
+  width: 100%;
+  height: 50px;
+}

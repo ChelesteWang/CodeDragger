@@ -1,19 +1,18 @@
-
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "$id": "https://codedragger.com/component",
   "title": "codedagger/component",
   "description": "Codedagger Component",
-  "required": [ "id", "tag", "plainNode", "nativeTag" ],
+  "required": ["id", "tag", "plainNode", "nativeTag"],
   "type": "object",
   "properties": {
     "remote_key": {
       "type": "string"
     },
-    "id" : {
+    "id": {
       "type": "string"
     },
-    "tag" : {
+    "tag": {
       "type": "string"
     },
     "lib": {
@@ -25,11 +24,10 @@
       "default": false
     },
     "value": {
-      "anyOf": 
-        [
-          { "type": "string", "default": "" },
-          { "type": "number", "default": 0 }
-        ]
+      "anyOf": [
+        { "type": "string", "default": "" },
+        { "type": "number", "default": 0 }
+      ]
     },
     "attributes": {
       "oneOf": [

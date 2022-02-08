@@ -9,3 +9,8 @@ export function hello(name: string): void
  * @returns {number}
  */
 export function strlen(k: string): number
+/**
+ * @param {string} json
+ * @returns {string | undefined}
+ */
+export function json_to_jsx(json: string): string | undefined

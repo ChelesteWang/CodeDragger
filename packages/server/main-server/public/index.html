@@ -1,369 +1,305 @@
 <!DOCTYPE html>
 <head>
-    <title>轻服务 starter</title>
-    <meta name='viewport' content='width=device-width' />
-    <link rel='stylesheet'
-          href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,100,700,100italic,300italic,400italic'>
-    <link rel='stylesheet'
-          href='https://unpkg.com/vue-json-viewer@2.2.8/style.css'>
-    <link rel='stylesheet' type='text/css' href='css/styles.css'>
+  <title>轻服务 starter</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='stylesheet'
+        href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,100,700,100italic,300italic,400italic'>
+  <link rel='stylesheet'
+        href='https://unpkg.com/vue-json-viewer@2.2.8/style.css'>
+  <link rel='stylesheet' type='text/css' href='css/styles.css'>
 
-    <script src='https://unpkg.com/vue@2.6.10/dist/vue.min.js'></script>
-    <script src='https://unpkg.com/axios@0.19.0/dist/axios.min.js'></script>
-    <script src='https://unpkg.com/vue-json-viewer@2.2.8/vue-json-viewer.js'></script>
+  <script src='https://unpkg.com/vue@2.6.10/dist/vue.min.js'></script>
+  <script src='https://unpkg.com/axios@0.19.0/dist/axios.min.js'></script>
+  <script src='https://unpkg.com/vue-json-viewer@2.2.8/vue-json-viewer.js'></script>
 </head>
 
 <body>
 <div id='app' style='display: flex;flex-direction: column'>
-    <h1>API展示</h1>
-    <div style='flex: 1 ;display: flex;height: 100%;overflow: hidden'>
-        <div class='request-logger' style='flex: 1' ref='logger'>
-            <h2 class='title'>请求列表
-            </h2>
-            <div v-for='(lines,index) in requests'
-                 :key="index" class="request-card">
-                <div v-for='(line, index) in lines' :key="index" class="request-line">
-                    <div v-if="typeof line === 'object'">
-                        <json-viewer
-                          :value="line"
-                          theme="json-theme"
-                          expand-depth="1"></json-viewer>
-                    </div>
-                    <div v-else>
-                        {{ line }}
-                    </div>
-                </div>
-            </div>
+  <h1>用户服务API展示</h1>
+
+  <div class='nav'>
+    <ul class='nav-bar'>
+      <li><a href='index.html'>
+        用户服务
+      </a>
+      </li>
+      <li><a href='file.html'>
+        文件服务
+      </a></li>
+      <li><a href='component.html'>
+        组件服务
+      </a></li>
+      <li><a href='jsonSchema.html'>
+        JsonSchema服务
+      </a></li>
+    </ul>
+  </div>
+
+  <div style='flex: 1 ;display: flex;height: 100%;overflow: hidden'>
+    <div class='request-logger' style='flex: 1' ref='logger'>
+      <h2 class='title'>请求列表
+      </h2>
+      <div v-for='(lines,index) in requests'
+           :key='index' class='request-card'>
+        <div v-for='(line, index) in lines' :key='index' class='request-line'>
+          <div v-if="typeof line === 'object'">
+            <json-viewer
+              :value='line'
+              theme='json-theme'
+              expand-depth='1'></json-viewer>
+          </div>
+          <div v-else>
+            {{ line }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class='wrapper' style='flex: 1'>
+      <div
+        @keydown.enter.prevent='' style='display: flex;flex-wrap: wrap'>
+
+        <div class='demo'>
+          <p>loginByPassword</p>
+          <input type='text' class='input-todo' placeholder='输入登录账号'
+                 v-model='username'
+                 style='flex:1 ;margin-right:10px;'>
+          <input type='text' class='input-todo' placeholder='输入登录密码'
+                 v-model='password'
+                 style='flex:1 ;margin-right:10px;'>
+          <button style='flex:0'
+                  @click='loginByPassword'> 登录
+          </button>
         </div>
 
 
-        <div class='wrapper' style='flex: 1'>
-            <div
-              @keydown.enter.prevent="" style="display: flex;flex-wrap: wrap">
+        <div class='demo'>
+          <p>register</p>
+          <input type='text' class='input-todo' placeholder='输入注册账号'
+                 v-model='register_username'
+                 style='flex:1 ;margin-right:10px;'>
 
-                <div class='demo'>
-                    <p>loginByPassword</p>
-                    <input type='text' class='input-todo' placeholder='输入登录账号'
-                           v-model='username'
-                           style='flex:1 ;margin-right:10px;'>
-                    <input type='text' class='input-todo' placeholder='输入登录密码'
-                           v-model='password'
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="loginByPassword"> 登录</button>
-                </div>
-
-
-                <div class='demo'>
-                    <p>register</p>
-                    <input type='text' class='input-todo' placeholder='输入注册账号'
-                           v-model='register_username'
-                           style='flex:1 ;margin-right:10px;'>
-
-                    <input type='text' class='input-todo' placeholder='输入注册密码'
-                           v-model='register_password'
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="register"> 注册</button>
-                </div>
-                <div class='demo'>
-                    <button style='flex:0'
-                            @click="getCurrent"> 获取用户信息
-                    </button>
-                    <button style='flex:0'
-                            @click="logout"> 登出
-                    </button>
-                </div>
-
-                <div class='demo'>
-                    <p>loginByPhone</p>
-                    <input type='text' class='input-todo' placeholder='输入手机号码'
-                           v-model='phoneNumber'
-                           style='flex:1 ;margin-right:10px;'>
-                    <input type='text' class='input-todo' placeholder='输入验证码'
-                           v-model='code'
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="sendSMS"> 获取验证码</button>
-                    <button style='flex:0'
-                            @click="loginByPhone"> 登录</button>
-                </div>
-
-
-                <div class='demo'>
-                    <p>changePassword</p>
-                    <input type='text' class='input-todo' placeholder='输入新密码'
-                           v-model='newPassword'
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="changePassword"> 修改密码</button>
-                </div>
-
-                <div class='demo'>
-                    <p>修改用户名</p>
-                    <input type='text' class='input-todo' placeholder='输入新用户名'
-                           v-model='newUsername'
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="userUpdate"> 修改用户名</button>
-                </div>
-
-                <div class='demo'>
-                    <p>上传文件</p>
-                    <input type='file' ref='fileId' multiple @change="getFile">
-                    <button style='flex:0' type='button' @click="fileUpload"> 上传
-                    </button>
-                </div>
-
-                <div class='demo'>
-                    <p>删除文件</p>
-                    <input type='text' class='input-todo' placeholder='请输入要删除文件的id'
-                           v-model='deleteID '
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="fileDelete"> 删除文件</button>
-                </div>
-
-                <div class='demo'>
-                    <p>下载文件</p>
-                    <input type='text' class='input-todo' placeholder='请输入要下载文件的ID'
-                           v-model='downloadID '
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="fileDownload"> 下载文件</button>
-                </div>
-                <div class='demo'>
-                    <p>获取文件内容</p>
-                    <input type='text' class='input-todo' placeholder='请输入要获取文件内容的ID'
-                           v-model='fileContentID '
-                           style='flex:1 ;margin-right:10px;'>
-                    <button style='flex:0'
-                            @click="getFileContent"> 获取文件内容</button>
-                </div>
-
-            </div>
-
-
+          <input type='text' class='input-todo' placeholder='输入注册密码'
+                 v-model='register_password'
+                 style='flex:1 ;margin-right:10px;'>
+          <button style='flex:0'
+                  @click='register'> 注册
+          </button>
         </div>
+        <div class='demo'>
+          <button style='flex:0'
+                  @click='getCurrent'> 获取用户信息
+          </button>
+          <button style='flex:0'
+                  @click='logout'> 登出
+          </button>
+        </div>
+
+        <div class='demo'>
+          <p>loginByPhone</p>
+          <input type='text' class='input-todo' placeholder='输入手机号码'
+                 v-model='phoneNumber'
+                 style='flex:1 ;margin-right:10px;'>
+          <input type='text' class='input-todo' placeholder='输入验证码'
+                 v-model='code'
+                 style='flex:1 ;margin-right:10px;'>
+          <button style='flex:0'
+                  @click='sendSMS'> 获取验证码
+          </button>
+          <button style='flex:0'
+                  @click='loginByPhone'> 登录
+          </button>
+        </div>
+
+
+        <div class='demo'>
+          <p>changePassword</p>
+          <input type='text' class='input-todo' placeholder='输入新密码'
+                 v-model='newPassword'
+                 style='flex:1 ;margin-right:10px;'>
+          <button style='flex:0'
+                  @click='changePassword'> 修改密码
+          </button>
+        </div>
+
+        <div class='demo'>
+          <p>修改用户名</p>
+          <input type='text' class='input-todo' placeholder='输入新用户名'
+                 v-model='newUsername'
+                 style='flex:1 ;margin-right:10px;'>
+          <button style='flex:0'
+                  @click='userUpdate'> 修改用户名
+          </button>
+        </div>
+
+
+      </div>
 
 
     </div>
+
+
+  </div>
 
 </div>
 </body>
 <script src='https://cdn.bootcss.com/node-uuid/1.4.8/uuid.min.js'></script>
 <script>
-    const localSessionKey = `local-session`;
-    if (!localStorage.getItem(localSessionKey)) {
-        // 如果本地没有 token，则随机生成
-        localStorage.setItem(localSessionKey, uuid.v1());
+  const localSessionKey = `local-session`
+  if (!localStorage.getItem(localSessionKey)) {
+    // 如果本地没有 token，则随机生成
+    localStorage.setItem(localSessionKey, uuid.v1())
+  }
+  Vue.use(JsonView.default)
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        loading: true,
+        requests: [],
+        request: [],
+        username: '',
+        password: '',
+        code: '',
+        phoneNumber: '',
+        register_username: '',
+        register_password: '',
+        newPassword: '',
+        newUsername: ''
+      }
+    },
+    /**
+     * 创建时做两件事：
+     * 1. 切入 axios，使得每个请求会显示到界面上
+     *
+     */
+    async created() {
+      this.interceptAxios()
+      this.loading = false
+    },
+    computed: {},
+    methods: {
+      getFile() {
+        //获取file内容
+        this.file = this.$refs.fileId.files[0]
+      },
+      /**
+       * 切入 axios，记录请求和响应
+       */
+      interceptAxios() {
+        window.axios.interceptors.request.use((config) => {
+          const { method, url, data } = config
+
+          this.request.push(`→ ${method.toUpperCase()} ${url}`)
+          if (data) {
+            this.request.push(data)
+          }
+          config.headers['x-tt-session-v2'] = localStorage.getItem(localSessionKey)
+
+          return config
+        })
+        window.axios.interceptors.response.use((resp) => {
+          const { status, data } = resp
+          this.request.push(`← ${status}`)
+          if (data) {
+            this.request.push(data)
+          }
+          this.requests.push(this.request)
+          this.setScroll()
+          this.request = []
+          return resp
+        }, async (err) => {
+          if (!err.response) {
+            throw err
+          }
+          const { status, data } = err.response
+          this.request.push(`← ${status}`)
+          if (data) {
+            this.request.push(data)
+          }
+          this.requests.push(this.request)
+          this.setScroll()
+          this.request = []
+          throw err
+        })
+      },
+      /**
+       * 当请求记录发生变化时，自动滚动内容
+       */
+      setScroll() {
+        if (this.scrollTimer) clearTimeout(this.scrollTimer)
+        this.scrollTimer = setTimeout(() => {
+          this.$refs.logger.scrollTo({
+            top: this.$refs.logger.scrollHeight + 1000,
+            behavior: 'smooth'
+          })
+        }, 300)
+      },
+      async loginByPassword() {
+        await this.loginByPasswordAction(this.username, this.password)
+      },
+      async register() {
+        await this.registerAction(this.register_username, this.register_password)
+      },
+      async getCurrent() {
+        await this.currentAction()
+      },
+      async logout() {
+        await this.logoutAction()
+      },
+      async loginByPhone() {
+        await this.loginByPhoneAction(this.phoneNumber, this.code)
+      },
+      async sendSMS() {
+        await this.sendSMSAction(this.phoneNumber)
+      },
+      async changePassword() {
+        await this.changePasswordAction(this.newPassword)
+      },
+      async userUpdate() {
+        //这里只修改了用户名
+        await this.userUpdateAction({ username: this.newUsername })
+      },
+
+      //-------------------------------------------------------------------------------------------------
+      // 以下为 actions 的定义，完成实际的后端请求
+      async loginByPhoneAction(phoneNumber, code) {
+        const { data: { result } } = await window.axios.post('/api/user/login_phone', { phoneNumber, code })
+        return result
+      },
+      async sendSMSAction(phoneNumber) {
+        const { data: { result } } = await window.axios.post('/api/user/send_sms', { phoneNumber })
+        return result
+      },
+      async loginByPasswordAction(username, password) {
+        const { data: { result } } = await window.axios.post('/api/user/login_password', { username, password })
+        return result
+      },
+      async registerAction(username, password) {
+        const { data: { result } } = await window.axios.post('/api/user/register', { username, password })
+        return result
+      },
+      async currentAction() {
+        const { data: { result } } = await window.axios.get('/api/user/current')
+        return result
+      },
+      async logoutAction() {
+        const { data: { result } } = await window.axios.put('/api/user/logout')
+        return result
+      },
+      async changePasswordAction(newPassword) {
+        const { data: { result } } = await window.axios.put('/api/user/change_password', { newPassword })
+        return result
+      },
+      async userUpdateAction(user) {
+        const { data: { result } } = await window.axios.put('/api/user/user_update', { user })
+        return result
+      }
+
     }
-    Vue.use(JsonView.default);
-    new Vue({
-        el: '#app',
-        data() {
-            return {
-                fileContentID:'',
-                deleteID: '',
-                file: {},
-                username: '',
-                password: '',
-                code: '',
-                phoneNumber: '',
-                register_username: '',
-                register_password: '',
-                newPassword: '',
-                loading: true,
-                requests: [],
-                request: [],
-                newUsername: '',
-                downloadID: '',
-            };
-        },
-        /**
-         * 创建时做两件事：
-         * 1. 切入 axios，使得每个请求会显示到界面上
-         *
-         */
-        async created() {
-            this.interceptAxios();
-            this.loading = false;
-        },
-        computed: {},
-        methods: {
-            getFile() {
-                //获取file内容
-                this.file = this.$refs.fileId.files[0]
-            },
-            /**
-             * 切入 axios，记录请求和响应
-             */
-            interceptAxios() {
-                window.axios.interceptors.request.use((config) => {
-                    const {method, url, data} = config;
 
-                    this.request.push(`→ ${method.toUpperCase()} ${url}`);
-                    if (data) {
-                        this.request.push(data);
-                    }
-                    config.headers['x-tt-session-v2'] = localStorage.getItem(localSessionKey)
-
-                    return config;
-                });
-                window.axios.interceptors.response.use((resp) => {
-                    const {status, data} = resp;
-                    this.request.push(`← ${status}`);
-                    if (data) {
-                        this.request.push(data);
-                    }
-                    this.requests.push(this.request);
-                    this.setScroll();
-                    this.request = [];
-                    return resp;
-                }, async (err) => {
-                    if (!err.response) {
-                        throw err;
-                    }
-                    const {status, data} = err.response;
-                    this.request.push(`← ${status}`);
-                    if (data) {
-                        this.request.push(data);
-                    }
-                    this.requests.push(this.request);
-                    this.setScroll();
-                    this.request = [];
-                    throw err;
-                });
-            },
-            /**
-             * 当请求记录发生变化时，自动滚动内容
-             */
-            setScroll() {
-                if (this.scrollTimer) clearTimeout(this.scrollTimer);
-                this.scrollTimer = setTimeout(() => {
-                    this.$refs.logger.scrollTo({
-                        top: this.$refs.logger.scrollHeight + 1000,
-                        behavior: 'smooth'
-                    });
-                }, 300);
-            },
-            async loginByPassword() {
-                await this.loginByPasswordAction(this.username, this.password)
-            },
-            async register() {
-                await this.registerAction(this.register_username, this.register_password)
-            },
-            async getCurrent() {
-                await this.currentAction();
-            },
-            async logout() {
-                await this.logoutAction();
-            },
-            async loginByPhone() {
-                await this.loginByPhoneAction(this.phoneNumber, this.code)
-            },
-            async sendSMS() {
-                await this.sendSMSAction(this.phoneNumber)
-            },
-            async changePassword() {
-                await this.changePasswordAction(this.newPassword)
-            },
-            async userUpdate() {
-                //这里只修改了用户名
-                await this.userUpdateAction({username: this.newUsername})
-            },
-
-            async fileUpload() {
-                const temp = this.file.name.split('.')
-                const suffix=temp[temp.length-1]
-                const formData = new FormData();
-                formData.append('file', this.file, `${uuid.v1()}.${suffix}`);
-                await this.fileUploadAction(formData)
-            },
-            async fileDelete() {
-                await this.fileDeleteAction(this.deleteID)
-            },
-            async fileDownload() {
-                await this.fileDownloadAction(this.downloadID)
-            },
-            async getFileContent() {
-                await this.getContentAction(this.fileContentID)
-            },
-            // 以下为 actions 的定义，完成实际的后端请求
-            async loginByPhoneAction(phoneNumber, code) {
-                const {data: {result}} = await window.axios.post('/api/user/login_phone', {phoneNumber, code});
-                return result;
-            },
-            async sendSMSAction(phoneNumber) {
-                const {data: {result}} = await window.axios.post('/api/user/send_sms', {phoneNumber});
-                return result;
-            },
-            async loginByPasswordAction(username, password) {
-                const {data: {result}} = await window.axios.post('/api/user/login_password', {username, password});
-                return result;
-            },
-            async registerAction(username, password) {
-                const {data: {result}} = await window.axios.post('/api/user/register', {username, password});
-                return result;
-            },
-            async currentAction() {
-                const {data: {result}} = await window.axios.get('/api/user/current');
-                return result;
-            },
-            async logoutAction() {
-                const {data: {result}} = await window.axios.put('/api/user/logout');
-                return result;
-            },
-            async changePasswordAction(newPassword) {
-                const {data: {result}} = await window.axios.put('/api/user/change_password', {newPassword});
-                return result;
-            },
-            async userUpdateAction(user) {
-                const {data: {result}} = await window.axios.put('/api/user/user_update', {user});
-                return result;
-            },
-            async fileDeleteAction(id) {
-                const {data: {result}} = await window.axios.delete(`/api/file/delete/${id}`);
-                return result;
-            },
-            async getContentAction(id){
-                const {data: {result}} = await window.axios.get(`/api/file/content/${id}`);
-                return result;
-            },
-            async fileDownloadAction(id) {
-                try {
-                    const res=await   fetch(`/api/file/${id}`,{
-                        method:'GET',
-                    })
-                    res.blob().then(blob=>{
-                        const eleA = document.createElement('a');
-                        const filename=res.headers.get('Content-Disposition').split('=')[1]
-                        eleA.download = decodeURIComponent(filename);
-                        eleA.style.display = 'none';
-                        eleA.href = URL.createObjectURL(blob);
-                        document.body.appendChild(eleA);
-                        eleA.click();
-                        URL.revokeObjectURL(eleA.href); //释放URL对象
-                        document.body.removeChild(eleA);
-                    })
-                }catch (e) {
-                    console.log(e)
-                }
-
-            },
-
-            async fileUploadAction(formData) {
-                const {data: {result}} = await window.axios.post('/api/file/upload', formData, {
-                    headers: {
-                        'content-type': 'multipart/form-data',
-                    },
-                });
-                return result;
-            },
-
-        }
-
-    });
+  })
 
 
 </script>

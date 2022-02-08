@@ -1,11 +1,13 @@
 import React from 'react'
 import './Mid.css'
-
+import Preview from './Preview'
 export default class Mid extends React.Component {
   render(): React.ReactNode {
     return (
       <div className='mid'>
-        <div></div>
+        <div>
+          <Preview />
+        </div>
       </div>
     )
   }
