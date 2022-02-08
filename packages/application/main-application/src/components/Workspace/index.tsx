@@ -1,8 +1,11 @@
 import { FC, useEffect, useState } from 'react'
 import Nav from './components/Nav/Nav'
 import Card from './components/Card/index'
+import Container from '@mui/material/Container'
 import { jsonSchemaCreateAction, jsonSchemaFindByUserAction } from '@/api'
 import { useNavigate } from 'react-router-dom'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 
 const Workspace: FC = () => {
   const navigate = useNavigate()
@@ -11,6 +14,7 @@ const Workspace: FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await jsonSchemaFindByUserAction()
+      console.log(result)
       setList(result.list)
     }
     fetchData()
@@ -40,64 +44,57 @@ const Workspace: FC = () => {
   return (
     <div>
       <Nav />
-      <div
-        onClick={() => {
-          const fetchJsonSchema = async () => {
-            const newJS = await jsonSchemaCreateAction({
-              name: 'testCreate',
-              jsonSchema: {
-                type: 'button',
-                value: '这是testButton1'
-              }
-            })
-            console.log(newJS)
-            window.location.href = './editor'
-          }
-          fetchJsonSchema()
-        }}
-        style={{
-          background:
-            'url(http://tva1.sinaimg.cn/large/005BcTWDly1gz4pvsson1j308c06ywea.jpg)',
-          width: '300px',
-          height: '250px',
-          float: 'left',
-          overflow: 'hidden',
-          backgroundSize: '100% 100%',
-          border: 'black 1px solid',
-          borderRadius: '5px',
-          margin: '30px 40px'
-        }}
-      ></div>
-      <div>
-        {list.map(
-          //动态渲染组件
-          (current: { name: string; updatedAt: string; _id: string }) => {
-            let editTime = changeEditTime(current.updatedAt) //取得时间差
-            return (
-              <div
-                key={current._id}
-                onClick={() => {
-                  navigate('/editor/' + current._id, {
-                    state: { _id: current._id }
-                  })
+      <Container maxWidth='lg'>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '33.3%'
+              }}
+            >
+              <img
+                style={{
+                  paddingLeft: '24px',
+                  paddingTop: '24px',
+                  width: '300px',
+                  height: '250px'
                 }}
-              >
-                <Card
-                  title={current.name}
-                  edittime={'Edited ' + editTime + ' ago'}
-                  //因为未知的原因，Card上无法添加onClick
-                  //故在外面套了一层div用来绑定一个onClick
-                  //先留个坑在这里
-                  // onClick={() => {
-                  //   console.log(233)
-                  //   //window.location.href = './editor/' + { index }
-                  // }}
-                />
-              </div>
-            )
-          }
-        )}
-      </div>
+                src='https://qckvp9.file.qingfuwucdn.com/file/a738055bd54b5302_1644302503654.png'
+                alt='+'
+              />
+            </Box>
+
+            {list.map(
+              //动态渲染组件
+              (current: { name: string; updatedAt: string }, index: number) => {
+                let editTime = changeEditTime(current.updatedAt) //取得时间差
+                return (
+                  <Grid item xs={2} sm={4} md={4} key={index}>
+                    <Card
+                      title={current.name}
+                      edittime={'Edited ' + editTime + ' ago'}
+                      //因为未知的原因，Card上无法添加onClick
+                      //故在外面套了一层div用来绑定一个onClick
+                      //先留个坑在这里
+                      // onClick={() => {
+                      //   console.log(233)
+                      //   //window.location.href = './editor/' + { index }
+                      // }}
+                    />
+                  </Grid>
+                )
+              }
+            )}
+          </Grid>
+        </Box>
+      </Container>
     </div>
   )
 }

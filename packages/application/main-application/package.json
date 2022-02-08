@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
-    "format": "prettier --write src",
+    "format": "prettier --write **/*.{js,json,css,tsx,ts}",
     "lint": "eslint --ext .ts,.tsx src",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

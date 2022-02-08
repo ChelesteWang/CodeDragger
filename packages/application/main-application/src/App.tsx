@@ -29,8 +29,8 @@ const Test = () => {
       >
         1
       </RemoteComponent> */}
-      <RemoteComponent name='62011592ec3be240902f635a' images={items} /> */}
-      <RemoteComponent name='61ff4a88ec3be24090c0d056' buttonText='1' />
+      {/*<RemoteComponent name='62011592ec3be240902f635a' images={items} /> *!/*/}
+      {/*<RemoteComponent name='61ff4a88ec3be24090c0d056' buttonText='1' />*/}
     </div>
   )
 }
