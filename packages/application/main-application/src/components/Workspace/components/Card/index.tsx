@@ -15,7 +15,7 @@ const Card: FC<childProps> = (props) => {
 
         <div className='card_info'>
           <div className='card_icon'>
-            <img src='http://tva1.sinaimg.cn/large/005BcTWDly1gz0kbe7a7nj302s02st8m.jpg' />
+            <img src='' />
           </div>
           <div className='card_text'>
             <div className='card_title'>
