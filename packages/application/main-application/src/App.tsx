@@ -67,6 +67,7 @@ const App: FC = () => {
           <Routes>
             {routes.map((item) => (
               <Route path={item.path} element={item.component} key={item.key} />
+              <Route path='/editor/:id' element={<DarggerEditor />} />
             ))}
           </Routes>
         </Router>
