@@ -11,6 +11,7 @@ import {
 import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
 import OutlinedCard from './OutlinedCard'
+import { Divider } from '@mui/material'
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -115,8 +116,8 @@ const Content = () => {
               </Grid>
             </Grid>
           </Box>
-
-          <Box sx={{ flexGrow: 1 }}>
+          <Divider variant='middle' />
+          <Box sx={{ flexGrow: 1, mt: 5 }}>
             <Typography variant='h3' sx={{ textAlign: 'center' }}>
               项目亮点
             </Typography>
