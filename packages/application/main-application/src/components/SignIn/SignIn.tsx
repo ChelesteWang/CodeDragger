@@ -6,8 +6,10 @@ import Button from '@mui/material/Button'
 import './SignIn.css'
 import { FC, useState } from 'react'
 import { loginByPasswordAction } from '@/api'
+import { useNavigate } from 'react-router-dom'
 
 const SignIn: FC = () => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [tips, setTips] = useState<string>('Please enter your information!')
@@ -67,7 +69,7 @@ const SignIn: FC = () => {
                 const result = loginByPasswordAction(username, password)
                 result.then(
                   () => {
-                    window.location.href = './workspace'
+                    navigate('/workspace')
                   },
                   () => {
                     setTips('Input information error!')

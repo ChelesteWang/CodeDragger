@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button'
+import Link from '@mui/material/Link'
 import './Nav.css'
 
 export default class Hello extends React.Component {
@@ -8,15 +9,17 @@ export default class Hello extends React.Component {
       <div className='nav-bar'>
         <div className='logo'>CodeDragger LowCode</div>
         <ul className='button-list'>
-          {/* <li>
+          <li>
             <Button variant='contained'>Join us</Button>
           </li>
           <li>
             <Button variant='contained'>Github link</Button>
           </li>
           <li>
-            <Button variant='contained'>Document</Button>
-          </li> */}
+            <Link href='./login' underline='none'>
+              <Button variant='outlined'>立即体验</Button>
+            </Link>
+          </li>
         </ul>
       </div>
     )

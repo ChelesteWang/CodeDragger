@@ -3,10 +3,12 @@ import Nav from './components/Nav/Nav'
 import Card from './components/Card/index'
 import Container from '@mui/material/Container'
 import { jsonSchemaCreateAction, jsonSchemaFindByUserAction } from '@/api'
+import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
 const Workspace: FC = () => {
+  const navigate = useNavigate()
   const [list, setList] = useState([]) //依据list动态渲染组件
   //simulate the componentDidMount
   useEffect(() => {
@@ -42,7 +44,6 @@ const Workspace: FC = () => {
   return (
     <div>
       <Nav />
-
       <Container maxWidth='lg'>
         <Box sx={{ flexGrow: 1 }}>
           <Grid
