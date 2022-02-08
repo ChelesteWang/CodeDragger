@@ -13,7 +13,7 @@ const App: FC = () => {
   const [name, setName] = useState<string>('')
   const [editTime, setEditTime] = useState<string>('')
   const { id } = useParams()
-  if(!id){
+  if (!id) {
     throw new Error(`Invalid id: ${id}`)
   }
   useEffect(() => {

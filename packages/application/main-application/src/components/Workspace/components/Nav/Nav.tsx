@@ -40,12 +40,14 @@ export default class Hello extends React.Component {
         </div>
         <ul className='button-list'>
           <li>
-            <Button variant='contained' onClick={this.logout}>
+            <Button variant='outlined' color='inherit' onClick={this.logout}>
               登出
             </Button>
           </li>
           <li>
-            <Button variant='outlined'>Hello! {this.state.username}</Button>
+            <Button variant='outlined' color='inherit'>
+              Hello! {this.state.username}
+            </Button>
           </li>
         </ul>
       </div>
