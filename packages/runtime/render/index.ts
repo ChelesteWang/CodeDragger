@@ -1,6 +1,6 @@
 import { FunctionComponent, ComponentClass } from 'react'
 import { createElement as e } from 'react'
-
+import  RemoteComponent  from '../../components/remote-component/src'
 /**
  * @rexjz
  * TODO: - [ ] 支持远程组件（需要一个远程组件统一的下载接口）
@@ -21,8 +21,7 @@ export interface NodeData {
   name: string;
   children?: NodeData[];
   plainNode?: boolean;
-  remoteNode?: boolean;
-  remoteKey?: string;
+  remoteComponent?: boolean;
   value?: number | string;
   attributes: Record<string, unknown>;
 }
@@ -40,6 +39,12 @@ export async function renderNode(component: NodeData) {
   if (component.plainNode) {
     return component.value
   }
+
+  if(component.remoteComponent) {
+    // attributes 应该包含 name
+    return e.apply({} , [RemoteComponent, component.attributes, null])
+  }
+
   if (component.lib !== TagLibType.HTML5) {
     const lib = await import(component.lib)
     const { [component.tag]: node_t } = lib
@@ -69,7 +74,7 @@ export async function renderNode(component: NodeData) {
 }
 
 function parseLayout() {
-  
+
 }
 
 export async function renderComponents(components: NodeData[]) {
