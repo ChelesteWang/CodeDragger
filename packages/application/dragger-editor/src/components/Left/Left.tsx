@@ -28,9 +28,6 @@ export default class Left extends React.Component {
   render(): React.ReactNode {
     return (
       <div className='left'>
-        <div className='options'>
-          <TabPanel />
-        </div>
         <div className='component'>
           {/* {['1', '2', '3'].map((item, index) => {
             const Fn = WithDraggable(item)(RemoteComponent)

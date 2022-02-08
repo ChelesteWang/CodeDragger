@@ -1,8 +1,11 @@
 .right {
   padding: 10px 20px;
   width: 20%;
+  height: 100vh;
   background-color: white;
   float: left;
+  border-top: 1px solid rgb(228, 228, 228);
+  border-left: 1px solid rgb(228, 228, 228);
 }
 
 .props {

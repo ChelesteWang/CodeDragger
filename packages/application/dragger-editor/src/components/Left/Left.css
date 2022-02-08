@@ -3,6 +3,8 @@
   height: 100vh;
   float: left;
   background-color: white;
+  border-top: 1px solid rgb(228, 228, 228);
+  border-right: 1px solid rgb(228, 228, 228);
 }
 
 .component > div {
