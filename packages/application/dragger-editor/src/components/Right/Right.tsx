@@ -10,16 +10,16 @@ const selectedNode = {
   properties: {
     width: {
       type: 'number',
-      minimum: 10,
+      minimum: 1,
       value: 50,
-      maximum: 100,
+      maximum: 2000,
       interaction: 'slide'
     },
     height: {
       type: 'number',
-      minimum: 10,
+      minimum: 1,
       value: 50,
-      maximum: 100,
+      maximum: 2000,
       interaction: 'slide'
     }
   }
