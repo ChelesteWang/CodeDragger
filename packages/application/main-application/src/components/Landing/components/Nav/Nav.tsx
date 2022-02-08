@@ -10,14 +10,20 @@ export default class Hello extends React.Component {
         <div className='logo'>CodeDragger LowCode</div>
         <ul className='button-list'>
           <li>
-            <Button variant='contained'>Join us</Button>
+            <Button variant='outlined' color='inherit'>
+              加入我们
+            </Button>
           </li>
           <li>
-            <Button variant='contained'>Github link</Button>
+            <Button variant='outlined' color='inherit'>
+              项目地址
+            </Button>
           </li>
           <li>
-            <Link href='./login' underline='none'>
-              <Button variant='outlined'>立即体验</Button>
+            <Link href='./login' underline='none' color='inherit'>
+              <Button variant='outlined' color='inherit'>
+                立即体验
+              </Button>
             </Link>
           </li>
         </ul>

@@ -15,15 +15,19 @@ export default class Hello extends React.Component<Iprops> {
         <div className='logo'>CodeDragger LowCode</div>
         <ul className='button-list'>
           <li>
-            <Button variant='contained'>预览</Button>
+            <Button variant='outlined' color='inherit'>
+              预览
+            </Button>
           </li>
           <li>
-            <Button variant='outlined'>
+            <Button variant='outlined' color='inherit'>
               创建时间：{editTime.slice(0, 10)}
             </Button>
           </li>
           <li>
-            <Button variant='outlined'>项目名称：{name}</Button>
+            <Button variant='outlined' color='inherit'>
+              项目名称：{name}
+            </Button>
           </li>
         </ul>
       </div>
