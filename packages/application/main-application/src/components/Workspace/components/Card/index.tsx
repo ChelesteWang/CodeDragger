@@ -14,9 +14,9 @@ const Card: FC<childProps> = (props) => {
         <div className='card_img'></div>
 
         <div className='card_info'>
-          <div className='card_icon'>
+          {/* <div className='card_icon'>
             <img src='' />
-          </div>
+          </div> */}
           <div className='card_text'>
             <div className='card_title'>
               {title}

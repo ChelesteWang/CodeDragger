@@ -13,7 +13,9 @@ const App: FC = () => {
   const [name, setName] = useState<string>('')
   const [editTime, setEditTime] = useState<string>('')
   const { id } = useParams()
-  console.log(id)
+  if(!id){
+    throw new Error(`Invalid id: ${id}`)
+  }
   useEffect(() => {
     const fetchData = async () => {
       const result = await jsonSchemaFindByIDAction(id)
