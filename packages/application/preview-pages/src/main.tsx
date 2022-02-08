@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import './index.css'
-import { NodeData, renderComponents } from '../../../runtime/render';
+import { NodeData, renderComponents } from '@cdl-pkg/render';
 import {mockmessage4} from './mock.js';
 
 

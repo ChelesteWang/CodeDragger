@@ -1,6 +1,7 @@
 import { FunctionComponent, ComponentClass } from 'react'
 import { createElement as e } from 'react'
-import  RemoteComponent  from '../../components/remote-component/src'
+import RemoteComponent from '@cdl-pkg/remote-component'
+
 /**
  * @rexjz
  * TODO: - [ ] 支持远程组件（需要一个远程组件统一的下载接口）
