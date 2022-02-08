@@ -62,27 +62,15 @@ const config: UserConfig = {
       }
     })
   ],
-<<<<<<< Updated upstream
-  // server: {
-  //   proxy: {
-  //     '^/api': {
-  //       target: 'http://localhost:3001',
-  //       changeOrigin: true
-  //       // rewrite: (path) => path.replace(/^\/api/, '')
-  //     }
-  //   }
-  // },
-=======
   server: {
     proxy: {
       '^/api': {
-        target: 'https://qckvp9.app.cloudendpoint.cn/',
+        target: 'http://localhost:3001',
         changeOrigin: true
         // rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   },
->>>>>>> Stashed changes
   define: {
     process: {
       env: 'development'

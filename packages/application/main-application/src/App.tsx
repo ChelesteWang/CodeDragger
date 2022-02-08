@@ -20,6 +20,7 @@ const Test = () => {
   return (
     <div>
       {/* <RemoteComponent name='61ff40f0ec3be24090be5e91' items={items} />
+<<<<<<< Updated upstream
       <RemoteComponent name='61ff47c9ec3be24090c025a5' images={items} />
       <RemoteComponent name='61ff4a88ec3be24090c0d056' /> */}
       {/* <RemoteComponent
@@ -29,6 +30,10 @@ const Test = () => {
       >
         1
       </RemoteComponent> */}
+=======
+      <RemoteComponent name='62011592ec3be240902f635a' images={items} /> */}
+      <RemoteComponent name='61ff4a88ec3be24090c0d056' buttonText='1' />
+>>>>>>> Stashed changes
     </div>
   )
 }

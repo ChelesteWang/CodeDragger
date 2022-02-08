@@ -16,14 +16,14 @@ const contentRender = (items: string[]) => {
   })
 }
 
-export default function ({ items }: { items: string[] }) {
+export default function ({ images }: { images: string[] }) {
   return (
     <Carousel
       onChange={(index) => {
         console.log(`onChange: ${index}`)
       }}
     >
-      {contentRender(items)}
+      {contentRender(images)}
     </Carousel>
   )
 }

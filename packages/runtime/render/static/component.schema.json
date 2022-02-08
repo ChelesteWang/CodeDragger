@@ -32,7 +32,7 @@
     "attributes": {
       "oneOf": [
         {
-          "$ref": "/antd-mobile/Input"
+          "$ref": "/Carousel"
         }
       ]
     },

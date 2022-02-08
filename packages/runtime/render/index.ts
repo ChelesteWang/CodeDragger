@@ -1,5 +1,4 @@
 import { FunctionComponent, ComponentClass } from 'react'
-import { render } from 'react-dom'
 import { createElement as e } from 'react'
 
 /**
@@ -33,8 +32,6 @@ export enum TagLibType {
 }
 
 type NodeType = string | FunctionComponent<any> | ComponentClass<any, any>
-
-const rootElement = document.getElementById('root')
 
 export async function renderNode(component: NodeData) {
   let node: NodeType = ''
