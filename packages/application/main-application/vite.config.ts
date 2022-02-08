@@ -71,6 +71,15 @@ const config: UserConfig = {
   //     }
   //   }
   // },
+  server: {
+    proxy: {
+      '^/api': {
+        target: 'https://qckvp9.app.cloudendpoint.cn/',
+        changeOrigin: true
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   define: {
     process: {
       env: 'development'

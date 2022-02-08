@@ -16,6 +16,7 @@
     "@caldwell619/react-hooks": "^0.0.6",
     "@cdl-pkg/dragger-editor": "workspace:^0.0.0",
     "@cdl-pkg/remote-component": "workspace:^0.0.0",
+    "@cdl-pkg/render": "workspace:^0.0.0",
     "@cdl-pkg/request": "workspace:^1.0.0",
     "@emotion/is-prop-valid": "^1.1.1",
     "@emotion/react": "11.4.1",
