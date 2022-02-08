@@ -7,10 +7,26 @@
   border-radius: 10px;
   margin: 30px 40px;
 }
+
+.delete_icon{
+  float: right;
+}
+.delete_icon:hover > img{
+  width: 50px;
+  height: 50px;
+}
+.delete_icon:active > img{
+  width: 70px;
+  height: 70px;
+}
+
+
+
 .card:hover{
   cursor:pointer;
   opacity: 0.7;
 }
+
 .card_img {
   width: 200px;
   height: 70%;
@@ -34,6 +50,7 @@
   height: 100%;
   float: left;
   padding-top: 4%;
+  margin-left: 10px;
 }
 .card_title {
   font-size: 20px;
