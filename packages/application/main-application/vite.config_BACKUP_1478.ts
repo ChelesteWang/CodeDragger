@@ -62,17 +62,6 @@ const config: UserConfig = {
       }
     })
   ],
-<<<<<<< Updated upstream
-  // server: {
-  //   proxy: {
-  //     '^/api': {
-  //       target: 'http://localhost:3001',
-  //       changeOrigin: true
-  //       // rewrite: (path) => path.replace(/^\/api/, '')
-  //     }
-  //   }
-  // },
-=======
   server: {
     proxy: {
       '^/api': {
@@ -82,7 +71,6 @@ const config: UserConfig = {
       }
     }
   },
->>>>>>> Stashed changes
   define: {
     process: {
       env: 'development'

@@ -1,36 +1,38 @@
 import ReactDOM from 'react-dom'
 import './index.css'
-<<<<<<< HEAD
 import { NodeData, renderComponents } from '../../../runtime/render';
 import {mockmessage4} from './mock.js';
 
-=======
-import { renderNode, NodeData, renderComponents } from '../../../runtime/render'
-import { mockmessage4 } from './mock.js'
->>>>>>> main
 
 function validateData(data: NodeData[]) {
   return true
 }
 
+type PositionData = any[];
+
+interface MessagePayload {
+  components: NodeData[];
+  layout: {
+    windowWidth: number,
+    cols: number,
+    positions: PositionData[]
+  }
+}
+
 function receiveMessage(event: MessageEvent) {
-<<<<<<< HEAD
   if(event.type !== 'cdl_components_data') {
     return;
-=======
-  if (event.type !== 'cd_components_data') {
-    return
->>>>>>> main
   }
-  if (!validateData(event.data)) {
+  const { components, layout }: MessagePayload = event.data;
+  if (!validateData(components)) {
     return
   }
-  renderData(event.data)
+  renderData(components, layout)
 }
 
 window.addEventListener('message', receiveMessage)
 
-async function renderData(data: NodeData[]) {
+async function renderData(data: NodeData[], layout= {}) {
   const vDom = await renderComponents(data)
   console.log('vDom', vDom)
   if (vDom) {
@@ -38,7 +40,7 @@ async function renderData(data: NodeData[]) {
   }
 }
 
-
+// mock
 (async () => {
   const vDom =  await renderComponents(mockmessage4)
   console.log('vDom', vDom);

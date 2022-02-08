@@ -15,14 +15,16 @@ import { createElement as e } from 'react'
  */
 
 export interface NodeData {
-  id?: ''
-  tag: string
-  lib: TagLibType
-  name: string
-  children?: NodeData[]
-  plainNode?: boolean
-  value?: number | string
-  attributes: Record<string, unknown>
+  id?: '';
+  tag: string;
+  lib: TagLibType;
+  name: string;
+  children?: NodeData[];
+  plainNode?: boolean;
+  remoteNode?: boolean;
+  remoteKey?: string;
+  value?: number | string;
+  attributes: Record<string, unknown>;
 }
 
 export enum TagLibType {
@@ -66,6 +68,10 @@ export async function renderNode(component: NodeData) {
   }
 }
 
+function parseLayout() {
+  
+}
+
 export async function renderComponents(components: NodeData[]) {
   const containerAttributes = {
     style: {
@@ -76,6 +82,7 @@ export async function renderComponents(components: NodeData[]) {
       flexDirection: 'column'
     }
   }
+
   const params: any[] = ['div', containerAttributes]
 
   const componentsRes = await new Promise<NodeData[]>((resolve, reject) => {

@@ -62,7 +62,6 @@ const config: UserConfig = {
       }
     })
   ],
-<<<<<<< Updated upstream
   // server: {
   //   proxy: {
   //     '^/api': {
@@ -72,7 +71,6 @@ const config: UserConfig = {
   //     }
   //   }
   // },
-=======
   server: {
     proxy: {
       '^/api': {
@@ -82,7 +80,6 @@ const config: UserConfig = {
       }
     }
   },
->>>>>>> Stashed changes
   define: {
     process: {
       env: 'development'

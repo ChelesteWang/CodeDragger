@@ -6,6 +6,9 @@
   "required": ["id", "tag", "plainNode", "nativeTag"],
   "type": "object",
   "properties": {
+    "remoteNode": {
+      "type": "boolean"
+    },
     "remote_key": {
       "type": "string"
     },
