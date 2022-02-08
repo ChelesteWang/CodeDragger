@@ -108,6 +108,7 @@ importers:
       '@cdl-pkg/remote-component': workspace:^0.0.0
       '@cdl-pkg/render': workspace:^0.0.0
       '@cdl-pkg/request': workspace:^1.0.0
+      '@emotion/babel-plugin': ^11.7.2
       '@emotion/is-prop-valid': ^1.1.1
       '@emotion/react': 11.4.1
       '@emotion/styled': 11.3.0
@@ -138,6 +139,7 @@ importers:
       '@cdl-pkg/remote-component': link:../../components/remote-component
       '@cdl-pkg/render': link:../../runtime/render
       '@cdl-pkg/request': link:../../lib/request
+      '@emotion/babel-plugin': 11.7.2
       '@emotion/is-prop-valid': 1.1.1
       '@emotion/react': 11.4.1_b08e3c15324cbe90a6ff8fcd416c932c
       '@emotion/styled': 11.3.0_ea032c2b42a5a70e43191cc705928f06
@@ -8847,18 +8849,18 @@ packages:
       eslint-plugin-testing-library:
         optional: true
     dependencies:
-      '@typescript-eslint/eslint-plugin': 4.33.0_959502c0ea240e86d4d2ba8b8c0fee45
-      '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.5.5
+      '@typescript-eslint/eslint-plugin': 4.33.0_3289a875d95a672b97ebf589745c66ef
+      '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.5.4
       babel-eslint: 10.1.0_eslint@7.32.0
       confusing-browser-globals: 1.0.11
       eslint: 7.32.0
       eslint-plugin-flowtype: 5.10.0_eslint@7.32.0
       eslint-plugin-import: 2.25.4_eslint@7.32.0
-      eslint-plugin-jest: 24.7.0_3f4b3d5e9ff2eeb92498cbf02acbc5d8
+      eslint-plugin-jest: 24.7.0_f42847b8cf886233a5558f157bd21430
       eslint-plugin-jsx-a11y: 6.5.1_eslint@7.32.0
       eslint-plugin-react: 7.28.0_eslint@7.32.0
       eslint-plugin-react-hooks: 4.3.0_eslint@7.32.0
-      eslint-plugin-testing-library: 3.10.2_eslint@7.32.0+typescript@4.5.5
+      eslint-plugin-testing-library: 3.10.2_eslint@7.32.0+typescript@4.5.4
     dev: true
 
   /eslint-import-resolver-node/0.3.6:
@@ -9652,7 +9654,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.3.3
+      debug: 4.3.3_supports-color@6.1.0
 
   /for-in/0.1.8:
     resolution: {integrity: sha512-F0to7vbBSHP8E3l6dCjxNOLuSFAACIxFy3UehTUlG7svlXi37HHsDkyVcHo0Pq8QwrE+pXvWSVX3ZT1T9wAZ9g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/for-in/-/for-in-0.1.8.tgz}
