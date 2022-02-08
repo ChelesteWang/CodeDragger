@@ -12,7 +12,13 @@ export default class Hello extends React.Component<Iprops> {
     const { name, editTime } = this.props
     return (
       <div className='nav-bar'>
-        <div className='logo'>CodeDragger LowCode</div>
+        <div className='logo'>
+          <img
+            width='250'
+            src='https://qckvp9.file.qingfuwucdn.com/file/0a96a0d609bbee22_1644330902648.png'
+            alt='lowcode logo'
+          />
+        </div>
         <ul className='button-list'>
           <li>
             <Button variant='outlined' color='inherit'>
