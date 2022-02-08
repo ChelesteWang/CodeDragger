@@ -7,8 +7,10 @@ import Button from '@mui/material/Button'
 import './SignUp.css'
 import { FC, useState } from 'react'
 import { registerAction } from '@/api'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp: FC = () => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [tips, setTips] = useState<string>('Please enter your information!')
@@ -90,7 +92,7 @@ const SignUp: FC = () => {
                 const result = registerAction(username, password)
                 result.then(
                   () => {
-                    window.location.href = './login'
+                    navigate('/login')
                   },
                   () => {
                     setTips('Input information error!')
