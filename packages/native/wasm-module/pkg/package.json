@@ -1,11 +1,15 @@
 {
   "name": "wasm-module",
-  "version": "0.1.0",
+  "version": "0.0.0",
+  "private": "true",
   "files": [
     "wasm_module_bg.wasm",
     "wasm_module.js",
     "wasm_module.d.ts"
   ],
   "main": "wasm_module.js",
-  "types": "wasm_module.d.ts"
+  "types": "wasm_module.d.ts",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
 }

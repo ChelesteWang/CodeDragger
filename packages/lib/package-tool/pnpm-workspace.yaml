@@ -1,5 +1,0 @@
-packages:
-- 'packages/zarm/**/'
-- 'packages/vant/**/'
-- 'packages/antd/**/'
-- 'packages/native/**/'

@@ -1,6 +1,0 @@
-node_modules/
-.vscode/
-.idea/
-tmp/
-.DS_Store
-package-lock.json

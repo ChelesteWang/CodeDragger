@@ -1,7 +1,7 @@
-import http from '@cdl-pkg/request'
+import axios from 'axios'
 async function getRemoteComponent({ url }: { url: string }) {
   const _url = `/api/file/content/${url}`
-  const res = await http.get(_url).then((res) => res.data.content)
+  const res = await axios.get(_url).then((res) => res.data.content)
   return res
 }
 

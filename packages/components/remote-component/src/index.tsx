@@ -1,8 +1,6 @@
 import React, { Suspense, useMemo, FC, ComponentType, useEffect } from 'react'
 import { dependencies } from './dependencies'
 import { getRemoteComponent } from './service'
-import 'zarm/dist/zarm.css'
-import 'react-vant/lib/index.css'
 
 // new function to run component
 const getParsedModule = (code: string) => {
@@ -28,12 +26,12 @@ const RemoteComponent: any = ({ name, children, ...props }: any) => {
     return React.lazy(async () => {
       const module = await fetchComponent(name)
       console.log({ default: module.default || module })
-      return { default: module.default.default }
+      return { default: module.default.Counter }
     })
   }, [name])
 
   useEffect(() => {
-    console.log(Component)
+    console.log(Component);
   })
 
   return (
