@@ -22,6 +22,10 @@ export default function ({ images }: { images: string[] }) {
       onChange={(index) => {
         console.log(`onChange: ${index}`)
       }}
+      style={{
+        width: '100%',
+        height: '100%'
+      }}
     >
       {contentRender(images)}
     </Carousel>

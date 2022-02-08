@@ -9,7 +9,7 @@ interface ButtonProps {
 
 export default function CdlButton({ buttonText, shape }: ButtonProps){
   return (
-    <Button shape={shape}>
+    <Button shape={shape} style={{ width: '100%', height: '100%' }}>
       {buttonText}
     </Button>
   )
