@@ -1,7 +1,9 @@
+// @ts-nocheck
 import { FC } from 'react'
 
 import selectedNode from './interface/selectedNode'
 import NumberInput from './components/NumberInput'
+import SingleChoice from './components/SingleChoice'
 const getSchema = (id: string) => {
   return {
     "shape": {
@@ -24,9 +26,10 @@ const getSchema = (id: string) => {
   }
 }
 let selected = {
-  shape: '1',
+  shape: 'rect',
   width: 20,
-  height: 20
+  height: 20,
+  images: []
 }
 const App: FC<selectedNode> = ({ tag, properties }: selectedNode) => {
   console.log('getSchema', getSchema('1'));
@@ -35,10 +38,14 @@ const App: FC<selectedNode> = ({ tag, properties }: selectedNode) => {
     <div className='profile-form'>
       <div>Component：{tag}</div>
       <h3>Base Config</h3>
-      {Object.entries(schema).map(([key, value]) => {
-        if (value.type === 'number') {
+      { 
+        Object.entries(schema).map(([key, value]) => {
+        if (value.type === 'number' && value.interaction === 'input') {
           // @ts-ignore
           return <NumberInput key={key} prop={key} value={selected[key]} {...value} />
+        } else if (value.type === 'string' && value.interaction === 'single_choice') {
+          // @ts-ignore
+          return <SingleChoice key={key} prop={key} value={selected[key]} {...value}/>
         }
         return <div>prop: {key}</div>
       })}
