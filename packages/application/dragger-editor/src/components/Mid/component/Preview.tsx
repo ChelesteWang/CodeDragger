@@ -2,6 +2,8 @@ import React, { CSSProperties, useRef, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import DeleteIcon from './DeleteIcon'
+import './Preview.css'
+
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
 export interface LayoutType extends Layout {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
