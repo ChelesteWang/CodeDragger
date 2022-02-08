@@ -4,6 +4,7 @@ import { FC } from 'react'
 import selectedNode from './interface/selectedNode'
 import NumberInput from './components/NumberInput'
 import SingleChoice from './components/SingleChoice'
+import StringArray from './components/StringArray'
 const getSchema = (id: string) => {
   return {
     "shape": {
@@ -22,6 +23,17 @@ const getSchema = (id: string) => {
       "minimum": 0,
       "maximum": 2000,
       "interaction": "input"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "defaultValues": [
+        'http://img2.baidu.com/it/u=98371021,1121096365&fm=253&app=53&size=w500&n=0&g=0n&f=jpeg?sec=1646925132&t=f0c793085fc57119a78220e8bbf93962',
+        'http://img1.baidu.com/it/u=3788606852,2363382091&fm=253&app=53&size=w500&n=0&g=0n&f=jpeg?sec=1646925132&t=556ed322c34aabcb4329fd2513452a38',
+        'http://img2.baidu.com/it/u=3062469291,1117322059&fm=253&app=53&size=w500&n=0&g=0n&f=jpeg?sec=1646925132&t=344dff3be8bb20510487af397a300d87'
+      ]
     }
   }
 }
@@ -46,6 +58,10 @@ const App: FC<selectedNode> = ({ tag, properties }: selectedNode) => {
         } else if (value.type === 'string' && value.interaction === 'single_choice') {
           // @ts-ignore
           return <SingleChoice key={key} prop={key} value={selected[key]} {...value}/>
+        }
+        else if (value.type === 'array') {
+          // @ts-ignore
+          return <StringArray key={key} prop={key} value={selected[key]} {...value}/>
         }
         return <div>prop: {key}</div>
       })}
