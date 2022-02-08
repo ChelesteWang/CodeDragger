@@ -20,9 +20,9 @@ const qr =
 const logo = 'https://code.fun/img/logo-dark.png'
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: '#fff' }}>
+    <Box sx={{ backgroundColor: '#333333', color: '#f8f4f8' }}>
       <Container maxWidth='lg'>
-        <Box sx={{ height: '150px', marginTop: '80px' }}>
+        <Box sx={{ height: '150px', marginTop: '65px' }}>
           <Grid
             container
             rowSpacing={1}
