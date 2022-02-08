@@ -1,7 +1,22 @@
 import StatusManager from './StatusManager'
 import {
-  createPersistencePlugin,
-  getFromLocalStorage
+    createListStatusManager,
+    ListStatusManagerInitOptionType
+} from "./listStatus";
+import {
+    createPersistencePlugin,
+    getFromLocalStorage
 } from './plugin/PersistencePlugin'
+import { ObjectStatusManagerInitOptionType
+,createObjectStatusManager
+} from './objectStatus';
 
-export default { StatusManager, createPersistencePlugin, getFromLocalStorage }
+export {
+    StatusManager,
+    createPersistencePlugin,
+    getFromLocalStorage,
+    createListStatusManager,
+    createObjectStatusManager,
+    ListStatusManagerInitOptionType,
+    ObjectStatusManagerInitOptionType
+}
