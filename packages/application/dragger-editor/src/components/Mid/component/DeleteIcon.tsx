@@ -9,7 +9,8 @@ const DeleteIcon: React.FC<IProps> = (props) => {
     position: 'absolute',
     right: '2px',
     top: 0,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    zIndex: 999
   }
   return (
     <span
