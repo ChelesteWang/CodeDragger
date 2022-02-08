@@ -2,13 +2,18 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import { NodeData, renderComponents } from '@cdl-pkg/render';
 import {mockmessage4} from './mock.js';
+import { Interface } from 'readline';
 
 
 function validateData(data: NodeData[]) {
   return true
 }
 
-type PositionData = any[];
+interface PositionData {
+  w: number;
+  h: number;
+  i: string
+};
 
 interface MessagePayload {
   components: NodeData[];

@@ -17,9 +17,10 @@ import RemoteComponent from '@cdl-pkg/remote-component'
 
 export interface NodeData {
   id?: '';
+  name: string;
   tag: string;
   lib: TagLibType;
-  name: string;
+  desc: string;
   children?: NodeData[];
   plainNode?: boolean;
   remoteComponent?: boolean;

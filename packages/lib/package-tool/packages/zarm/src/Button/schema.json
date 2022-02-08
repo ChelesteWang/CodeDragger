@@ -8,19 +8,22 @@
     "shape": {
       "type": "string",
       "oneof": ["rect" , "radius" , "round" , "circle"],
+      "default": "react",
       "interaction": "single_choice"
     },
     "width": {
       "type": "number",
+      "default": 40,
       "minimum": 40,
       "maximum": 200,
-      "interaction": "input"
+      "interaction": "stepper"
     },
     "height": {
       "type": "number",
+      "default": 80,
       "minimum": 40,
       "maximum": 200,
-      "interaction": "input"
+      "interaction": "stepper"
     }
   }
-}
+}+
