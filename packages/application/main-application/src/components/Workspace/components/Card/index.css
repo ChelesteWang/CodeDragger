@@ -1,16 +1,18 @@
 .card {
   overflow: hidden;
-  width: 300px;
-  height: 250px;
+  width: 214px;
+  height: 200px;
   background-color: #e5e5e5;
-  box-shadow: 0px 0px 2px gray;
+  box-shadow: 0 0 2px gray;
   border-radius: 10px;
   margin: 30px 40px;
-  float: left;
 }
-
+.card:hover{
+  cursor:pointer;
+  opacity: 0.7;
+}
 .card_img {
-  width: 100%;
+  width: 200px;
   height: 70%;
 }
 
