@@ -2,8 +2,14 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import './Nav.css'
 
-export default class Hello extends React.Component {
+interface Iprops {
+  name: string
+  editTime: string
+}
+
+export default class Hello extends React.Component<Iprops> {
   render(): React.ReactNode {
+    const { name, editTime } = this.props
     return (
       <div className='nav-bar'>
         <div className='logo'>CodeDragger LowCode</div>
@@ -12,10 +18,12 @@ export default class Hello extends React.Component {
             <Button variant='contained'>预览</Button>
           </li>
           <li>
-            <Button variant='contained'>btn2</Button>
+            <Button variant='outlined'>
+              创建时间：{editTime.slice(0, 10)}
+            </Button>
           </li>
           <li>
-            <Button variant='contained'>btn3</Button>
+            <Button variant='outlined'>项目名称：{name}</Button>
           </li>
         </ul>
       </div>
