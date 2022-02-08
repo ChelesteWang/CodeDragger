@@ -11,7 +11,7 @@ export default class Hello extends React.Component<Iprops> {
   render(): React.ReactNode {
     const { name, editTime } = this.props
     return (
-      <div className='nav-bar'>
+      <div className='nav-bar-editor'>
         <div className='logo'>
           <img
             width='250'

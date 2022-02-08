@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
-.nav-bar {
+.nav-bar-editor {
   /* border-bottom: gray solid 1px; */
   background-color: #ffffff;
   font-size: 20px;
@@ -8,7 +8,7 @@
   z-index: 10;
 }
 
-.nav-bar::after {
+.nav-bar-editor::after {
   content: '';
   display: block;
   clear: both;
