@@ -10,14 +10,17 @@ import Grid from '@mui/material/Grid'
 const Workspace: FC = () => {
   const navigate = useNavigate()
   const [list, setList] = useState([]) //依据list动态渲染组件
-  //simulate the componentDidMount
-  useEffect(() => {
+  const renderJsonSchema = () => {
     const fetchData = async () => {
       const result = await jsonSchemaFindByUserAction()
-      console.log(result)
+      console.log('success render')
       setList(result.list)
     }
     fetchData()
+  }
+  //simulate the componentDidMount
+  useEffect(() => {
+    renderJsonSchema()
   }, []) //eslint-disable-line react-hooks/exhaustive-deps
   //计算时间差的函数
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -107,13 +110,8 @@ const Workspace: FC = () => {
                       <Card
                         title={current.name}
                         edittime={'Edited ' + editTime + ' ago'}
-                        //因为未知的原因，Card上无法添加onClick
-                        //故在外面套了一层div用来绑定一个onClick
-                        //先留个坑在这里
-                        // onClick={() => {
-                        //   console.log(233)
-                        //   //window.location.href = './editor/' + { index }
-                        // }}
+                        id={current._id}
+                        reRender={renderJsonSchema}
                       />
                     </Grid>
                   </div>

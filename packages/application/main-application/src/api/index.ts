@@ -124,3 +124,10 @@ export const jsonSchemaCreateAction = async (createObj: object) => {
   } = await http.post(`/api/json_schema/create`, createObj)
   return result
 }
+
+export const jsonSchemaDeleteAction = async (id: string) => {
+  const {
+    data: { ok }
+  } = await http.delete(`/api/json_schema/delete/${id}`)
+  return ok
+}
