@@ -62,19 +62,10 @@ const config: UserConfig = {
       }
     })
   ],
-  // server: {
-  //   proxy: {
-  //     '^/api': {
-  //       target: 'http://localhost:3001',
-  //       changeOrigin: true
-  //       // rewrite: (path) => path.replace(/^\/api/, '')
-  //     }
-  //   }
-  // },
   server: {
     proxy: {
       '^/api': {
-        target: 'https://qckvp9.app.cloudendpoint.cn/',
+        target: 'http://localhost:3001',
         changeOrigin: true
         // rewrite: (path) => path.replace(/^\/api/, '')
       }
