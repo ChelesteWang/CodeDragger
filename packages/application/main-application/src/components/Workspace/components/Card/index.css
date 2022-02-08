@@ -37,8 +37,10 @@
   font-size: 20px;
   font-weight: 700;
   height: 35%;
+  margin-left: 15px;
 }
 .c_edit_time {
   color: gray;
   margin-top: 4px;
+  margin-left: 15px;
 }
