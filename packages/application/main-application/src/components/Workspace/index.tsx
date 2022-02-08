@@ -2,8 +2,10 @@ import { FC, useEffect, useState } from 'react'
 import Nav from './components/Nav/Nav'
 import Card from './components/Card/index'
 import { jsonSchemaCreateAction, jsonSchemaFindByUserAction } from '@/api'
+import { useNavigate } from 'react-router-dom'
 
 const Workspace: FC = () => {
+  const navigate = useNavigate()
   const [list, setList] = useState([]) //依据list动态渲染组件
   //simulate the componentDidMount
   useEffect(() => {
@@ -69,12 +71,15 @@ const Workspace: FC = () => {
       <div>
         {list.map(
           //动态渲染组件
-          (current: { name: string; updatedAt: string }, index: number) => {
+          (current: { name: string; updatedAt: string; _id: string }) => {
             let editTime = changeEditTime(current.updatedAt) //取得时间差
             return (
               <div
+                key={current._id}
                 onClick={() => {
-                  window.location.href = './editor/' // + { index }
+                  navigate('/editor/' + current._id, {
+                    state: { _id: current._id }
+                  })
                 }}
               >
                 <Card
