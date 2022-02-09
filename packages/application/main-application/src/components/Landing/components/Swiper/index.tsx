@@ -14,6 +14,7 @@ import './index.css'
 // import required modules
 import { Pagination } from 'swiper'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   const authorList = useMemo(() => {
     return [
@@ -73,7 +74,7 @@ export default () => {
       <Swiper
         initialSlide={3}
         slidesPerView={5}
-        spaceBetween={30}
+        spaceBetween={20}
         pagination={{
           clickable: true
         }}

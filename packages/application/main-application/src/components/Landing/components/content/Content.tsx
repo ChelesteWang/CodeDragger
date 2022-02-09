@@ -177,6 +177,10 @@ const Content = () => {
               </Grid>
             </Grid>
           </Box>
+          <Divider variant='middle' sx={{ mt: 5 }} />
+          <Typography variant='h3' sx={{ textAlign: 'center', mt: 5 }}>
+            成员介绍
+          </Typography>
           <Swiper />
         </Container>
       </ThemeProvider>
