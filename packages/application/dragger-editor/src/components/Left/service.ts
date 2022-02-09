@@ -29,7 +29,7 @@ export function getMaterialList(): Promise<GetMaterialListResponse> {
               "type": "string",
               "oneof": ["rect" , "radius" , "round" , "circle"],
               "default": "react",
-              "interaction": "single_choice"
+              "interaction": "drop_down"
             },
             "buttonText": {
               "type": "string",

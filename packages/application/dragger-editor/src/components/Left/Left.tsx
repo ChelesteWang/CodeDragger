@@ -6,6 +6,7 @@ import './Left.css';
 import { WithDraggable } from '../../utils/WithDraggable';
 import RemoteComponent from '@cdl-pkg/remote-component';
 import { getDefaultInstance } from '@/utils/JsonSchema';
+import { GenNonDuplicateID } from '../../utils';
 
 function MockIcon() {
   return (
@@ -44,6 +45,7 @@ export default function Left() {
         const {name, desc, schema } = material;
         const defaultProps = getDefaultInstance(schema);
         defaultProps.name = name;
+        console.log(defaultProps.id);
         const Draggable = WithDraggable('RemoteComponent', defaultProps)(RemoteComponent);
         return (
           <Material desc={desc} >
