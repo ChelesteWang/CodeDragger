@@ -1,4 +1,11 @@
-import React, { CSSProperties, useContext, useRef, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, {
+  CSSProperties,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import DeleteIcon from './DeleteIcon'
@@ -12,7 +19,7 @@ export interface LayoutType extends Layout {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.FC<any>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dProps: any
+  // dProps: any
 }
 const style: CSSProperties = {
   width: '100%',
@@ -36,16 +43,14 @@ const Preview: React.FC = () => {
           i: key,
           x: 0,
           y: Infinity,
-          w: 375,
-          h: 100,
+          w: parseFloat(item.props.style.width),
+          h: parseFloat(item.props.style.height),
           component: item.type,
-          dProps: item.props
         }
       ])
     }
   }))
   const removeItem = (key: string) => {
-    console.log(key);
     setLayout((oldLayouts) => {
       dispatch({ type: 'deleteNode', payload: { key } })
       const newLayouts = oldLayouts.filter((layout) => layout.i !== key)
@@ -59,6 +64,7 @@ const Preview: React.FC = () => {
   }
   const handleLayoutChange = (layout: Layout[]) => {
     console.log(layout)
+
     // saveToLS('layout', layout)
   }
 
@@ -78,6 +84,9 @@ const Preview: React.FC = () => {
       >
         {layouts.map((layout, ind) => {
           const FnComponent = layout.component
+          const key = layout.i
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const props: any = components[key]
           return (
             <div
               key={layout.i}
@@ -85,7 +94,7 @@ const Preview: React.FC = () => {
               onDoubleClick={handleDoubleClick(layout.i)}
             >
               <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
-              <FnComponent style={style} {...layout.dProps} />
+              <FnComponent style={style} {...props}/>
             </div>
           )
         })}
