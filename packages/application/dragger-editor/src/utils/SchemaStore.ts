@@ -28,7 +28,7 @@ const SchemaStore = ((): {
   }
 
   function print() {
-    console.log(store);
+    console.log('SchemaStore: ', store, arguments);
   }
 
   return {

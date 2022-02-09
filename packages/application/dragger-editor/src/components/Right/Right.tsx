@@ -23,6 +23,8 @@ export default function Right() {
   // }
   // const { properties } =  schema
 
+  // for debugging:
+  SchemaStore.print();
   return (
     <div className='right'>
       <ProfileForm tag="myCom" selectedNode={selectedNode} schema={schema} dispatch={dispatch} />
