@@ -22,12 +22,11 @@ instance.interceptors.request.use((config: any) => {
 instance.interceptors.response.use(
   (response: any) => {
     //这里写响应拦截内容
-
-    return response
+    return Promise.resolve(response)
   },
   // 服务器状态码不是200的情况
   (error) => {
-    return error
+    return Promise.reject(error.response.data)
   }
 )
 

@@ -36,6 +36,7 @@ export function createObjectStatusManager(
     state: initOption.state || {},
     hooks: initOption.hooks,
     mutations: {
+      // @ts-ignore
       replaceAll(state: any, payload) {
         return payload
       },
