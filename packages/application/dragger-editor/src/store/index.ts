@@ -13,10 +13,10 @@ StatusManager.registerPlugin(
 )
 
 //statusManager.trigger(name,option) 触发特定的周期钩子
-let array: any = []
+let obj: any = {}
 export const statusManager = createObjectStatusManager({
   key: 'component',
-  state: array,
+  state: obj,
   hooks: {
     dataChanged(data: any) {
       console.log(data)

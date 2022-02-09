@@ -40,7 +40,7 @@ export function createObjectStatusManager(
         let { node, key } = payload
         state[key] = node
       },
-      deleteNode(state: any, payload: { key: number }) {
+      deleteNode(state: any, payload: { key: string }) {
         delete state[payload.key]
       },
       editNode(

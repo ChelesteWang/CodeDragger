@@ -26,15 +26,15 @@ const Preview: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
       // TODO: 这里的 i 改为使用 GenNonDuplicateID 生成
-      // TODO: props 提交到statemanager完成双向绑定（注册组件）
+      // TODO: props 提交到 statemanager 完成双向绑定（注册组件）
+      const key = GenNonDuplicateID()
       statusManager.commit('addNode', {
-        key: '123123',
-        node: {
-          name: '123',
-          info:'1111'
-        }
+        key: key,
+        node: item.props
       })
-      console.log(statusManager.state)
+
+      console.log('status', statusManager.state)
+
       setLayout((oldLayout) => [
         ...oldLayout,
         {
