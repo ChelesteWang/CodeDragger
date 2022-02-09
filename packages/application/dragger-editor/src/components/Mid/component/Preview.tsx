@@ -33,13 +33,13 @@ const Preview: React.FC = () => {
   const { components, dispatch } = useContext(Context)
   const { id } = useParams()
   useEffect(() => {
-    const fetchData = async()=>{
+    const fetchData = async () => {
       const result = await jsonSchemaFindByIDAction(id)
-      console.log(result,"result");
-      setLayout(result.info.jsonSchema.layout||[])
+      console.log(result, 'result')
+      setLayout(result.info.jsonSchema.layout || [])
     }
     fetchData()
-  },[])
+  }, [])
 
   const [, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
@@ -56,7 +56,7 @@ const Preview: React.FC = () => {
           x: 0,
           y: Infinity,
           w: parseFloat(item.props.style.width),
-          h: parseFloat(item.props.style.height),
+          h: parseFloat(item.props.style.height)
         }
       ])
     }
@@ -99,7 +99,7 @@ const Preview: React.FC = () => {
           const key = layout.i
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const props: any = components[key]
-          if(props?.name) {
+          if (props?.name) {
             return (
               <div
                 key={layout.i}

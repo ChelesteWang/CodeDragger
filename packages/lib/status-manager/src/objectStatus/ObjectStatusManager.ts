@@ -36,8 +36,8 @@ export function createObjectStatusManager(
     state: initOption.state || {},
     hooks: initOption.hooks,
     mutations: {
-      replaceAll(state:any,payload){
-        return payload;
+      replaceAll(state: any, payload) {
+        return payload
       },
       addNode(state: any, payload: { node: Object; key: string }) {
         let { node, key } = payload

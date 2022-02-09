@@ -33,7 +33,7 @@ const App: FC = () => {
       layoutManager.commit('replaceAll', {
         value: result.info.jsonSchema.layout
       })
-      console.log("first",layoutManager.state);
+      console.log('first', layoutManager.state)
       console.log(result.info.name)
       setName(result.info.name)
       setEditTime(result.info.updatedAt)

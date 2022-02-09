@@ -52,7 +52,7 @@ export default function Hello(props: { name: any; editTime: any }) {
             variant='outlined'
             color='inherit'
             onClick={async () => {
-              console.log(layoutManager.state.value);
+              console.log(layoutManager.state.value)
               const data = {
                 components: componentsManager.state,
                 layout: JSON.parse(layoutManager.state.value)

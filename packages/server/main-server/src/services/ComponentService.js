@@ -107,7 +107,7 @@ class ComponentService {
       error.status = 404
       throw error
     }
-    component.jsonSchema= Object.assign( component.jsonSchema, updater)
+    component.jsonSchema = Object.assign(component.jsonSchema, updater)
     return await componentTable.save(component)
   }
 }

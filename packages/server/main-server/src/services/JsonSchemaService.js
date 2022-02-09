@@ -112,15 +112,13 @@ class JsonSchemaService {
    * 若不存在，则抛出 404 错误
    */
   async updateJsonSchema(id, updater) {
-    const data = await jsonSchemaTable
-      .where({ _id: ObjectId(id) })
-      .findOne()
+    const data = await jsonSchemaTable.where({ _id: ObjectId(id) }).findOne()
     if (!data) {
       const error = new Error(`jsonSchema:${id} not found`)
       error.status = 404
       throw error
     }
-    data.jsonSchema= Object.assign( data.jsonSchema, updater)
+    data.jsonSchema = Object.assign(data.jsonSchema, updater)
     return await jsonSchemaTable.save(data)
   }
 }
