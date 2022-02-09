@@ -1,7 +1,7 @@
 import { StatusManager } from '../index'
 import { MutationsType } from '../StatusManager'
 
-interface ListStatusManagerInitOptionType {
+export interface ListStatusManagerInitOptionType {
   key: string
   state: Object[]
   mutations?: MutationsType
@@ -128,5 +128,3 @@ export function createListStatusManager(
     pluginConfig: initOption.pluginConfig
   })
 }
-
-export type { ListStatusManagerInitOptionType }
