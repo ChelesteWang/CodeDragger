@@ -28,9 +28,6 @@ export default class Left extends React.Component {
   render(): React.ReactNode {
     return (
       <div className='left'>
-        <div className='options'>
-          <TabPanel />
-        </div>
         <div className='component'>
           {/* {['1', '2', '3'].map((item, index) => {
             const Fn = WithDraggable(item)(RemoteComponent)
@@ -47,11 +44,7 @@ export default class Left extends React.Component {
               sx={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'primary.dark',
-                '&:hover': {
-                  backgroundColor: 'primary.main',
-                  opacity: [0.9, 0.8, 0.7]
-                }
+                backgroundColor: 'primary.dark'
               }}
             />
           </div>

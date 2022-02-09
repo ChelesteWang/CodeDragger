@@ -15,9 +15,7 @@ import { Container } from '@mui/material'
 //   { name: '意见反馈', href: '#' },
 //   { name: '下载插件', href: '#' }
 // ]
-const qr =
-  'https://codefun-download-1256085488.cos.ap-guangzhou.myqcloud.com/site/qr/group.png'
-const logo = 'https://code.fun/img/logo-dark.png'
+
 const Footer = () => {
   return (
     <Box sx={{ backgroundColor: '#333333', color: '#f8f4f8' }}>

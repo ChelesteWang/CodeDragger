@@ -10,14 +10,12 @@ export default class Hello extends React.Component {
   //登出事件
   logout = () => {
     const fetchData = async () => {
-      const result = await logoutAction()
-      return result
+      return await logoutAction()
     }
     const result = fetchData()
     result.then(() => {
       window.location.href = './login'
     })
-    console.log(result)
   }
   //挂载时初始化
   componentDidMount() {
@@ -31,15 +29,23 @@ export default class Hello extends React.Component {
   render(): React.ReactNode {
     return (
       <div className='nav-bar'>
-        <div className='logo'>CodeDragger LowCode</div>
+        <div className='logo'>
+          <img
+            width='250px'
+            src='https://qckvp9.file.qingfuwucdn.com/file/0a96a0d609bbee22_1644330902648.png'
+            alt='lowcode logo'
+          />
+        </div>
         <ul className='button-list'>
           <li>
-            <Button variant='contained' onClick={this.logout}>
+            <Button variant='outlined' color='inherit' onClick={this.logout}>
               登出
             </Button>
           </li>
           <li>
-            <Button variant='outlined'>Hello! {this.state.username}</Button>
+            <Button variant='outlined' color='inherit'>
+              Hello! {this.state.username}
+            </Button>
           </li>
         </ul>
       </div>

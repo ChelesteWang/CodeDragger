@@ -23,10 +23,46 @@ const theme = responsiveFontSizes(
       h3: {
         fontSize: '3rem',
         fontWeight: '800'
+      },
+      h4: {
+        fontSize: '1.6rem',
+        fontWeight: '700'
       }
     }
   })
 )
+
+const description = [
+  {
+    title: '项目工程实践',
+    content:
+      '使用 pnpm workspace 配合 Changeset 进行 monorepo 项目管理，搭配 prettier & Eslint & CommitLint 统一团队开发规范'
+  },
+  {
+    title: '拖拽编辑与布局',
+    content: '使用 React dnd 搭配 React-Grid-layout 实现拖拽编辑与栅格布局'
+  },
+  {
+    title: '组件物料生产',
+    content:
+      '组件物料生产支持远程组件，支持自定义组件以及接入三方组件库如（zarm,antd-mobile,vant）'
+  },
+  {
+    title: 'WASM 组件转译器',
+    content:
+      '使用 Rust 语言编写 wasm-nodejs 模块能够获得远超 javascript 的速度 , 将 JSON 转为 JSX 模板'
+  },
+  {
+    title: '属性编辑表单生成',
+    content:
+      '解析组件树节点信息，根据不同的组件动态生成表单，对组件的各项属性进行配置。'
+  },
+  {
+    title: '打包服务开发',
+    content:
+      '尝试使用基于 esbuild + rollup 的新一代方案 tsup 进行打包,大幅提高打包速度，编写云端打包服务实现产物打包'
+  }
+]
 
 const Content = () => {
   return (
@@ -72,7 +108,7 @@ const Content = () => {
                       color={'#f8f4f8'}
                       variant='h6'
                       underline='none'
-                      href='#'
+                      href='./login'
                     >
                       {'立即体验'}
                     </Link>
@@ -129,26 +165,13 @@ const Content = () => {
                 <Grid
                   container
                   rowSpacing={1}
-                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3, mt: 3 }}
                 >
-                  <Grid item xs={4}>
-                    <OutlinedCard />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <OutlinedCard />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <OutlinedCard />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <OutlinedCard />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <OutlinedCard />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <OutlinedCard />
-                  </Grid>
+                  {description.map((item) => (
+                    <Grid item xs={4}>
+                      <OutlinedCard title={item.title} content={item.content} />
+                    </Grid>
+                  ))}
                 </Grid>
               </Grid>
             </Grid>

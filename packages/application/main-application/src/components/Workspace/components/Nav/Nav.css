@@ -1,27 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
-
 .nav-bar {
-  /* border-bottom: gray solid 1px; */
-  background-color: #ffffff;
-  font-size: 20px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  z-index: 10;
-}
-
-.nav-bar::after {
-  content: '';
-  display: block;
-  clear: both;
+  height: 71px;
 }
 
 .logo {
-  font-family: 'Neonderthaw', cursive;
-  font-size: 20px;
-  color: blue;
-  float: left;
-  margin: 10px 30px;
   padding: 10px 10px;
-  text-align: center;
 }
 
 .button-list {
@@ -38,6 +20,6 @@
 .button-list > li {
   list-style: none;
   float: right;
-  margin: auto 0px;
+  margin: auto 0;
   padding: 15px 10px;
 }

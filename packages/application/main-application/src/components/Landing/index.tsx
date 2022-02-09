@@ -1,6 +1,5 @@
 // import { Button } from '@mui/material'
-import { Divider } from '@mui/material'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import Content from './components/content/Content'
 import Footer from './components/content/Footer'
 import Nav from './components/Nav/Nav'
