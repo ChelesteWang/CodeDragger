@@ -1,79 +1,83 @@
-import React from 'react'
-import TabPanel from './component/TabPanelProps/TabPanelProps'
+import React, { useEffect, useState } from 'react';
+import TabPanel from './component/TabPanelProps/TabPanelProps';
+import  Material from './component/Material';
+import { getMaterialList, GetMaterialListResponse, MaterialType } from './service';
+import './Left.css';
+import { WithDraggable } from '../../utils/WithDraggable';
+import RemoteComponent from '@cdl-pkg/remote-component';
+import { getDefaultInstance } from '@/utils/JsonSchema';
+import { GenNonDuplicateID } from '../../utils';
 
-import './Left.css'
-import Box from '@mui/material/Box'
-import { WithDraggable } from '../../utils/WithDraggable'
-import RemoteComponent from '@cdl-pkg/remote-component'
-
-const images = [
-  'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
-  'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
-  'https://static.zhongan.com/website/health/zarm/images/banners/3.png'
-]
-
-const Swiper1 = ({ images }: { images: string }) => {
+function MockIcon() {
   return (
-    <RemoteComponent
-      name='620121dbec3be24090324859'
-      items={images}
-    ></RemoteComponent>
-  )
+    <div
+      style={{
+        width: '90px',
+        height: '45px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      icon
+    </div>
+  );
 }
 
-// const DraggableButton1 = WithDraggable('Button1')(Button1)
-const DraggableButton2 = WithDraggable('RemoteComponent')(RemoteComponent)
-const DraggableBox = WithDraggable('Box')(Box)
-export default class Left extends React.Component {
-  render(): React.ReactNode {
-    return (
-      <div className='left'>
-        <div className='component'>
-          {/* {['1', '2', '3'].map((item, index) => {
-            const Fn = WithDraggable(item)(RemoteComponent)
-            return (
-              <Fn
-                name='62011592ec3be240902f635a'
-                shapes={'radius'}
-                buttonText='Hello!'
-              />
-            )
-          })} */}
-          <div>
-            <DraggableBox
-              sx={{
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'primary.dark'
-              }}
-            />
-          </div>
-          <div>
-            <DraggableButton2
-              name='62011592ec3be240902f635a'
-              shapes={'radius'}
-              buttonText='Hello!'
-            ></DraggableButton2>
-          </div>
-          <div>
-            <DraggableButton2
-              name='62011592ec3be240902f635a'
-              shapes={'radius'}
-              buttonText='Hello!'
-            ></DraggableButton2>
-          </div>
-          <div>
-            <DraggableButton2
-              name='620121dbec3be24090324859'
-              items={images}
-            ></DraggableButton2>
-          </div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
+export default function Left() {
+  const [loadingStatus, setLoadingStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [materialList, setMaterialList] = useState<MaterialType[]>([]);
+
+  useEffect(() => {
+    getMaterialList().then(
+      (res: GetMaterialListResponse) => { 
+        setMaterialList(res.data);
+        setLoadingStatus('ready');
+      }
+    ).catch(
+      _reason => setLoadingStatus('error')
     )
+  }, []);
+
+  const renderMaterialPanel = () => {
+    return materialList.map((material: MaterialType) => {
+      if(material.remoteComponent) {
+        const {name, desc, schema } = material;
+        const defaultProps = getDefaultInstance(schema);
+        defaultProps.name = name;
+        console.log(defaultProps.id);
+        const Draggable = WithDraggable('RemoteComponent', defaultProps)(RemoteComponent);
+        return (
+          <Material desc={desc} >
+            <Draggable>
+              <MockIcon />
+            </Draggable>
+          </Material>
+        );
+      }
+      return <div>unknown</div>
+    });
+  };
+
+  const renderContenr = () => {
+    if(loadingStatus === 'loading') {
+      return <div>loading</div>
+    } else if (loadingStatus === 'error') {
+      return <div>加载失败</div>
+    } else if (loadingStatus === 'ready') {
+      return renderMaterialPanel()
+    }
   }
+
+  return (
+    <div className='left'>
+      <div className='options'>
+        <TabPanel />
+      </div>
+      <div className='component'>
+        {renderContenr()}
+      </div>
+    </div>
+  )
+
 }
