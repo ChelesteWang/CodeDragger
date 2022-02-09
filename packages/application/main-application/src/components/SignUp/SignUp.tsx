@@ -19,7 +19,7 @@ const SignUp: FC = () => {
       <div className='SignUp'>
         <img
           id='img_signup'
-          src='http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg'
+          src='https://images.pexels.com/photos/4050430/pexels-photo-4050430.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
           alt=''
         />
         <div className='signup_text'>
@@ -86,7 +86,8 @@ const SignUp: FC = () => {
             <Button
               type='button'
               fullWidth
-              variant='contained'
+              variant='outlined'
+              color='inherit'
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
                 const result = registerAction(username, password)
@@ -106,7 +107,7 @@ const SignUp: FC = () => {
 
             <Grid container justifyContent='flex-end'>
               <Grid item>
-                <Link href='./login' variant='body2'>
+                <Link href='./login' variant='body2' color='inherit'>
                   Already have an account? Sign in
                 </Link>
               </Grid>
