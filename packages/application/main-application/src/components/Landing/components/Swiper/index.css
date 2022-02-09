@@ -1,12 +1,11 @@
 .swiper {
   width: 100%;
-  height: 400px;
-  margin-top: 30px;
+  height: 320px;
 }
-.swiper-backface-hidden .swiper-slide{
+.swiper-backface-hidden .swiper-slide {
   transform: scale(0.7);
 }
-.swiper-backface-hidden .swiper-slide-active{
+.swiper-backface-hidden .swiper-slide-active {
   transform: scale(1);
 }
 .swiper-slide {
