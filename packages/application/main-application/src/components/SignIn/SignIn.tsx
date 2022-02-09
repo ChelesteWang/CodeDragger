@@ -18,7 +18,8 @@ const SignIn: FC = () => {
       <div className='SignIn'>
         <img
           id='img_signin'
-          src='http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg'
+          //src='http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg'
+          src='https://images.pexels.com/photos/4050430/pexels-photo-4050430.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
           alt=''
         />
 
@@ -63,8 +64,8 @@ const SignIn: FC = () => {
             <Button
               type='button'
               fullWidth
-              variant='contained'
-              color='secondary'
+              variant='outlined'
+              color='inherit'
               onClick={() => {
                 const result = loginByPasswordAction(username, password)
                 result.then(
@@ -77,14 +78,16 @@ const SignIn: FC = () => {
                   }
                 )
               }}
-              sx={{ mt: 3, mb: 2, borderRadius: 10 }}
+              sx={{ mt: 3, mb: 2, borderRadius: 5 }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs></Grid>
               <Grid item>
-                <Link href='./register'>{'Go to register'}</Link>
+                <Link href='./register' color='inherit'>
+                  {'Go to register'}
+                </Link>
               </Grid>
             </Grid>
           </Box>

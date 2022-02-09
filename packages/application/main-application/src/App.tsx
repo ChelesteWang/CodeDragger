@@ -7,6 +7,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignUp/SignUp'
 import Workspace from './components/Workspace/index'
 import Landing from './components/Landing/index'
+import Nomatch from './components/Nomatch/index'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
 
@@ -68,6 +69,7 @@ const App: FC = () => {
             {routes.map((item) => (
               <Route path={item.path} element={item.component} key={item.key} />
             ))}
+            <Route path='*' element={<Nomatch />}></Route>
           </Routes>
         </Router>
       </Suspense>
