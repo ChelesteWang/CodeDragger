@@ -56,7 +56,8 @@ export default function Left() {
         )(RemoteComponent)
         return (
           <Material desc={desc}>
-            <Draggable>
+            <Draggable style={{ flex: 0.5 }}>
+              {/* @ts-ignore */}
               <MockIcon src={src} desc={desc} />
             </Draggable>
           </Material>
@@ -81,7 +82,18 @@ export default function Left() {
       <div className='options'>
         <TabPanel />
       </div>
-      <div className='component'>{renderContenr()}</div>
+      <div
+        className='component'
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          width: '300px',
+          overflow: 'hidden'
+        }}
+      >
+        {renderContenr()}
+      </div>
     </div>
   )
 }
