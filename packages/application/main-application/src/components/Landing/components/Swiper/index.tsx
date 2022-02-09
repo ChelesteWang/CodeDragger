@@ -19,11 +19,18 @@ export default () => {
   const authorList = useMemo(() => {
     return [
       {
-        avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
-        name: 'lweijian',
+        avatar: 'https://avatars.githubusercontent.com/u/40495740?v=4',
+        name: 'ChelesteWang',
         introduce:
           '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
-        github: 'https://github.com/lweijian'
+        github: 'https://github.com/ChelesteWang'
+      },
+      {
+        avatar: 'https://avatars.githubusercontent.com/u/78463217?v=4',
+        name: 'guxuanye',
+        introduce:
+          '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
+        github: 'https://github.com/guxuanye'
       },
       {
         avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
@@ -33,39 +40,39 @@ export default () => {
         github: 'https://github.com/lweijian'
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
-        name: 'lweijian',
+        avatar: 'https://avatars.githubusercontent.com/u/54502639?v=4',
+        name: 'rexjz',
         introduce:
           '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
-        github: 'https://github.com/lweijian'
+        github: 'https://github.com/rexjz'
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
-        name: 'lweijian',
+        avatar: 'https://avatars.githubusercontent.com/u/73687768?v=4',
+        name: 'huangyunt',
         introduce:
           '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
-        github: 'https://github.com/lweijian'
+        github: 'https://github.com/huangyunt'
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
-        name: 'lweijian',
+        avatar: 'https://avatars.githubusercontent.com/u/74121241?v=4',
+        name: 'ehxie',
         introduce:
           '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
-        github: 'https://github.com/lweijian'
+        github: 'https://github.com/ehxie'
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
-        name: 'lweijian',
+        avatar: 'https://avatars.githubusercontent.com/u/53288145?v=4',
+        name: 'bigflyelephant',
         introduce:
           '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
-        github: 'https://github.com/lweijian'
+        github: 'https://github.com/bigflyelephant'
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/63062575?s=40&v=4',
-        name: 'lweijian',
+        avatar: 'https://avatars.githubusercontent.com/u/61567130?v=4',
+        name: 'DawnMagnet',
         introduce:
           '  well meaning and kindly well meaning and kindly well meaning and kindly well meaning and kindly',
-        github: 'https://github.com/lweijian'
+        github: 'https://github.com/DawnMagnet'
       }
     ]
   }, [])
@@ -87,7 +94,7 @@ export default () => {
             <BasicCard
               avatar={item.avatar}
               name={item.name}
-              introduce={item.introduce}
+              // introduce={item.introduce}
               github={item.github}
             />
           </SwiperSlide>
