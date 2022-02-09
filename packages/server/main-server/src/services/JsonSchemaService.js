@@ -28,7 +28,7 @@ class JsonSchemaService {
    * @param userID
    */
   async findByUser(userID) {
-    const list = await jsonSchemaTable.where({ 'user._id':userID} ).find()
+    const list = await jsonSchemaTable.where({ 'user._id': userID }).find()
     return {
       success: true,
       list
@@ -88,7 +88,7 @@ class JsonSchemaService {
   }
 
   /**
-   * 更新一条JsonSchema
+   * 更新一条JsonSchema表数据
    * @param id JsonSchema的 _id
    * @param updater 将会用原对象 merge 此对象进行更新
    * 若不存在，则抛出 404 错误
@@ -104,6 +104,22 @@ class JsonSchemaService {
     }
     Object.assign(jsonSchema, updater)
     return await jsonSchemaTable.save(jsonSchema)
+  }
+  /**
+   * 更新一条JsonSchema字段
+   * @param id JsonSchema的 _id
+   * @param updater 将会用原对象 merge 此对象进行更新
+   * 若不存在，则抛出 404 错误
+   */
+  async updateJsonSchema(id, updater) {
+    const data = await jsonSchemaTable.where({ _id: ObjectId(id) }).findOne()
+    if (!data) {
+      const error = new Error(`jsonSchema:${id} not found`)
+      error.status = 404
+      throw error
+    }
+    data.jsonSchema = Object.assign(data.jsonSchema, updater)
+    return await jsonSchemaTable.save(data)
   }
 }
 

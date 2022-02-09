@@ -3,22 +3,27 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid'
 import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
+import { useSnackbar } from 'notistack'
 import './SignIn.css'
 import { FC, useState } from 'react'
 import { loginByPasswordAction } from '@/api'
 import { useNavigate } from 'react-router-dom'
+import userInfoStore from '@/store'
 
 const SignIn: FC = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const { enqueueSnackbar } = useSnackbar()
   const [tips, setTips] = useState<string>('Please enter your information!')
+
   return (
     <div>
       <div className='SignIn'>
         <img
           id='img_signin'
-          src='http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg'
+          //src='http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg'
+          src='https://images.pexels.com/photos/4050430/pexels-photo-4050430.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
           alt=''
         />
 
@@ -63,28 +68,40 @@ const SignIn: FC = () => {
             <Button
               type='button'
               fullWidth
-              variant='contained'
-              color='secondary'
+              variant='outlined'
+              color='inherit'
               onClick={() => {
                 const result = loginByPasswordAction(username, password)
                 result.then(
-                  () => {
+                  (res) => {
+                    console.log(res)
+                    userInfoStore.commit('replaceAll', res.info)
                     navigate('/workspace')
                   },
-                  () => {
+                  (e) => {
+                    enqueueSnackbar(e.message, {
+                      anchorOrigin: {
+                        vertical: 'top',
+                        horizontal: 'center'
+                      },
+                      variant: 'error'
+                    })
+                    setTips(e.message)
                     setTips('Input information error!')
                     console.log('fail')
                   }
                 )
               }}
-              sx={{ mt: 3, mb: 2, borderRadius: 10 }}
+              sx={{ mt: 3, mb: 2, borderRadius: 5 }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs></Grid>
               <Grid item>
-                <Link href='./register'>{'Go to register'}</Link>
+                <Link href='./register' color='inherit'>
+                  {'Go to register'}
+                </Link>
               </Grid>
             </Grid>
           </Box>

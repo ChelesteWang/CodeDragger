@@ -1,0 +1,9 @@
+.text1 {
+  font-size: 200px;
+}
+.text2 {
+  font-size: 180px;
+}
+.text2:hover {
+  font-weight: 700;
+}

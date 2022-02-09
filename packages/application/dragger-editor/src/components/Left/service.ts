@@ -44,14 +44,15 @@ const mockData = [
   }
 ]
 export interface MaterialType {
-  remoteComponent?: boolean;
-  name?: string;
-  desc: string;
-  schema: Record<string, unknown>;
+  remoteComponent?: boolean
+  src?: string
+  name?: string
+  desc: string
+  schema: Record<string, unknown>
 }
 
 export interface GetMaterialListResponse {
-  data: MaterialType[];
+  data: MaterialType[]
 }
 
 export function getMaterialList(): Promise<GetMaterialListResponse> {

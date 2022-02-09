@@ -8,10 +8,8 @@ export const loginByPhoneAction = async (phoneNumber: string, code: string) => {
 }
 
 export const currentAction = async () => {
-  const {
-    data: { result }
-  } = await http.get('/api/user/current')
-  return result
+  const r = await http.get('/api/user/current')
+  return r?.data?.result
 }
 
 export const sendSMSAction = async (phoneNumber: string) => {
@@ -27,7 +25,10 @@ export const loginByPasswordAction = async (
 ) => {
   const {
     data: { result }
-  } = await http.post('/api/user/login_password', { username, password })
+  } = await http.post('/api/user/login_password', {
+    username,
+    password
+  })
   return result
 }
 

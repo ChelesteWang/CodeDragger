@@ -1,8 +1,7 @@
-import produce, { applyPatches, enablePatches, Patch } from 'immer'
-import {createPersistencePlugin} from "./plugin/PersistencePlugin";
+import produce, {applyPatches, enableAllPlugins, enablePatches, Patch} from 'immer'
 
-
-enablePatches()
+enablePatches();
+enableAllPlugins();
 
 export interface MutationsType {
   [propName: string]: (state: any, ...payload: any[]) => void
@@ -87,8 +86,10 @@ class StatusManager {
       this.toRunPlugin('beforeDataChange')
       this.state = produce(
         this.state,
+        // @ts-ignore
         (draft) => {
-          this.mutations[name](draft, payload)
+          let result = this.mutations[name](draft, payload)
+          if (result != null) return result
         },
         (patches, inversePatches) => {
           this.position++
@@ -103,7 +104,6 @@ class StatusManager {
           }
 
           this.position = this.replaces.length - 1
-          console.log(payload, this.replaces, this.inverseReplaces)
         }
       )
       this.toRunPlugin('dataChanged')
@@ -159,12 +159,5 @@ class StatusManager {
     })
   }
 }
-
-StatusManager.registerPlugin(
-    createPersistencePlugin({
-      status: 'auto'
-    })
-)
-
 
 export default StatusManager

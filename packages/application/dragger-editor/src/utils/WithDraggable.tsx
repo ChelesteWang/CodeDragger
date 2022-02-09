@@ -1,11 +1,14 @@
 import React from 'react'
 import { useDrag } from 'react-dnd'
-export function WithDraggable(itemType: string, payload?: Record<string, unknown>) {
+export function WithDraggable(
+  itemType: string,
+  payload?: Record<string, unknown>
+) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (Component: React.FC<any>): React.FC<any> => {
     return function DraggableComponent(props) {
-      const _props = {...props}
-      if(props.children) {
+      const _props = { ...props }
+      if (props.children) {
         delete _props.children
       }
       const [, drag] = useDrag(() => ({
@@ -14,7 +17,7 @@ export function WithDraggable(itemType: string, payload?: Record<string, unknown
           type: Component,
           props: {
             ...payload,
-            ..._props,
+            ..._props
           }
         }
       }))
@@ -26,7 +29,7 @@ export function WithDraggable(itemType: string, payload?: Record<string, unknown
             height: '100%',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           {props.children ? props.children : itemType}

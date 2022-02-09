@@ -8,9 +8,12 @@ import './SignUp.css'
 import { FC, useState } from 'react'
 import { registerAction } from '@/api'
 import { useNavigate } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 const SignUp: FC = () => {
   const navigate = useNavigate()
+  const { enqueueSnackbar } = useSnackbar()
+
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [tips, setTips] = useState<string>('Please enter your information!')
@@ -19,7 +22,7 @@ const SignUp: FC = () => {
       <div className='SignUp'>
         <img
           id='img_signup'
-          src='http://tva1.sinaimg.cn/large/005BcTWDly1gyrdpm4u9bj30dw0opjtf.jpg'
+          src='https://images.pexels.com/photos/4050430/pexels-photo-4050430.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
           alt=''
         />
         <div className='signup_text'>
@@ -86,19 +89,23 @@ const SignUp: FC = () => {
             <Button
               type='button'
               fullWidth
-              variant='contained'
+              variant='outlined'
+              color='inherit'
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                const result = registerAction(username, password)
-                result.then(
-                  () => {
-                    navigate('/login')
-                  },
-                  () => {
-                    setTips('Input information error!')
-                    console.log('fail')
-                  }
-                )
+              onClick={async () => {
+                try {
+                  await registerAction(username, password)
+                  navigate('/login')
+                } catch (e: { success; message }) {
+                  enqueueSnackbar(e.message, {
+                    anchorOrigin: {
+                      vertical: 'top',
+                      horizontal: 'center'
+                    },
+                    variant: 'error'
+                  })
+                  setTips(e.message)
+                }
               }}
             >
               Sign Up
@@ -106,7 +113,7 @@ const SignUp: FC = () => {
 
             <Grid container justifyContent='flex-end'>
               <Grid item>
-                <Link href='./login' variant='body2'>
+                <Link href='./login' variant='body2' color='inherit'>
                   Already have an account? Sign in
                 </Link>
               </Grid>
