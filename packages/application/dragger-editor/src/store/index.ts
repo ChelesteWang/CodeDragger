@@ -32,7 +32,7 @@ export const Context = createContext({
 export function componentsReducer(state: any, action: any) {
   const {
     type,
-    payload: { key, node }
+    payload: { key, node, path, value }
   } = action
   switch (type) {
     case 'addNode':
@@ -43,6 +43,9 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'deleteNode':
       componentsManager.commit('deleteNode', { key })
+      return componentsManager.state
+    case 'editNode':
+      componentsManager.commit('editNode', { key, path, value })
       return componentsManager.state
     default:
       new Error('Invalid action')
