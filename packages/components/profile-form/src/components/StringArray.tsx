@@ -14,9 +14,9 @@ export interface Props {
   defaultValues: Array<string>
 }
 const DeleteIcon: FC = () => {
-  // @ts-ignore
   return (
     <svg
+    // @ts-ignore
       t='1644332621260'
       class='icon'
       viewBox='0 0 1024 1024'
@@ -46,9 +46,9 @@ const DeleteIcon: FC = () => {
   )
 }
 const Enter: FC = () => {
-  // @ts-ignore
   return (
     <svg
+    // @ts-ignore
       t='1644335634680'
       class='icon'
       viewBox='0 0 1024 1024'
