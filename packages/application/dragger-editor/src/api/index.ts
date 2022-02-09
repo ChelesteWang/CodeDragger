@@ -6,3 +6,7 @@ export const jsonSchemaFindByIDAction = async (id: string) => {
   } = await http.get(`/api/json_schema/find/${id}`)
   return result
 }
+
+export const jsonSchemaSave = async (id: string, updater: object) => {
+  await http.put(`/api/json_schema/update/${id}`, { updater })
+}
