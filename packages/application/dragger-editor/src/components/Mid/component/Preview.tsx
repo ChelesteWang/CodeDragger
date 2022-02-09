@@ -1,9 +1,16 @@
-import React, { CSSProperties, useRef, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, {
+  CSSProperties,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import DeleteIcon from './DeleteIcon'
 import { GenNonDuplicateID } from '../../../utils'
-import { statusManager } from '../../../store'
+import { Context, componentsManager, componentsReducer } from '../../../store'
 // import RemoteComponent from '@cdl-pkg/remote-component'
 import './Preview.css'
 
@@ -12,7 +19,7 @@ export interface LayoutType extends Layout {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.FC<any>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dProps: any
+  // dProps: any
 }
 const style: CSSProperties = {
   width: '100%',
@@ -21,6 +28,7 @@ const style: CSSProperties = {
 const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
+  const { components, dispatch } = useContext(Context)
   const [, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,29 +36,23 @@ const Preview: React.FC = () => {
       // TODO: 这里的 i 改为使用 GenNonDuplicateID 生成
       // TODO: props 提交到 statemanager 完成双向绑定（注册组件）
       const key = GenNonDuplicateID()
-      statusManager.commit('addNode', {
-        key: key,
-        node: item.props
-      })
-
-      console.log('status', statusManager.state)
-
+      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })
       setLayout((oldLayout) => [
         ...oldLayout,
         {
-          i: '' + index.current++,
+          i: key,
           x: 0,
           y: Infinity,
-          w: 375,
-          h: 100,
+          w: parseFloat(item.props.style.width),
+          h: parseFloat(item.props.style.height),
           component: item.type,
-          dProps: item.props
         }
       ])
     }
   }))
   const removeItem = (key: string) => {
     setLayout((oldLayouts) => {
+      dispatch({ type: 'deleteNode', payload: { key } })
       const newLayouts = oldLayouts.filter((layout) => layout.i !== key)
       return [...newLayouts]
     })
@@ -62,11 +64,13 @@ const Preview: React.FC = () => {
   }
   const handleLayoutChange = (layout: Layout[]) => {
     console.log(layout)
+
     // saveToLS('layout', layout)
   }
 
   return (
     <div style={style} ref={drop}>
+      {JSON.stringify(components)}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}
@@ -80,6 +84,9 @@ const Preview: React.FC = () => {
       >
         {layouts.map((layout, ind) => {
           const FnComponent = layout.component
+          const key = layout.i
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const props: any = components[key]
           return (
             <div
               key={layout.i}
@@ -87,7 +94,7 @@ const Preview: React.FC = () => {
               onDoubleClick={handleDoubleClick(layout.i)}
             >
               <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
-              <FnComponent style={style} {...layout.dProps} />
+              <FnComponent style={style} {...props}/>
             </div>
           )
         })}

@@ -44,9 +44,13 @@ const useSaveDataToLocalStorage = (key: string, value: string) =>
 export function createPersistencePlugin(
   persistenceOption: PersistenceOptionType
 ) {
-  persistenceOption = Object.assign({},{
-    status: 'manual'
-  } ,persistenceOption )
+  persistenceOption = Object.assign(
+    {},
+    {
+      status: 'manual'
+    },
+    persistenceOption
+  )
 
   return (opportunity: string, ctx: StatusManager) => {
     let __persistenceOption = Object.assign(
@@ -54,7 +58,6 @@ export function createPersistencePlugin(
       persistenceOption,
       ctx?.pluginConfig?.persistenceOption
     )
-    console.log(opportunity,__persistenceOption)
     if (
       (opportunity == 'dataChanged' && __persistenceOption.status == 'auto') ||
       opportunity == 'toSaveData'
