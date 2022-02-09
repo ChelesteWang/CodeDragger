@@ -59,7 +59,8 @@ const Workspace: FC = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '25%',
+                height: '260px',
+                width: '294px',
                 '&:hover': {
                   cursor: 'pointer',
                   opacity: 0.7
