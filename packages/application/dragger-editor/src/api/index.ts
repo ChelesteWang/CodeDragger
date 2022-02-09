@@ -8,5 +8,5 @@ export const jsonSchemaFindByIDAction = async (id: string) => {
 }
 
 export const jsonSchemaSave = async (id: string, updater: object) => {
-  await http.put(`/api/json_schema/update/${id}`, { updater })
+  await http.put(`/api/json_schema/update_jsonschema/${id}`, { updater })
 }
