@@ -1,3 +1,4 @@
-import Counter from './Counter'
+// import Counter from './Counter'
+import Image from './Image'
 
-export default Counter
+export default Image

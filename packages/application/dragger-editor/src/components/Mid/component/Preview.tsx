@@ -30,10 +30,14 @@ const style: CSSProperties = {
 const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
+  // @ts-ignore
   const { components, dispatch } = useContext(Context)
   const { id } = useParams()
   useEffect(() => {
     const fetchData = async () => {
+      if(!id){
+        throw new Error(`Cannot fetch data`)
+      }
       const result = await jsonSchemaFindByIDAction(id)
       console.log(result, 'result')
       setLayout(result.info.jsonSchema.layout || [])
@@ -97,7 +101,7 @@ const Preview: React.FC = () => {
       >
         {layouts.map((layout, ind) => {
           const key = layout.i
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          // @ts-ignore
           const props: any = components[key]
           if (props?.name) {
             return (

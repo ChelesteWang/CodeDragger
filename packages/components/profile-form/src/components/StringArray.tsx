@@ -11,7 +11,8 @@ export interface Props {
   type: string
   values: string
   defaultValues: Array<string>
-}
+} 
+  
 const imgItemStyle = {
   width: 'inherit',
   'word-wrap': 'break-word'

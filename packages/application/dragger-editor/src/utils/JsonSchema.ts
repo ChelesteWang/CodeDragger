@@ -1,6 +1,7 @@
 const constructors: Record<string, (v: unknown) => unknown> = {
   string: (v: unknown) => String(v),
-  number: (v: unknown) => Number(v)
+  number: (v: unknown) => Number(v),
+  array: (v: unknown) => v
 }
 
 const fallBack = {

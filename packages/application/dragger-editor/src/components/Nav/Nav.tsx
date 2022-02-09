@@ -13,6 +13,7 @@ interface Iprops {
 
 export default function Hello(props: { name: any; editTime: any }) {
   const { name, editTime } = props
+  // @ts-ignore
   const { components, dispatch } = useContext(Context)
   const { id } = useParams()
   return (
@@ -52,12 +53,18 @@ export default function Hello(props: { name: any; editTime: any }) {
             variant='outlined'
             color='inherit'
             onClick={async () => {
+              // @ts-ignore
               console.log(layoutManager.state.value)
+              
               const data = {
                 components: componentsManager.state,
+                 // @ts-ignore
                 layout: JSON.parse(layoutManager.state.value)
               }
               console.log(data)
+              if(!id){
+                throw new Error('Invalid id')
+              }
               await jsonSchemaSave(id, data)
             }}
           >
