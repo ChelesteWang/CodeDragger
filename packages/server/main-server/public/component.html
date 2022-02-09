@@ -100,6 +100,16 @@
                   @click='updateComponent'> 更新Component
           </button>
         </div>
+        <div class='demo'>
+          <p>更新jsonSchema字段:newJsonSchema</p>
+          {{newJsonSchema}}
+          <input type='text' class='input-todo' placeholder='请输入要更新的jsonSchema字段的id'
+                 v-model='newJsonSchemaID'
+                 style='flex:1 ;margin-right:10px;'>
+          <button style='flex:0'
+                  @click='UpdateSchemaComponent'> 更新jsonSchema表中的jsonSchema字段
+          </button>
+        </div>
 
 
       </div>
@@ -124,6 +134,11 @@
     el: '#app',
     data() {
       return {
+        newJsonSchemaID:"",
+        newJsonSchema:{
+          name: 'button',
+          value: '这是testButton2'
+        },
         componentDeleteID:"",
         componentCreateObj: {
           name: 'testCreate',
@@ -235,7 +250,9 @@
       async updateComponent() {
         await this.componentUpdateAction(this.componentUpdateID,this.componentUpdater)
       },
-
+      async UpdateSchemaComponent() {
+        await this.componentUpdateSchemaAction(this.newJsonSchemaID,this.newJsonSchema)
+      },
 
 
       //-------------------------------------------------------------------------------------------------
@@ -260,7 +277,11 @@
       async componentUpdateAction(id,updater) {
         const { data:  { result } }  = await window.axios.put(`/api/component/update/${id}`,{updater})
         return result
-      }
+      },
+      async componentUpdateSchemaAction(id,updater) {
+        const { data:  { result } }  = await window.axios.put(`/api/component/update_jsonschema/${id}`,{updater})
+        return result
+      },
 
     }
 

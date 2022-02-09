@@ -97,6 +97,22 @@ class ComponentController {
     const result = await ComponentService.updateOne(id, updater)
     ctx.body = { result }
   }
+
+  /**
+   * 更新component的jsonSchema字段
+   * 传 updater
+   * 响应格式
+   * {
+   *   result: new JsonSchema
+   * }
+   * Koa 的上下文参数
+   */
+  async updateJsonSchema(ctx) {
+    const id = ctx.params.id
+    const { updater } = ctx.request.body
+    const result = await ComponentService.updateJsonSchema(id, updater)
+    ctx.body = { result }
+  }
 }
 
 // 导出 Controller 的实例

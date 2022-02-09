@@ -33,6 +33,7 @@ class JsonSchemaController {
     const result = await JsonSchemaService.findByUser(user._id)
     ctx.body = { result }
   }
+
   /**
    * 列出所有JsonSchema
    * 响应格式
@@ -100,7 +101,7 @@ class JsonSchemaController {
   }
 
   /**
-   * 更新json_schema
+   * 更新json_schema表的一行
    * 传 name，jsonSchema，携带token
    * 响应格式
    * {
@@ -120,6 +121,29 @@ class JsonSchemaController {
     }
     updater.user = user
     const result = await JsonSchemaService.updateOne(id, updater)
+    ctx.body = { result }
+  }
+
+  /**
+   * 更新json_schema的jsonSchema字段
+   * 传 jsonSchema
+   * 响应格式
+   * {
+   *   result: new JsonSchema
+   * }
+   * Koa 的上下文参数
+   */
+  async updateJsonSchema(ctx) {
+    const id = ctx.params.id
+    const { updater } = ctx.request.body
+    const { info: user } = await UserService.current(ctx)
+    const { info: data } = await JsonSchemaService.findByID(id)
+    if (data.user._id !== user._id) {
+      const error = new Error(`Insufficient permissions`)
+      error.status = 403
+      throw error
+    }
+    const result = await JsonSchemaService.updateJsonSchema(id, updater)
     ctx.body = { result }
   }
 }

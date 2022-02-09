@@ -25,6 +25,16 @@ export const componentsManager = createObjectStatusManager({
   }
 })
 
+export const layoutManager = createObjectStatusManager({
+  key: 'layout',
+  state: obj,
+  hooks: {
+    dataChanged(data: any) {
+      console.log(data)
+    }
+  }
+})
+
 export const Context = createContext({
   components: {}
 })
@@ -46,6 +56,16 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'editNode':
       componentsManager.commit('editNode', { key, path, value })
+      return componentsManager.state
+    case 'replaceAll':
+      componentsManager.commit('replaceAll', value)
+      return componentsManager.state
+    case 'undo':
+      componentsManager.back()
+      console.log(componentsManager.state)
+      return componentsManager.state
+    case 'redo':
+      componentsManager.forward()
       return componentsManager.state
     default:
       new Error('Invalid action')

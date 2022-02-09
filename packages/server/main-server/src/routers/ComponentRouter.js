@@ -8,5 +8,6 @@ router.get('/find/:id', ComponentController.findByID)
 router.post('/create', ComponentController.create)
 router.delete('/delete/:id', ComponentController.delete)
 router.put('/update/:id', ComponentController.updateOne)
+router.put('/update_jsonschema/:id', ComponentController.updateJsonSchema)
 
 module.exports = router

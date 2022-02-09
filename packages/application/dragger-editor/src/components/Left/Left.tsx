@@ -12,7 +12,7 @@ import RemoteComponent from '@cdl-pkg/remote-component'
 import { getDefaultInstance } from '../../utils/JsonSchema'
 import { GenNonDuplicateID } from '../../utils'
 
-function MockIcon() {
+function MockIcon({ src, desc }: { src: string; desc: string }) {
   return (
     <div
       style={{
@@ -23,7 +23,7 @@ function MockIcon() {
         alignItems: 'center'
       }}
     >
-      icon
+      <img src={src} alt={desc} />
     </div>
   )
 }
@@ -46,7 +46,7 @@ export default function Left() {
   const renderMaterialPanel = () => {
     return materialList.map((material: MaterialType) => {
       if (material.remoteComponent) {
-        const { name, desc, schema } = material
+        const { name, desc, schema, src } = material
         const defaultProps = getDefaultInstance(schema)
         defaultProps.name = name
         console.log(defaultProps.id)
@@ -56,8 +56,9 @@ export default function Left() {
         )(RemoteComponent)
         return (
           <Material desc={desc}>
-            <Draggable>
-              <MockIcon />
+            <Draggable style={{ flex: 0.5 }}>
+              {/* @ts-ignore */}
+              <MockIcon src={src} desc={desc} />
             </Draggable>
           </Material>
         )
@@ -81,7 +82,18 @@ export default function Left() {
       <div className='options'>
         <TabPanel />
       </div>
-      <div className='component'>{renderContenr()}</div>
+      <div
+        className='component'
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          width: '300px',
+          overflow: 'hidden'
+        }}
+      >
+        {renderContenr()}
+      </div>
     </div>
   )
 }

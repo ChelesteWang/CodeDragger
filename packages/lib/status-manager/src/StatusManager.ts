@@ -87,7 +87,8 @@ class StatusManager {
       this.state = produce(
         this.state,
         (draft) => {
-          this.mutations[name](draft, payload)
+          let result = this.mutations[name](draft, payload)
+          if (result != null) return result
         },
         (patches, inversePatches) => {
           this.position++

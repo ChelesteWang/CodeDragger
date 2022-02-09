@@ -8,7 +8,12 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { useParams } from 'react-router-dom'
 import './main.css'
 import { jsonSchemaFindByIDAction } from './api'
-import { Context, componentsManager, componentsReducer } from './store'
+import {
+  Context,
+  componentsManager,
+  componentsReducer,
+  layoutManager
+} from './store'
 
 const App: FC = () => {
   const [name, setName] = useState<string>('')
@@ -21,6 +26,14 @@ const App: FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await jsonSchemaFindByIDAction(id)
+      dispatch({
+        type: 'replaceAll',
+        payload: { value: result.info.jsonSchema.components }
+      })
+      layoutManager.commit('replaceAll', {
+        value: result.info.jsonSchema.layout
+      })
+      console.log('first', layoutManager.state)
       console.log(result.info.name)
       setName(result.info.name)
       setEditTime(result.info.updatedAt)
@@ -30,7 +43,9 @@ const App: FC = () => {
   return (
     <div className='app'>
       <DndProvider backend={HTML5Backend}>
+        
         <Context.Provider
+        /* @ts-ignore */
           value={{ components: componentsManager.state, dispatch: dispatch }}
         >
           <div>

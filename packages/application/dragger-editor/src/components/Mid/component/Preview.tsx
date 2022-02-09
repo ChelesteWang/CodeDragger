@@ -10,14 +10,16 @@ import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import DeleteIcon from './DeleteIcon'
 import { GenNonDuplicateID } from '../../../utils'
-import { Context, componentsManager, componentsReducer } from '../../../store'
-// import RemoteComponent from '@cdl-pkg/remote-component'
+import { Context, layoutManager } from '../../../store'
+import RemoteComponent from '@cdl-pkg/remote-component'
 import './Preview.css'
+import { jsonSchemaFindByIDAction } from '../../../api'
+import { useParams } from 'react-router-dom'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
 export interface LayoutType extends Layout {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: React.FC<any>
+  // component: React.FC<any>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // dProps: any
 }
@@ -28,7 +30,21 @@ const style: CSSProperties = {
 const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
+  // @ts-ignore
   const { components, dispatch } = useContext(Context)
+  const { id } = useParams()
+  useEffect(() => {
+    const fetchData = async () => {
+      if(!id){
+        throw new Error(`Cannot fetch data`)
+      }
+      const result = await jsonSchemaFindByIDAction(id)
+      console.log(result, 'result')
+      setLayout(result.info.jsonSchema.layout || [])
+    }
+    fetchData()
+  }, [])
+
   const [, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,8 +60,7 @@ const Preview: React.FC = () => {
           x: 0,
           y: Infinity,
           w: parseFloat(item.props.style.width),
-          h: parseFloat(item.props.style.height),
-          component: item.type,
+          h: parseFloat(item.props.style.height)
         }
       ])
     }
@@ -63,14 +78,16 @@ const Preview: React.FC = () => {
     }
   }
   const handleLayoutChange = (layout: Layout[]) => {
-    console.log(layout)
-
+    // console.log(layout)
+    layoutManager.commit('replaceAll', { value: JSON.stringify(layout) })
+    console.log('a11', layoutManager.state)
     // saveToLS('layout', layout)
   }
 
   return (
     <div style={style} ref={drop}>
-      {JSON.stringify(components)}
+      {/* {JSON.stringify(components)} */}
+      {/* {JSON.stringify(layouts)} */}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}
@@ -83,20 +100,21 @@ const Preview: React.FC = () => {
         isBounded
       >
         {layouts.map((layout, ind) => {
-          const FnComponent = layout.component
           const key = layout.i
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          // @ts-ignore
           const props: any = components[key]
-          return (
-            <div
-              key={layout.i}
-              data-grid={layouts[ind]}
-              onDoubleClick={handleDoubleClick(layout.i)}
-            >
-              <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
-              <FnComponent style={style} {...props}/>
-            </div>
-          )
+          if (props?.name) {
+            return (
+              <div
+                key={layout.i}
+                data-grid={layouts[ind]}
+                onDoubleClick={handleDoubleClick(layout.i)}
+              >
+                <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
+                <RemoteComponent style={style} {...props} />
+              </div>
+            )
+          }
         })}
       </ResponsiveReactGridLayout>
     </div>

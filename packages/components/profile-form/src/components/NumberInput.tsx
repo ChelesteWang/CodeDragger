@@ -32,7 +32,12 @@ const App: FC<Props> = ({ prop, value, type, minimum, maximum }: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(event.target.value)
     if (!checkValue(newValue)) return
-    !Number.isNaN(newValue) && setValues(newValue)
+    if (!Number.isNaN(newValue)) {
+      setValues(newValue)
+      // TODO: 调用dispatch方法
+      console.log(`update:【调用dispatch】${prop}设置为${newValue}`);
+      
+    }
   }
   return (
     <div>
