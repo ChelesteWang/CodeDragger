@@ -46,15 +46,21 @@ const fallBack = {
  */
 export function getDefaultInstance(schema: Record<string, unknown> | string): any{
   let schemaObj: any = {};
+
   if(typeof schema === 'string') {
     try {
       schemaObj = JSON.parse(schema);
     } catch (e) {
+      console.error(e);
       return {}
     }
+  } else {
+    schemaObj = schema;
   }
+
   const { type, properties } = schemaObj;
   if(type !== 'object') {
+    console.log('is a trap!');
     return {};
   }
   const res: any = {
@@ -72,5 +78,5 @@ export function getDefaultInstance(schema: Record<string, unknown> | string): an
     }
 
   }
-
+  return res;
 }

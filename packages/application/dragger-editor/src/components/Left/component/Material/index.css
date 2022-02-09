@@ -3,4 +3,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 35%;
+  height: 100px;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+  min-width: 100px;
 }
