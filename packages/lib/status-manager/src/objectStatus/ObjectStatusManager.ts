@@ -1,10 +1,10 @@
 import { StatusManager } from '../index'
 import { MutationsType } from '../StatusManager'
 
-export type ObjectStatusManagerInitOptionType = {
+interface ObjectStatusManagerInitOptionType {
   key: string
   state: Object
-  mutations: MutationsType
+  mutations?: MutationsType
   hooks?: Partial<{
     beforeCommit: (oldData: any) => void
     committed: (newData: any) => void
@@ -69,3 +69,5 @@ export function createObjectStatusManager(
     pluginConfig: initOption.pluginConfig
   })
 }
+
+export type { ObjectStatusManagerInitOptionType }

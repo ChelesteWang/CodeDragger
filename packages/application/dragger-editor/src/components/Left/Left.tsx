@@ -9,7 +9,7 @@ import {
 import './Left.css'
 import { WithDraggable } from '../../utils/WithDraggable'
 import RemoteComponent from '@cdl-pkg/remote-component'
-import { getDefaultInstance } from '@/utils/JsonSchema'
+import { getDefaultInstance } from '../../utils/JsonSchema'
 import { GenNonDuplicateID } from '../../utils'
 
 function MockIcon() {

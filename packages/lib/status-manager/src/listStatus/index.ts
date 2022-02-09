@@ -3,4 +3,5 @@ import {
   ListStatusManagerInitOptionType
 } from './ListStatusManager'
 
-export { createListStatusManager, ListStatusManagerInitOptionType }
+export { createListStatusManager }
+export type { ListStatusManagerInitOptionType }

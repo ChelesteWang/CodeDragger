@@ -2,7 +2,8 @@ import React, { CSSProperties, useRef, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import DeleteIcon from './DeleteIcon'
-import { GenNonDuplicateID } from '@/utils'
+import { GenNonDuplicateID } from '../../../utils'
+import { statusManager } from '../../../store'
 // import RemoteComponent from '@cdl-pkg/remote-component'
 import './Preview.css'
 
@@ -26,6 +27,14 @@ const Preview: React.FC = () => {
     drop: (item: { type: React.FC<any>; props: any }) => {
       // TODO: 这里的 i 改为使用 GenNonDuplicateID 生成
       // TODO: props 提交到statemanager完成双向绑定（注册组件）
+      statusManager.commit('addNode', {
+        key: '123123',
+        node: {
+          name: '123',
+          info:'1111'
+        }
+      })
+      console.log(statusManager.state)
       setLayout((oldLayout) => [
         ...oldLayout,
         {

@@ -3,4 +3,5 @@ import {
   ObjectStatusManagerInitOptionType
 } from './ObjectStatusManager'
 
-export { createObjectStatusManager, ObjectStatusManagerInitOptionType }
+export { createObjectStatusManager }
+export type { ObjectStatusManagerInitOptionType }

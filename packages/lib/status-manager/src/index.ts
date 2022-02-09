@@ -17,7 +17,10 @@ export {
   createPersistencePlugin,
   getFromLocalStorage,
   createListStatusManager,
-  createObjectStatusManager,
+  createObjectStatusManager
+}
+
+export type {
   ListStatusManagerInitOptionType,
   ObjectStatusManagerInitOptionType
 }
