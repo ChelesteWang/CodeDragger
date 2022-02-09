@@ -5,31 +5,14 @@ import React, { useContext } from 'react'
 // import Button from '@mui/material/Button'
 import './Right.css'
 import ProfileForm from '@cdl-pkg/profile-form'
-import { Context } from '../../store'
-const selectedNode = {
-  tag: 'MyCom',
-  properties: {
-    width: {
-      type: 'number',
-      minimum: 1,
-      value: 50,
-      maximum: 2000,
-      interaction: 'slide'
-    },
-    height: {
-      type: 'number',
-      minimum: 1,
-      value: 50,
-      maximum: 2000,
-      interaction: 'slide'
-    }
-  }
-}
+import {selectedNode, getSchema, dispatch} from './mock'
+const schema = getSchema('1')
+
 export default function Right() {
   // const { components, dispatch } = useContext(Context)
   return (
     <div className='right'>
-      <ProfileForm {...selectedNode} />
+      <ProfileForm tag="myCom" selectedNode={selectedNode} schema={schema} dispatch={dispatch} />
     </div>
   )
 }
