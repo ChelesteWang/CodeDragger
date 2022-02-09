@@ -31,14 +31,15 @@ const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
   const { components, dispatch } = useContext(Context)
-  
+  const { id } = useParams()
   useEffect(() => {
     const fetchData = async()=>{
       const result = await jsonSchemaFindByIDAction(id)
-      setLayout(result.info.jsonSchema.layout)
+      console.log(result,"result");
+      setLayout(result.info.jsonSchema.layout||[])
     }
     fetchData()
-  })
+  },[])
 
   const [, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
@@ -82,7 +83,7 @@ const Preview: React.FC = () => {
   return (
     <div style={style} ref={drop}>
       {/* {JSON.stringify(components)} */}
-      {JSON.stringify(layouts)}
+      {/* {JSON.stringify(layouts)} */}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}
