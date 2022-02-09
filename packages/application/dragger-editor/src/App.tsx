@@ -30,18 +30,18 @@ const App: FC = () => {
   return (
     <div className='app'>
       <DndProvider backend={HTML5Backend}>
-        <div>
-          <Nav name={name} editTime={editTime} />
-        </div>
-        <div>
-          <Context.Provider
-            value={{ components: componentsManager.state, dispatch: dispatch }}
-          >
+        <Context.Provider
+          value={{ components: componentsManager.state, dispatch: dispatch }}
+        >
+          <div>
+            <Nav name={name} editTime={editTime} />
+          </div>
+          <div>
             <Left />
             <Mid />
             <Right />
-          </Context.Provider>
-        </div>
+          </div>
+        </Context.Provider>
       </DndProvider>
     </div>
   )
