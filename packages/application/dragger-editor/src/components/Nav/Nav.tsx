@@ -52,12 +52,13 @@ export default function Hello(props: { name: any; editTime: any }) {
             variant='outlined'
             color='inherit'
             onClick={async () => {
+              console.log(layoutManager.state.value);
               const data = {
                 components: componentsManager.state,
                 layout: JSON.parse(layoutManager.state.value)
               }
               console.log(data)
-              await jsonSchemaSave(id, { jsonSchema: data })
+              await jsonSchemaSave(id, data)
             }}
           >
             保存
