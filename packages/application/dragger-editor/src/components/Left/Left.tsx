@@ -12,7 +12,7 @@ import RemoteComponent from '@cdl-pkg/remote-component'
 import { getDefaultInstance } from '../../utils/JsonSchema'
 import { GenNonDuplicateID } from '../../utils'
 
-function MockIcon() {
+function MockIcon({ src, desc }: { src: string; desc: string }) {
   return (
     <div
       style={{
@@ -23,7 +23,7 @@ function MockIcon() {
         alignItems: 'center'
       }}
     >
-      icon
+      <img src={src} alt={desc} />
     </div>
   )
 }
@@ -46,7 +46,7 @@ export default function Left() {
   const renderMaterialPanel = () => {
     return materialList.map((material: MaterialType) => {
       if (material.remoteComponent) {
-        const { name, desc, schema } = material
+        const { name, desc, schema, src } = material
         const defaultProps = getDefaultInstance(schema)
         defaultProps.name = name
         console.log(defaultProps.id)
@@ -57,7 +57,7 @@ export default function Left() {
         return (
           <Material desc={desc}>
             <Draggable>
-              <MockIcon />
+              <MockIcon src={src} desc={desc} />
             </Draggable>
           </Material>
         )
