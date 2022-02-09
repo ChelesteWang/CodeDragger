@@ -99,7 +99,17 @@
                      v-model='jsonSchemaUpdateID'
                      style='flex:1 ;margin-right:10px;'>
               <button style='flex:0'
-                      @click='updateJsonSchema'> 更新jsonSchema
+                      @click='updateJsonSchema'> 更新jsonSchema表中的一行
+              </button>
+          </div>
+        <div class='demo'>
+              <p>更新jsonSchema中的jsonSchema字段:newJsonSchema</p>
+              {{newJsonSchema}}
+              <input type='text' class='input-todo' placeholder='请输入要更新的jsonSchema字段的id'
+                     v-model='newJsonSchemaID'
+                     style='flex:1 ;margin-right:10px;'>
+              <button style='flex:0'
+                      @click='jsonSchemaUpdateField'> 更新jsonSchema表中的jsonSchema字段
               </button>
           </div>
 
@@ -147,6 +157,11 @@
             type: 'button',
             value: '这是testButton2'
           } },
+        newJsonSchemaID:"",
+        newJsonSchema:{
+          name: 'button',
+          value: '这是testButton2'
+        },
         loading: true,
         requests: [],
         request: [],
@@ -239,7 +254,9 @@
       async updateJsonSchema() {
         await this.jsonSchemaUpdateAction(this.jsonSchemaUpdateID,this.jsonSchemaUpdater)
       },
-
+       async jsonSchemaUpdateField() {
+        await this.jsonSchemaUpdateFieldAction(this.newJsonSchemaID,this.newJsonSchema)
+      },
 
 
 
@@ -269,6 +286,10 @@
       } ,
       async jsonSchemaUpdateAction(id,updater) {
         const { data:  { result } }  = await window.axios.put(`/api/json_schema/update/${id}`,{updater})
+        return result
+      },
+      async jsonSchemaUpdateFieldAction(id,updater) {
+        const { data:  { result } }  = await window.axios.put(`/api/json_schema/update_jsonschema/${id}`,{updater})
         return result
       },
 

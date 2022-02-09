@@ -9,5 +9,6 @@ router.get('/find/:id', JsonSchemaController.findByID)
 router.post('/create', JsonSchemaController.create)
 router.delete('/delete/:id', JsonSchemaController.delete)
 router.put('/update/:id', JsonSchemaController.updateOne)
+router.put('/update_jsonschema/:id', JsonSchemaController.updateJsonSchema)
 
 module.exports = router

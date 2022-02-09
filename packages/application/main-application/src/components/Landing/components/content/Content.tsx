@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
 import OutlinedCard from './OutlinedCard'
 import { Divider } from '@mui/material'
+import Swiper from '@/components/Landing/components/Swiper'
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -176,6 +177,7 @@ const Content = () => {
               </Grid>
             </Grid>
           </Box>
+          <Swiper />
         </Container>
       </ThemeProvider>
     </>

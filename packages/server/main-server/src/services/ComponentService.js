@@ -92,6 +92,24 @@ class ComponentService {
     Object.assign(component, updater)
     return await componentTable.save(component)
   }
+  /**
+   * 更新一条component数据
+   * @param id component的 _id
+   * @param updater 将会用原对象 merge 此对象进行更新
+   * 若不存在，则抛出 404 错误
+   */
+  async updateJsonSchema(id, updater) {
+    const component = await componentTable
+      .where({ _id: ObjectId(id) })
+      .findOne()
+    if (!component) {
+      const error = new Error(`component:${id} not found`)
+      error.status = 404
+      throw error
+    }
+    component.jsonSchema= Object.assign( component.jsonSchema, updater)
+    return await componentTable.save(component)
+  }
 }
 
 // 导出 Service 的实例
