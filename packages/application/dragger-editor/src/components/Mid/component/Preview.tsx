@@ -99,16 +99,18 @@ const Preview: React.FC = () => {
           const key = layout.i
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const props: any = components[key]
-          return (
-            <div
-              key={layout.i}
-              data-grid={layouts[ind]}
-              onDoubleClick={handleDoubleClick(layout.i)}
-            >
-              <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
-              <RemoteComponent style={style} {...props} />
-            </div>
-          )
+          if(props?.name) {
+            return (
+              <div
+                key={layout.i}
+                data-grid={layouts[ind]}
+                onDoubleClick={handleDoubleClick(layout.i)}
+              >
+                <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
+                <RemoteComponent style={style} {...props} />
+              </div>
+            )
+          }
         })}
       </ResponsiveReactGridLayout>
     </div>
