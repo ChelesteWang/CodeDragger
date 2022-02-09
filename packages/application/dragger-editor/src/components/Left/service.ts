@@ -28,18 +28,18 @@ export function getMaterialList(): Promise<GetMaterialListResponse> {
             shape: {
               type: 'string',
               oneof: ['rect', 'radius', 'round', 'circle'],
-              default: 'react',
+              default: 'rect',
               interaction: 'drop_down'
             },
             buttonText: {
               type: 'string',
               default: 'Button',
-              interaction: 'inupt'
+              interaction: 'input'
             },
             width: {
               type: 'number',
               isCssProp: 'true',
-              default: 40,
+              default: 80,
               minimum: 40,
               maximum: 200,
               interaction: 'stepper'
@@ -47,7 +47,7 @@ export function getMaterialList(): Promise<GetMaterialListResponse> {
             height: {
               type: 'number',
               isCssProp: 'true',
-              default: 80,
+              default: 40,
               minimum: 40,
               maximum: 200,
               interaction: 'stepper'
