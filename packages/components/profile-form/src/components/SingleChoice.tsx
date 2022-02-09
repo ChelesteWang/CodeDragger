@@ -15,6 +15,9 @@ const App: FC<Props> = ({ prop, type, value, oneof }: Props) => {
   const [val, setVal] = React.useState<string>(value)
   const handleChange = (event: SelectChangeEvent) => {
     setVal(event.target.value as string)
+    // TODO: 调用dispatch方法
+    console.log(`update:【调用dispatch】${prop}设置为${event.target.value}`);
+
   }
   return (
     <div className='single-choice'>
