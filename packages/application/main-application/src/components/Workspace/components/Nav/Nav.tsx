@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import './Nav.css'
 import { currentAction, logoutAction } from '@/api'
+import userInfoStore from '@/store'
 
 export default class Hello extends React.Component {
   state = {
@@ -13,6 +14,7 @@ export default class Hello extends React.Component {
       return await logoutAction()
     }
     const result = fetchData()
+    localStorage.removeItem('status_manager__global__userInfo')
     result.then(() => {
       window.location.href = './login'
     })
@@ -20,8 +22,14 @@ export default class Hello extends React.Component {
   //挂载时初始化
   componentDidMount() {
     const fetchInfo = async () => {
-      const result = await currentAction()
-      this.setState({ username: result.info.username })
+      try {
+        const result = await currentAction()
+        userInfoStore.commit('replaceAll', result.info)
+        this.setState({ username: result?.info?.username })
+      } catch (e) {
+        localStorage.removeItem('status_manager__global__userInfo')
+        window.location.href = './login'
+      }
     }
     fetchInfo()
   }
