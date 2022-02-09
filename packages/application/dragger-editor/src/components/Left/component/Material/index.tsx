@@ -3,13 +3,13 @@ import './index.css';
 
 export interface MatrialProps {
   desc?: string,
-  dragganble: FC<any>
+  children: ReactElement
 }
 
-export default function Matrial ({ desc = '组件', dragganble }: MatrialProps): ReactElement {
+export default function Matrial ({ desc = '组件', children }: MatrialProps): ReactElement {
   return (
     <div className="material-wrapper">
-      {dragganble}
+      {children}
       <p>{desc}</p>
     </div>
   )
