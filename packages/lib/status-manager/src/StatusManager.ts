@@ -1,4 +1,4 @@
-import produce, { applyPatches, enablePatches, Patch } from 'immer'
+const { produce, applyPatches, enablePatches } =require('immer')
 import { createPersistencePlugin } from './plugin/PersistencePlugin'
 
 enablePatches()
@@ -38,8 +38,8 @@ class StatusManager {
   dataType: 'layout' | 'style' | 'other' | 'any' | 'global' = 'global'
   state: Array<any> | Map<any, any> | Set<any> | Object
   pluginConfig: any = {}
-  private replaces: Patch[][] = []
-  private inverseReplaces: Patch[][] = []
+  private replaces: any = []
+  private inverseReplaces: any = []
   private position: number = 0
   private readonly beforeCommit: (oldData: any) => void = () => {}
   private readonly committed: (newData: any) => void = () => {}
@@ -57,7 +57,7 @@ class StatusManager {
     this.state = produce(
       initOption.state || {},
       () => {},
-      (patches, inversePatches) => {
+      (patches: any, inversePatches: any) => {
         this.replaces.push(patches)
         this.inverseReplaces.push(inversePatches)
       }
@@ -86,11 +86,11 @@ class StatusManager {
       this.toRunPlugin('beforeDataChange')
       this.state = produce(
         this.state,
-        (draft) => {
+        (draft: any) => {
           let result = this.mutations[name](draft, payload)
           if (result != null) return result
         },
-        (patches, inversePatches) => {
+        (patches: any, inversePatches: any) => {
           this.position++
           if (this.position >= this.replaces.length) {
             this.replaces.push(patches)
