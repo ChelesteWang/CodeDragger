@@ -56,6 +56,122 @@ export function getMaterialList(): Promise<GetMaterialListResponse> {
             }
           }
         }
+      },
+      {
+        remoteComponent: true,
+        name: '6203e6ccec3be24090dd511f',
+        desc: '轮播图',
+        src: 'https://qckvp9.file.qingfuwucdn.com/file/3052cc2440655ce6_1644423610774.png',
+        schema: {
+          $schema: 'http://json-schema.org/draft-04/schema#',
+          $id: 'https://codedragger.com/component/zarm/Carousel',
+          title: 'codedagger/component/zarm/Carousel',
+          description: 'zarm Carousel attributes',
+          type: 'object',
+          properties: {
+            images: {
+              type: 'array',
+              default: [
+                'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
+                'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
+                'https://static.zhongan.com/website/health/zarm/images/banners/3.png'
+              ],
+              interaction: 'input'
+            },
+            width: {
+              type: 'number',
+              isCssProp: 'true',
+              default: 375,
+              minimum: 40,
+              maximum: 375,
+              interaction: 'stepper'
+            },
+            height: {
+              type: 'number',
+              isCssProp: 'true',
+              default: 185,
+              minimum: 40,
+              maximum: 200,
+              interaction: 'stepper'
+            }
+          }
+        }
+      },
+      {
+        remoteComponent: true,
+        name: '6203eccfec3be24090decf8e',
+        desc: '图片',
+        src: 'https://qckvp9.file.qingfuwucdn.com/file/c699812f6b0c3f97_1644424470758.png',
+        schema: {
+          $schema: 'http://json-schema.org/draft-04/schema#',
+          $id: 'https://codedragger.com/component/native/Images',
+          title: 'codedagger/component/native/Images',
+          description: 'native images attributes',
+          type: 'object',
+          properties: {
+            src: {
+              type: 'string',
+              default:'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
+              interaction: 'input'
+            },
+            width: {
+              type: 'number',
+              isCssProp: 'true',
+              default: 200,
+              minimum: 40,
+              maximum: 375,
+              interaction: 'stepper'
+            },
+            height: {
+              type: 'number',
+              isCssProp: 'true',
+              default: 185,
+              minimum: 40,
+              maximum: 200,
+              interaction: 'stepper'
+            }
+          }
+        }
+      },
+      {
+        remoteComponent: true,
+        name: '6203e6ccec3be24090dd511f',
+        desc: '轮播图',
+        src: 'https://qckvp9.file.qingfuwucdn.com/file/3052cc2440655ce6_1644423610774.png',
+        schema: {
+          $schema: 'http://json-schema.org/draft-04/schema#',
+          $id: 'https://codedragger.com/component/zarm/Carousel',
+          title: 'codedagger/component/zarm/Carousel',
+          description: 'zarm Carousel attributes',
+          type: 'object',
+          properties: {
+            images: {
+              type: 'array',
+              default: [
+                'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
+                'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
+                'https://static.zhongan.com/website/health/zarm/images/banners/3.png'
+              ],
+              interaction: 'input'
+            },
+            width: {
+              type: 'number',
+              isCssProp: 'true',
+              default: 375,
+              minimum: 40,
+              maximum: 375,
+              interaction: 'stepper'
+            },
+            height: {
+              type: 'number',
+              isCssProp: 'true',
+              default: 185,
+              minimum: 40,
+              maximum: 200,
+              interaction: 'stepper'
+            }
+          }
+        }
       }
     ]
   })

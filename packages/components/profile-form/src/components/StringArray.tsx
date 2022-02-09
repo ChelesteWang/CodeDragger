@@ -13,12 +13,11 @@ export interface Props {
   values: string
   defaultValues: Array<string>
 }
-const DeleteIcon: FC = () => {
-  // @ts-ignore
+const DeleteIcon = () => {
   return (
     <svg
-      t='1644332621260'
-      class='icon'
+      // t='1644332621260'
+      className='icon'
       viewBox='0 0 1024 1024'
       version='1.1'
       xmlns='http://www.w3.org/2000/svg'
@@ -49,8 +48,8 @@ const Enter: FC = () => {
   // @ts-ignore
   return (
     <svg
-      t='1644335634680'
-      class='icon'
+      // t='1644335634680'
+      className='icon'
       viewBox='0 0 1024 1024'
       version='1.1'
       xmlns='http://www.w3.org/2000/svg'

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useMemo } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -95,8 +96,9 @@ export default () => {
               avatar={item.avatar}
               name={item.name}
               // introduce={item.introduce}
-              github={item.github}
-            />
+              // eslint-disable-next-line prettier/prettier
+              github={item.github} 
+              introduce={''}            />
           </SwiperSlide>
         ))}
       </Swiper>

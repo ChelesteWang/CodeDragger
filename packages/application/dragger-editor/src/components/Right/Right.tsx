@@ -26,7 +26,7 @@ const selectedNode = {
   }
 }
 export default function Right() {
-  const { components, dispatch } = useContext(Context)
+  // const { components, dispatch } = useContext(Context)
   return (
     <div className='right'>
       <ProfileForm {...selectedNode} />
