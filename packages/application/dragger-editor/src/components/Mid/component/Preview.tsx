@@ -1,8 +1,9 @@
-import React, { CSSProperties, useRef, useState } from 'react'
+import React, { CSSProperties, useContext, useRef, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout'
 import DeleteIcon from './DeleteIcon'
-import { GenNonDuplicateID } from '@/utils'
+import { GenNonDuplicateID } from '../../../utils'
+import { Context, componentsManager, componentsReducer } from '../../../store'
 // import RemoteComponent from '@cdl-pkg/remote-component'
 import './Preview.css'
 
@@ -20,16 +21,19 @@ const style: CSSProperties = {
 const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
+  const { components, dispatch } = useContext(Context)
   const [, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
       // TODO: 这里的 i 改为使用 GenNonDuplicateID 生成
-      // TODO: props 提交到statemanager完成双向绑定（注册组件）
+      // TODO: props 提交到 statemanager 完成双向绑定（注册组件）
+      const key = GenNonDuplicateID()
+      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })
       setLayout((oldLayout) => [
         ...oldLayout,
         {
-          i: '' + index.current++,
+          i: key,
           x: 0,
           y: Infinity,
           w: 375,
@@ -41,7 +45,9 @@ const Preview: React.FC = () => {
     }
   }))
   const removeItem = (key: string) => {
+    console.log(key);
     setLayout((oldLayouts) => {
+      dispatch({ type: 'deleteNode', payload: { key } })
       const newLayouts = oldLayouts.filter((layout) => layout.i !== key)
       return [...newLayouts]
     })
@@ -58,6 +64,7 @@ const Preview: React.FC = () => {
 
   return (
     <div style={style} ref={drop}>
+      {JSON.stringify(components)}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}

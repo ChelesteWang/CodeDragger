@@ -1,11 +1,11 @@
-const constructors: Record<string, (v: unknown)=>unknown>  = {
-  'string': (v: unknown) => String(v),
-  'number': (v: unknown) => Number(v),
+const constructors: Record<string, (v: unknown) => unknown> = {
+  string: (v: unknown) => String(v),
+  number: (v: unknown) => Number(v)
 }
 
 const fallBack = {
-  'string': '',
-  'number': 0,
+  string: '',
+  number: 0
 }
 
 // {
@@ -38,45 +38,48 @@ const fallBack = {
 //   }
 // }
 
-
 /**
- * instantiate a object type schema arrcording to the default value of its proporty 
- * @param schema 
+ * instantiate a object type schema arrcording to the default value of its proporty
+ * @param schema
  * @returns {}
  */
-export function getDefaultInstance(schema: Record<string, unknown> | string): any{
-  let schemaObj: any = {};
+export function getDefaultInstance(
+  schema: Record<string, unknown> | string
+): any {
+  let schemaObj: any = {}
 
-  if(typeof schema === 'string') {
+  if (typeof schema === 'string') {
     try {
-      schemaObj = JSON.parse(schema);
+      schemaObj = JSON.parse(schema)
     } catch (e) {
-      console.error(e);
+      console.error(e)
       return {}
     }
   } else {
-    schemaObj = schema;
+    schemaObj = schema
   }
 
-  const { type, properties } = schemaObj;
-  if(type !== 'object') {
-    console.log('is a trap!');
-    return {};
+  const { type, properties } = schemaObj
+  if (type !== 'object') {
+    console.log('is a trap!')
+    return {}
   }
   const res: any = {
     style: {}
-  };
-  for (const key of Object.keys(properties)) {
-    const { type: propType, default: defaultValue, isCssProp }: {type: string, default: unknown, isCssProp: boolean} = properties[key];
-    if(defaultValue === undefined) {
-
-    }
-    if(isCssProp) {
-      res.style[key] = constructors[propType](defaultValue);
-    } else {
-      res[key] = constructors[propType](defaultValue);
-    }
-
   }
-  return res;
+  for (const key of Object.keys(properties)) {
+    const {
+      type: propType,
+      default: defaultValue,
+      isCssProp
+    }: { type: string; default: unknown; isCssProp: boolean } = properties[key]
+    if (defaultValue === undefined) {
+    }
+    if (isCssProp) {
+      res.style[key] = constructors[propType](defaultValue)
+    } else {
+      res[key] = constructors[propType](defaultValue)
+    }
+  }
+  return res
 }

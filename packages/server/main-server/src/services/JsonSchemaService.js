@@ -28,7 +28,7 @@ class JsonSchemaService {
    * @param userID
    */
   async findByUser(userID) {
-    const list = await jsonSchemaTable.where({ 'user._id':userID} ).find()
+    const list = await jsonSchemaTable.where({ 'user._id': userID }).find()
     return {
       success: true,
       list

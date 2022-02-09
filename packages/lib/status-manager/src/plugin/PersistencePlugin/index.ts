@@ -2,7 +2,7 @@ import StatusManager, { InitOptionType } from '../../StatusManager'
 
 const prefix = 'status_manager__'
 
-export type PersistenceOptionType= {
+export type PersistenceOptionType = {
   status?: 'auto' | 'manual'
 }
 
@@ -44,9 +44,13 @@ const useSaveDataToLocalStorage = (key: string, value: string) =>
 export function createPersistencePlugin(
   persistenceOption: PersistenceOptionType
 ) {
-  persistenceOption = Object.assign({}, persistenceOption, {
-    status: 'manual'
-  })
+  persistenceOption = Object.assign(
+    {},
+    {
+      status: 'manual'
+    },
+    persistenceOption
+  )
 
   return (opportunity: string, ctx: StatusManager) => {
     let __persistenceOption = Object.assign(
