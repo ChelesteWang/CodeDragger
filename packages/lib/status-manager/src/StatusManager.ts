@@ -86,6 +86,7 @@ class StatusManager {
       this.toRunPlugin('beforeDataChange')
       this.state = produce(
         this.state,
+        // @ts-ignore
         (draft) => {
           let result = this.mutations[name](draft, payload)
           if (result != null) return result
