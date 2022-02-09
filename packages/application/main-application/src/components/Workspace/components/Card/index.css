@@ -8,22 +8,20 @@
   margin: 30px 40px;
 }
 
-.delete_icon{
+.delete_icon {
   float: right;
 }
-.delete_icon:hover > img{
+.delete_icon:hover > img {
   width: 50px;
   height: 50px;
 }
-.delete_icon:active > img{
+.delete_icon:active > img {
   width: 70px;
   height: 70px;
 }
 
-
-
-.card:hover{
-  cursor:pointer;
+.card:hover {
+  cursor: pointer;
   opacity: 0.7;
 }
 

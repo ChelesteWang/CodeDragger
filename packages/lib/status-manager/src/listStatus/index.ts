@@ -1,6 +1,6 @@
-import {createListStatusManager, ListStatusManagerInitOptionType} from "./ListStatusManager";
+import {
+  createListStatusManager,
+  ListStatusManagerInitOptionType
+} from './ListStatusManager'
 
-export {
-    createListStatusManager,
-    ListStatusManagerInitOptionType
-}
+export { createListStatusManager, ListStatusManagerInitOptionType }

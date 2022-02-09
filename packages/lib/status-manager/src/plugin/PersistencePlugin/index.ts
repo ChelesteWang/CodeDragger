@@ -2,7 +2,7 @@ import StatusManager, { InitOptionType } from '../../StatusManager'
 
 const prefix = 'status_manager__'
 
-export type PersistenceOptionType= {
+export type PersistenceOptionType = {
   status?: 'auto' | 'manual'
 }
 

@@ -1,6 +1,5 @@
 import produce, { applyPatches, enablePatches, Patch } from 'immer'
-import {createPersistencePlugin} from "./plugin/PersistencePlugin";
-
+import { createPersistencePlugin } from './plugin/PersistencePlugin'
 
 enablePatches()
 
@@ -161,10 +160,9 @@ class StatusManager {
 }
 
 StatusManager.registerPlugin(
-    createPersistencePlugin({
-      status: 'auto'
-    })
+  createPersistencePlugin({
+    status: 'auto'
+  })
 )
-
 
 export default StatusManager

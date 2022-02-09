@@ -1,6 +1,6 @@
-import {createObjectStatusManager, ObjectStatusManagerInitOptionType} from "./ObjectStatusManager";
+import {
+  createObjectStatusManager,
+  ObjectStatusManagerInitOptionType
+} from './ObjectStatusManager'
 
-export {
-    createObjectStatusManager,
-    ObjectStatusManagerInitOptionType
-}
+export { createObjectStatusManager, ObjectStatusManagerInitOptionType }
