@@ -32,7 +32,7 @@ export default function Right() {
   // const { properties } =  schema
   // @ts-ignore
   // const schema = SchemaStore.find(components[selectedNode].name)
-  if (schema && schema.properties && selectedNode) {
+  if (schema && schema.properties && selectedNode && components[selectedNode]) {
     return (
       <div className='right'>
         <ProfileForm
