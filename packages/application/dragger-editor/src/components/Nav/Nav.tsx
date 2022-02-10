@@ -26,7 +26,7 @@ export default function Hello(props: { name: any; editTime: any }) {
         />
       </div>
       <ul className='button-list'>
-        {/* <li>
+        <li>
           <Button
             variant='outlined'
             color='inherit'
@@ -42,12 +42,12 @@ export default function Hello(props: { name: any; editTime: any }) {
             variant='outlined'
             color='inherit'
             onClick={() => {
-              dispatch({ type: 'undo', payload: {} })
+              dispatch({ type: 'redo', payload: {} })
             }}
           >
             重做
           </Button>
-        </li> */}
+        </li>
         <li>
           <Button
             variant='outlined'
@@ -55,14 +55,14 @@ export default function Hello(props: { name: any; editTime: any }) {
             onClick={async () => {
               // @ts-ignore
               console.log(layoutManager.state.value)
-              
+
               const data = {
                 components: componentsManager.state,
-                 // @ts-ignore
+                // @ts-ignore
                 layout: JSON.parse(layoutManager.state.value)
               }
               console.log(data)
-              if(!id){
+              if (!id) {
                 throw new Error('Invalid id')
               }
               await jsonSchemaSave(id, data)

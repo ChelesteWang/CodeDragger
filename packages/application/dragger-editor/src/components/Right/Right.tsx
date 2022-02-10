@@ -57,5 +57,5 @@ export default function Right() {
     )
   }
 
-  return <div>无数据</div>
+  return <div>未选中节点</div>
 }
