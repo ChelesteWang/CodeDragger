@@ -59,7 +59,7 @@ export default function Left() {
         SchemaStore.print();
         return (
           <Material desc={desc} key={name}>
-            <Draggable style={{ width: '100%', height: '100%' }}>
+            <Draggable>
               {/* @ts-ignore */}
               <MockIcon src={src} desc={desc} />
             </Draggable>

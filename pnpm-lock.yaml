@@ -367,10 +367,8 @@ importers:
 
   packages/lib/status-manager:
     specifiers:
-      '@cdl-pkg/immerjs': workspace:^1.0.0
       immer: ^9.0.12
     dependencies:
-      '@cdl-pkg/immerjs': link:../immer
       immer: 9.0.12
 
   packages/native/wasm-module/pkg:
@@ -4608,8 +4606,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.2
       '@emotion/cache': 11.7.1
-      '@emotion/react': 11.4.1_a0c521d4794c7ad97f5f4c1c4a7d5818
-      '@emotion/styled': 11.3.0_4203d35891f9eb7d5b9a92280abd44a9
+      '@emotion/react': 11.4.1_react@17.0.2
+      '@emotion/styled': 11.3.0_a004d704e6197b43c0d970f424150c43
       prop-types: 15.8.1
       react: 17.0.2
     dev: false
@@ -11336,7 +11334,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.3.3_supports-color@6.1.0
+      debug: 4.3.3
 
   /for-in/0.1.8:
     resolution: {integrity: sha1-2Hc5COMSVhCZUrH9ubP6hn0ndeE=}
