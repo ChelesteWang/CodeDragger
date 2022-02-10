@@ -33,7 +33,7 @@ export const layoutManager = createObjectStatusManager({
 
 export const Context = createContext({
   components: {},
-  selectNode:''
+  selectedNode:''
 })
 
 export function componentsReducer(state: any, action: any) {
