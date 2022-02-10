@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@caldwell619/react-hooks": "^0.0.6",
+    "@cdl-pkg/preview-pages": "workspace:^0.0.1",
     "@cdl-pkg/profile-form": "workspace:^0.0.0",
     "@cdl-pkg/remote-component": "workspace:^0.0.0",
     "@cdl-pkg/request": "workspace:^1.0.0",

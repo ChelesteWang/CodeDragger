@@ -36,6 +36,7 @@ importers:
   packages/application/dragger-editor:
     specifiers:
       '@caldwell619/react-hooks': ^0.0.6
+      '@cdl-pkg/preview-pages': workspace:^0.0.1
       '@cdl-pkg/profile-form': workspace:^0.0.0
       '@cdl-pkg/remote-component': workspace:^0.0.0
       '@cdl-pkg/request': workspace:^1.0.0
@@ -68,6 +69,7 @@ importers:
       vite-plugin-checker: ^0.3.4
     dependencies:
       '@caldwell619/react-hooks': 0.0.6_react@17.0.2
+      '@cdl-pkg/preview-pages': link:../preview-pages
       '@cdl-pkg/profile-form': link:../../components/profile-form
       '@cdl-pkg/remote-component': link:../../components/remote-component
       '@cdl-pkg/request': link:../../lib/request
@@ -4606,8 +4608,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.2
       '@emotion/cache': 11.7.1
-      '@emotion/react': 11.4.1_react@17.0.2
-      '@emotion/styled': 11.3.0_a004d704e6197b43c0d970f424150c43
+      '@emotion/react': 11.4.1_a0c521d4794c7ad97f5f4c1c4a7d5818
+      '@emotion/styled': 11.3.0_4203d35891f9eb7d5b9a92280abd44a9
       prop-types: 15.8.1
       react: 17.0.2
     dev: false
@@ -11334,7 +11336,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.3.3
+      debug: 4.3.3_supports-color@6.1.0
 
   /for-in/0.1.8:
     resolution: {integrity: sha1-2Hc5COMSVhCZUrH9ubP6hn0ndeE=}

@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { componentsManager, Context, layoutManager } from '../../store'
 import Button from '@mui/material/Button'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import './Nav.css'
 import { jsonSchemaSave } from '../../api'
 import { useParams } from 'react-router-dom'
+import PreviewModal from '../PreviewModal';
 
 interface Iprops {
   name: string
@@ -16,8 +17,10 @@ export default function Hello(props: { name: any; editTime: any }) {
   // @ts-ignore
   const { components, dispatch } = useContext(Context)
   const { id } = useParams()
+  const [previewModalVisible, setPreviewModalVisible] = useState(false);
   return (
     <div className='nav-bar-editor'>
+      <PreviewModal visible={previewModalVisible} close={()=>setPreviewModalVisible(false)} />
       <div className='logo'>
         <img
           width='250'
@@ -72,7 +75,11 @@ export default function Hello(props: { name: any; editTime: any }) {
           </Button>
         </li>
         <li>
-          <Button variant='outlined' color='inherit'>
+          <Button variant='outlined' color='inherit' onClick={
+            ()=> {
+              setPreviewModalVisible(true);
+            } 
+          }>
             预览
           </Button>
         </li>

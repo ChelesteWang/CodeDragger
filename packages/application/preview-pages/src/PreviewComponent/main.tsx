@@ -1,8 +1,6 @@
 import ReactDOM from 'react-dom'
 import './index.css'
 import { NodeData, renderComponents } from '@cdl-pkg/render'
-import { mockmessage4, mockLayout } from './mock.js'
-import { CSSProperties } from 'react'
 
 function validateData(data: NodeData[]) {
   return true
@@ -33,7 +31,6 @@ interface PositionData {
   i: string
 }
 
-
 interface MessagePayload {
   components: NodeData[]
   layout: {
@@ -63,7 +60,7 @@ function receiveMessage(event: MessageEvent) {
 window.addEventListener('message', receiveMessage)
 
 export async function renderData(
-    mountedNode: string,
+    moutedPoint: string,
     data: NodeData[],
     layout: {
       windowWidth: number
@@ -79,7 +76,7 @@ export async function renderData(
       positionMap[p.i] = gridCSS;
     }
   )
-  
+
   data.forEach(c => {
     c.attributes.style = {
       ...c.attributes.style,
@@ -92,7 +89,7 @@ export async function renderData(
   const vDom = await renderComponents(data)
   console.log('vDom', vDom)
   if (vDom) {
-    ReactDOM.render(vDom, document.getElementById(mountedNode))
+    ReactDOM.render(vDom, document.getElementById(moutedPoint))
   }
 }
 
