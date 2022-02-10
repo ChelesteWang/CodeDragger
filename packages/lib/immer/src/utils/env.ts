@@ -1,3 +1,4 @@
+//@ts-nocheck
 // Should be no imports here!
 
 // Some things that should be evaluated before all else...

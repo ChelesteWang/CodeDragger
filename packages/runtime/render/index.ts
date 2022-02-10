@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FunctionComponent, ComponentClass } from 'react'
 import { createElement as e } from 'react'
 import RemoteComponent from '@cdl-pkg/remote-component'

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {Nothing} from "../internal"
 
 type AnyFunc = (...args: any[]) => any

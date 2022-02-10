@@ -35,8 +35,7 @@ const App: FC<Props> = ({ prop, value, type, minimum, maximum }: Props) => {
     if (!Number.isNaN(newValue)) {
       setValues(newValue)
       // TODO: 调用dispatch方法
-      console.log(`update:【调用dispatch】${prop}设置为${newValue}`);
-      
+      console.log(`update:【调用dispatch】${prop}设置为${newValue}`)
     }
   }
   return (

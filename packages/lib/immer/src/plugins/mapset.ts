@@ -1,3 +1,4 @@
+//@ts-nocheck
 // types only!
 import {
 	ImmerState,

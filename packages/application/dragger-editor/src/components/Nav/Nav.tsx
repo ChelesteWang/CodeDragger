@@ -55,14 +55,14 @@ export default function Hello(props: { name: any; editTime: any }) {
             onClick={async () => {
               // @ts-ignore
               console.log(layoutManager.state.value)
-              
+
               const data = {
                 components: componentsManager.state,
-                 // @ts-ignore
+                // @ts-ignore
                 layout: JSON.parse(layoutManager.state.value)
               }
               console.log(data)
-              if(!id){
+              if (!id) {
                 throw new Error('Invalid id')
               }
               await jsonSchemaSave(id, data)
