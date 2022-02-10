@@ -31,7 +31,8 @@ const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
   // @ts-ignore
-  const { components, selectedNode, dispatch, setSelectedNode } = useContext(Context)
+  const { components, selectedNode, dispatch, setSelectedNode } =
+    useContext(Context)
   const { id } = useParams()
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +51,7 @@ const Preview: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
       const key = GenNonDuplicateID()
-      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })// props 提交到 statemanager 完成双向绑定（注册组件）
+      dispatch({ type: 'addNode', payload: { key: key, node: item.props } }) // props 提交到 statemanager 完成双向绑定（注册组件）
       setLayout((oldLayout) => [
         ...oldLayout,
         {
@@ -104,8 +105,10 @@ const Preview: React.FC = () => {
           w: parseFloat(item?.props.style.width || 375),
           h: parseFloat(item?.props.style.height || 100)
         }}
+        style={{overflow: 'auto'}}
         isDroppable
         isBounded
+        // verticalCompact={false}
       >
         {layouts.map((layout, ind) => {
           const key = layout.i
