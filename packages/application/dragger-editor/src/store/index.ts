@@ -3,6 +3,7 @@ import {
   createPersistencePlugin,
   StatusManager,
   createObjectStatusManager
+  // @ts-ignore
 } from '@cdl-pkg/status-manager'
 import { createContext } from 'react'
 
@@ -31,7 +32,8 @@ export const layoutManager = createObjectStatusManager({
 })
 
 export const Context = createContext({
-  components: {}
+  components: {},
+  selectNode:''
 })
 
 export function componentsReducer(state: any, action: any) {

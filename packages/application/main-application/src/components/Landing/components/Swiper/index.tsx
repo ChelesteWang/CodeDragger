@@ -91,14 +91,15 @@ export default () => {
         className='mySwiper'
       >
         {authorList.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.name}>
             <BasicCard
               avatar={item.avatar}
               name={item.name}
               // introduce={item.introduce}
               // eslint-disable-next-line prettier/prettier
-              github={item.github} 
-              introduce={''}            />
+              github={item.github}
+              introduce={''}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -20,6 +20,7 @@ const App: FC = () => {
   const [editTime, setEditTime] = useState<string>('')
   const { id } = useParams()
   const [components, dispatch] = useReducer(componentsReducer, {})
+  const [selectedNode, setSelectedNode] = useState('')
   if (!id) {
     throw new Error(`Invalid id: ${id}`)
   }
@@ -43,10 +44,14 @@ const App: FC = () => {
   return (
     <div className='app'>
       <DndProvider backend={HTML5Backend}>
-        
         <Context.Provider
-        /* @ts-ignore */
-          value={{ components: componentsManager.state, dispatch: dispatch }}
+          value={{
+            components: componentsManager.state,
+            /* @ts-ignore */
+            dispatch: dispatch,
+            selectedNode: selectedNode,
+            setSelectedNode: setSelectedNode
+          }}
         >
           <div>
             <Nav name={name} editTime={editTime} />

@@ -27,6 +27,7 @@ export default function Right() {
   SchemaStore.print();
   return (
     <div className='right'>
+      {/* @ts-ignore */}
       <ProfileForm tag="myCom" selectedNode={selectedNode} schema={schema} dispatch={dispatch} />
     </div>
   )
