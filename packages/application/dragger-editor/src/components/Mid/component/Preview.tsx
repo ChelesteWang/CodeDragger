@@ -50,10 +50,8 @@ const Preview: React.FC = () => {
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
-      // TODO: 这里的 i 改为使用 GenNonDuplicateID 生成
-      // TODO: props 提交到 statemanager 完成双向绑定（注册组件）
       const key = GenNonDuplicateID()
-      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })
+      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })// props 提交到 statemanager 完成双向绑定（注册组件）
       setLayout((oldLayout) => [
         ...oldLayout,
         {
