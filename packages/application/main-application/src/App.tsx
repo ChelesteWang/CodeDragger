@@ -8,9 +8,16 @@ import SignUp from './components/SignUp/SignUp'
 import Workspace from './components/Workspace/index'
 import Landing from './components/Landing/index'
 import Nomatch from './components/Nomatch/index'
+import { CDLRoute } from './router'
+import { createPersistencePlugin, StatusManager } from '@cdl-pkg/status-manager'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
-
+//注册插件，会在对应的时间周期执行
+StatusManager.registerPlugin(
+  createPersistencePlugin({
+    status: 'auto'
+  })
+)
 // const items = [
 //   'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
 //   'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
@@ -44,12 +51,18 @@ const routes = [
     name: 'workspace',
     path: '/workspace',
     component: <Workspace />,
+    meta: {
+      login: true
+    },
     key: 'workspace'
   },
   {
     name: 'lowcode',
     path: '/editor/:id',
     component: <DarggerEditor />,
+    meta: {
+      login: true
+    },
     key: 'lowcode'
   },
   {
@@ -65,12 +78,27 @@ const App: FC = () => {
     <div className='main'>
       <Suspense fallback={<div>Loading...</div>}>
         <Router>
-          <Routes>
-            {routes.map((item) => (
-              <Route path={item.path} element={item.component} key={item.key} />
-            ))}
-            <Route path='*' element={<Nomatch />}></Route>
-          </Routes>
+          {/*<Router>*/}
+          {/*  <Routes>*/}
+          {/*    {routes*/}
+          {/*      .filter((e) => {*/}
+          {/*        if (e?.meta?.login === true) {*/}
+          {/*          return true*/}
+          {/*        } else {*/}
+          {/*          return true*/}
+          {/*        }*/}
+          {/*      })*/}
+          {/*      .map((item) => (*/}
+          {/*        <Route*/}
+          {/*          path={item.path}*/}
+          {/*          element={item.component}*/}
+          {/*          key={item.key}*/}
+          {/*        />*/}
+          {/*      ))}*/}
+          {/*    <Route path='*' element={<Nomatch />}></Route>*/}
+          {/*  </Routes>*/}
+          {/*</Router>*/}
+          <CDLRoute />
         </Router>
       </Suspense>
     </div>

@@ -4,4 +4,3 @@ import {
 } from './ObjectStatusManager'
 
 export { createObjectStatusManager }
-export type { ObjectStatusManagerInitOptionType }

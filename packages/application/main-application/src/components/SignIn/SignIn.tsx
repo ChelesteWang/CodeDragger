@@ -8,6 +8,7 @@ import './SignIn.css'
 import { FC, useState } from 'react'
 import { loginByPasswordAction } from '@/api'
 import { useNavigate } from 'react-router-dom'
+import userInfoStore from '@/store'
 
 const SignIn: FC = () => {
   const navigate = useNavigate()
@@ -69,21 +70,27 @@ const SignIn: FC = () => {
               fullWidth
               variant='outlined'
               color='inherit'
-              onClick={async () => {
-                try {
-                  await loginByPasswordAction(username, password)
-                  navigate('/workspace')
-                  // @ts-ignore
-                } catch (e: { success; message }) {
-                  enqueueSnackbar(e.message, {
-                    anchorOrigin: {
-                      vertical: 'top',
-                      horizontal: 'center'
-                    },
-                    variant: 'error'
-                  })
-                  setTips(e.message)
-                }
+              onClick={() => {
+                const result = loginByPasswordAction(username, password)
+                result.then(
+                  (res) => {
+                    console.log(res)
+                    userInfoStore.commit('replaceAll', res.info)
+                    navigate('/workspace')
+                  },
+                  (e) => {
+                    enqueueSnackbar(e.message, {
+                      anchorOrigin: {
+                        vertical: 'top',
+                        horizontal: 'center'
+                      },
+                      variant: 'error'
+                    })
+                    setTips(e.message)
+                    setTips('Input information error!')
+                    console.log('fail')
+                  }
+                )
               }}
               sx={{ mt: 3, mb: 2, borderRadius: 5 }}
             >
