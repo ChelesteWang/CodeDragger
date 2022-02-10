@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  createPersistencePlugin,
-  StatusManager,
   createObjectStatusManager
   // @ts-ignore
 } from '@cdl-pkg/status-manager'
@@ -51,7 +49,7 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'editNode':
       componentsManager.commit('editNode', { key, path, value })
-      console.log('dispatch',{ key, path, value})
+      console.log('dispatch', { key, path, value })
       console.log('修改了', componentsManager.state)
       return componentsManager.state
     case 'replaceAll':
@@ -63,6 +61,10 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'redo':
       componentsManager.forward()
+      return componentsManager.state
+    case 'clear':
+      componentsManager.commit('replaceAll', {})
+      componentsManager.clearHistory()
       return componentsManager.state
     default:
       new Error('Invalid action')

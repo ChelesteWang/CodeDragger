@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import './Nav.css'
 import { jsonSchemaSave } from '../../api'
 import { useParams } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 interface Iprops {
   name: string
@@ -13,6 +14,8 @@ interface Iprops {
 
 export default function Hello(props: { name: any; editTime: any }) {
   const { name, editTime } = props
+  const { enqueueSnackbar } = useSnackbar()
+
   // @ts-ignore
   const { components, dispatch } = useContext(Context)
   const { id } = useParams()
@@ -31,7 +34,31 @@ export default function Hello(props: { name: any; editTime: any }) {
             variant='outlined'
             color='inherit'
             onClick={() => {
-              dispatch({ type: 'undo', payload: {} })
+              dispatch({ type: 'clear', payload: {} })
+            }}
+          >
+            清空画布
+          </Button>
+        </li>
+        <li>
+          <Button
+            variant='outlined'
+            color='inherit'
+            onClick={() => {
+              const flag = componentsManager.back(1)
+              if (flag) {
+                componentsManager.forward(1)
+                dispatch({ type: 'undo', payload: {} })
+              } else {
+                enqueueSnackbar('不能再撤回了', {
+                  anchorOrigin: {
+                    vertical: 'top',
+                    horizontal: 'center'
+                  },
+                  variant: 'error'
+                })
+                console.log('不能再撤回了')
+              }
             }}
           >
             撤回
@@ -42,7 +69,22 @@ export default function Hello(props: { name: any; editTime: any }) {
             variant='outlined'
             color='inherit'
             onClick={() => {
-              dispatch({ type: 'redo', payload: {} })
+              const flag = componentsManager.forward()
+              console.log(flag, 'flag')
+              if (!flag) {
+                console.log(componentsManager.state)
+                enqueueSnackbar('不能再重做了', {
+                  anchorOrigin: {
+                    vertical: 'top',
+                    horizontal: 'center'
+                  },
+                  variant: 'error'
+                })
+                console.log('不能再重做了')
+              } else {
+                componentsManager.back()
+                dispatch({ type: 'redo', payload: {} })
+              }
             }}
           >
             重做
