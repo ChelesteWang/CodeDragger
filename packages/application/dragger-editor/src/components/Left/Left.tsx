@@ -55,7 +55,7 @@ export default function Left() {
           defaultProps
         )(RemoteComponent)
         return (
-          <Material desc={desc}>
+          <Material desc={desc} key={name}>
             <Draggable style={{ flex: 0.5 }}>
               {/* @ts-ignore */}
               <MockIcon src={src} desc={desc} />
