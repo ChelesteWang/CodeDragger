@@ -31,6 +31,7 @@ const App: FC = () => {
         type: 'replaceAll',
         payload: { value: result.info.jsonSchema.components }
       })
+      componentsManager.clearHistory()
       layoutManager.commit('replaceAll', {
         value: result.info.jsonSchema.layout
       })
