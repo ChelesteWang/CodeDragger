@@ -39,7 +39,14 @@ export default function Right() {
           /* @ts-ignore */
           tag={selectedNode}
           /* @ts-ignore */
-          selectedNode={components[selectedNode]}
+          selectedNode={{
+            // @ts-ignore
+            ...components[selectedNode],
+            // @ts-ignore
+            width: components[selectedNode].style.width,
+            // @ts-ignore
+            height: components[selectedNode].style.height
+          }}
           /* @ts-ignore */
           schema={schema.properties}
           dispatch={dispatch}

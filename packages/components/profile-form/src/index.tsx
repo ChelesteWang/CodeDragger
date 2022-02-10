@@ -12,12 +12,14 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
       <h3>Base Config</h3>
       {Object.entries(schema).map(([key, value]) => {
         if (value.type === 'number' && value.interaction === 'input') {
+          
           return (
             <NumberInput
               key={key}
               prop={key}
               value={selectedNode[key]}
               {...value}
+              dispatch={dispatch}
             />
           )
         } else if (
@@ -30,6 +32,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
               prop={key}
               value={selectedNode[key]}
               {...value}
+              dispatch={dispatch}
             />
           )
         } else if (value.type === 'array') {
@@ -39,6 +42,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
               prop={key}
               value={selectedNode[key]}
               {...value}
+              dispatch={dispatch}
             />
           )
         }
