@@ -58,8 +58,8 @@ export default function Left() {
         )(RemoteComponent)
         SchemaStore.print();
         return (
-          <Material desc={desc}>
-            <Draggable style={{ flex: 0.5 }}>
+          <Material desc={desc} key={name}>
+            <Draggable style={{ width: '100%', height: '100%' }}>
               {/* @ts-ignore */}
               <MockIcon src={src} desc={desc} />
             </Draggable>

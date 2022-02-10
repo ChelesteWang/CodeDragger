@@ -25,6 +25,7 @@ export default function Right() {
 
   return (
     <div className='right'>
+      {/* @ts-ignore */}
       <ProfileForm tag="myCom" selectedNode={selectedNode} schema={schema} dispatch={dispatch} />
     </div>
   )

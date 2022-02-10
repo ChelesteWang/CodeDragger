@@ -16,8 +16,7 @@ const App: FC<Props> = ({ prop, type, value, oneof }: Props) => {
   const handleChange = (event: SelectChangeEvent) => {
     setVal(event.target.value as string)
     // TODO: 调用dispatch方法
-    console.log(`update:【调用dispatch】${prop}设置为${event.target.value}`);
-
+    console.log(`update:【调用dispatch】${prop}设置为${event.target.value}`)
   }
   return (
     <div className='single-choice'>
@@ -33,8 +32,12 @@ const App: FC<Props> = ({ prop, type, value, oneof }: Props) => {
               label={prop}
               onChange={handleChange}
             >
-              {oneof.map((selectItem) => {
-                return <MenuItem value={selectItem}>{selectItem}</MenuItem>
+              {oneof.map((selectItem, i) => {
+                return (
+                  <MenuItem value={selectItem} key={i}>
+                    {selectItem}
+                  </MenuItem>
+                )
               })}
             </Select>
           </FormControl>
