@@ -81,6 +81,7 @@ const config: UserConfig = {
     }
   },
   define: {
+    __DEV__: false,
     process: {
       env: 'development'
     }

@@ -39,15 +39,6 @@ const errors = {
 } as const
 
 export function die(error: keyof typeof errors, ...args: any[]): never {
-    if (__DEV__) {
-        const e = errors[error]
-        const msg = !e
-            ? "unknown error nr: " + error
-            : typeof e === "function"
-                ? e.apply(null, args as any)
-                : e
-        throw new Error(`[Immer] ${msg}`)
-    }
     throw new Error(
         `[Immer] minified error nr: ${error}${
             args.length ? " " + args.map(s => `'${s}'`).join(",") : ""

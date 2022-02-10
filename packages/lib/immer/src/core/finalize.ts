@@ -118,7 +118,6 @@ function finalizeProperty(
 	childValue: any,
 	rootPath?: PatchPath
 ) {
-	if (__DEV__ && childValue === targetObject) die(5)
 	if (isDraft(childValue)) {
 		const path =
 			rootPath &&

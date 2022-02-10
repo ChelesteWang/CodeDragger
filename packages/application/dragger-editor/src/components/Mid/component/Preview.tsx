@@ -77,6 +77,7 @@ const Preview: React.FC = () => {
     return () => {
       console.log(key)
       setSelectedNode(key)
+
     }
   }
   const handleLayoutChange = (layout: Layout[]) => {

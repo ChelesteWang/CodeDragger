@@ -12,6 +12,7 @@ import { CDLRoute } from './router'
 import { createPersistencePlugin, StatusManager } from '@cdl-pkg/status-manager'
 
 const DarggerEditor = React.lazy(() => import('@cdl-pkg/dragger-editor'))
+
 //注册插件，会在对应的时间周期执行
 StatusManager.registerPlugin(
   createPersistencePlugin({
