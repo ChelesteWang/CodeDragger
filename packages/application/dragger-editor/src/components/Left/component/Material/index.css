@@ -1,6 +1,6 @@
 .material-wrapper {
   display: flex;
-  flex:1;
+  flex: none;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;

@@ -56,7 +56,7 @@ export default function Left() {
         )(RemoteComponent)
         return (
           <Material desc={desc} key={name}>
-            <Draggable style={{ width: '100%', height: '100%', flex: 0.5 }}>
+            <Draggable style={{ width: '100%', height: '100%' }}>
               {/* @ts-ignore */}
               <MockIcon src={src} desc={desc} />
             </Draggable>
