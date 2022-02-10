@@ -40,7 +40,7 @@ const Preview: React.FC = () => {
         throw new Error(`Cannot fetch data`)
       }
       const result = await jsonSchemaFindByIDAction(id)
-      console.log(result, 'result')
+      console.log(result.info.jsonSchema.layout, 'result')
       setLayout(result.info.jsonSchema.layout || [])
     }
     fetchData()
