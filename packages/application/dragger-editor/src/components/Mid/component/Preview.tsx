@@ -68,6 +68,7 @@ const Preview: React.FC = () => {
   const removeItem = (key: string) => {
     setLayout((oldLayouts) => {
       dispatch({ type: 'deleteNode', payload: { key } })
+      setSelectedNode('')
       const newLayouts = oldLayouts.filter((layout) => layout.i !== key)
       return [...newLayouts]
     })
