@@ -29,7 +29,7 @@ export const layoutManager = createObjectStatusManager({
 
 export const Context = createContext({
   components: {},
-  selectedNode:''
+  selectedNode: ''
 })
 
 export function componentsReducer(state: any, action: any) {
@@ -49,6 +49,8 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'editNode':
       componentsManager.commit('editNode', { key, path, value })
+      console.log('dispatch',{ key, path, value})
+      console.log('修改了', componentsManager.state)
       return componentsManager.state
     case 'replaceAll':
       componentsManager.commit('replaceAll', value)
