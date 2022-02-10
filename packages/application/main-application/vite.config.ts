@@ -52,15 +52,15 @@ const config: UserConfig = {
           ]
         ]
       }
-    }),
-    Checker({
-      typescript: true,
-      overlay: true,
-      eslint: {
-        files: 'src',
-        extensions: ['.ts', '.tsx']
-      }
     })
+    // Checker({
+    //   typescript: true,
+    //   overlay: true,
+    //   eslint: {
+    //     files: 'src',
+    //     extensions: ['.ts', '.tsx']
+    //   }
+    // })
   ],
   // server: {
   //   proxy: {
