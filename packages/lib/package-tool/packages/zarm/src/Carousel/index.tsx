@@ -17,9 +17,9 @@ export default function ({ images, style }: { images: string[], style: any }) {
         console.log(`onChange: ${index}`)
       }}
       style={{
+        ...style,
         width: '100%',
         height: '100%',
-        ...style
       }}
     >
       {contentRender(images)}
