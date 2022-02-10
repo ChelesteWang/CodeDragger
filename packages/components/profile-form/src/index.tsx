@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { FC } from 'react'
 import NumberInput from './components/NumberInput'
+import StringInput from './components/StringInput'
 import SingleChoice from './components/SingleChoice'
 import StringArray from './components/StringArray'
 
@@ -12,7 +13,6 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
       <h3>Base Config</h3>
       {Object.entries(schema).map(([key, value]) => {
         if (value.type === 'number' && value.interaction === 'input') {
-          
           return (
             <NumberInput
               key={key}
@@ -34,8 +34,18 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
               {...value}
               dispatch={dispatch}
             />
-          )
-        } else if (value.type === 'array') {
+          )}else if (value.type === 'string' && value.interaction === 'input') {
+            return (
+              <StringInput
+                key={key}
+                prop={key}
+                value={selectedNode[key]}
+                {...value}
+                dispatch={dispatch}
+              />
+            )
+          }
+        else if (value.type === 'array') {
           return (
             <StringArray
               key={key}

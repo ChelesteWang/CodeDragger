@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import './commom.css'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -18,7 +18,8 @@ const imgItemStyle = {
   wordWrap: 'break-word'
 }
 const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
-  const [items, setItems] = useState([...defaultValues])
+  const d = defaultValues ?? []
+  const [items, setItems] = useState(d)
   const handleSetItems = (newItems: string[]) => {
     setItems(newItems)
     // TODO: 调用dispatch方法
@@ -45,6 +46,9 @@ const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
       handleAdd(url)
       setUrl('')
     }
+  }
+  if (!items) {
+    return <div>这是空的</div>
   }
 
   return (
