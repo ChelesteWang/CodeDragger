@@ -111,7 +111,7 @@ const Preview: React.FC = () => {
               <div
                 key={layout.i}
                 data-grid={layouts[ind]}
-                onDoubleClick={handleOnClick(layout.i)}
+                onClick={handleOnClick(layout.i)}
               >
                 <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
                 <RemoteComponent style={style} {...props} />
