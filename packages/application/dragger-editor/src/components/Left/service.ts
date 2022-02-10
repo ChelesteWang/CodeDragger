@@ -3,7 +3,7 @@ import http from '@cdl-pkg/request'
 const mockData = [
   {
     remoteComponent: true,
-    name: '62011592ec3be240902f635a',
+    name: '620482b3ec3be240900327a6',
     desc: '按钮',
     src: 'https://qckvp9.file.qingfuwucdn.com/file/c6d12b2b72860094_1644417856151.png',
     schema: {
@@ -62,7 +62,7 @@ const mockData = [
             'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
             'https://static.zhongan.com/website/health/zarm/images/banners/3.png'
           ],
-          interaction: 'input'
+          interaction: 'string_array'
         },
         width: {
           type: 'number',
