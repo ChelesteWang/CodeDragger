@@ -1,5 +1,5 @@
 import { FunctionComponent, ComponentClass } from 'react'
-import { createElement as e } from 'react'
+import { createElement as e, CSSProperties } from 'react'
 import RemoteComponent from '@cdl-pkg/remote-component'
 
 /**
@@ -16,7 +16,8 @@ import RemoteComponent from '@cdl-pkg/remote-component'
  */
 
 export interface NodeData {
-  id?: ''
+  id?: string,
+  key?: string,
   name: string
   tag: string
   lib: TagLibType
@@ -75,16 +76,17 @@ export async function renderNode(component: NodeData) {
   }
 }
 
-function parseLayout() {}
-
-export async function renderComponents(components: NodeData[]) {
-  const containerAttributes = {
+export async function renderComponents(components: NodeData[], pageData = { pageHeight: 750 }) {
+  const containerAttributes: {
+    style: CSSProperties
+  } = {
     style: {
       width: 375,
       height: 750,
       border: 'solid #000000 1px',
-      display: 'flex',
-      flexDirection: 'column'
+      display: 'grid',
+      gridTemplateColumns: 'repeat(375, 1px)',
+      gridTemplateRows: `repeat(${pageData.pageHeight}, 1px)`
     }
   }
 

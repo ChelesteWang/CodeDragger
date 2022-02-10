@@ -10,7 +10,7 @@ const contentRender = (items: string[]) => {
   })
 }
 
-export default function ({ images }: { images: string[] }) {
+export default function ({ images, style }: { images: string[], style: any }) {
   return (
     <Carousel
       onChange={(index) => {
@@ -18,7 +18,8 @@ export default function ({ images }: { images: string[] }) {
       }}
       style={{
         width: '100%',
-        height: '100%'
+        height: '100%',
+        ...style
       }}
     >
       {contentRender(images)}
