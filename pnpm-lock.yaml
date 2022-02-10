@@ -53,6 +53,7 @@ importers:
       '@vitejs/plugin-react': ^1.0.1
       eslint: ^7.32.0
       eslint-plugin-prettier: ^4.0.0
+      notistack: ^2.0.3
       prettier: ^2.4.1
       rc: ^1.2.8
       react: ^17.0.0
@@ -78,6 +79,7 @@ importers:
       '@emotion/styled': 11.3.0_4203d35891f9eb7d5b9a92280abd44a9
       '@mui/icons-material': 5.4.1_e1f48b56a62c2aead59c34c0828be441
       '@mui/material': 5.4.1_888aa21d096e3955ee0e3ed50ef64728
+      notistack: 2.0.3_ba3f6433ba25d1ce59caea1d9f6993d4
       react: 17.0.2
       react-dnd: 14.0.5_bef3b49129b950791dd26ffa78902032
       react-dnd-html5-backend: 14.1.0
@@ -4230,8 +4232,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.2
       '@emotion/cache': 11.7.1
-      '@emotion/react': 11.4.1_react@17.0.2
-      '@emotion/styled': 11.3.0_a004d704e6197b43c0d970f424150c43
+      '@emotion/react': 11.4.1_a0c521d4794c7ad97f5f4c1c4a7d5818
+      '@emotion/styled': 11.3.0_4203d35891f9eb7d5b9a92280abd44a9
       prop-types: 15.8.1
       react: 17.0.2
     dev: false
@@ -9111,7 +9113,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.3.3
+      debug: 4.3.3_supports-color@6.1.0
 
   /for-in/0.1.8:
     resolution: {integrity: sha1-2Hc5COMSVhCZUrH9ubP6hn0ndeE=}

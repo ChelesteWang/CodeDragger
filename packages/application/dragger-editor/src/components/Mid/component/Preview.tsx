@@ -31,8 +31,7 @@ const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
   // @ts-ignore
-  const { components, selectedNode, dispatch, setSelectedNode } =
-    useContext(Context)
+  const { components, selectedNode, dispatch, setSelectedNode } = useContext(Context)
   const { id } = useParams()
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +45,7 @@ const Preview: React.FC = () => {
     fetchData()
   }, [])
 
-  const [, drop] = useDrop(() => ({
+  const [{ item, itemType }, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
@@ -63,6 +62,12 @@ const Preview: React.FC = () => {
         }
       ])
       setSelectedNode(key)
+    },
+    collect: (monitor) => {
+      return {
+        item: monitor.getItem(),
+        itemType: monitor.getItemType()
+      }
     }
   }))
   const removeItem = (key: string) => {
@@ -95,7 +100,11 @@ const Preview: React.FC = () => {
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 375 }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
         onLayoutChange={handleLayoutChange}
-        droppingItem={{ i: new Date().getTime().toString(), w: 375, h: 100 }}
+        droppingItem={{
+          i: new Date().getTime().toString(),
+          w: parseFloat(item?.props.style.width || 375),
+          h: parseFloat(item?.props.style.height || 100)
+        }}
         isDroppable
         isBounded
       >
