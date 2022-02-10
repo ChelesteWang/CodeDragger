@@ -43,9 +43,8 @@ const App: FC = () => {
   return (
     <div className='app'>
       <DndProvider backend={HTML5Backend}>
-        
         <Context.Provider
-        /* @ts-ignore */
+          /* @ts-ignore */
           value={{ components: componentsManager.state, dispatch: dispatch }}
         >
           <div>

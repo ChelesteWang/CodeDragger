@@ -111,7 +111,8 @@ export function getMaterialList(): Promise<GetMaterialListResponse> {
           properties: {
             src: {
               type: 'string',
-              default:'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
+              default:
+                'https://static.zhongan.com/website/health/zarm/images/banners/1.png',
               interaction: 'input'
             },
             width: {

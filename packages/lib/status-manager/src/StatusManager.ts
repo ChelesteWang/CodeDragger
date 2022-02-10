@@ -1,7 +1,12 @@
-import produce, {applyPatches, enableAllPlugins, enablePatches, Patch} from 'immer'
-
-enablePatches();
-enableAllPlugins();
+// import produce, {applyPatches, enableAllPlugins, enablePatches, Patch} from 'immer'
+import produce, {
+  applyPatches,
+  enableAllPlugins,
+  enablePatches,
+  Patch
+} from '@cdl/immer/src/immer'
+enablePatches()
+enableAllPlugins()
 
 export interface MutationsType {
   [propName: string]: (state: any, ...payload: any[]) => void
@@ -84,8 +89,10 @@ class StatusManager {
       this.beforeCommit(this.state)
       this.beforeDataChange(this.state)
       this.toRunPlugin('beforeDataChange')
+
       this.state = produce(
         this.state,
+        // @ts-ignore
         (draft) => {
           let result = this.mutations[name](draft, payload)
           if (result != null) return result

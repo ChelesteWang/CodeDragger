@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  createPersistencePlugin,
-  StatusManager,
   createObjectStatusManager
 } from '@cdl-pkg/status-manager'
 import { createContext } from 'react'
-
-
 
 //statusManager.trigger(name,option) 触发特定的周期钩子
 let obj: any = {}

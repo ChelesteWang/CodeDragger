@@ -35,7 +35,7 @@ const Preview: React.FC = () => {
   const { id } = useParams()
   useEffect(() => {
     const fetchData = async () => {
-      if(!id){
+      if (!id) {
         throw new Error(`Cannot fetch data`)
       }
       const result = await jsonSchemaFindByIDAction(id)
@@ -102,7 +102,7 @@ const Preview: React.FC = () => {
         {layouts.map((layout, ind) => {
           const key = layout.i
           // @ts-ignore
-          const props: any = components[key]
+          const props: { name: string } = components[key]
           if (props?.name) {
             return (
               <div

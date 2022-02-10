@@ -11,8 +11,8 @@ export interface Props {
   type: string
   values: string
   defaultValues: Array<string>
-} 
-  
+}
+
 const imgItemStyle = {
   width: 'inherit',
   'word-wrap': 'break-word'
@@ -22,8 +22,7 @@ const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
   const handleSetItems = (newItems: string[]) => {
     setItems(newItems)
     // TODO: 调用dispatch方法
-    console.log(`update:【调用dispatch】${prop}设置为${newItems}`);
-
+    console.log(`update:【调用dispatch】${prop}设置为${newItems}`)
   }
   const [url, setUrl] = useState('')
   const handleDelete = (item: string) => {

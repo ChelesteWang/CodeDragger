@@ -97,8 +97,9 @@ export default () => {
               name={item.name}
               // introduce={item.introduce}
               // eslint-disable-next-line prettier/prettier
-              github={item.github} 
-              introduce={''}            />
+              github={item.github}
+              introduce={''}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
