@@ -62,6 +62,7 @@ const Preview: React.FC = () => {
           h: parseFloat(item.props.style.height)
         }
       ])
+      setSelectedNode(key)
     }
   }))
   const removeItem = (key: string) => {
