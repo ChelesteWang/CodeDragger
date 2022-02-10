@@ -73,6 +73,7 @@ const SignIn: FC = () => {
                 try {
                   await loginByPasswordAction(username, password)
                   navigate('/workspace')
+                  // @ts-ignore
                 } catch (e: { success; message }) {
                   enqueueSnackbar(e.message, {
                     anchorOrigin: {

@@ -96,6 +96,7 @@ const SignUp: FC = () => {
                 try {
                   await registerAction(username, password)
                   navigate('/login')
+                  // @ts-ignore
                 } catch (e: { success; message }) {
                   enqueueSnackbar(e.message, {
                     anchorOrigin: {

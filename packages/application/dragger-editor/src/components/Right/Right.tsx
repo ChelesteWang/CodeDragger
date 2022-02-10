@@ -12,6 +12,7 @@ export default function Right() {
   // const { components, dispatch } = useContext(Context)
   return (
     <div className='right'>
+      {/* @ts-ignore */}
       <ProfileForm tag="myCom" selectedNode={selectedNode} schema={schema} dispatch={dispatch} />
     </div>
   )
