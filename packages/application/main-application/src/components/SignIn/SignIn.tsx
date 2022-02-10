@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid'
 import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
+import { useSnackbar } from 'notistack'
 import './SignIn.css'
 import { FC, useState } from 'react'
 import { loginByPasswordAction } from '@/api'
@@ -13,7 +14,9 @@ const SignIn: FC = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const { enqueueSnackbar } = useSnackbar()
   const [tips, setTips] = useState<string>('Please enter your information!')
+
   return (
     <div>
       <div className='SignIn'>
@@ -75,7 +78,15 @@ const SignIn: FC = () => {
                     userInfoStore.commit('replaceAll', res.info)
                     navigate('/workspace')
                   },
-                  () => {
+                  (e) => {
+                    enqueueSnackbar(e.message, {
+                      anchorOrigin: {
+                        vertical: 'top',
+                        horizontal: 'center'
+                      },
+                      variant: 'error'
+                    })
+                    setTips(e.message)
                     setTips('Input information error!')
                     console.log('fail')
                   }

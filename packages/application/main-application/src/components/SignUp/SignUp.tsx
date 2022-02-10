@@ -8,9 +8,12 @@ import './SignUp.css'
 import { FC, useState } from 'react'
 import { registerAction } from '@/api'
 import { useNavigate } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 const SignUp: FC = () => {
   const navigate = useNavigate()
+  const { enqueueSnackbar } = useSnackbar()
+
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [tips, setTips] = useState<string>('Please enter your information!')
@@ -89,17 +92,20 @@ const SignUp: FC = () => {
               variant='outlined'
               color='inherit'
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                const result = registerAction(username, password)
-                result.then(
-                  () => {
-                    navigate('/login')
-                  },
-                  () => {
-                    setTips('Input information error!')
-                    console.log('fail')
-                  }
-                )
+              onClick={async () => {
+                try {
+                  await registerAction(username, password)
+                  navigate('/login')
+                } catch (e: { success; message }) {
+                  enqueueSnackbar(e.message, {
+                    anchorOrigin: {
+                      vertical: 'top',
+                      horizontal: 'center'
+                    },
+                    variant: 'error'
+                  })
+                  setTips(e.message)
+                }
               }}
             >
               Sign Up
