@@ -31,11 +31,12 @@ const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
   // @ts-ignore
-  const { components, dispatch } = useContext(Context)
+  const { components, selectedNode, dispatch, setSelectedNode } =
+    useContext(Context)
   const { id } = useParams()
   useEffect(() => {
     const fetchData = async () => {
-      if(!id){
+      if (!id) {
         throw new Error(`Cannot fetch data`)
       }
       const result = await jsonSchemaFindByIDAction(id)
@@ -72,8 +73,9 @@ const Preview: React.FC = () => {
       return [...newLayouts]
     })
   }
-  const handleDoubleClick = (key: string) => {
+  const handleOnClick = (key: string) => {
     return () => {
+      setSelectedNode(key)
       console.log(key)
     }
   }
@@ -88,6 +90,7 @@ const Preview: React.FC = () => {
     <div style={style} ref={drop}>
       {/* {JSON.stringify(components)} */}
       {/* {JSON.stringify(layouts)} */}
+      {selectedNode}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}
@@ -108,7 +111,7 @@ const Preview: React.FC = () => {
               <div
                 key={layout.i}
                 data-grid={layouts[ind]}
-                onDoubleClick={handleDoubleClick(layout.i)}
+                onDoubleClick={handleOnClick(layout.i)}
               >
                 <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
                 <RemoteComponent style={style} {...props} />
