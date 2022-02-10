@@ -80,15 +80,11 @@ const Preview: React.FC = () => {
   const handleLayoutChange = (layout: Layout[]) => {
     // console.log(layout)
     layoutManager.commit('replaceAll', { value: JSON.stringify(layout) })
-    console.log('a11', layoutManager.state)
     // saveToLS('layout', layout)
   }
 
   return (
     <div style={style} ref={drop}>
-      {/* {JSON.stringify(components)} */}
-      {/* {JSON.stringify(layouts)} */}
-      {selectedNode}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}

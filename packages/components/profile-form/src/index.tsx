@@ -42,7 +42,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
             />
           )
         }
-        return <div>prop: {key}</div>
+        return <div key={key} >prop: {key}</div>
       })}
     </div>
   )
