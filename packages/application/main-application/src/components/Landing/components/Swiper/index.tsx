@@ -91,7 +91,7 @@ export default () => {
         className='mySwiper'
       >
         {authorList.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.name}>
             <BasicCard
               avatar={item.avatar}
               name={item.name}

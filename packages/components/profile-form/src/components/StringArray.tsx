@@ -15,7 +15,7 @@ export interface Props {
 
 const imgItemStyle = {
   width: 'inherit',
-  'word-wrap': 'break-word'
+  wordWrap: 'break-word'
 }
 const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
   const [items, setItems] = useState([...defaultValues])
@@ -66,9 +66,10 @@ const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
       </div>
       <div className='item'>
         <List>
-          {items.map((item) => {
+          {items.map((item, i) => {
             return (
               <ListItem
+                key={i}
                 secondaryAction={
                   <IconButton
                     aria-label='delete'

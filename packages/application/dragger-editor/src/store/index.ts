@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   createObjectStatusManager
+  // @ts-ignore
 } from '@cdl-pkg/status-manager'
 import { createContext } from 'react'
 
@@ -27,7 +28,8 @@ export const layoutManager = createObjectStatusManager({
 })
 
 export const Context = createContext({
-  components: {}
+  components: {},
+  selectedNode:''
 })
 
 export function componentsReducer(state: any, action: any) {

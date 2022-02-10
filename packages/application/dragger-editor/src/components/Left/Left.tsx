@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TabPanel from './component/TabPanelProps/TabPanelProps'
 import Material from './component/Material'
+import SchemaStore from '../../utils/SchemaStore';
 import {
   getMaterialList,
   GetMaterialListResponse,
@@ -10,7 +11,7 @@ import './Left.css'
 import { WithDraggable } from '../../utils/WithDraggable'
 import RemoteComponent from '@cdl-pkg/remote-component'
 import { getDefaultInstance } from '../../utils/JsonSchema'
-import { GenNonDuplicateID } from '../../utils'
+
 
 function MockIcon({ src, desc }: { src: string; desc: string }) {
   return (
@@ -49,14 +50,16 @@ export default function Left() {
         const { name, desc, schema, src } = material
         const defaultProps = getDefaultInstance(schema)
         defaultProps.name = name
+        SchemaStore.add(name, schema);
         console.log(defaultProps.id)
         const Draggable = WithDraggable(
           'RemoteComponent',
           defaultProps
         )(RemoteComponent)
+        SchemaStore.print();
         return (
-          <Material desc={desc}>
-            <Draggable style={{ flex: 0.5 }}>
+          <Material desc={desc} key={name}>
+            <Draggable>
               {/* @ts-ignore */}
               <MockIcon src={src} desc={desc} />
             </Draggable>

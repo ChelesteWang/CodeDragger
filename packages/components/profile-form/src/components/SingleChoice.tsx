@@ -32,8 +32,12 @@ const App: FC<Props> = ({ prop, type, value, oneof }: Props) => {
               label={prop}
               onChange={handleChange}
             >
-              {oneof.map((selectItem) => {
-                return <MenuItem value={selectItem}>{selectItem}</MenuItem>
+              {oneof.map((selectItem, i) => {
+                return (
+                  <MenuItem value={selectItem} key={i}>
+                    {selectItem}
+                  </MenuItem>
+                )
               })}
             </Select>
           </FormControl>

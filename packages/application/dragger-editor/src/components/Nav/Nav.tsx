@@ -26,7 +26,7 @@ export default function Hello(props: { name: any; editTime: any }) {
         />
       </div>
       <ul className='button-list'>
-        <li>
+        {/* <li>
           <Button
             variant='outlined'
             color='inherit'
@@ -47,7 +47,7 @@ export default function Hello(props: { name: any; editTime: any }) {
           >
             重做
           </Button>
-        </li>
+        </li> */}
         <li>
           <Button
             variant='outlined'

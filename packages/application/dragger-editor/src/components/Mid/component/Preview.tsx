@@ -31,7 +31,8 @@ const Preview: React.FC = () => {
   const [layouts, setLayout] = useState<LayoutType[]>([])
   const index = useRef<number>(0)
   // @ts-ignore
-  const { components, dispatch } = useContext(Context)
+  const { components, selectedNode, dispatch, setSelectedNode } =
+    useContext(Context)
   const { id } = useParams()
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +40,7 @@ const Preview: React.FC = () => {
         throw new Error(`Cannot fetch data`)
       }
       const result = await jsonSchemaFindByIDAction(id)
-      console.log(result, 'result')
+      console.log(result.info.jsonSchema.layout, 'result')
       setLayout(result.info.jsonSchema.layout || [])
     }
     fetchData()
@@ -49,10 +50,8 @@ const Preview: React.FC = () => {
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
-      // TODO: 这里的 i 改为使用 GenNonDuplicateID 生成
-      // TODO: props 提交到 statemanager 完成双向绑定（注册组件）
       const key = GenNonDuplicateID()
-      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })
+      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })// props 提交到 statemanager 完成双向绑定（注册组件）
       setLayout((oldLayout) => [
         ...oldLayout,
         {
@@ -63,31 +62,31 @@ const Preview: React.FC = () => {
           h: parseFloat(item.props.style.height)
         }
       ])
+      setSelectedNode(key)
     }
   }))
   const removeItem = (key: string) => {
     setLayout((oldLayouts) => {
       dispatch({ type: 'deleteNode', payload: { key } })
+      setSelectedNode('')
       const newLayouts = oldLayouts.filter((layout) => layout.i !== key)
       return [...newLayouts]
     })
   }
-  const handleDoubleClick = (key: string) => {
+  const handleOnClick = (key: string) => {
     return () => {
       console.log(key)
+      setSelectedNode(key)
     }
   }
   const handleLayoutChange = (layout: Layout[]) => {
     // console.log(layout)
     layoutManager.commit('replaceAll', { value: JSON.stringify(layout) })
-    console.log('a11', layoutManager.state)
     // saveToLS('layout', layout)
   }
 
   return (
     <div style={style} ref={drop}>
-      {/* {JSON.stringify(components)} */}
-      {/* {JSON.stringify(layouts)} */}
       <ResponsiveReactGridLayout
         className='layout'
         rowHeight={1}
@@ -108,7 +107,7 @@ const Preview: React.FC = () => {
               <div
                 key={layout.i}
                 data-grid={layouts[ind]}
-                onDoubleClick={handleDoubleClick(layout.i)}
+                onClick={handleOnClick(layout.i)}
               >
                 <DeleteIcon componentKey={layout.i} onRemoveItem={removeItem} />
                 <RemoteComponent style={style} {...props} />

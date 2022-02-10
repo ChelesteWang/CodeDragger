@@ -169,7 +169,7 @@ const Content = () => {
                   columnSpacing={{ xs: 1, sm: 2, md: 3, mt: 3 }}
                 >
                   {description.map((item) => (
-                    <Grid item xs={4}>
+                    <Grid item xs={4} key={item.title}>
                       <OutlinedCard title={item.title} content={item.content} />
                     </Grid>
                   ))}
