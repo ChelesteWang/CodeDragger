@@ -46,12 +46,12 @@ const Preview: React.FC = () => {
     fetchData()
   }, [])
 
-  const [, drop] = useDrop(() => ({
+  const [{ item, itemType }, drop] = useDrop(() => ({
     accept: 'Draggable-Component',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     drop: (item: { type: React.FC<any>; props: any }) => {
       const key = GenNonDuplicateID()
-      dispatch({ type: 'addNode', payload: { key: key, node: item.props } })// props 提交到 statemanager 完成双向绑定（注册组件）
+      dispatch({ type: 'addNode', payload: { key: key, node: item.props } }) // props 提交到 statemanager 完成双向绑定（注册组件）
       setLayout((oldLayout) => [
         ...oldLayout,
         {
@@ -63,6 +63,12 @@ const Preview: React.FC = () => {
         }
       ])
       setSelectedNode(key)
+    },
+    collect: (monitor) => {
+      return {
+        item: monitor.getItem(),
+        itemType: monitor.getItemType()
+      }
     }
   }))
   const removeItem = (key: string) => {
@@ -94,9 +100,15 @@ const Preview: React.FC = () => {
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 375 }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
         onLayoutChange={handleLayoutChange}
-        droppingItem={{ i: new Date().getTime().toString(), w: 375, h: 100 }}
+        droppingItem={{
+          i: new Date().getTime().toString(),
+          w: parseFloat(item?.props.style.width || 375),
+          h: parseFloat(item?.props.style.height || 100)
+        }}
+        style={{overflow: 'auto'}}
         isDroppable
         isBounded
+        // verticalCompact={false}
       >
         {layouts.map((layout, ind) => {
           const key = layout.i

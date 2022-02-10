@@ -10,6 +10,7 @@ import ProfileForm from '@cdl-pkg/profile-form'
 import { Context } from '../../store'
 
 export default function Right() {
+  // @ts-ignore
   const { components, selectedNode, dispatch } = useContext(Context)
   const [schema, setSchema] = useState({})
 
@@ -47,6 +48,7 @@ export default function Right() {
             // @ts-ignore
             height: components[selectedNode].style.height
           }}
+          Ikey={selectedNode}
           /* @ts-ignore */
           schema={schema.properties}
           dispatch={dispatch}
@@ -55,5 +57,5 @@ export default function Right() {
     )
   }
 
-  return <div>无数据</div>
+  return <div>未选中节点</div>
 }

@@ -42,7 +42,8 @@ const RemoteComponent: any = ({ name, children, ...props }: any) => {
         <div
           style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}
         >
-          <span style={{ fontSize: 50 }}>Loading...</span>
+          {/* <span style={{ fontSize: 50 }}>Loading...</span> */}
+          <span style={{ fontSize: 50 }}></span>
         </div>
       }
     >

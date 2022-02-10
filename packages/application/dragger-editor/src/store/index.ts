@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  createPersistencePlugin,
-  StatusManager,
   createObjectStatusManager
   // @ts-ignore
 } from '@cdl-pkg/status-manager'
 import { createContext } from 'react'
-
-
 
 //statusManager.trigger(name,option) 触发特定的周期钩子
 let obj: any = {}
@@ -33,7 +29,7 @@ export const layoutManager = createObjectStatusManager({
 
 export const Context = createContext({
   components: {},
-  selectedNode:''
+  selectedNode: ''
 })
 
 export function componentsReducer(state: any, action: any) {
@@ -53,6 +49,8 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'editNode':
       componentsManager.commit('editNode', { key, path, value })
+      console.log('dispatch', { key, path, value })
+      console.log('修改了', componentsManager.state)
       return componentsManager.state
     case 'replaceAll':
       componentsManager.commit('replaceAll', value)
@@ -63,6 +61,10 @@ export function componentsReducer(state: any, action: any) {
       return componentsManager.state
     case 'redo':
       componentsManager.forward()
+      return componentsManager.state
+    case 'clear':
+      componentsManager.commit('replaceAll', {})
+      componentsManager.clearHistory()
       return componentsManager.state
     default:
       new Error('Invalid action')

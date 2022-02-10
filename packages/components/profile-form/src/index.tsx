@@ -1,10 +1,11 @@
 // @ts-nocheck
 import { FC } from 'react'
 import NumberInput from './components/NumberInput'
+import StringInput from './components/StringInput'
 import SingleChoice from './components/SingleChoice'
 import StringArray from './components/StringArray'
 
-const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
+const App: FC = ({ tag, selectedNode, schema, Ikey,dispatch }) => {
   // TODO: dispatch目前还没做任何处理
   return (
     <div className='profile-form'>
@@ -12,13 +13,13 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
       <h3>Base Config</h3>
       {Object.entries(schema).map(([key, value]) => {
         if (value.type === 'number' && value.interaction === 'input') {
-          
           return (
             <NumberInput
               key={key}
               prop={key}
               value={selectedNode[key]}
               {...value}
+              Ikey={Ikey}
               dispatch={dispatch}
             />
           )
@@ -30,16 +31,29 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
             <SingleChoice
               key={key}
               prop={key}
+              Ikey={Ikey}
               value={selectedNode[key]}
               {...value}
               dispatch={dispatch}
             />
-          )
-        } else if (value.type === 'array') {
+          )}else if (value.type === 'string' && value.interaction === 'input') {
+            return (
+              <StringInput
+                key={key}
+                prop={key}
+                Ikey={Ikey}
+                value={selectedNode[key]}
+                {...value}
+                dispatch={dispatch}
+              />
+            )
+          }
+        else if (value.type === 'array') {
           return (
             <StringArray
               key={key}
               prop={key}
+              Ikey={Ikey}
               value={selectedNode[key]}
               {...value}
               dispatch={dispatch}

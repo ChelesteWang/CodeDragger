@@ -54,6 +54,7 @@ importers:
       '@vitejs/plugin-react': ^1.0.1
       eslint: ^7.32.0
       eslint-plugin-prettier: ^4.0.0
+      notistack: ^2.0.3
       prettier: ^2.4.1
       rc: ^1.2.8
       react: ^17.0.0
@@ -80,6 +81,7 @@ importers:
       '@emotion/styled': 11.3.0_4203d35891f9eb7d5b9a92280abd44a9
       '@mui/icons-material': 5.4.1_e1f48b56a62c2aead59c34c0828be441
       '@mui/material': 5.4.1_888aa21d096e3955ee0e3ed50ef64728
+      notistack: 2.0.3_ba3f6433ba25d1ce59caea1d9f6993d4
       react: 17.0.2
       react-dnd: 14.0.5_bef3b49129b950791dd26ffa78902032
       react-dnd-html5-backend: 14.1.0
