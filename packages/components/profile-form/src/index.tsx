@@ -5,7 +5,7 @@ import StringInput from './components/StringInput'
 import SingleChoice from './components/SingleChoice'
 import StringArray from './components/StringArray'
 
-const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
+const App: FC = ({ tag, selectedNode, schema, Ikey,dispatch }) => {
   // TODO: dispatch目前还没做任何处理
   return (
     <div className='profile-form'>
@@ -19,6 +19,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
               prop={key}
               value={selectedNode[key]}
               {...value}
+              Ikey={Ikey}
               dispatch={dispatch}
             />
           )
@@ -30,6 +31,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
             <SingleChoice
               key={key}
               prop={key}
+              Ikey={Ikey}
               value={selectedNode[key]}
               {...value}
               dispatch={dispatch}
@@ -39,6 +41,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
               <StringInput
                 key={key}
                 prop={key}
+                Ikey={Ikey}
                 value={selectedNode[key]}
                 {...value}
                 dispatch={dispatch}
@@ -50,6 +53,7 @@ const App: FC = ({ tag, selectedNode, schema, dispatch }) => {
             <StringArray
               key={key}
               prop={key}
+              Ikey={Ikey}
               value={selectedNode[key]}
               {...value}
               dispatch={dispatch}

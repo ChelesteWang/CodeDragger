@@ -10,12 +10,21 @@ export interface Props {
   type: string
   value: string
   oneof: Array<string>
+  dispatch:any
+  Ikey:string
 }
-const App: FC<Props> = ({ prop, type, value, oneof }: Props) => {
+const App: FC<Props> = ({ prop, type, value, oneof,Ikey,dispatch }: Props) => {
   const [val, setVal] = React.useState<string>(value)
+  const path = [prop]
+  console.log(path, 'path')
   const handleChange = (event: SelectChangeEvent) => {
-    setVal(event.target.value as string)
+    const newValue = event.target.value
+    setVal(newValue  as string)
     // TODO: 调用dispatch方法
+    dispatch({
+      type: 'editNode',
+      payload: { key: Ikey, value: newValue, path: path }
+    })
     console.log(`update:【调用dispatch】${prop}设置为${event.target.value}`)
   }
   return (

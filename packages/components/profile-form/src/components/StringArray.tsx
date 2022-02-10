@@ -11,18 +11,26 @@ export interface Props {
   type: string
   values: string
   defaultValues: Array<string>
+  dispatch:any
+  Ikey:string
 }
 
 const imgItemStyle = {
   width: 'inherit',
   wordWrap: 'break-word'
 }
-const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
+const App: FC<Props> = ({ prop, type, values, defaultValues,dispatch,Ikey }: Props) => {
   const d = defaultValues ?? []
   const [items, setItems] = useState(d)
+  const path = [prop]
+  console.log(path, 'path')
   const handleSetItems = (newItems: string[]) => {
     setItems(newItems)
     // TODO: 调用dispatch方法
+    dispatch({
+      type: 'editNode',
+      payload: { key: Ikey, value: newItems, path: path }
+    })
     console.log(`update:【调用dispatch】${prop}设置为${newItems}`)
   }
   const [url, setUrl] = useState('')
@@ -85,6 +93,7 @@ const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
                   </IconButton>
                 }
               >
+                {/* @ts-ignore */}
                 <div style={imgItemStyle}>{item}</div>
               </ListItem>
             )

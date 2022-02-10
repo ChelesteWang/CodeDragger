@@ -7,13 +7,16 @@ export interface Props {
   type: string
   value: number
   minimum: number
-  maximum: number
+  maximum: number, 
+  Ikey:string
+  dispatch:any
 }
 
-const App: FC<Props> = ({ prop, value, type, minimum, maximum }: Props) => {
+const App: FC<Props> = ({ prop, value, type, minimum, maximum,Ikey, dispatch}: Props) => {
   const [values, setValues] = useState<number>(value)
   let [isError, setIsError] = useState<boolean>(false)
   let [errorMsg, setErrorMsg] = useState<string>('')
+  const path = prop==='width'||prop==='height'?['style',prop]:[prop]
   const checkValue = (newValue: number) => {
     if (minimum !== undefined && newValue < minimum) {
       setIsError(true)
@@ -31,10 +34,11 @@ const App: FC<Props> = ({ prop, value, type, minimum, maximum }: Props) => {
   }
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(event.target.value)
-    if (!checkValue(newValue)) return
+    // if (!checkValue(newValue)) return
     if (!Number.isNaN(newValue)) {
       setValues(newValue)
       // TODO: 调用dispatch方法
+      dispatch({type: 'editNode', payload: {key:Ikey , value: newValue , path: path }}) 
       console.log(`update:【调用dispatch】${prop}设置为${newValue}`);
       
     }

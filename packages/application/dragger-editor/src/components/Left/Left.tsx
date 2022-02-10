@@ -50,6 +50,7 @@ export default function Left() {
         const { name, desc, schema, src } = material
         const defaultProps = getDefaultInstance(schema)
         defaultProps.name = name
+        // @ts-ignore
         SchemaStore.add(name, schema);
         console.log(defaultProps.id)
         const Draggable = WithDraggable(

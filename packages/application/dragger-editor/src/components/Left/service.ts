@@ -62,7 +62,7 @@ const mockData = [
             'https://static.zhongan.com/website/health/zarm/images/banners/2.png',
             'https://static.zhongan.com/website/health/zarm/images/banners/3.png'
           ],
-          interaction: 'string_array'
+          interaction: 'input'
         },
         width: {
           type: 'number',
