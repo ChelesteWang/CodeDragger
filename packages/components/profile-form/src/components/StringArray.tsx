@@ -15,7 +15,7 @@ export interface Props {
 
 const imgItemStyle = {
   width: 'inherit',
-  'word-wrap': 'break-word'
+  wordWrap: 'break-word'
 }
 const App: FC<Props> = ({ prop, type, values, defaultValues }: Props) => {
   const [items, setItems] = useState([...defaultValues])
