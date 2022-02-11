@@ -46,7 +46,7 @@ const mockData = [
   },
   {
     remoteComponent: true,
-    name: '6203e6ccec3be24090dd511f',
+    name: '620604c9ec3be240905f7a8b',
     desc: '轮播图',
     src: 'https://qckvp9.file.qingfuwucdn.com/file/3052cc2440655ce6_1644423610774.png',
     schema: {

@@ -104,29 +104,6 @@ importers:
       vite: 2.8.0
       vite-plugin-checker: 0.3.4_vite@2.8.0
 
-  packages/application/dragger-editor/node_modules/@cdl-pkg/preview-pages:
-    specifiers:
-      '@cdl-pkg/render': workspace:^0.0.0
-      '@types/react': ^17.0.33
-      '@types/react-dom': ^17.0.10
-      '@vitejs/plugin-react': ^1.0.7
-      antd-mobile: ^2.3.4
-      react: ^17.0.2
-      react-dom: ^17.0.2
-      typescript: ^4.4.4
-      vite: ^2.7.2
-    dependencies:
-      '@cdl-pkg/render': link:../../../../../runtime/render
-      antd-mobile: 2.3.4
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    devDependencies:
-      '@types/react': 17.0.39
-      '@types/react-dom': 17.0.11
-      '@vitejs/plugin-react': 1.2.0
-      typescript: 4.5.5
-      vite: 2.8.0
-
   packages/application/landing-page:
     specifiers: {}
 
@@ -4633,8 +4610,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.2
       '@emotion/cache': 11.7.1
-      '@emotion/react': 11.4.1_a0c521d4794c7ad97f5f4c1c4a7d5818
-      '@emotion/styled': 11.3.0_4203d35891f9eb7d5b9a92280abd44a9
+      '@emotion/react': 11.4.1_react@17.0.2
+      '@emotion/styled': 11.3.0_a004d704e6197b43c0d970f424150c43
       prop-types: 15.8.1
       react: 17.0.2
     dev: false
@@ -11361,7 +11338,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.3.3_supports-color@6.1.0
+      debug: 4.3.3
 
   /for-in/0.1.8:
     resolution: {integrity: sha1-2Hc5COMSVhCZUrH9ubP6hn0ndeE=}
