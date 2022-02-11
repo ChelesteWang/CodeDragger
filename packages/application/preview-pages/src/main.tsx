@@ -72,7 +72,7 @@ export async function renderData(
 {
   const positionMap: Record<string, GridCSS> = {};
   let pageHeight = 750;
-  layout.positions.forEach(
+  layout?.positions?.forEach(
     p => {
       const gridCSS = genGirdCSS(p)
       console.log('p ', p, 'gridCSS ', gridCSS);
@@ -81,9 +81,9 @@ export async function renderData(
     }
   )
 
-  data.forEach(c => {
+  data?.forEach(c => {
     const cssProps = positionMap[c.key];
-    Object.keys(cssProps).forEach(
+    Object.keys(cssProps)?.forEach(
       (cssProp: string) => {
         c.attributes.style[cssProp] = cssProps[cssProp]
       }
