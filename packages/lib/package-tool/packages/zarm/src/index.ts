@@ -1,4 +1,4 @@
-import Carousel from './Carousel'
-// import Button from './Button'
+// import Carousel from './Carousel'
+import Button from './Button'
 
-export default Carousel
+export default Button

@@ -36,6 +36,7 @@ importers:
   packages/application/dragger-editor:
     specifiers:
       '@caldwell619/react-hooks': ^0.0.6
+      '@cdl-pkg/preview-pages': workspace:^0.0.1
       '@cdl-pkg/profile-form': workspace:^0.0.0
       '@cdl-pkg/remote-component': workspace:^0.0.0
       '@cdl-pkg/request': workspace:^1.0.0
@@ -69,6 +70,7 @@ importers:
       vite-plugin-checker: ^0.3.4
     dependencies:
       '@caldwell619/react-hooks': 0.0.6_react@17.0.2
+      '@cdl-pkg/preview-pages': link:../preview-pages
       '@cdl-pkg/profile-form': link:../../components/profile-form
       '@cdl-pkg/remote-component': link:../../components/remote-component
       '@cdl-pkg/request': link:../../lib/request
@@ -101,6 +103,29 @@ importers:
       typescript: 4.5.5
       vite: 2.8.0
       vite-plugin-checker: 0.3.4_vite@2.8.0
+
+  packages/application/dragger-editor/node_modules/@cdl-pkg/preview-pages:
+    specifiers:
+      '@cdl-pkg/render': workspace:^0.0.0
+      '@types/react': ^17.0.33
+      '@types/react-dom': ^17.0.10
+      '@vitejs/plugin-react': ^1.0.7
+      antd-mobile: ^2.3.4
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      typescript: ^4.4.4
+      vite: ^2.7.2
+    dependencies:
+      '@cdl-pkg/render': link:../../../../../runtime/render
+      antd-mobile: 2.3.4
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    devDependencies:
+      '@types/react': 17.0.39
+      '@types/react-dom': 17.0.11
+      '@vitejs/plugin-react': 1.2.0
+      typescript: 4.5.5
+      vite: 2.8.0
 
   packages/application/landing-page:
     specifiers: {}

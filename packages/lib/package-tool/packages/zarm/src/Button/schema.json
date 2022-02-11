@@ -22,7 +22,7 @@
       "default": 40,
       "minimum": 40,
       "maximum": 200,
-      "interaction": "stepper"
+      "interaction": "input"
     },
     "height": {
       "type": "number",
@@ -30,7 +30,7 @@
       "default": 80,
       "minimum": 40,
       "maximum": 200,
-      "interaction": "stepper"
+      "interaction": "input"
     }
   }
 }

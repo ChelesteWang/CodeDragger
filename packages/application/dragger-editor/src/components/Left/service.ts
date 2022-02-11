@@ -3,7 +3,8 @@ import http from '@cdl-pkg/request'
 const mockData = [
   {
     remoteComponent: true,
-    name: '620482b3ec3be240900327a6',
+    // name: '620482b3ec3be240900327a6',
+    name: '6205a471ec3be240904830b2',
     desc: '按钮',
     src: 'https://qckvp9.file.qingfuwucdn.com/file/c6d12b2b72860094_1644417856151.png',
     schema: {
@@ -85,7 +86,7 @@ const mockData = [
   },
   {
     remoteComponent: true,
-    name: '6203eccfec3be24090decf8e',
+    name: '6205a55fec3be240904866c6',
     desc: '图片',
     src: 'https://qckvp9.file.qingfuwucdn.com/file/c699812f6b0c3f97_1644424470758.png',
     schema: {
