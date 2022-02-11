@@ -21,27 +21,27 @@ const App: FC = () => {
   const { id } = useParams()
   const [components, dispatch] = useReducer(componentsReducer, {})
   const [selectedNode, setSelectedNode] = useState('')
-  if (!id) {
-    throw new Error(`Invalid id: ${id}`)
-  }
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await jsonSchemaFindByIDAction(id)
-      dispatch({
-        type: 'replaceAll',
-        payload: { value: result.info.jsonSchema.components }
-      })
-      componentsManager.clearHistory()
-      layoutManager.commit('replaceAll', {
-        value: result.info.jsonSchema.layout
-      })
-      console.log('first', layoutManager.state)
-      console.log(result.info.name)
-      setName(result.info.name)
-      setEditTime(result.info.updatedAt)
-    }
-    fetchData()
-  }, []) //eslint-disable-line react-hooks/exhaustive-deps
+  // if (!id) {
+  //   throw new Error(`Invalid id: ${id}`)
+  // }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const result = await jsonSchemaFindByIDAction(id)
+  //     dispatch({
+  //       type: 'replaceAll',
+  //       payload: { value: result.info.jsonSchema.components }
+  //     })
+  //     componentsManager.clearHistory()
+  //     layoutManager.commit('replaceAll', {
+  //       value: result.info.jsonSchema.layout
+  //     })
+  //     console.log('first', layoutManager.state)
+  //     console.log(result.info.name)
+  //     setName(result.info.name)
+  //     setEditTime(result.info.updatedAt)
+  //   }
+  //   fetchData()
+  // }, []) //eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className='app'>
       <DndProvider backend={HTML5Backend}>

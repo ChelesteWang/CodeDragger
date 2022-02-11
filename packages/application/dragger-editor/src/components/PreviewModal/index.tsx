@@ -1,10 +1,6 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { componentsManager, layoutManager }from '../../store';
-import { LegacyRef } from 'react';
 import { renderData } from '@cdl-pkg/preview-pages/src/main';
 
 const style = {
@@ -12,47 +8,34 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 375,
-  bgcolor: 'background.paper',
+  width: 377,
   boxShadow: 24,
-  height: 750,
+  height: 752,
 };
 
-export default function BasicModal({ visible, close }) {
+function BasicModal({ visible, close }) {
 
   const handleClose = () => {
     close();
   };
 
-  const iFrameRef: LegacyRef<HTMLIFrameElement> = React.useRef(null);
-
-  console.log('componentsManager.state', componentsManager.state);
-  console.log('layoutManager.state', layoutManager.state);
-
-  React.useEffect(() => {
-    const componentsData = [];
-    const componentKeys = Object.keys(componentsManager.state);
-    for (let key of componentKeys) {
-      const component = {
-        key,
-        remoteComponent: true,
-        attributes: componentsManager.state[key]
+  const onRefChange = (element: HTMLElement) => {
+    if(element) {
+      const componentsData = [];
+      const componentKeys = Object.keys(componentsManager.state);
+      for (let key of componentKeys) {
+        const component = {
+          key,
+          remoteComponent: true,
+          attributes: JSON.parse(JSON.stringify(componentsManager.state[key]))
+        }
+        componentsData.push(component);
       }
-      componentsData.push(component);
+  
+      console.log('element', element);
+      renderData(element, componentsData, { positions: JSON.parse(layoutManager.state.value ?? '[]') });
     }
-    renderData('1b1b11b', componentsData, { positions: JSON.parse(layoutManager.state.value ?? '[]') });
-    // iFrameRef.current?.contentWindow?.postMessage({
-    //   type: 'cdl_components_data',
-    //   data: {
-    //     components: componentsData,
-    //     layout: {
-    //       windowWidth: 375,
-    //       cols: 375,
-    //       positions: JSON.parse(layoutManager.state)
-    //     }
-    //   }
-    // })
-  }, [visible]);
+  };
 
   return (
     <Modal
@@ -73,12 +56,12 @@ export default function BasicModal({ visible, close }) {
       />
       </Box> */}
       <div
+        ref={onRefChange}
         id='1b1b11b'
-        style={{
-          height: 750,
-          width: 375
-        }}
+        style={style}
       />
     </Modal>
   );
 }
+
+export default React.memo(BasicModal)

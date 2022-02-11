@@ -1,6 +1,7 @@
 import { FunctionComponent, ComponentClass } from 'react'
 import { createElement as e, CSSProperties } from 'react'
 import RemoteComponent from '@cdl-pkg/remote-component'
+import './index.css'
 
 /**
  * @rexjz
@@ -38,6 +39,7 @@ export enum TagLibType {
 type NodeType = string | FunctionComponent<any> | ComponentClass<any, any>
 
 export async function renderNode(component: NodeData) {
+
   let node: NodeType = ''
   if (component.plainNode) {
     return component.value
@@ -80,10 +82,12 @@ export async function renderComponents(components: NodeData[], pageData = { page
   const containerAttributes: {
     style: CSSProperties
   } = {
+    className: 'preview-content',
     style: {
       width: 375,
       height: 750,
-      border: 'solid #000000 1px',
+      background: '#ffffff',
+      overflowY: 'scroll',
       display: 'grid',
       gridTemplateColumns: 'repeat(375, 1px)',
       gridTemplateRows: `repeat(${pageData.pageHeight}, 1px)`

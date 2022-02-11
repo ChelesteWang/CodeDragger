@@ -1,0 +1,3 @@
+.preview-content::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}

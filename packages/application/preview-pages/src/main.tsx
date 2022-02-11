@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom'
 import './index.css'
 import { NodeData, renderComponents } from '@cdl-pkg/render'
-import { mockmessage4, mockLayout } from './mock.js'
 import { CSSProperties } from 'react'
 
 function validateData(data: NodeData[]) {
@@ -18,10 +17,10 @@ interface GridCSS {
 function genGirdCSS(p : PositionData): GridCSS {
   const { x, y, h, w } = p;
   return {
-    gridColumnStart: x,
-    gridRowStart: y,
-    gridColumnEnd: x + w,
-    gridRowEnd: y + h,
+    gridRowStart: y + 1,
+    gridRowEnd: y + h + 1,
+    gridColumnStart: x + 1,
+    gridColumnEnd: x + w + 1,
   }
 }
 
@@ -57,13 +56,18 @@ function receiveMessage(event: MessageEvent) {
 
   console.log('event', event);
 
-  renderData('root', components, layout)
+  const rootElement = document.getElementById('root')
+
+  if(rootElement) {
+    renderData(rootElement, components, layout)
+  }
+
 }
 
 window.addEventListener('message', receiveMessage)
 
 export async function renderData(
-    mountedNode: string,
+    mountedNode: HTMLElement,
     data: NodeData[],
     layout: {
       windowWidth: number
@@ -76,15 +80,21 @@ export async function renderData(
   layout.positions.forEach(
     p => {
       const gridCSS = genGirdCSS(p)
+      console.log('p ', p, 'gridCSS ', gridCSS);
       positionMap[p.i] = gridCSS;
     }
   )
-  
+
+  console.log('positionMap', positionMap);
+
+  console.log('data', data);
   data.forEach(c => {
-    c.attributes.style = {
-      ...c.attributes.style,
-      ...positionMap[c.key]
-    }
+    const cssProps = positionMap[c.key];
+    Object.keys(cssProps).forEach(
+      (cssProp: string) => {
+        c.attributes.style[cssProp] = cssProps[cssProp]
+      }
+    )
   })
 
   console.log('components', data)
@@ -92,7 +102,7 @@ export async function renderData(
   const vDom = await renderComponents(data)
   console.log('vDom', vDom)
   if (vDom) {
-    ReactDOM.render(vDom, document.getElementById(mountedNode))
+    ReactDOM.render(vDom, mountedNode)
   }
 }
 

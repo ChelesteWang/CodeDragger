@@ -8,7 +8,7 @@ import {
   getFromLocalStorage
 } from './plugin/PersistencePlugin'
 import {
-  ObjectStatusManagerInitOptionType,
+  // ObjectStatusManagerInitOptionType,
   createObjectStatusManager
 } from './objectStatus'
 
@@ -22,5 +22,5 @@ export {
 
 export type {
   ListStatusManagerInitOptionType,
-  ObjectStatusManagerInitOptionType
+  // ObjectStatusManagerInitOptionType
 }
