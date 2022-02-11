@@ -14,7 +14,7 @@ const style = {
   height: 752,
 };
 
-function BasicModal({ visible, close }) {
+function BasicModal({ visible, close }:{ visible:any, close:any}) {
 
   const handleClose = () => {
     close();
@@ -28,12 +28,13 @@ function BasicModal({ visible, close }) {
         const component = {
           key,
           remoteComponent: true,
-          attributes: JSON.parse(JSON.stringify(componentsManager.state[key]))
+          attributes: JSON.parse(JSON.stringify((componentsManager as any).state[key]))
         }
         componentsData.push(component);
       }
   
       console.log('element', element);
+      // @ts-ignore
       renderData(element, componentsData, { positions: JSON.parse(layoutManager.state.value ?? '[]') });
     }
   };
@@ -58,11 +59,14 @@ function BasicModal({ visible, close }) {
       </Box> */}
       <>
         <div
+        // @ts-ignore
           ref={onRefChange}
           id='1b1b11b'
+          // @ts-ignore
           style={style}
         />
         <img
+        // @ts-ignore      
           style={{
             ...style,
             pointerEvents:"none",

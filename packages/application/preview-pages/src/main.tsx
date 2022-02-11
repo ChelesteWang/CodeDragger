@@ -83,8 +83,8 @@ export async function renderData(
   )
 
   data?.forEach(c => {
-    const cssProps = positionMap[c.key];
-    Object.keys(cssProps)?.forEach(
+    const cssProps = positionMap[c.key]||{};
+    Object.keys(cssProps).forEach(
       (cssProp: string) => {
         c.attributes.style[cssProp] = cssProps[cssProp]
       }

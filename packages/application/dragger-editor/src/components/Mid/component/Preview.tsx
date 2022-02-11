@@ -103,13 +103,13 @@ const Preview: React.FC = () => {
         onLayoutChange={handleLayoutChange}
         droppingItem={{
           i: new Date().getTime().toString(),
-          w: parseFloat(item?.props.style.width || 375),
-          h: parseFloat(item?.props.style.height || 100)
+          w: parseFloat(item?.props?.style?.width || 375),
+          h: parseFloat(item?.props?.style?.height || 100)
         }}
-        style={{overflow: 'auto'}}
+        style={{ overflow: 'auto' }}
         isDroppable
         isBounded
-        // verticalCompact={false}
+      // verticalCompact={false}
       >
         {layouts.map((layout, ind) => {
           const key = layout.i
