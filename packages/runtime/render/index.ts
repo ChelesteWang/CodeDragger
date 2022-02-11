@@ -84,6 +84,7 @@ export async function renderComponents(components: NodeData[], pageData = { page
   } = {
     className: 'preview-content',
     style: {
+      borderRadius: 16,
       width: 375,
       height: 750,
       background: '#ffffff',

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Modal from '@mui/material/Modal';
 import { componentsManager, layoutManager }from '../../store';
 import { renderData } from '@cdl-pkg/preview-pages/src/main';
+import phonePNG from '../../static/phone-mockup.png'
 
 const style = {
   position: 'absolute',
@@ -55,11 +56,23 @@ function BasicModal({ visible, close }) {
         src={'http://localhost:3001/'} 
       />
       </Box> */}
-      <div
-        ref={onRefChange}
-        id='1b1b11b'
-        style={style}
-      />
+      <>
+        <div
+          ref={onRefChange}
+          id='1b1b11b'
+          style={style}
+        />
+        <img
+          style={{
+            ...style,
+            pointerEvents:"none",
+            width: 424,
+            height: 795
+          }}
+          alt="phone-mockup"
+          src={phonePNG}
+        />
+      </>
     </Modal>
   );
 }

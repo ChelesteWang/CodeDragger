@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom'
 import './index.css'
 import { NodeData, renderComponents } from '@cdl-pkg/render'
-import { CSSProperties } from 'react'
 
 function validateData(data: NodeData[]) {
   return true
@@ -32,7 +31,6 @@ interface PositionData {
   i: string
 }
 
-
 interface MessagePayload {
   components: NodeData[]
   layout: {
@@ -43,12 +41,10 @@ interface MessagePayload {
 }
 
 function receiveMessage(event: MessageEvent) {
-
-  console.log('eventeventeventeventevent');
-
   if (event.type !== 'cdl_components_data') {
     return
   }
+  console.log('eventeventeventeventevent');
   const { components, layout }: MessagePayload = event.data
   if (!validateData(components)) {
     return
@@ -61,7 +57,6 @@ function receiveMessage(event: MessageEvent) {
   if(rootElement) {
     renderData(rootElement, components, layout)
   }
-
 }
 
 window.addEventListener('message', receiveMessage)
@@ -76,18 +71,16 @@ export async function renderData(
     })
 {
   const positionMap: Record<string, GridCSS> = {};
-  
+  let pageHeight = 750;
   layout.positions.forEach(
     p => {
       const gridCSS = genGirdCSS(p)
       console.log('p ', p, 'gridCSS ', gridCSS);
       positionMap[p.i] = gridCSS;
+      pageHeight = Math.max(pageHeight, gridCSS.gridRowEnd)
     }
   )
 
-  console.log('positionMap', positionMap);
-
-  console.log('data', data);
   data.forEach(c => {
     const cssProps = positionMap[c.key];
     Object.keys(cssProps).forEach(
@@ -98,8 +91,7 @@ export async function renderData(
   })
 
   console.log('components', data)
-
-  const vDom = await renderComponents(data)
+  const vDom = await renderComponents(data, { pageHeight })
   console.log('vDom', vDom)
   if (vDom) {
     ReactDOM.render(vDom, mountedNode)
