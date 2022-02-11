@@ -83,6 +83,7 @@ const Preview: React.FC = () => {
     return () => {
       console.log(key)
       setSelectedNode(key)
+
     }
   }
   const handleLayoutChange = (layout: Layout[]) => {
@@ -113,7 +114,7 @@ const Preview: React.FC = () => {
         {layouts.map((layout, ind) => {
           const key = layout.i
           // @ts-ignore
-          const props: any = components[key]
+          const props: { name: string } = components[key]
           if (props?.name) {
             return (
               <div

@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "immer": "^9.0.12"
-  }
+    "treemate": "^0.3.10",
+    "@cdl/immer": "workspace:^9.0.12"
+  },
+  "devDependencies": {}
 }

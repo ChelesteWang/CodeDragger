@@ -1,8 +1,5 @@
 import StatusManager from './StatusManager'
-import {
-  createListStatusManager,
-  ListStatusManagerInitOptionType
-} from './listStatus'
+import { createListStatusManager } from './listStatus'
 import {
   createPersistencePlugin,
   getFromLocalStorage

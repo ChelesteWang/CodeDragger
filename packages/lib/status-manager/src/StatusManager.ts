@@ -1,4 +1,4 @@
-import produce, {applyPatches, enableAllPlugins, enablePatches, Patch} from 'immer'
+import produce, {applyPatches, enableAllPlugins, enablePatches, Patch} from '@cdl/immer/src/immer'
 
 enablePatches()
 enableAllPlugins()

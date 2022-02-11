@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {
 	DRAFT_STATE,
 	DRAFTABLE,

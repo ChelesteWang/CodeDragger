@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {immerable} from "../immer"
 import {
 	ImmerState,
