@@ -21,6 +21,6 @@ export {
 }
 
 export type {
-  ListStatusManagerInitOptionType,
+  // ListStatusManagerInitOptionType,
   // ObjectStatusManagerInitOptionType
 }

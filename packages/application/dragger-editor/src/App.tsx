@@ -14,6 +14,7 @@ import {
   componentsReducer,
   layoutManager
 } from './store'
+import { SnackbarProvider } from 'notistack'
 
 const App: FC = () => {
   const [name, setName] = useState<string>('')
@@ -32,8 +33,9 @@ const App: FC = () => {
         payload: { value: result.info.jsonSchema.components }
       })
       componentsManager.clearHistory()
+      componentsManager.commit('replaceAll', result.info.jsonSchema.components)
       layoutManager.commit('replaceAll', {
-        value: result.info.jsonSchema.layout
+        value: JSON.stringify(result.info.jsonSchema.layout)
       })
       console.log('first', layoutManager.state)
       console.log(result.info.name)
@@ -54,6 +56,7 @@ const App: FC = () => {
             setSelectedNode: setSelectedNode
           }}
         >
+          <SnackbarProvider>
           <div>
             <Nav name={name} editTime={editTime} />
           </div>
@@ -62,6 +65,7 @@ const App: FC = () => {
             <Mid />
             <Right />
           </div>
+          </SnackbarProvider>
         </Context.Provider>
       </DndProvider>
     </div>
