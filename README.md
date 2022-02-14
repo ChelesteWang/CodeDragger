@@ -21,3 +21,7 @@ pnpm dev --filter @cdl-pkg/main-server -- -p 3001
 <a href="https://github.com/ChelesteWang/CodeDragger/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ChelesteWang/CodeDragger" />
 </a>
+
+## TODO 
+
+青训营告一段落，lowcode 实践尚未停止，里面的一些技术点会单独开坑，由于项目某些地方设计的局限性，并不能满足一些需求，期待未来重构
