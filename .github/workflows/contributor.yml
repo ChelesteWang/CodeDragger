@@ -28,7 +28,7 @@ jobs:
       run: git config --global user.email ${{ matrix.email }} &&git config --global user.name ${{ matrix.name }}
     
     - name: pull code  
-      run: git pull --rebase origin master
+      run: git pull origin ${{ github.ref }}
 
     - name: Push changes
       uses: ad-m/github-push-action@master
