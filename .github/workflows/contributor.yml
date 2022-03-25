@@ -34,6 +34,4 @@ jobs:
       run:  git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
     - name: push codeless
-        run: |
-          git pull --rebase
-          git push
+      run: git push
