@@ -16,11 +16,6 @@ pnpm dev --filter @cdl-pkg/main-application
 pnpm dev --filter @cdl-pkg/main-server -- -p 3001
 ```
 
-## Contributors
-
-<a href="https://github.com/ChelesteWang/CodeDragger/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ChelesteWang/CodeDragger" />
-</a>
 <!-- GITCONTRIBUTOR_START -->
 
 ## Contributors
