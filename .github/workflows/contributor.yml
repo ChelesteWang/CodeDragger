@@ -34,4 +34,4 @@ jobs:
       run:  git remote set-url origin "https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}"
 
     - name: push code
-      run: git push origin main
+      run: git push origin test-contributor
