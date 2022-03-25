@@ -32,3 +32,7 @@ pnpm dev --filter @cdl-pkg/main-server -- -p 3001
 This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Mar 25 2022 09:37:03 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
+
+## TODO 
+
+青训营告一段落，lowcode 实践尚未停止，里面的一些技术点会单独开坑，由于项目某些地方设计的局限性，并不能满足一些需求，期待未来重构
