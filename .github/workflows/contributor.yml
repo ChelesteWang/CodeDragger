@@ -33,5 +33,5 @@ jobs:
     - name: add remote origin
       run:  git remote set-url origin "https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}"
 
-    - name: push codeless
-      run: git push
+    - name: push code
+      run: git push origin main
