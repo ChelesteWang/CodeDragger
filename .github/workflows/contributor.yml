@@ -20,3 +20,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npx git-contributor
+
+    - name: config git
+      run: git config --global user.email ${{ matrix.email }} &&git config --global user.name ${{ matrix.name }}
+
+    - name: check for changes
+      run: git status
+
+    - name: stage changed files
+      run: git add .
+
+    - name: commit changed files
+      run: git commit -m "chore :generate contributors by github actions"
+
+    - name: push code to master
+      run: git push origin main
