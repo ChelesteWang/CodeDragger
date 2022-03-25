@@ -31,7 +31,7 @@ jobs:
       run: git commit -m "generate contributor by git-contributor" -a
 
     - name: add remote origin
-      run:  git remote set-url origin "https://github.com/${{ github.repository }}"
+      run:  git remote set-url origin "git@github.com:/${{ github.repository }}"
 
     - name: view commit
       run: git remote -v
