@@ -36,5 +36,5 @@ jobs:
     - name: commit changed files
       run: git commit -m "chore generate contributors by github actions"
 
-    - name: push code to master
+    - name: push code to test-contributors
       run: git push origin main
