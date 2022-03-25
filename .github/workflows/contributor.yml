@@ -30,6 +30,9 @@ jobs:
     - name: commit code  
       run: git commit -m "generate contributor by git-contributor" -a
 
+    - name: pull request
+      run: git pull
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
