@@ -12,6 +12,8 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
+        email: ['1581446178@qq.com']
+        name: ['ChelesteWang']
         
     steps:
     - uses: actions/checkout@v2
@@ -19,6 +21,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+        
     - run: npx git-contributor
 
     - name: config git
@@ -31,7 +34,7 @@ jobs:
       run: git add .
 
     - name: commit changed files
-      run: git commit -m "chore :generate contributors by github actions"
+      run: git commit -m "chore generate contributors by github actions"
 
     - name: push code to master
       run: git push origin main
