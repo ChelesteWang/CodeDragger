@@ -27,6 +27,9 @@ jobs:
     - name: config git
       run: git config --global user.email ${{ matrix.email }} &&git config --global user.name ${{ matrix.name }}
 
+    - name: check for changes
+      run: git status
+
     - name: commit code  
       run: git commit -m "generate contributor by git-contributor" -a
 
