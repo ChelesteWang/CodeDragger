@@ -31,7 +31,7 @@ jobs:
       run: git commit -m "generate contributor by git-contributor" -a
 
     - name: pull request
-      run: git pull
+      run: git pull origin test-contributor
 
     - name: Push changes
       uses: ad-m/github-push-action@master
