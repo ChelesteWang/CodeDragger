@@ -30,11 +30,10 @@ jobs:
     - name: commit code  
       run: git commit -m "generate contributor by git-contributor" -a
 
-    - name: pull request
-      run: git pull origin test-contributor
+    - name: add remote origin
+      run:  git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.TOKEN }}
-        branch: test-contributor
+    - name: push codeless
+        run: |
+          git pull --rebase
+          git push
