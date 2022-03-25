@@ -1,0 +1,34 @@
+name: Generate contributors
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  generate:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+        email: ['1581446178@qq.com']
+        name: ['ChelesteWang']
+        
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - run: npx git-contributor
+
+    - name: config git
+      run: git config --global user.email ${{ matrix.email }} &&git config --global user.name ${{ matrix.name }}
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
